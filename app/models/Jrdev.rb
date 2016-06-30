@@ -1,0 +1,2 @@
+class Jrdev < User
+end
