@@ -1,0 +1,2 @@
+class Educator < User
+end
