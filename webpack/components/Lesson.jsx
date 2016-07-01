@@ -30,12 +30,12 @@ class Lesson extends React.Component {
 					</div>
 				</div>
 				<div className="col m6">
-					<div className="console">
+					<div className="console" style={{backgroundColor: 'black', color: 'green', height: '80vh', padding: '5px'}}>
 						{this.state.result}
 					</div>
 				</div>
 				<div className='clearfix'></div>
-				<button className="btn" onClick={this.submitCode.bind(this)}>Run</button>
+				<button className="btn" onClick={this.submitCode.bind(this)} style={{margin: '10px'}}>Run</button>
 			</div>
 		)
 	}

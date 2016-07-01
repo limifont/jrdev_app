@@ -15,7 +15,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'webpack-rails-react'
 
-
+gem 'ripl'
+gem 'cliqr'
 
 group :development, :test do
   gem 'pry'
