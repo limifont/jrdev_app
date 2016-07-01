@@ -1,0 +1,93 @@
+import React from 'react';
+
+const Splash =() => (
+  <div>
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+          
+            <h1 class="header center cyan-text text-accent-3">Jr. Devs</h1>
+            <div class="row center">
+              <h5 class="header col s12 light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+            </div>
+            <div class="row center">
+              <a href="" id="download-button" class="btn-large waves-effect waves-light cyan accent-3">Get Started</a>
+            </div>
+            
+
+          </div>
+        </div>
+        <div class="parallax"><img src="Kid1.jpg" alt="Unsplashed background img 1"></img></div>
+      </div>
+
+
+      <div class="container">
+        <div class="section">
+
+          <div class="row section">
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">insert_emoticon</i></h2>
+                <h5 class="center">Mentors</h5>
+
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">group</i></h2>
+                <h5 class="center">Jr. Devs</h5>
+
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">sentiment_very_satisfied</i></h2>
+                <h5 class="center">Educators</h5>
+
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+          <div class="container">
+          </div>
+        </div>
+        <div class="parallax"><img src="kid2.png" alt="Unsplashed background img 2"></img></div>
+      </div>
+
+      <div class="container">
+        <div class="section">
+
+          <div class="row">
+            <div class="col s12 center">
+              <h3><i class="mdi-content-send brown-text"></i></h3>
+              <h4>Contact Us</h4>
+              <p class="left-align light center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+          <div class="container">
+          </div>
+        </div>
+        <div class="parallax"><img src="kid3.jpg" alt="Unsplashed background img 3"></img></div>
+      </div>
+  </div>
+)
+
+export default Splash;
