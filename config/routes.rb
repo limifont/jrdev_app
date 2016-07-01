@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'run_code', to: 'lessons#run_code'
     resources :classrooms
     resources :friends, only: [:index]
+    resources :exercises
   end
 
   get '*unmatched_route', to: 'home#index'
