@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute, browserHistory } from 'react-router';
 import App from './containers/App';
 import NoMatch from './components/NoMatch';
+import Splash from './components/Splash';
 import Dashboard from './components/Dashboard';
 import Lesson from './components/Lesson';
 import Login from './components/auth/Login';
@@ -23,6 +24,7 @@ export default (
     	<Route path="/lesson" component={UserIsAuthenticated(Lesson)} />
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
+      <Route path='/splash' component={Splash} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>

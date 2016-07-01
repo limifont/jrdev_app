@@ -43,6 +43,7 @@ export const handleLogout = (history) => {
 		}).done( response => {
 			localStorage.removeItem('userId');
 			localStorage.removeItem('apiKey');
+			localStorage.removeItem('userType');
 			dispatch(logout());
 			history.push('/');
 		}).fail( response => {

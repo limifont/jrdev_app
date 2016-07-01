@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160701053636) do
     t.string   "type"
     t.string   "username"
     t.string   "name"
+    t.string   "api_key"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
