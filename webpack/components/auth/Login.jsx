@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// TODO: import { handleLogin } from './actions'
+import { handleLogin } from './actions'
 
 class Login extends React.Component {
 	constructor(props) {
@@ -8,9 +8,9 @@ class Login extends React.Component {
 	}
 
 	handleSubmit(e) {
-		e.prevenDefault();
+		e.preventDefault();
 		const email = this.refs.email.value
-		const passwrod = this.refs.password.value
+		const password = this.refs.password.value
 		this.props.dispatch(handleLogin(email, password, this.props.history))
 	}
 
