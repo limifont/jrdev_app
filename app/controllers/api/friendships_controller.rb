@@ -6,7 +6,7 @@ class Api::FriendshipsController < ApplicationController
 	def create
 		@friendship = Friendship.create(user_id: current_user.id, friend_id: params[:friend_id])
 		@inverse = Friendship.create(user_id: params[:friend_id], friend_id: current_user.id)
-		redirect_to root_path			
+		redirect_to root_path
 	end
 
 	def destroy
