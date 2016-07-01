@@ -1,10 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { handleLogin } from './actions';
+import { browserHistory } from 'react-router'
 
 class Signup extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	checkParams() {
+		if(!["Mentor","Jrdev","Educator"].includes(this.props.params.type)) {
+			browserHistory.push('/splash')
+		}
 	}
 
 	handleSubmit(e) {
@@ -29,6 +36,7 @@ class Signup extends React.Component {
 	}
 
 	render() {
+		this.checkParams()
 		return (
 			<div>
 				<h3>Sign Up as: {this.props.params.type}</h3>
