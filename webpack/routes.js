@@ -19,7 +19,7 @@ export default (
   <Route>
     <Route path="/" component={App}>
     	<IndexRoute component={UserIsAuthenticated(Dashboard)} />
-    	<Route path="/lesson" component={UserIsAuthenticaterd(Lesson)} />
+    	<Route path="/lesson" component={UserIsAuthenticated(Lesson)} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>

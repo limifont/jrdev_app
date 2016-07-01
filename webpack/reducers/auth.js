@@ -4,14 +4,15 @@ const auth = (state = [], action) => {
 			return {
 				isAuthenticated: true,
 				id: action.id,
-				apiKey: action.apiKey
+				apiKey: action.apiKey,
 				userType: action.userType
 			}
 		case 'LOGOUT':
 			return {
 				isAuthenticated: false,
 				id: null,
-				apiKey: null
+				apiKey: null,
+				userType: null
 			}
 		default:
 			return state;

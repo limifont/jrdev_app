@@ -1,8 +1,9 @@
-export const loggedIn = (id, apiKey) => {
+export const loggedIn = (id, apiKey, userType) => {
 	return {
 		type: 'LOGIN',
 		id,
-		apiKey
+		apiKey,
+		userType
 	}
 }
 

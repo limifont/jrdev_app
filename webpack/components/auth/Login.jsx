@@ -28,4 +28,4 @@ class Login extends React.Component {
 	}
 }
 
-export default connnect()(Login);
+export default connect()(Login);
