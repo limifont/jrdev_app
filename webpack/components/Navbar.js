@@ -36,7 +36,6 @@ class Navbar extends React.Component {
 	                <li className="white-text"><Link to="/">Home</Link></li>
 	                <li className="white-text"><Link to="/">Dashboard</Link></li>
 	                <li><i className="material-icons dropdown-button white-text" data-activates="dropdown1">more_vert</i></li>
-	                // TODO: fix the colors
 	                <ul id="dropdown1" className="dropdown-content cyan-text">
 	                	{ this.authLink() }
 	                </ul>
