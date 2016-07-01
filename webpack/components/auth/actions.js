@@ -24,6 +24,7 @@ export const handleLogin = (email, password, history) => {
 			localStorage.setItem('apiKey', response.api_key);
 			localStorage.setItem('userId', response.id);
 			localStorage.setItem('userType', response.type)
+			debugger
 			dispatch(loggedIn(response.id, response.api_key));
 			history.push('/')
 		}).fail( response => {

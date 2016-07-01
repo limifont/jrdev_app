@@ -5,6 +5,7 @@ import NoMatch from './components/NoMatch';
 import Dashboard from './components/Dashboard';
 import Lesson from './components/Lesson';
 import Login from './components/auth/Login';
+import Signup from './components/auth/Signup'; 
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { handleLogout } from './components/auth/actions';
 
@@ -21,6 +22,7 @@ export default (
     	<IndexRoute component={UserIsAuthenticated(Dashboard)} />
     	<Route path="/lesson" component={UserIsAuthenticated(Lesson)} />
       <Route path='/login' component={Login} />
+      <Route path='/signup/:type' component={Signup} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>

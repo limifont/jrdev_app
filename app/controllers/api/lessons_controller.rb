@@ -1,35 +1,34 @@
 class Api::LessonsController < ApplicationController
 	def run_code
-		# begin
-		# 	result = eval(params[:code])
-		# 	binding.pry
-		# rescue => e
-		# 	render json: e.message.to_json
-		# end
-
-		cli = Cliqr.interface do
-			name 'repl'
-			description 'safely handling code'
-
-			handler do
-				binding.pry
-				send(code)
-			end
-
-			option :code do
-				description 'Code from user'
-			end
+		begin
+			render json: eval(params[:code]).to_json
+		rescue => e
+			render json: e.message.to_json
 		end
 
-		binding.pry
+		# cli = Cliqr.interface do
+		# 	name 'repl'
+		# 	description 'safely handling code'
 
-		code = params[:code]
+		# 	handler do
+		# 		binding.pry
+		# 		send(code)
+		# 	end
 
-		results = cli.execute([--code, code])
+		# 	option :code do
+		# 		description 'Code from user'
+		# 	end
+		# end
 
-		binding.pry
+		# binding.pry
 
-		render json: results
+		# code = params[:code]
+
+		# results = cli.execute([--code, code])
+
+		# binding.pry
+
+		# render json: results
 		# binding.pry
 		# file = File.open("./code.rb", "w") { |f| f.write("#{params[:code]}")}
 		# results = `ruby ./code.rb`
