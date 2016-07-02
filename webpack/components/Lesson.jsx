@@ -19,6 +19,14 @@ class Lesson extends React.Component {
 		})
 	}
 
+	replCode() {
+		jsrepl.loadLanguage('python', function () {  
+	    alert('Python loaded');  
+	  });
+		result = jsrepl.eval(editor.geValue())
+		debugger
+	}
+
 	render() {
 		return (
 			<div className="row">
@@ -35,7 +43,7 @@ class Lesson extends React.Component {
 					</div>
 				</div>
 				<div className='clearfix'></div>
-				<button className="btn" onClick={this.submitCode.bind(this)} style={{margin: '10px'}}>Run</button>
+				<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
 			</div>
 		)
 	}
