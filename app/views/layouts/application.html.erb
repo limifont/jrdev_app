@@ -7,15 +7,28 @@
   <%= csrf_meta_tags %>
   <script src="http://localhost:3808/webpack-dev-server.js"></script>
   <script src="https://cdn.jsdelivr.net/ace/1.2.3/min/ace.js"></script>
-  <script src="jsrepl.js" id="jsrepl-script"></script> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
 
-<%= javascript_include_tag *webpack_asset_paths('application') %>
-<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <%= javascript_include_tag *webpack_asset_paths('application') %>
+  <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jsrepl.js" id="jsrepl-script"></script> 
+  <script>
+    var jsrepl = new JSREPL({  
+      input: inputCallback,  
+      output: outputCallback,  
+      result: resultCallback,  
+      error: errorCallback,  
+      progress: progressCallback,  
+      timeout: {  
+        time: 30000,  
+        callback: timeoutCallback  
+      }  
+    }); 
+  </script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/crimson_editor");

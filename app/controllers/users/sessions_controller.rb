@@ -14,16 +14,28 @@ class Users::SessionsController < Devise::SessionsController
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)
     yield resource if block_given?
+    token_info = gen_token
+    render json: {id: current_user.id, api_key: current_user.api_key, type: current_user.type, repl_token: token_info}
+  end
+
+  private
+
+  def gen_token
+    digest = OpenSSL::Digest.new('sha256')
     binding.pry
-    render json: {id: current_user.id, api_key: current_user.api_key, type: current_user.type}
+    secret = ENV['REPL_SECRET']
+    time_created = Time.now.to_i * 1000 # convert to ms
+    hmac = OpenSSL::HMAC.digest(digest, secret, time_created.to_s)
+    token = {
+        msg_mac: Base64.encode64(hmac).strip,
+        time_created: time_created
+    }
   end
 
   # DELETE /resource/sign_out
   # def destroy
   #   super
   # end
-
-  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

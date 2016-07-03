@@ -1,9 +1,10 @@
-export const loggedIn = (id, apiKey, userType) => {
+export const loggedIn = (id, apiKey, userType, token) => {
 	return {
 		type: 'LOGIN',
 		id,
 		apiKey,
-		userType
+		userType,
+		token
 	}
 }
 
@@ -23,9 +24,10 @@ export const handleLogin = (email, password, history) => {
 		}).done( response => {
 			localStorage.setItem('apiKey', response.api_key);
 			localStorage.setItem('userId', response.id);
-			localStorage.setItem('userType', response.type)
-			debugger
-			dispatch(loggedIn(response.id, response.api_key));
+			localStorage.setItem('userType', response.type);
+			localStorage.setItem('token', response.repl_token.msg_mac);
+			localStorage.setItem('time_created', response.repl_token.time_created);
+			dispatch(loggedIn(response.id, response.api_key, response.type, response.repl_token));
 			history.push('/')
 		}).fail( response => {
 			//TODO: handle this better
@@ -44,6 +46,7 @@ export const handleLogout = (history) => {
 			localStorage.removeItem('userId');
 			localStorage.removeItem('apiKey');
 			localStorage.removeItem('userType');
+			localStorage.removeItem('token');
 			dispatch(logout());
 			history.push('/');
 		}).fail( response => {
