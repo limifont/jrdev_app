@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Lesson from './components/Lesson';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup'; 
+import CreateClass from './components/CreateClass';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { handleLogout } from './components/auth/actions';
 
@@ -17,6 +18,27 @@ const UserIsAuthenticated = UserAuthWrapper({
 	wrapperDisplayName: 'UserIsAuthenticated'
 })
 
+const UserIsEducator = UserAuthWrapper({
+  authSelector: state => state.auth,
+  predicate: auth => auth.userType === 'Educator',
+  redirectAction: () => browserHistory.push('/'),
+  wrapperDisplayName: 'UserIsEducator'
+})
+
+const UserIsMentor = UserAuthWrapper({
+  authSelector: state => state.auth,
+  predicate: auth => auth.userType === 'Mentor',
+  redirectAction: () => browserHistory.push('/'),
+  wrapperDisplayName: 'UserIsMentor'
+})
+
+const UserIsJrdev = UserAuthWrapper({
+  authSelector: state => state.auth,
+  predicate: auth => auth.userType === 'Jrdev',
+  redirectAction: () => browserHistory.push('/'),
+  wrapperDisplayName: 'UserIsJrdev'
+})
+
 export default (
   <Route>
     <Route path="/" component={App}>
@@ -25,6 +47,7 @@ export default (
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
       <Route path='/splash' component={Splash} />
+      <Route path='/create_class' component={UserIsEducator(CreateClass)} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>

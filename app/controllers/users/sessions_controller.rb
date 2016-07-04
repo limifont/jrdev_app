@@ -22,7 +22,6 @@ class Users::SessionsController < Devise::SessionsController
 
   def gen_token
     digest = OpenSSL::Digest.new('sha256')
-    binding.pry
     secret = ENV['REPL_SECRET']
     time_created = Time.now.to_i * 1000 # convert to ms
     hmac = OpenSSL::HMAC.digest(digest, secret, time_created.to_s)
