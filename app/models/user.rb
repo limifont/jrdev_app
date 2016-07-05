@@ -11,12 +11,21 @@ class User < ActiveRecord::Base
 
   before_create do |user|
     user.api_key = user.generate_api_key
+    user.secret_phrase = user.generate_secret_phrase if user.type == "Jrdev"
   end
 
   def generate_api_key
     loop do
       token = SecureRandom.base64
       break token unless User.exists?(api_key: token)
+    end
+  end
+
+  def generate_secret_phrase
+    loop do
+      arr = [Faker::StarWars.planet, Faker::StarWars.specie, Faker::StarWars.vehicle]
+      phrase = arr.shuffle.join.gsub(/ /,'')
+      break phrase unless User.exists?(secret_phrase: phrase)
     end
   end
 
