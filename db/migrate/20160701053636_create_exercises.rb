@@ -6,6 +6,7 @@ class CreateExercises < ActiveRecord::Migration
       t.string :prefill
       t.string :expected_output
       t.string :expected_code
+      t.integer :position
       t.belongs_to :lesson, index: true, foreign_key: true
 
       t.timestamps null: false

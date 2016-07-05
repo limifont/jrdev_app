@@ -95,13 +95,36 @@ class Lesson extends React.Component {
 					<button className="btn right disabled" style={{margin: '10px'}}>Next</button>
 				)
 			}
-		} 
+		} else {
+			if(this.state.completed) {
+				return (
+					<button className="btn right" style={{margin: '10px'}} onClick={this.goToNextLesson.bind(this)}>Next Lesson</button>
+				)
+			} else {
+				return (
+					<button className="btn right disabled" style={{margin: '10px'}}>Next Lesson</button>
+				)
+			}
+		}
 	}
 
 	goToNext() {
 		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_id) + 1}`)
 		$.ajax({
       url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_id) + 1}`,
+      type: 'GET',
+      dataType: 'JSON'
+    }).done( result => {
+    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    }).fail( data => {
+    	console.log('failure', data)
+    })
+	}
+
+	goToNextLesson() {
+		browserHistory.push(`/lesson/${parseInt(this.props.params.lesson_id) + 1}/exercise/1`)
+		$.ajax({
+      url: `/api/lessons/${parseInt(this.props.params.lesson_id) + 1}/exercises/1}`,
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
