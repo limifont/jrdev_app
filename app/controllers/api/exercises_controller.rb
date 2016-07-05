@@ -8,7 +8,9 @@ class Api::ExercisesController < ApplicationController
 
   def show
     is_last = @exercise.last?(@lesson)
-    render json: { exercise: @exercise, last: is_last }
+    is_frist = @exercise.first?(@lesson)
+    is_completed = @exercise.completed?(current_user)
+    render json: { exercise: @exercise, last: is_last, first: is_frist, completed: is_completed }
   end
 
   def create

@@ -2,6 +2,7 @@ import React from 'react';
 import ReplitClient from 'replit-client';
 import brace from 'brace';
 import AceEditor from 'react-ace';
+import { browserHistory } from 'react-router'
 
 import 'brace/mode/ruby';
 import 'brace/theme/crimson_editor';
@@ -14,9 +15,11 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 class Lesson extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, ModalOpen: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
+		this.nextButton = this.nextButton.bind(this)
+		this.previousButton = this.previousButton.bind(this)
 	}
 
   componentWillMount() {
@@ -25,7 +28,7 @@ class Lesson extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last })
+    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -70,28 +73,34 @@ class Lesson extends React.Component {
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
 		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
+			$.ajax({
+				url: '/api/completed_exercises',
+				type: 'POST',
+				dataType: 'JSON',
+				data: { id: this.state.exercise.id }
+			}).done( result => {
+				this.setState({ completed: true })
+			}).fail( result => {
+				console.log("failed to mark exercise as completed")
+			})
 			handleOpen();
 		}
 	}
 
-	state = {
-    open: false,
-  };
-
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({ModalOpen: true});
     achievement();
   };
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({ModalOpen: false});
   };
 
   achievement() {
 	    return (
 	      <div>
 	        <Dialog
-	          open={this.state.open}
+	          open={this.state.ModalOpen}
 	          onRequestClose={this.handleClose}
 	        >
 	          Good Job
@@ -100,6 +109,53 @@ class Lesson extends React.Component {
 	    );
 		}
 
+	nextButton() {
+		if(!this.state.last) {
+			if(this.state.completed) {
+				return (
+					<button className="btn right" style={{margin: '10px'}} onClick={this.goToNext.bind(this)}>Next</button>
+				)
+			} else {
+				return (
+					<button className="btn right disabled" style={{margin: '10px'}}>Next</button>
+				)
+			}
+		} 
+	}
+
+	goToNext() {
+		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_id) + 1}`)
+		$.ajax({
+      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_id) + 1}`,
+      type: 'GET',
+      dataType: 'JSON'
+    }).done( result => {
+    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    }).fail( data => {
+    	console.log('failure', data)
+    })
+	}
+
+	previousButton() {
+		if(!this.state.first) {
+			return (
+				<button className="btn right" style={{margin: '10px'}} onClick={this.goToPrevious.bind(this)}>Previous</button>
+			)
+		}
+	}
+
+	goToPrevious() {
+		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_id) - 1}`)
+		$.ajax({
+      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_id) - 1}`,
+      type: 'GET',
+      dataType: 'JSON'
+    }).done( result => {
+    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    }).fail( data => {
+    	console.log('failure', data)
+    })
+	}
 
 	render() {
 		if(this.state.exercise) {
@@ -135,6 +191,8 @@ class Lesson extends React.Component {
 					</div>
 					<div className='clearfix'></div>
 					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
+					{this.nextButton()}
+					{this.previousButton()}
 				</div>
 			)
 		} else {
