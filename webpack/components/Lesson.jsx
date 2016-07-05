@@ -14,7 +14,8 @@ class Lesson extends React.Component {
 		  editor.getValue(), {
 		  stdout: (output) => {
 		    console.log(output);
-		    self.setState({ results: [...self.state.results, output] })
+        self.setState({ results: [...self.state.results, output] })
+        debugger
 		  }
 		}).then(
 		  function success(result) {
@@ -22,7 +23,7 @@ class Lesson extends React.Component {
 		    // depending on whether the code compiled and ran or if there was an
 		    // error.
 		    if (result.error) {
-		    	self.setState({ results: [...self.state.results, result.error] })
+		    	self.setState({ results: [...self.state.results, result.error, "\n"] })
 		      console.log('Error:', result.error);
 		    } else {
 		      console.log('Result', result.data);
