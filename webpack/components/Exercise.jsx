@@ -7,11 +7,15 @@ import { browserHistory } from 'react-router'
 import 'brace/mode/ruby';
 import 'brace/theme/crimson_editor';
 
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Lesson extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, ModalOpen: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
@@ -79,10 +83,31 @@ class Lesson extends React.Component {
 			}).fail( result => {
 				console.log("failed to mark exercise as completed")
 			})
-			alert("Correct!")
+			handleOpen();
 		}
-		//trigger modal if answer is correct
 	}
+
+  handleOpen = () => {
+    this.setState({ModalOpen: true});
+    achievement();
+  };
+
+  handleClose = () => {
+    this.setState({ModalOpen: false});
+  };
+
+  achievement() {
+	    return (
+	      <div>
+	        <Dialog
+	          open={this.state.ModalOpen}
+	          onRequestClose={this.handleClose}
+	        >
+	          Good Job
+	        </Dialog>
+	      </div>
+	    );
+		}
 
 	nextButton() {
 		if(!this.state.last) {
