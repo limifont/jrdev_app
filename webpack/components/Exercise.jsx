@@ -10,20 +10,20 @@ import 'brace/theme/crimson_editor';
 class Lesson extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null}
+		this.state = {exercise: null, results: [], value: null, last: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 	}
 
   componentWillMount() {
     $.ajax({
-      url: `/api/exercises/${this.props.params.exercise_id}`,
+      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${this.props.params.exercise_id}`,
       type: 'GET',
       dataType: 'JSON'
-    }).done( exercise => {
-    	this.setState({ exercise, value: exercise.prefill })
+    }).done( result => {
+    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last })
     }).fail( data => {
-    	console.log('failure')
+    	console.log('failure', data)
     })
   }
 

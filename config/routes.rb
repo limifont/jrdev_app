@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :educators, controller: 'users', type: 'Educator'
     resources :jrdevs, controller: 'users', type: 'Jrdev'
     resources :classrooms
-    resources :exercises
+    resources :lessons do
+      resources :exercises
+    end
   end
 
   devise_for :users, controllers: {
