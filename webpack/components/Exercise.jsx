@@ -6,6 +6,10 @@ import AceEditor from 'react-ace';
 import 'brace/mode/ruby';
 import 'brace/theme/crimson_editor';
 
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Lesson extends React.Component {
 	constructor(props) {
@@ -66,10 +70,36 @@ class Lesson extends React.Component {
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
 		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
-			alert("Correct!")
+			handleOpen();
 		}
-		//trigger modal if answer is correct
 	}
+
+	state = {
+    open: false,
+  };
+
+  handleOpen = () => {
+    this.setState({open: true});
+    achievement();
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
+
+  achievement() {
+	    return (
+	      <div>
+	        <Dialog
+	          open={this.state.open}
+	          onRequestClose={this.handleClose}
+	        >
+	          Good Job
+	        </Dialog>
+	      </div>
+	    );
+		}
+
 
 	render() {
 		if(this.state.exercise) {
