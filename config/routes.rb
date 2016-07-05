@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     post 'run_code', to: 'lessons#run_code'
-    resources :classrooms
     resources :friends, only: [:index]
     resources :mentors, controller: 'users', type: 'Mentor'
     resources :educators, controller: 'users', type: 'Educator'
     resources :jrdevs, controller: 'users', type: 'Jrdev'
+    resources :classrooms
+    resources :exercises
   end
 
   devise_for :users, controllers: {

@@ -5,6 +5,7 @@ import NoMatch from './components/NoMatch';
 import Splash from './components/Splash';
 import Dashboard from './components/Dashboard';
 import Lesson from './components/Lesson';
+import Exercise from './components/Exercise'
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup'; 
 import CreateClass from './components/CreateClass';
@@ -44,6 +45,7 @@ export default (
     <Route path="/" component={App}>
     	<IndexRoute component={UserIsAuthenticated(Dashboard)} />
     	<Route path="/lesson" component={UserIsAuthenticated(Lesson)} />
+      <Route path="/lesson/:lesson_id/exercise/:exercise_id" component={UserIsAuthenticated(Exercise)} />
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
       <Route path='/splash' component={Splash} />

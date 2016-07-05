@@ -6,7 +6,6 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <script src="http://localhost:3808/webpack-dev-server.js"></script>
-  <script src="https://cdn.jsdelivr.net/ace/1.2.3/min/ace.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -14,12 +13,6 @@
   <%= yield %>
 
   <%= javascript_include_tag *webpack_asset_paths('application') %>
-  <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/crimson_editor");
-    editor.getSession().setMode("ace/mode/ruby");
-    editor.getSession().setTabSize(2);
-</script>
+  
 </body>
 </html>

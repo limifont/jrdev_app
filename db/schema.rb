@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 20160701053636) do
   add_index "classrooms", ["user_id"], name: "index_classrooms_on_user_id", using: :btree
 
   create_table "exercises", force: :cascade do |t|
+    t.string   "name"
     t.text     "instruction"
+    t.string   "prefill"
     t.integer  "lesson_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

@@ -4,6 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "react": "^15.1.0",
+    "react-ace": "^3.4.1",
     "react-dom": "^15.1.0",
     "react-parallax": "^0.4.3",
     "react-redux": "^4.4.5",

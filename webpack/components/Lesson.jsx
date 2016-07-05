@@ -4,7 +4,7 @@ import ReplitClient from 'replit-client';
 class Lesson extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {results: []}
+		this.state = {exercise: null, results: []}
 	}
 
 	replCode() {
@@ -39,6 +39,9 @@ class Lesson extends React.Component {
 	render() {
 		return (
 			<div className="row">
+        <div className="col m10">
+
+        </div>
 				<div className="col m6">
 					<div id="editorContainer">
 						<div id="editor">
