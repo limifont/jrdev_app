@@ -24,7 +24,7 @@ class Lesson extends React.Component {
 
   componentWillMount() {
     $.ajax({
-      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${this.props.params.exercise_id}`,
+      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${this.props.params.exercise_position}`,
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
@@ -134,13 +134,13 @@ class Lesson extends React.Component {
 	}
 
 	goToNext() {
-		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_id) + 1}`)
+		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_position) + 1}`)
 		$.ajax({
-      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_id) + 1}`,
+      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_position) + 1}`,
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -149,11 +149,12 @@ class Lesson extends React.Component {
 	goToNextLesson() {
 		browserHistory.push(`/lesson/${parseInt(this.props.params.lesson_id) + 1}/exercise/1`)
 		$.ajax({
-      url: `/api/lessons/${parseInt(this.props.params.lesson_id) + 1}/exercises/1}`,
+      url: `/api/lessons/${parseInt(this.props.params.lesson_id) + 1}/exercises/1`,
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	debugger
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -168,9 +169,9 @@ class Lesson extends React.Component {
 	}
 
 	goToPrevious() {
-		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_id) - 1}`)
+		browserHistory.push(`/lesson/${this.props.params.lesson_id}/exercise/${parseInt(this.props.params.exercise_position) - 1}`)
 		$.ajax({
-      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_id) - 1}`,
+      url: `/api/lessons/${this.props.params.lesson_id}/exercises/${parseInt(this.props.params.exercise_position) - 1}`,
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
@@ -200,7 +201,7 @@ class Lesson extends React.Component {
 							    tabSize={2}
 							    height="100%"
 							    width="100%"
-							    value={this.state.value}
+							    value={this.state.value || ''}
 							    editorProps={{$blockScrolling: true}}
 							  />
 						  </div>

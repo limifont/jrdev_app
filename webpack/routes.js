@@ -45,7 +45,7 @@ export default (
     <Route path="/" component={App}>
     	<IndexRoute component={UserIsAuthenticated(Dashboard)} />
     	<Route path="/lesson" component={UserIsAuthenticated(Lesson)} />
-      <Route path="/lesson/:lesson_id/exercise/:exercise_id" component={UserIsAuthenticated(Exercise)} />
+      <Route path="/lesson/:lesson_id/exercise/:exercise_position" component={UserIsAuthenticated(Exercise)} />
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
       <Route path='/splash' component={Splash} />

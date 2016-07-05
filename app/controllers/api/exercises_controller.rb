@@ -47,7 +47,7 @@ class Api::ExercisesController < ApplicationController
     end
 
     def exercise
-      @exercise = @lesson.exercises.find_by(id: params[:id])
+      @exercise = @lesson.exercises.find_by(position: params[:id])
     end
 
 end

@@ -36,9 +36,11 @@ lesson2 = Lesson.find_or_create_by(name: "Variables")
 	exercise2_1 = Exercise.find_or_create_by(
 		lesson_id: lesson2.id, 
 		name: "Variables Intro",
-		instruction: "In programing, there are things called Variables. Variables are unique names for substitution for information.
-		In the code below, you can see that the variable x is assigned with the equal sign, to the puts value of Hello World.
+		instruction: "In programing, we often use a tool called a variable. Variables are like containers. They hold something for us.
+		In the code below, you can see that the variable x is holding the words 'Hello World'.
 		lets run the code below to see what happens when we puts x.",
+		prefill: "x = 'Hello, World'\nputs x",
+		expected_output: "Hello, World",
 		position: 1 
 		)
 	exercise2_2 = Exercise.find_or_create_by(
