@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 lesson1 = Lesson.find_or_create_by(name: "Intro to programming")
 exercise1_1 = Exercise.find_or_create_by(
@@ -33,3 +26,47 @@ exercise1_3 = Exercise.find_or_create_by(
   prefill: "2 + 2",
   expected_output: "4"
 	)
+
+# TODO: have code examples in the editor for the code below sections.
+
+lesson2 = Lesson.find_or_create_by(name: "Variables")
+	exercise_var_1 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Intro",
+		instruction: "In programing, there are things called Variables. Variables are unique names for substitution for information.
+		In the code below, you can see that the variable x is assigned with the equal sign, to the puts value of Hello World.
+		lets run the code below to see what happens when we puts x." )
+	exercise_var_2 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Cont.",
+		instruction: "As you can see when we run the code, the puts x in the editor displays Hello World in the console.
+		This is because the variable is now takes in the values and becomes it, so when we puts the variable, it shows puts command." )
+	exercise_var_3 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variable Naming",
+		instruction: "Variables can take shape into many forms of words. We can name a variable whatever we want.
+		In the code below we can see all sorts of words that acts like a variable." )
+	exercise_var_4 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Naming Exercise",
+		instruction: "Now its your turn! In the editor below, name a variable called food and have the value be assigned your favorite food in a string." )
+	exercise_var_5 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Naming Cont.",
+		instruction: "Variables can also be a combination of words with numbers and symbols as well such as the code below. " )
+	exercise_var_6 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Naming Exercise Cont.",
+		instruction: "Now lets make your own variables with a combination of words, numbers and symbols and have it assign a value of a string and then display it on the console." )
+		# TODO: hint of using puts
+	# TODO: have a recap quiz. have a recap of puts, what is a string, number, and the new concept of variables.
+	exercise_var_7 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables manipulation",
+		instruction: "Like the values, variables can also be manipulated as well.
+		With the code below, what do you think the below code will display in the console and the run it to see if you were correct." )
+	exercise_var_8 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables manipulation cont.",
+		instruction: "Were you right? As you saw in the last exercise, when we added two variables, and it added the two values together.
+		we can do this with any numbers and with any operations.
+		In the editor below, lets make some variables and have the be need whatever you want, and then have them assigned to a number value.
+		lets see how many different ways we can have the value print out 10 in the console." )
+	# TODO: have a hint of the first example to start them off, 5 + 5 = 10 etc.
+	exercise_var_9 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Values of strings and operations",
+		instruction: "You may be wondering if we can also have the operations works with strings. lets try running the code below to see the what each code does. " )
+	exercise_var_10 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables Values of strings and operations recap",
+		instruction: "Ok. lets recap, as you saw in the last exercise, all of the values throws errors all but except for one.
+	when we add two separate strings together we get a combination of the two strings. This is because the + operations has two meanings, when it is with numbers it means add and with it is with strings it means combined.
+	With the other operations we get an error because in programing you cannot use the other operations with strings. " )
+	exercise_var_11 = Exercise.find_or_create_by(lesson_id: lesson2.id, name: "Variables review",
+		instruction: "So far we learned about variables and how we can name them whatever we want, and then have it assigned with = sign and then have anything be its value.
+		we also learned how to manipulate variables with operations and have different outputs when doing so.
+		Now that we learned all about variables, lets see what you learned in our Variable review quiz." )
+	# TODO: final review quiz and achievement of completion.
+
+
