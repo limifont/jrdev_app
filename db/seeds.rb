@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+lesson1 = Lesson.find_or_create_by(name: "Intro to programming")
+exercise1_1 = Exercise.find_or_create_by(lesson_id: lesson1.id name: "What is code", instructions: "What is code? Code is just instructions that a computer knows how to follow")
