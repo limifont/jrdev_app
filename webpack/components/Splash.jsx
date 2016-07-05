@@ -1,25 +1,21 @@
 import React from 'react';
+import { Parallax } from 'react-parallax';
 
 const Splash =() => (
   <div>
-    <div id="index-banner" class="parallax-container">
-        <div class="section no-pad-bot">
+      <Parallax bgImage="assets/Kid1.jpg" strength={200}>
+        <div style={{width: 800, height: 425}}>
           <div class="container">
-          
-            <h1 class="header center cyan-text text-accent-3">Jr. Devs</h1>
-            <div class="row center">
-              <h5 class="header col s12 light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-            </div>
-            <div class="row center">
-              <a href="" id="download-button" class="btn-large waves-effect waves-light cyan accent-3">Get Started</a>
-            </div>
-            
-
+              <h1 class="header center cyan-text text-accent-3">Jr. Devs</h1>
+              <div class="row center">
+                <h5 class="header col s12 light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+              </div>
+              <div class="row center">
+                <a href="" id="download-button" class="btn-large waves-effect waves-light cyan accent-3">Get Started</a>
+              </div>
           </div>
         </div>
-        <div class="parallax"><img src="Kid1.jpg" alt="Unsplashed background img 1"></img></div>
-      </div>
-
+      </Parallax>
 
       <div class="container">
         <div class="section">
@@ -47,23 +43,18 @@ const Splash =() => (
               <div class="icon-block">
                 <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">sentiment_very_satisfied</i></h2>
                 <h5 class="center">Educators</h5>
-
                 <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
             </div>
+
           </div>
 
         </div>
       </div>
 
-
-      <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-          <div class="container">
-          </div>
-        </div>
-        <div class="parallax"><img src="kid2.png" alt="Unsplashed background img 2"></img></div>
-      </div>
+      <Parallax bgImage="assets/kid2.png" strength={200}>
+        <div style={{width: 800, height: 425}}></div>
+      </Parallax>
 
       <div class="container">
         <div class="section">
@@ -79,15 +70,11 @@ const Splash =() => (
         </div>
       </div>
 
+      <Parallax bgImage="assets/kid2.png" strength={200}>
+        <div style={{width: 800, height: 425}}></div>
+      </Parallax>
 
-      <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-          <div class="container">
-          </div>
-        </div>
-        <div class="parallax"><img src="kid3.jpg" alt="Unsplashed background img 3"></img></div>
-      </div>
-  </div>
+    </div>
 )
 
 export default Splash;
