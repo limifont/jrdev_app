@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160705205755) do
     t.string   "prefill"
     t.string   "expected_output"
     t.string   "expected_code"
+    t.integer  "position"
     t.integer  "lesson_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
