@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(version: 20160701053636) do
     t.string   "name"
     t.text     "instruction"
     t.string   "prefill"
+    t.string   "expected_output"
+    t.string   "expected_code"
     t.integer  "lesson_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "exercises", ["lesson_id"], name: "index_exercises_on_lesson_id", using: :btree

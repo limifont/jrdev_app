@@ -12,6 +12,7 @@ class Lesson extends React.Component {
 		super(props)
 		this.state = {exercise: null, results: [], value: null}
 		this.onChange = this.onChange.bind(this)
+		this.checkAnswer = this.checkAnswer.bind(this)
 	}
 
   componentWillMount() {
@@ -37,8 +38,10 @@ class Lesson extends React.Component {
 		repl.evaluateOnce(
 		  self.state.value, {
 		  stdout: (output) => {
-		    console.log(output);
-        self.setState({ results: [...self.state.results, output] })
+		  	if(output !== "\n") {
+        self.setState({ results: [...self.state.results, output, "\n"] })
+        this.checkAnswer()
+		  	}
 		  }
 		}).then(
 		  function success(result) {
@@ -59,6 +62,15 @@ class Lesson extends React.Component {
 		);
 	}
 
+	checkAnswer() {
+		console.log('current output', this.state.results)
+		console.log(this.state.exercise.expected_output)
+		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
+			alert("Correct!")
+		}
+		//trigger modal if answer is correct
+	}
+
 	render() {
 		if(this.state.exercise) {
 			return (
@@ -76,7 +88,7 @@ class Lesson extends React.Component {
 							    theme="crimson_editor"
 							    onChange={this.onChange}
 							    name="UNIQUE_ID_OF_DIV"
-							    tabSize="2"
+							    tabSize={2}
 							    height="100%"
 							    width="100%"
 							    value={this.state.value}
@@ -97,25 +109,7 @@ class Lesson extends React.Component {
 			)
 		} else {
 			return (
-				<div className="row">
-	        <div className="col m10 offset-m1">
-	        	<p>Loading...</p>
-	        </div>
-					<div className="col m6">
-						<div id="editorContainer">
-							<div id="editor">
-							</div>
-							&nbsp;
-						</div>
-					</div>
-					<div className="col m6">
-						<div className="console" style={{backgroundColor: 'black', color: 'green', height: '80vh', padding: '5px', whiteSpace: 'pre'}}>
-							{this.state.results}
-						</div>
-					</div>
-					<div className='clearfix'></div>
-					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
-				</div>
+				<h3 className="center">Loading</h3>
 			)
 		}
 	}
