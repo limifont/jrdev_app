@@ -33,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :type
       t.string :username
       t.string :name
+      t.string :api_key
+      t.string :secret_phrase
 
       t.timestamps null: false
     end

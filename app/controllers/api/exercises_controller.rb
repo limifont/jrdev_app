@@ -1,4 +1,5 @@
 class Api::ExercisesController < ApplicationController
+  before_action :lesson
   before_action :exercise, except: [:index, :create]
 
   def index
@@ -6,7 +7,10 @@ class Api::ExercisesController < ApplicationController
   end
 
   def show
-    render json: @exercise
+    is_last = @exercise.last?(@lesson)
+    is_frist = @exercise.first?(@lesson)
+    is_completed = @exercise.completed?(current_user)
+    render json: { exercise: @exercise, last: is_last, first: is_frist, completed: is_completed }
   end
 
   def create
@@ -38,8 +42,12 @@ class Api::ExercisesController < ApplicationController
       params.require(:exercise).permit(:instruction)
     end
 
+    def lesson
+      @lesson = Lesson.find_by(id: params[:lesson_id])
+    end
+
     def exercise
-      @exercise = Exercise.find_by(id: params[:id])
+      @exercise = @lesson.exercises.find_by(position: params[:id])
     end
 
 end
