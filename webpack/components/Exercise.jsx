@@ -203,7 +203,6 @@ class Exercise extends React.Component {
 			)
 		}
 	}
->>>>>>> 0d88c8c63f0b53084f5a5184855a93a94a8b03ee
 }
 
 export default Exercise;
