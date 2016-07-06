@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 	has_many :users, through: :mentors_jrdevs
   has_many :friendships
   has_many :friends, through: :friendships
+  has_many :lessons, through: :completed_lessons
+  has_many :exercises, through: :completed_exercises
   has_many :completed_lessons
   has_many :lessons, through: :completed_lessons
   has_many :completed_exercises
