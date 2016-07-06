@@ -26,7 +26,6 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	console.log('hey', result)
     	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     }).fail( data => {
     	console.log('failure', data)
@@ -81,7 +80,7 @@ class Exercise extends React.Component {
 					dataType: 'JSON',
 					data: { id: this.state.exercise.id }
 				}).done( result => {
-					this.setState({ completed: true, message: true })
+					this.setState({ completed: true})
 				}).fail( result => {
 					console.log("failed to mark exercise as completed")
 				})
@@ -91,6 +90,8 @@ class Exercise extends React.Component {
 						type: 'POST',
 						dataType: 'JSON',
 						data: { id: this.props.params.lesson_id }
+					}).done( result => {
+						this.setState({ message: true })
 					}).fail( result => {
 						console.log("failed to mark lesson as completed")
 					})
@@ -104,11 +105,7 @@ class Exercise extends React.Component {
 			return (
 				<Achievement />
 			)
-		} else {
-			return (
-				<p>Not Completed</p>
-			)
-		}
+		} 
 	}
 
 	nextButton() {
@@ -155,7 +152,7 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed, message: false  })
     }).fail( data => {
     	console.log('failure', data)
     })
