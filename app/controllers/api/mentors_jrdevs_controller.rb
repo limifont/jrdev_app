@@ -1,4 +1,8 @@
 class Api::MentorsJrdevsController < ApplicationController
+	def index
+		render json: MentorsJrdev.UserMentees(current_user)
+	end
+
 	def create
 		if current_user.type == "Mentor"
 			jrdev = Jrdev.find_by(secret_phrase: params[:secret_phrase])
