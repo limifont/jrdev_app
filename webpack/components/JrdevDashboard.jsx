@@ -1,4 +1,5 @@
 import React from 'react'
+import Lessons from './Lessons'
 
 class JrdevDashboard extends React.Component {
 	constructor(props) {
@@ -6,7 +7,12 @@ class JrdevDashboard extends React.Component {
 	}
 
 	render() {
-		return(<h1>Jr Dev Dashboard</h1>)
+		return(
+			<div>
+				<h1>Jr Dev Dashboard</h1>
+				<Lessons />
+			</div>
+		)
 	}
 }
 
