@@ -7,19 +7,17 @@ import { browserHistory } from 'react-router'
 import 'brace/mode/ruby';
 import 'brace/theme/crimson_editor';
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import Achievement from './Achievement';
 
 class Lesson extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, ModalOpen: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
 		this.previousButton = this.previousButton.bind(this)
+		this.achievement = this.achievement.bind(this)
 	}
 
   componentWillMount() {
@@ -59,9 +57,10 @@ class Lesson extends React.Component {
 		    	self.setState({ results: [...self.state.results, result.error, "\n"] })
 		      console.log('Error:', result.error);
 		    } else {
-		      console.log('Result', result.data);
+		      console.log('Result:', result.data);
 		    }
 		  },
+
 		  function error(error) {
 		    // There was an error connecting to the service :(
 		    console.error('Error connecting to repl.it');
@@ -72,6 +71,7 @@ class Lesson extends React.Component {
 	checkAnswer() {
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
+
 		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
 			$.ajax({
 				url: '/api/completed_exercises',
@@ -83,31 +83,9 @@ class Lesson extends React.Component {
 			}).fail( result => {
 				console.log("failed to mark exercise as completed")
 			})
-			handleOpen();
+			<Achievement />
 		}
 	}
-
-  handleOpen = () => {
-    this.setState({ModalOpen: true});
-    achievement();
-  };
-
-  handleClose = () => {
-    this.setState({ModalOpen: false});
-  };
-
-  achievement() {
-	    return (
-	      <div>
-	        <Dialog
-	          open={this.state.ModalOpen}
-	          onRequestClose={this.handleClose}
-	        >
-	          Good Job
-	        </Dialog>
-	      </div>
-	    );
-		}
 
 	nextButton() {
 		if(!this.state.last) {
