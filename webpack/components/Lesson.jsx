@@ -39,23 +39,7 @@ class Lesson extends React.Component {
 	render() {
 		return (
 			<div className="row">
-        <div className="col m10">
-
-        </div>
-				<div className="col m6">
-					<div id="editorContainer">
-						<div id="editor">
-						</div>
-						&nbsp;
-					</div>
-				</div>
-				<div className="col m6">
-					<div className="console" style={{backgroundColor: 'black', color: 'green', height: '80vh', padding: '5px', whiteSpace: 'pre'}}>
-						{this.state.results}
-					</div>
-				</div>
-				<div className='clearfix'></div>
-				<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
+				<h1>Lesson Component</h1>
 			</div>
 		)
 	}

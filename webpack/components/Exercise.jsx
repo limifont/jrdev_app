@@ -9,7 +9,7 @@ import 'brace/theme/crimson_editor';
 
 import Achievement from './Achievement';
 
-class Lesson extends React.Component {
+class Exercise extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false}
@@ -204,4 +204,4 @@ class Lesson extends React.Component {
 	}
 }
 
-export default Lesson;
+export default Exercise;
