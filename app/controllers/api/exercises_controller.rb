@@ -1,4 +1,4 @@
-class Api::ExercisesController < ApplicationController
+class Api::ExercisesController < ApiController
   before_action :lesson
   before_action :exercise, except: [:index, :create]
 

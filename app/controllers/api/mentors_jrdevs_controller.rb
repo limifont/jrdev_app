@@ -1,4 +1,4 @@
-class Api::MentorsJrdevsController < ApplicationController
+class Api::MentorsJrdevsController < ApiController
 	def index
 		render json: MentorsJrdev.UserMentees(current_user)
 	end
