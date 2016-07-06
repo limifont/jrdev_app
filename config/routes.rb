@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :lessons do
       resources :exercises
     end
-    resources :completed_exercises, only: [:create]
+    resources :completed_lessons, only: [:index, :create]
+    resources :completed_exercises, only: [:index, :create]
   end
 
   devise_for :users, controllers: {
