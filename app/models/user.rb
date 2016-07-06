@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :completed_lessons
-  has_many :finished_lessons, through: :completed_lessons
+  has_many :lessons, through: :completed_lessons
   has_many :completed_exercises
-  has_many :finished_exercises, through: :completed_exercises
+  has_many :exercises, through: :completed_exercises
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
