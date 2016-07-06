@@ -153,7 +153,6 @@ class Lesson extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	debugger
     	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     }).fail( data => {
     	console.log('failure', data)
