@@ -74,16 +74,18 @@ class Exercise extends React.Component {
 		console.log(this.state.exercise.expected_output)
 
 		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
-			$.ajax({
-				url: '/api/completed_exercises',
-				type: 'POST',
-				dataType: 'JSON',
-				data: { id: this.state.exercise.id }
-			}).done( result => {
-				this.setState({ completed: true })
-			}).fail( result => {
-				console.log("failed to mark exercise as completed")
-			})
+			if(!this.state.completed) {
+				$.ajax({
+					url: '/api/completed_exercises',
+					type: 'POST',
+					dataType: 'JSON',
+					data: { id: this.state.exercise.id }
+				}).done( result => {
+					this.setState({ completed: true })
+				}).fail( result => {
+					console.log("failed to mark exercise as completed")
+				})
+			}
 			render(<Achievement />);
 		}
 	}
