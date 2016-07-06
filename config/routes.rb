@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :mentors, controller: 'users', type: 'Mentor'
     resources :educators, controller: 'users', type: 'Educator'
     resources :jrdevs, controller: 'users', type: 'Jrdev'
+    resources :mentors_jrdevs, only: [:index, :create]
     resources :classrooms
     resources :lessons do
       resources :exercises

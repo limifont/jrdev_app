@@ -5,8 +5,14 @@ class EducatorDashboard extends React.Component {
 		super(props);
 	}
 
+	
+
 	render() {
-		return(<h1>Educator Dashboard</h1>)
+		return(
+			<div className="row">
+				<h1>Educator Dashboard</h1>
+			</div>
+		)
 	}
 }
 
