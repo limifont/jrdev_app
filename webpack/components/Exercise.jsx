@@ -83,7 +83,7 @@ class Lesson extends React.Component {
 			}).fail( result => {
 				console.log("failed to mark exercise as completed")
 			})
-			// <Achievement />
+			render(<Achievement />);
 		}
 	}
 
