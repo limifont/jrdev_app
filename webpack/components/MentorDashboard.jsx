@@ -29,14 +29,15 @@ class MentorDashboard extends React.Component {
 		})
 	}
 
-	addMentee() {
+	addMentee(e) {
+		e.preventDefault();
 		$.ajax({
 			url: 'api/mentors_jrdevs',
 			type: 'POST',
 			dataType: 'JSON',
 			data: { secret_phrase: this.refs.secret_phrase.value }
 		}).done( mentee => {
-			this.setState({ mentees: { ...mentee }, ...this.state.mentees})
+			this.setState({ mentees: [{ ...mentee }, ...this.state.mentees]})
 		})
 	}
 
@@ -47,21 +48,25 @@ class MentorDashboard extends React.Component {
 	}
 
 	render() {
-		return(
-			<div className="row">
-				<h1>Mentor Dashboard</h1>
-				<div className="col m3 offset-m9">
-					<h6>Add a Jr Dev to your mentorship</h6>
-					<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
-						<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
-					</form>
-					<div>
-						<h6>Jr Devs You Mentor</h6>
-						{this.displayMentees()}
+		if(this.state.user){
+			return(
+				<div className="row">
+					<h1>Mentor Dashboard</h1>
+					<div className="col m3 offset-m9">
+						<h6>Add a Jr Dev to your mentorship</h6>
+						<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
+							<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
+						</form>
+						<div>
+							<h6>Jr Devs You Mentor</h6>
+							{this.displayMentees()}
+						</div>
 					</div>
 				</div>
-			</div>
-		)
+			)	
+		} else {
+			return(<h3>Loading...</h3>)
+		}
 	}
 }
 

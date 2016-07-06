@@ -1,4 +1,4 @@
-class Api::ClassroomsController < ApplicationController
+class Api::ClassroomsController < ApiController
   before_action :classroom, except: [:index, :create]
 
   def index
