@@ -1,6 +1,6 @@
 class Api::MentorsJrdevsController < ApplicationController
 	def index
-		render json: current_user.mentors_jrdevs
+		render json: MentorsJrdev.UserMentees(current_user)
 	end
 
 	def create
