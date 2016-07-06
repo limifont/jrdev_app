@@ -86,6 +86,16 @@ class Exercise extends React.Component {
 				}).fail( result => {
 					console.log("failed to mark exercise as completed")
 				})
+				if(this.state.last) {
+					$.ajax({
+						url: '/api/completed_lessons',
+						type: 'POST',
+						dataType: 'JSON',
+						data: { id: this.props.params.lesson_id }
+					}).fail( result => {
+						console.log("failed to mark lesson as completed")
+					})
+				}
 			}
 		}
 	}
