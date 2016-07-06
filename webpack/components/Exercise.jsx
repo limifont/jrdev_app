@@ -13,12 +13,12 @@ import Achievement from './Achievement';
 class Exercise extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, message: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
 		this.previousButton = this.previousButton.bind(this)
-		// this.achievement = this.achievement.bind(this)
+		this.popup = this.popup.bind(this)
 	}
 
   componentWillMount() {
@@ -27,6 +27,7 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
+    	console.log('hey', result)
     	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     }).fail( data => {
     	console.log('failure', data)
@@ -81,12 +82,23 @@ class Exercise extends React.Component {
 					dataType: 'JSON',
 					data: { id: this.state.exercise.id }
 				}).done( result => {
-					this.setState({ completed: true })
+					this.setState({ completed: true, message: true })
 				}).fail( result => {
 					console.log("failed to mark exercise as completed")
 				})
 			}
-			render(<Achievement />);
+		}
+	}
+
+	popup() {
+		if (this.state.message){
+			return (
+				<Achievement />
+			)
+		} else {
+			return (
+				<p>Not Completed</p>
+			)
 		}
 	}
 
@@ -170,6 +182,7 @@ class Exercise extends React.Component {
 		        	<p dangerouslySetInnerHTML={{__html: this.state.exercise.instruction}}></p>
 	        	</div>
 	        </div>
+					{this.popup()}
 					<div className="col m6">
 						<div id="editorContainer">
 							<div id="editor">
