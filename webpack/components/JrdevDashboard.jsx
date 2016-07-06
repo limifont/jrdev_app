@@ -1,5 +1,6 @@
 import React from 'react'
 import Lessons from './Lessons'
+import Badge from './Badge'
 
 class JrdevDashboard extends React.Component {
 	constructor(props) {
@@ -11,6 +12,7 @@ class JrdevDashboard extends React.Component {
 			<div>
 				<h1>Jr Dev Dashboard</h1>
 				<Lessons />
+				<Badge />
 			</div>
 		)
 	}
