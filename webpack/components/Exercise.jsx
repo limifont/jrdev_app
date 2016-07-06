@@ -17,7 +17,7 @@ class Lesson extends React.Component {
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
 		this.previousButton = this.previousButton.bind(this)
-		this.achievement = this.achievement.bind(this)
+
 	}
 
   componentWillMount() {
@@ -83,7 +83,7 @@ class Lesson extends React.Component {
 			}).fail( result => {
 				console.log("failed to mark exercise as completed")
 			})
-			<Achievement />
+			render(<Achievement />);
 		}
 	}
 
