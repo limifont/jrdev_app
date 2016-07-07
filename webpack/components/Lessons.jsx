@@ -22,7 +22,7 @@ class Lessons extends React.Component {
 	displayLessons() {
 		return this.state.allLessons.map( lesson => {
 			return(
-				<div>
+				<div key={`lesson-${lesson.id}`}>
 					<h4>{lesson.name}</h4>
 					<p>Completed: {lesson.completed.toString()}</p>
 					<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>

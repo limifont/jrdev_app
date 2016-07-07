@@ -5,6 +5,10 @@ class Api::ClassroomsController < ApiController
   	render json: current_user.classrooms
   end
 
+  def index_jrdevs
+    render json: @classroom.jrdevs
+  end
+
   def show
   	render json: @classroom
   end
