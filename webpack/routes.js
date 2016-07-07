@@ -7,8 +7,8 @@ import Dashboard from './components/Dashboard';
 import Lesson from './components/Lesson';
 import Exercise from './components/Exercise'
 import Login from './components/auth/Login';
-import Signup from './components/auth/Signup'; 
-import CreateClass from './components/CreateClass';
+import Signup from './components/auth/Signup';
+import Classroom from './components/Classroom'; 
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { handleLogout } from './components/auth/actions';
 
@@ -49,7 +49,7 @@ export default (
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
       <Route path='/splash' component={Splash} />
-      <Route path='/create_class' component={UserIsEducator(CreateClass)} />
+      <Route path='/classroom/:id' component={Classroom} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>

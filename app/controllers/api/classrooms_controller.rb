@@ -2,7 +2,7 @@ class Api::ClassroomsController < ApiController
   before_action :classroom, except: [:index, :create]
 
   def index
-  	render json: Classroom.all
+  	render json: current_user.classrooms
   end
 
   def show
@@ -10,8 +10,8 @@ class Api::ClassroomsController < ApiController
   end
 
   def create
-  	@classroom = Classroom.new(classroom_params)
-  	if @classroom
+  	@classroom = current_user.classrooms.new(classroom_params)
+  	if @classroom.save
   		render json: @classroom
   	else
   		render json: {erors: @classroom.errors.full_messages}
@@ -33,10 +33,10 @@ class Api::ClassroomsController < ApiController
 
   private
   	def classroom
-  		@classroom = Classroom.find(params[:id])
+  		@classroom = current_user.classrooms.find_by(id: params[:id])
   	end
 
   	def classroom_params
-      params.require(:classroom).permit(:name, :user_id)
+      params.require(:classroom).permit(:name)
     end
 end

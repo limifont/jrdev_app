@@ -1,4 +1,5 @@
 import React from 'react'
+import Lessons from './Lessons'
 
 class MentorDashboard extends React.Component {
 	constructor(props) {
@@ -52,7 +53,8 @@ class MentorDashboard extends React.Component {
 			return(
 				<div className="row">
 					<h1>Mentor Dashboard</h1>
-					<div className="col m3 offset-m9">
+					<Lessons />
+					<div className="col m3 offset-m9">e
 						<h6>Add a Jr Dev to your mentorship</h6>
 						<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
 							<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
