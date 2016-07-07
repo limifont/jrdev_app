@@ -19,3 +19,4 @@ class Lesson < ActiveRecord::Base
   	return count
   end
 end
+ 
