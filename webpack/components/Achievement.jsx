@@ -10,13 +10,7 @@ class Achievement extends React.Component {
       super(props);
       this.state = { open: true };
       this.handleClose = this.handleClose.bind(this);
-      // this.handleOpen = this.handleOpen.bind(this);
-
     }
-
-  // handleOpen = () => {
-  //   this.setState({open: true});
-  // };
 
   handleClose = () => {
     this.setState({ open: false });
