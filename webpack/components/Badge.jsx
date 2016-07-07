@@ -3,7 +3,7 @@ import React from 'react';
 class Badge extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { exercises: [], marathon: false }
+    this.state = { exercises: [], marathon: false, speedDemon: false }
     this.marathonBadge = this.marathonBadge.bind(this);
     this.displayBadges = this.displayBadges.bind(this);
   }
@@ -16,7 +16,6 @@ class Badge extends React.Component {
     }).done( exercises => {
       this.setState({ exercises });
       this.displayBadges();
-      console.log(exercises);
     }).fail( data => {
       console.log('failure', data)
     })
@@ -36,8 +35,11 @@ class Badge extends React.Component {
   displayBadges() {
     //marathon badge
     let byDay = {}
+    let byTime = {}
     this.state.exercises.map( exercise => {
       let date = new Date(exercise.created_at).toLocaleDateString()
+      let time = new Date(exercise.created_at).getHours()
+      debugger
       if (date in byDay) {
         byDay[date] += 1;
       } else {
