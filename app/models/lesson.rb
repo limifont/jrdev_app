@@ -1,5 +1,6 @@
 class Lesson < ActiveRecord::Base
- has_many :exercises, dependent: :destroy
+  has_many :exercises, dependent: :destroy
+
 	def completed?(user)
   	arr = user.completed_lessons.pluck(:lesson_id)
   	return arr.include?(self.id)

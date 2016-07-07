@@ -43,7 +43,6 @@ class Achievement extends React.Component {
           >
             Good Job
           </Dialog>
-          <p>Test</p>
         </div>
       </MuiThemeProvider>
     );
