@@ -1,9 +1,11 @@
 import React from 'react'
+import LinearProgress from 'material-ui/LinearProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Lessons extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { allLessons: [] }
+		this.state = { allLessons: [], ProgressCompleted: 0, }
 		this.displayLessons = this.displayLessons.bind(this)
 	}
 
@@ -22,11 +24,16 @@ class Lessons extends React.Component {
 	displayLessons() {
 		return this.state.allLessons.map( lesson => {
 			return(
-				<div key={`lesson-${lesson.id}`}>
-					<h4>{lesson.name}</h4>
-					<p>Completed: {lesson.completed.toString()}</p>
-					<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>
-				</div>
+				<MuiThemeProvider>
+					<div className="row">
+						<h4>{lesson.name}</h4>
+						<p>Completed: {lesson.completed.toString()}</p>
+						<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>
+						<div className="col m2">
+							<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
+						</div>
+					</div>
+		    </MuiThemeProvider>
 			)
 		})
 	}
@@ -36,7 +43,7 @@ class Lessons extends React.Component {
 			<div>
 				{this.displayLessons()}
 			</div>
-		)
+		);
 	}
 }
 
