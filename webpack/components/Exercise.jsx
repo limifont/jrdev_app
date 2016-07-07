@@ -106,7 +106,7 @@ class Exercise extends React.Component {
 			return (
 				<Achievement />
 			)
-		} 
+		}
 	}
 
 	nextButton() {
