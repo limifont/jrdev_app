@@ -9,16 +9,18 @@ import 'brace/mode/ruby';
 import 'brace/theme/crimson_editor';
 
 import Achievement from './Achievement';
+import ExcercisePopup from './ExcercisePopup'
 
 class Exercise extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, message: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, endMessage: false, exerciseMessage: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
 		this.previousButton = this.previousButton.bind(this)
 		this.popup = this.popup.bind(this)
+		this.exercisePopup = this.exercisePopup.bind(this)
 	}
 
   componentWillMount() {
@@ -74,6 +76,7 @@ class Exercise extends React.Component {
 		console.log(this.state.exercise.expected_output)
 
 		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
+			this.setState({ exerciseMessage: true })
 			if(!this.state.completed) {
 				$.ajax({
 					url: '/api/completed_exercises',
@@ -92,19 +95,29 @@ class Exercise extends React.Component {
 						dataType: 'JSON',
 						data: { id: this.props.params.lesson_id }
 					}).done( result => {
-						this.setState({ message: true })
+						this.setState({ endMessage: true })
 					}).fail( result => {
 						console.log("failed to mark lesson as completed")
 					})
 				}
 			}
+		} else {
+
 		}
 	}
 
 	popup() {
-		if (this.state.message){
+		if (this.state.endMessage){
 			return (
 				<Achievement />
+			)
+		}
+	}
+
+	exercisePopup() {
+		if (this.state.exerciseMessage){
+			return (
+				<ExcercisePopup />
 			)
 		}
 	}
@@ -153,7 +166,7 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed, message: false  })
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed, endMessage: false  })
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -216,6 +229,7 @@ class Exercise extends React.Component {
 					<div className='clearfix'></div>
 					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
 					{this.nextButton()}
+					{this.exercisePopup()}
 					{this.previousButton()}
 				</div>
 			)
