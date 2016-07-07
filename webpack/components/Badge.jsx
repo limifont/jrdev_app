@@ -3,7 +3,7 @@ import React from 'react';
 class Badge extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { achievements: [] }
+    this.state = { badges: [] }
   }
 
   componentWillMount() {
@@ -11,16 +11,31 @@ class Badge extends React.Component {
       url: `/api/completed_exercises`,
       type: 'GET',
       dataType: 'JSON'
-    }).done( result => {
-      console.log(result)
+    }).done( badges => {
+      this.setState({ badges });
+      console.log(badges);
     }).fail( data => {
       console.log('failure', data)
     })
   }
 
+
+  displayBadges() {
+    return (this.state.badges.map( badge => {
+      return (
+        <div>
+          {badge.name}
+        </div>
+      )
+    }))
+  }
+
   render() {
-    return (
-      <div>Badge</div>
+    return(
+      <div className="row">
+        <i>These exercises have been completed:</i>
+        {this.displayBadges.bind(this)()}
+      </div>
     )
   }
 }
