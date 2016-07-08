@@ -9,18 +9,20 @@ import 'brace/mode/ruby';
 import 'brace/theme/crimson_editor';
 
 import Achievement from './Achievement';
-import ExcercisePopup from './ExcercisePopup'
+import ExcercisePopup from './ExcercisePopup';
+import ExcerciseFailPopup from './ExcerciseFailPopup';
 
 class Exercise extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, endMessage: false, exerciseMessage: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, endMessage: false, exerciseMessage: false, exerciseFailMessage: false}
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
 		this.previousButton = this.previousButton.bind(this)
 		this.popup = this.popup.bind(this)
 		this.exercisePopup = this.exercisePopup.bind(this)
+		this.exerciseFailPopup = this.exerciseFailPopup.bind(this)
 	}
 
   componentWillMount() {
@@ -102,7 +104,8 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
-
+			console.log("henrystest")
+			this.setState({ exerciseFailMessage: true})
 		}
 	}
 
@@ -118,6 +121,14 @@ class Exercise extends React.Component {
 		if (this.state.exerciseMessage){
 			return (
 				<ExcercisePopup />
+			)
+		}
+	}
+
+	exerciseFailPopup() {
+		if (this.state.exerciseFailMessage){
+			return (
+				<ExcerciseFailPopup />
 			)
 		}
 	}
@@ -230,6 +241,7 @@ class Exercise extends React.Component {
 					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
 					{this.nextButton()}
 					{this.exercisePopup()}
+					{this.exerciseFailPopup()}
 					{this.previousButton()}
 				</div>
 			)
