@@ -6,6 +6,14 @@ class Lesson < ActiveRecord::Base
   	return arr.include?(self.id)
   end
 
+  def get_exercises(user)
+    exercises = []
+    self.exercises.each do |e|
+      exercises << { id: e.id, position: e.position, name: e.name, completed: e.completed?(user), next_up: e.next_up?(user) }
+    end
+    return exercises
+  end
+
   def exercises_count
   	self.exercises.count
   end

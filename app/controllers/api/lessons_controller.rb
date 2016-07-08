@@ -12,4 +12,10 @@ class Api::LessonsController < ApiController
 		end
 		render json: lessons
 	end
+
+	def show
+		lesson = Lesson.find(params[:id])
+		exercises = lesson.get_exercises(current_user)
+		render json: {lesson: lesson, exercises: exercises}
+	end
 end
