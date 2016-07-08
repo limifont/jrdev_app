@@ -16,21 +16,21 @@ class Badge extends React.Component {
       dataType: 'JSON'
     }).done( exercises => {
       this.setState({ exercises });
-      console.log(exercises)
+      // console.log(exercises)
       this.displayBadges();
     }).fail( data => {
       console.log('failure', data)
     })
 
-    // $.ajax({
-    //   url: `/api/jrdevs/${this.props.id}`,
-    //   type: 'GET',
-    //   dataType: 'JSON'
-    // }).done( user => {
-    //   console.log(user)
-    // }).fail( data => {
-    //   console.log('failure', data)
-    // })
+    $.ajax({
+      url: `/api/jrdevs/${this.props.id}`,
+      type: 'GET',
+      dataType: 'JSON'
+    }).done( user => {
+      console.log(user)
+    }).fail( data => {
+      console.log('failure', data)
+    })
   }
 
   marathonBadge() {

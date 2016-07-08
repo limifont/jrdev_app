@@ -15,7 +15,7 @@ class JrdevDashboard extends React.Component {
 	    type: 'GET',
 	    dataType: 'JSON'
 	  }).done( user => {
-	    console.log(user["secret_phrase"])
+	    this.setState({ secret_phrase: user["secret_phrase"]})
 	  }).fail( data => {
 	    console.log('failure', data)
 	  })
@@ -24,7 +24,7 @@ class JrdevDashboard extends React.Component {
 	displayPhrase() {
 		return(
 			<div>
-				<i></i>
+				<i>{this.state.secret_phrase}</i>
 			</div>
 		)
 	}
