@@ -74,6 +74,7 @@ class Exercise extends React.Component {
 	}
 
 	checkAnswer() {
+		this.setState({ exerciseFailMessage: false, exerciseMessage: false })
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
 
@@ -104,7 +105,6 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
-			console.log("henrystest")
 			this.setState({ exerciseFailMessage: true})
 		}
 	}
