@@ -44,12 +44,12 @@ export default (
   <Route>
     <Route path="/" component={App}>
     	<IndexRoute component={UserIsAuthenticated(Dashboard)} />
-    	<Route path="/lesson" component={UserIsAuthenticated(Lesson)} />
+    	<Route path="/lesson/:lesson_id" component={UserIsAuthenticated(Lesson)} />
       <Route path="/lesson/:lesson_id/exercise/:exercise_position" component={UserIsAuthenticated(Exercise)} />
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
       <Route path='/splash' component={Splash} />
-      <Route path='/classroom/:id' component={Classroom} />
+      <Route path='/classroom/:id' component={UserIsAuthenticated(Classroom)} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>
