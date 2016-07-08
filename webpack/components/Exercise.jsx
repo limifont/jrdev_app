@@ -240,9 +240,9 @@ class Exercise extends React.Component {
 					<div className='clearfix'></div>
 					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
 					{this.nextButton()}
+					{this.previousButton()}
 					{this.exercisePopup()}
 					{this.exerciseFailPopup()}
-					{this.previousButton()}
 				</div>
 			)
 		} else {
