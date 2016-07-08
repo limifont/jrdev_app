@@ -1,4 +1,5 @@
 import React from 'react'
+import ClassroomGraph from './ClassroomGraph';
 
 class Classroom extends React.Component {
 	constructor(props) {
@@ -55,6 +56,7 @@ class Classroom extends React.Component {
 					<h1>{this.state.classroom.name}</h1>
 					<div className="col m9">
 						<h3>Stats</h3>
+						<ClassroomGraph />
 					</div>
 					<div className="col m3">
 						<div>
@@ -70,7 +72,7 @@ class Classroom extends React.Component {
 						</div>
 					</div>
 				</div>
-			)	
+			)
 		} else {
 			return(<h2>Loading...</h2>)
 		}

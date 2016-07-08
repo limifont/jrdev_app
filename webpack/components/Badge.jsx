@@ -3,10 +3,11 @@ import React from 'react';
 class Badge extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { exercises: [], marathon: false, speedDemon: false }
+    this.state = { exercises: [], marathon: false, speedDemon: false, newbie: "" }
     this.displayBadges = this.displayBadges.bind(this);
     this.speedDemonBadge = this.speedDemonBadge.bind(this);
     this.marathonBadge = this.marathonBadge.bind(this);
+    this.newbieBadge = this.newbieBadge.bind(this);
   }
 
   componentWillMount() {
@@ -28,6 +29,7 @@ class Badge extends React.Component {
       dataType: 'JSON'
     }).done( user => {
       console.log(user)
+      this.setState({ newbie: user["created_at"]})
     }).fail( data => {
       console.log('failure', data)
     })
@@ -37,7 +39,7 @@ class Badge extends React.Component {
     if (this.state.marathon) {
       return (
         <div>
-          You got the marathon badge!!
+          <p>You got the marathon badge!!</p>
         </div>
       )
     }
@@ -47,11 +49,35 @@ class Badge extends React.Component {
     if (this.state.speedDemon) {
       return (
         <div>
-          You got the Speed Demon Badge!!
+          <p>You got the Speed Demon Badge!!</p>
         </div>
       )
     }
   } 
+
+  
+
+
+  newbieBadge() {
+    // days, hours, minutes, seconds, miliseconds
+    let thirtyDays = (30 * 24 * 60 * 60 * 1000)
+
+    let currentTime = new Date().getTime();
+
+    let signupDate = new Date(this.state.newbie).getTime();
+    
+    let newbieTime = signupDate + thirtyDays
+
+    if (this.state.newbie != null) {
+      if (newbieTime >= currentTime) { 
+        return (
+          <div>
+            <p>You are a newbie!!</p>
+          </div>
+        )
+      }
+    }
+  }
 
  
 
@@ -107,6 +133,7 @@ class Badge extends React.Component {
         <i>These exercises have been completed:</i>
         {this.marathonBadge()}
         {this.speedDemonBadge()}
+        {this.newbieBadge()}
       </div>
     )
   }

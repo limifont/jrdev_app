@@ -8,6 +8,7 @@
     "react": "^15.1.0",
     "react-ace": "^3.4.1",
     "react-dom": "^15.1.0",
+    "react-easy-chart": "^0.1.4",
     "react-parallax": "^0.4.3",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
