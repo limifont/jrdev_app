@@ -104,7 +104,6 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
-			console.log("henrystest")
 			this.setState({ exerciseFailMessage: true})
 		}
 	}
