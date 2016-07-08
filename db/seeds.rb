@@ -33,7 +33,7 @@ exercise1_4 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
 	name: "Working with Words",
 	instruction: "Computers can also handle words as well. Type the words 'Hello, world' after the puts and run the code",
-	prefill: "puts"
+	prefill: "puts",
 	expected_output: "Hello, world",
 	position: 4
 	)
@@ -41,7 +41,7 @@ exercise1_5 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
 	name: "More Words",
 	instruction: "Let's try it again, but starting from scratch. Write code that will output the words 'I love coding!'",
-	prefill: ""
+	prefill: "",
 	expected_output: "I love coding!",
 	position: 5
 	)
