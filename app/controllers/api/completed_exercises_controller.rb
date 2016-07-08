@@ -1,6 +1,6 @@
 class Api::CompletedExercisesController < ApiController
 	def index
-		render json: current_user.exercises
+		render json: current_user.completed_exercises
 	end
 
 	def create
