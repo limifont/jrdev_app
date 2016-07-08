@@ -4,7 +4,7 @@ exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
 	name: "What is Code", 
 	instruction: "What is code? Code is just instructions that a computer knows how to follow. <br />
-	  A computer is kind of like a calculator, you can give it some instructions, and it will follow them. Also, like a calcultor, a computer can do math. <br />
+	  A computer is kind of like a calculator, you can give it some instructions, and it will follow them. For example, a computer can follow instructions to do math. <br />
 	  Click the 'Run' button at the bottom of the screen to run the code and see what happens",
 	prefill: "puts 2 + 2",
 	expected_output: "4",
@@ -29,6 +29,23 @@ exercise1_3 = Exercise.find_or_create_by(
   expected_output: "4",
   position: 3
 	)
+exercise1_4 = Exercise.find_or_create_by(
+	lesson_id: lesson1.id,
+	name: "Working with Words",
+	instruction: "Computers can also handle words as well. Type the words 'Hello, world' after the puts and run the code",
+	prefill: "puts",
+	expected_output: "Hello, world",
+	position: 4
+	)
+exercise1_5 = Exercise.find_or_create_by(
+	lesson_id: lesson1.id,
+	name: "More Words",
+	instruction: "Let's try it again, but starting from scratch. Write code that will output the words 'I love coding!'",
+	prefill: "",
+	expected_output: "I love coding!",
+	position: 5
+	)
+
 
 # TODO: have code examples in the editor for the code below sections.
 

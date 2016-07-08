@@ -3,18 +3,22 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :api do
-    post 'run_code', to: 'lessons#run_code'
+    get 'classroom_jrdevs/:id', to: 'classroom_jrdevs#index', as: 'classroom_jrdevs'
+
     resources :friends, only: [:index]
     resources :mentors, controller: 'users', type: 'Mentor'
     resources :educators, controller: 'users', type: 'Educator'
     resources :jrdevs, controller: 'users', type: 'Jrdev'
-    resources :mentors_jrdevs, only: [:index, :create]
+    resources :mentors_jrdevs, only: [:index, :create, :destroy]
     resources :classrooms
+    resources :classroom_jrdevs, only: [:create, :destroy]
+    resources :completed_lessons, only: [:index, :create]
+    resources :completed_exercises, only: [:index, :create]
+
     resources :lessons do
       resources :exercises
     end
-    resources :completed_lessons, only: [:index, :create]
-    resources :completed_exercises, only: [:index, :create]
+    
   end
 
   devise_for :users, controllers: {
