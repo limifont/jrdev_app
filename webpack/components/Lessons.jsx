@@ -1,6 +1,7 @@
 import React from 'react'
 import LinearProgress from 'material-ui/LinearProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Link } from 'react-router'
 
 class Lessons extends React.Component {
 	constructor(props) {
@@ -26,7 +27,7 @@ class Lessons extends React.Component {
 			return(
 				<MuiThemeProvider>
 					<div className="row">
-						<h4>{lesson.name}</h4>
+						<h4><Link to={`/lesson/${lesson.id}/exercise/1`}>{lesson.name}</Link></h4>
 						<p>Completed: {lesson.completed.toString()}</p>
 						<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>
 						<div className="col m2">
