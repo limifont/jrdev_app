@@ -72,6 +72,7 @@ class EducatorDashboard extends React.Component {
 						{this.displayClassrooms()}
 					</div>
 				</div>
+					<ClassroomGraph />
 			</div>
 		)
 	}
