@@ -3,7 +3,7 @@ import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-class ExcercisePopup extends React.Component {
+class ExcerciseFailPopup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,14 +21,14 @@ class ExcercisePopup extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div >
+        <div>
           <Snackbar
             open={this.state.open}
-            message="You got it correct!"
+            message="Incorrect, Try again!"
             autoHideDuration={4000}
             onRequestClose={this.handleRequestClose}
             bodyStyle={{
-              background: '#08C9CC'
+              background: '#FF6C55'
             }}
           />
         </div>
@@ -36,5 +36,4 @@ class ExcercisePopup extends React.Component {
     );
   }
 }
-
-export default ExcercisePopup;
+export default ExcerciseFailPopup;
