@@ -22,4 +22,5 @@ class Exercise < ActiveRecord::Base
       return false
     end
   end
+
 end

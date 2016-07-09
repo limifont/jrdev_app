@@ -35,6 +35,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_classrooms
+    classrooms = []
+    self.classrooms.each do |classroom|
+      classrooms << { classroom: classroom, educator: classroom.user }
+    end
+    return classrooms
+  end
+
   def self.mentors
   	where(type: 'Mentor')
   end

@@ -35,6 +35,7 @@
     "webpack-dev-server": "^1.9.0"
   },
   "scripts": {
+    "webpack:deploy": "webpack --config=config/webpack.config.js -p",
     "heroku-postbuild": "npm run webpack:deploy"
   }
 }

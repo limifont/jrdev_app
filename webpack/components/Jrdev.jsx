@@ -1,5 +1,5 @@
 import React from 'react'
-import ExercisesByMonthChart from './ExercisesByMonthChart'
+import ExercisesByDayChart from './ExercisesByDayChart'
 
 class Jrdev extends React.Component {
 	constructor(props) {
@@ -13,17 +13,24 @@ class Jrdev extends React.Component {
 			type: 'GET',
 			dataType: 'JSON'
 		}).done( jrdev => {
-			debugger
+			this.setState({ jrdev })
+		}).fail( data => {
+			console.log("failed to get jrdev", data)
 		})
 	}
 
 	render() {
+		if(this.state.jrdev) {
 			return(
 				<div>
-					<h2>Jrdev Name</h2>
-					<ExercisesByMonthChart />
+					<h2>{this.state.jrdev.name}</h2>
+					<p>Member since: {this.state.jrdev.created_at}</p>
+					<ExercisesByDayChart jrdev={this.state.jrdev}/>
 				</div>
 			)
+		} else {
+			return(<h3>Loading...</h3>)
+		}
 	}
 
 }
