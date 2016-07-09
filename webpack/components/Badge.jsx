@@ -17,7 +17,6 @@ class Badge extends React.Component {
       dataType: 'JSON'
     }).done( exercises => {
       this.setState({ exercises });
-      // console.log(exercises)
       this.displayBadges();
     }).fail( data => {
       console.log('failure', data)

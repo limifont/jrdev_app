@@ -1,3 +1,7 @@
+100.times do |num|
+	Jrdev.create(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}")
+end
+
 
 lesson1 = Lesson.find_or_create_by(name: "Intro to programming")
 exercise1_1 = Exercise.find_or_create_by(

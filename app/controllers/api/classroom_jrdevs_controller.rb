@@ -5,6 +5,18 @@ class Api::ClassroomJrdevsController < ApplicationController
 		render json: @classroom.jrdevs
 	end
 
+	def user_classrooms
+		# returns an array with whatever column you specify
+		students_per_class = []
+		classrooms = Classroom.where(user_id: current_user).pluck(:id)
+		classrooms.each do |classroom|
+			students_per_class << ClassroomJrdev.where(classroom_id: classroom).count
+		end
+
+		
+		render json: students_per_class
+	end
+
 	def create
 		jrdev = Jrdev.find_by(secret_phrase: params[:secret_phrase])
 		classroom_jrdev = @classroom.classroom_jrdevs.new(jrdev_id: jrdev.id)
