@@ -7,7 +7,7 @@ class CompletedExercise < ActiveRecord::Base
   end
 
   def self.exercises_by_day(user)
-  	days = []
+  	days = [{ x: '', y: 0 }]
     counts = select("count(*) AS count, date_trunc('day', created_at) AS created_at")
     				 .where("user_id = #{user.id}")
              .group("date_trunc('day', created_at)")
