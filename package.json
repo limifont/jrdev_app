@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": "5.5.0"
+    "node": "5.5.0",
+    "npm": "3.3.12"
   },
   "dependencies": {
     "material-ui": "^0.15.1",
@@ -32,9 +33,5 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "webpack-dev-server": "^1.9.0"
-  },
-  "scripts": {
-    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
-    "heroku-postbuild": "npm run webpack:deploy"
   }
 }
