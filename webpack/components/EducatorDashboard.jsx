@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import Lessons from './Lessons'
 import Classroom from './Classroom'
+import ClassesStats from './ClassesStats';
 
 class EducatorDashboard extends React.Component {
 	constructor(props) {
@@ -56,8 +57,11 @@ class EducatorDashboard extends React.Component {
 		return(
 			<div className="row">
 				<h1>Educator Dashboard</h1>
-				<div className="col m9">
+				<div className="col m6">
 					<Lessons />
+				</div>
+				<div className="col m3">
+					<ClassesStats classes={this.state.classrooms} id={this.props.id} />
 				</div>
 				<div className="col m3">
 					<div>

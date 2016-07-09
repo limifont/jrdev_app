@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'classroom_jrdevs/:id', to: 'classroom_jrdevs#index', as: 'classroom_jrdevs'
+    get 'user_classrooms/:id', to: 'classroom_jrdevs#user_classrooms', as: 'jrdev_classcount'
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
 
     resources :friends, only: [:index]
