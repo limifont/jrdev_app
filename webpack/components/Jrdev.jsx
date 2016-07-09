@@ -4,28 +4,66 @@ import ExercisesByDayChart from './ExercisesByDayChart'
 class Jrdev extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { jrdev: null }
+		this.state = { jrdev: null, completed_by_day: [], mentors: [], classrooms: [] }
+		this.displayClassrooms = this.displayClassrooms.bind(this)
+		this.displayMentors = this.displayMentors.bind(this)
 	}
 
 	componentWillMount() {
 		$.ajax({
-			url: `/api/jrdevs/${this.props.params.id}`,
+			url: `/api/show_stats/${this.props.params.id}`,
 			type: 'GET',
 			dataType: 'JSON'
-		}).done( jrdev => {
-			this.setState({ jrdev })
+		}).done( data => {
+			console.log(data)
+			this.setState({ 
+				jrdev: data.jrdev,
+				completed_by_day: data.exercises_by_day,
+				classrooms: data.classrooms,
+				mentors: data.mentors
+			})
 		}).fail( data => {
-			console.log("failed to get jrdev", data)
+			console.log("Failed to get completions by day", data)
 		})
+	}
+
+	displayClassrooms() {
+		if(this.state.classrooms.length > 0) {
+			return this.state.classrooms.map( c => {
+				return(
+					<div>
+						<h5>{c.classroom.name}</h5>
+						<p>Instructor: {c.educator.name}</p>
+					</div>
+				)
+			})
+		} else {
+			return(<p>{this.state.jrdev.name} does not belong to any classrooms</p>)
+		}
+	}
+	
+	displayMentors() {
+		if(this.state.mentors.length > 0) {
+			return this.state.mentors.map( m => {
+				return(<h5>{m.name}</h5>)
+			})
+		} else {
+			return(<p>{this.state.jrdev.name} does not have any mentors</p>)
+		}
 	}
 
 	render() {
 		if(this.state.jrdev) {
+			let jrdev = this.state.jrdev
 			return(
 				<div>
 					<h2>{this.state.jrdev.name}</h2>
-					<p>Member since: {this.state.jrdev.created_at}</p>
-					<ExercisesByDayChart jrdev={this.state.jrdev}/>
+					<p>Username: {this.state.jrdev.username}</p>
+					<ExercisesByDayChart data={this.state.completed_by_day}/>
+					<h4>{`${jrdev.name}'s Classrooms`}</h4>
+					{this.displayClassrooms()}
+					<h4>{`${jrdev.name}'s Mentors`}</h4>
+					{this.displayMentors()}
 				</div>
 			)
 		} else {

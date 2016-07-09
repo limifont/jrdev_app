@@ -40,6 +40,7 @@ class MentorDashboard extends React.Component {
 		}).done( mentee => {
 			this.setState({ mentees: [{ ...mentee }, ...this.state.mentees]})
 		})
+		this.refs.addMentee.reset();
 	}
 
 	displayMentees() {

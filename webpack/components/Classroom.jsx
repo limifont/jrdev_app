@@ -40,6 +40,7 @@ class Classroom extends React.Component {
 		}).fail( data => {
 			console.log("Failed to add student", data.errors)
 		})
+		this.refs.addStudent.reset();
 	}
 
 

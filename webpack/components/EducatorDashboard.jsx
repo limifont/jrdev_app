@@ -43,7 +43,7 @@ class EducatorDashboard extends React.Component {
 		}).fail( data => {
 			console.log("Failed to create classroom", data)
 		})
-		this.refs.createClassroom.reset();
+		this.refs.name.reset();
 	}
 
 	displayClassrooms() {
