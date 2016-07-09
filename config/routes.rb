@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'classroom_jrdevs/:id', to: 'classroom_jrdevs#index', as: 'classroom_jrdevs'
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
 
+    get 'student_stats/:id', to: 'classrooms#student_stats', as: 'student_stats'
     resources :friends, only: [:index]
     resources :mentors, controller: 'users', type: 'Mentor'
     resources :educators, controller: 'users', type: 'Educator'

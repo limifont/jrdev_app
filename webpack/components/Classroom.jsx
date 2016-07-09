@@ -56,7 +56,7 @@ class Classroom extends React.Component {
 					<h1>{this.state.classroom.name}</h1>
 					<div className="col m9">
 						<h3>Stats</h3>
-						<ClassroomGraph />
+						<ClassroomGraph classroom={this.state.classroom}/>
 					</div>
 					<div className="col m3">
 						<div>
