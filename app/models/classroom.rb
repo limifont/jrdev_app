@@ -9,7 +9,6 @@ class Classroom < ActiveRecord::Base
   end
 
   def student_stats
-  	binding.pry
   	return self.jrdevs.map { |jrdev| {name: jrdev.name, completed_count: jrdev.completed_exercises.count} }
   end
 end

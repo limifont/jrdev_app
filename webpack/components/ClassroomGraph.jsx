@@ -32,7 +32,15 @@ class ClassroomGraph extends React.Component {
 				url: `/api/student_stats/${this.props.classroom.id}`,
 				type: 'GET',
 				dataType: 'JSON',
-			}).done( student_stats => {
+			}).done( stats => {
+				let student_stats = [];
+				if (stats.length === 0) {
+					student_stats = [{x: 0, y: null}]
+				} else {
+					for (let student of stats) {
+						student_stats.push({x: student.name, y: student.completed_count})
+					}
+				}
 				this.setState({ student_stats })
 			}).fail( data  => {
 				alert('fail to update the class chart')
@@ -57,6 +65,7 @@ class ClassroomGraph extends React.Component {
 						  mouseOutHandler={this.mouseOutHandler.bind(this)}
 						  mouseMoveHandler={this.mouseMoveHandler.bind(this)}
 						/>
+						{this.state.showToolTip ? <ToolTip top={this.state.top} left={this.state.left}>{this.state.x} has completed {this.state.y} excercises</ToolTip> : null}
 					</div>
 	      );
 	    } else {
