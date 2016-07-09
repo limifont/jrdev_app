@@ -19,6 +19,7 @@ gem 'faker'
 
 group :development, :test do
   gem 'pry'
+  gem 'rails_12factor'
 end
 
 group :development do

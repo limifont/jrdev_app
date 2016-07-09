@@ -1,4 +1,4 @@
-class Api::ClassroomJrdevsController < ApplicationController
+class Api::ClassroomJrdevsController < ApiController
 	before_action :classroom
 
 	def index
