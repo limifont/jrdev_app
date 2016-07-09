@@ -30,7 +30,7 @@ class Lessons extends React.Component {
 						<h4><Link to={`/lesson/${lesson.id}`}>{lesson.name}</Link></h4>
 						<p>Completed: {lesson.completed.toString()}</p>
 						<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>
-						<div className="col m2">
+						<div className="col m5">
 							<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
 						</div>
 					</div>
