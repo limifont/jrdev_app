@@ -55,7 +55,7 @@ class MentorDashboard extends React.Component {
 				<div className="row">
 					<h1>Mentor Dashboard</h1>
 					<Lessons />
-					<div className="col m3 offset-m9">e
+					<div className="col m3 offset-m9">
 						<h6>Add a Jr Dev to your mentorship</h6>
 						<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
 							<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />

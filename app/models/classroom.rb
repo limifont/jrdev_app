@@ -17,6 +17,9 @@ class Classroom < ActiveRecord::Base
     binding.pry
     counts.each do |record|
       days << { x: record.created_at.strftime("%D"), y: record.count }
-    end
+   end
+
+  def student_stats
+  	return self.jrdevs.map { |jrdev| {name: jrdev.name, completed_count: jrdev.completed_exercises.count} }
   end
 end
