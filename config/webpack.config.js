@@ -37,6 +37,7 @@ var config = {
     loaders: [
       {
         test: /\.jsx?$/,         // Match both .js and .jsx files
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         loader: "babel",
         query:
