@@ -1,5 +1,6 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
+import { Link } from 'react-router';
 
 const Splash =() => (
   <div>
@@ -21,19 +22,21 @@ const Splash =() => (
         <div class="section">
 
           <div class="row section">
-            <div class="col s12 m4">
-              <div class="icon-block">
-                <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">insert_emoticon</i></h2>
-                <h5 class="center">Mentors</h5>
-
-                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-            </div>
 
             <div class="col s12 m4">
               <div class="icon-block">
                 <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">group</i></h2>
                 <h5 class="center">Jr. Devs</h5>
+
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p><Link to='/signup/Jrdev'>Create a Jr Dev Account</Link></p>
+              </div>
+            </div>
+
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center deep-orange-text text-lighten-1"><i class="material-icons">insert_emoticon</i></h2>
+                <h5 class="center">Mentors</h5>
 
                 <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
