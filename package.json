@@ -2,8 +2,10 @@
   "name": "webpack-rails",
   "version": "0.0.1",
   "license": "MIT",
+  "engines": {
+    "node": "5.5.0"
+  },
   "dependencies": {
-    "node": "^5.5.0",
     "material-ui": "^0.15.1",
     "moment": "^2.14.1",
     "radium": "^0.17.1",
