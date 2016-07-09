@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :classrooms
 	has_many :mentors_jrdevs
-	has_many :users, through: :mentors_jrdevs
+	has_many :jrdevs, through: :mentors_jrdevs
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :lessons, through: :completed_lessons

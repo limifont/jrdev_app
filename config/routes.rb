@@ -29,4 +29,5 @@ Rails.application.routes.draw do
 
   # KEEP THIS AT BOTTOM
   get '*unmatched_route', to: 'home#index'
+
 end
