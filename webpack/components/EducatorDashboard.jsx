@@ -48,7 +48,7 @@ class EducatorDashboard extends React.Component {
 
 	displayClassrooms() {
 		return this.state.classrooms.map( classroom => {
-			return (<p><Link key={`classroom-${classroom.id}`} to={`/classroom/${classroom.id}`}>{classroom.name}</Link></p>)
+			return (<p key={`classroom-${classroom.id}`}><Link to={`/classroom/${classroom.id}`}>{classroom.name}</Link></p>)
 		})
 	}
 

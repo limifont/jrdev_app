@@ -28,7 +28,7 @@ class Navbar extends React.Component {
 	render() {
 		return(
 			<header>
-	      <div class="navbar-fixed">
+	      <div className="navbar-fixed">
 	          <nav className='cyan darken-3'>
 	            <div className="nav-wrapper container">
 	              <Link to='/' className='brand-logo'>Jr. Devs</Link>

@@ -25,7 +25,7 @@ class Lessons extends React.Component {
 	displayLessons() {
 		return this.state.allLessons.map( lesson => {
 			return(
-				<MuiThemeProvider>
+				<MuiThemeProvider key={`lesson-${lesson.id}`}>
 					<div className="row">
 						<h4><Link to={`/lesson/${lesson.id}`}>{lesson.name}</Link></h4>
 						<p>Completed: {lesson.completed.toString()}</p>

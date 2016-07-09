@@ -1,4 +1,5 @@
 import React from 'react'
+import ExercisesByMonthChart from './ExercisesByMonthChart'
 
 class Jrdev extends React.Component {
 	constructor(props) {
@@ -11,17 +12,20 @@ class Jrdev extends React.Component {
 			url: `/api/jrdevs/${this.props.params.id}`,
 			type: 'GET',
 			dataType: 'JSON'
-		})     
+		}).done( jrdev => {
+			debugger
+		})
 	}
 
 	render() {
-		if(this.state.jrdev){
 			return(
-				<h2>{this.state.jrdev.name}</h2>
+				<div>
+					<h2>Jrdev Name</h2>
+					<ExercisesByMonthChart />
+				</div>
 			)
-		} else {
-			return(<h3>Loading...</h3>)
-		}
 	}
 
 }
+
+export default Jrdev

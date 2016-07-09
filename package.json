@@ -5,7 +5,8 @@
   "dependencies": {
     "material-ui": "^0.15.1",
     "moment": "^2.14.1",
-    "react": "^15.1.0",
+    "radium": "^0.17.1",
+    "react": "^15.2.0",
     "react-ace": "^3.4.1",
     "react-dom": "^15.1.0",
     "react-easy-chart": "^0.1.4",
@@ -28,5 +29,9 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "webpack-dev-server": "^1.9.0"
+  },
+  "scripts": {
+    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
+    "heroku-postbuild": "npm run webpack:deploy"
   }
 }
