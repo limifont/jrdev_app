@@ -12,15 +12,21 @@ class Dashboard extends React.Component {
     	let id = this.props.authData.id
     	if( userType === "Jrdev") {
     		return( 
-    			<JrdevDashboard id={id}/>
+    			<div className="container">
+                    <JrdevDashboard id={id}/>
+                </div>
   			)
     	} else if(userType === "Mentor") {
     		return(
-    			<MentorDashboard id={id}/>
+    			<div className="container">
+                    <MentorDashboard id={id}/>
+                </div>
     		)
     	} else {
     		return(
-    			<EducatorDashboard id={id}/>
+                <div className="container">
+    			 <EducatorDashboard id={id}/>
+                </div>
     		)
     	}
     }

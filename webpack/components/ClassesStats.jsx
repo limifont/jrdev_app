@@ -90,8 +90,10 @@ class ClassesStats extends React.Component {
     } else {
       return(
         <div>
-          <PieChart data={this.state.data} 
-            innerHoleSize={200}
+          <PieChart 
+            size={200}
+            data={this.state.data} 
+            // innerHoleSize={200}
             mouseOverHandler={this.mouseOverHandler.bind(this)}
             mouseOutHandler={this.mouseOutHandler.bind(this)}
             mouseMoveHandler={this.mouseMoveHandler.bind(this)}
