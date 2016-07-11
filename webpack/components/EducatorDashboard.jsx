@@ -7,8 +7,9 @@ import ClassesStats from './ClassesStats';
 class EducatorDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {user: null, classrooms: [], lessons: []}
+		this.state = { user: null, classrooms: [], lessons: [], addFail: false }
 		this.displayClassrooms = this.displayClassrooms.bind(this)
+		this.failMessage = this.failMessage.bind(this)
 	}
 
 	componentWillMount() {
@@ -51,7 +52,7 @@ class EducatorDashboard extends React.Component {
 		}).done( classroom => {
 			this.setState({ classrooms: [{...classroom}, ...this.state.classrooms]})
 		}).fail( data => {
-			console.log("Failed to create classroom", data)
+			this.setState({ addFail: true })
 		})
 		this.refs.name.reset();
 	}
@@ -60,6 +61,16 @@ class EducatorDashboard extends React.Component {
 		return this.state.classrooms.map( classroom => {
 			return (<p key={`classroom-${classroom.id}`}><Link to={`/classroom/${classroom.id}`}>{classroom.name}</Link></p>)
 		})
+	}
+
+	failMessage() {
+		if(this.state.addFail) {
+			return (
+				<div className="center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+					<p style={{color: "red", marginBottom: "2px"}}>Failed to create classroom</p>
+				</div>	
+			)
+		}
 	}
 
 	render() {
@@ -79,6 +90,7 @@ class EducatorDashboard extends React.Component {
 							<input ref="name" type="text" placeholder="Classroom Name" />
 							<button type="submit" className="btn">Create</button>
 						</form>
+						{ this.failMessage() }
 					</div>
 					<div>
 						<h6>Your Classrooms</h6>

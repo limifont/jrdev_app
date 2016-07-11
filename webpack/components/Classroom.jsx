@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router'
 import ClassroomGraph from './ClassroomGraph';
 
 class Classroom extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { classroom: null, jrdevs: [] }
+		this.state = { classroom: null, jrdevs: [], addFail: false }
+		this.failMessage = this.failMessage.bind(this)
 	}
 
 	componentWillMount() {
@@ -36,9 +38,9 @@ class Classroom extends React.Component {
 			dataType: 'JSON',
 			data: { id, secret_phrase }
 		}).done( jrdev => {
-			this.setState({ jrdevs: [{...jrdev}, ...this.state.jrdevs]})
+			this.setState({ jrdevs: [{...jrdev}, ...this.state.jrdevs], addFail: false})
 		}).fail( data => {
-			console.log("Failed to add student", data.errors)
+			this.setState({ addFail: true })
 		})
 		this.refs.addStudent.reset();
 	}
@@ -46,8 +48,19 @@ class Classroom extends React.Component {
 
 	displayStudents() {
 		return this.state.jrdevs.map( jrdev => {
-			return(<p>{jrdev.name}</p>);
+			return(<p><Link to={`/jrdev/${jrdev.id}`}>{jrdev.name}</Link></p>);
 		})
+	}
+
+	failMessage() {
+		if(this.state.addFail) {
+			return (
+				<div className="center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+					<p style={{color: "red", marginBottom: "2px"}}>Failed to find Jr Dev</p>
+				  <p style={{color: "red", marginTop: "0px"}}>Please confirm secret phrase</p>
+				</div>	
+			)
+		}
 	}
 
 	render() {
@@ -67,6 +80,7 @@ class Classroom extends React.Component {
 									<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" />
 									<button type="submit" className="btn">Add</button>
 								</form>
+								{this.failMessage()}
 							</div>
 							<div className="col m3">
 								<div>

@@ -49,7 +49,7 @@ class MentorDashboard extends React.Component {
 			dataType: 'JSON',
 			data: { secret_phrase: this.refs.secret_phrase.value }
 		}).done( mentee => {
-			this.setState({ mentees: [{ ...mentee }, ...this.state.mentees]})
+			this.setState({ mentees: [{ ...mentee }, ...this.state.mentees], addFail: false})
 		}).fail( data => {
 			this.setState({ addFail: true })
 		})
