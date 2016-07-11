@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { connect } from 'react-redux';
 import { loggedIn, logout } from '../components/auth/actions';
 
@@ -25,6 +26,7 @@ class App extends React.Component {
 		  	<div>
 			    { this.props.children }
 			  </div>
+			  <Footer />
 		  </div>
 		)
 	}

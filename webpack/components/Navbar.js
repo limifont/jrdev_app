@@ -33,11 +33,10 @@ class Navbar extends React.Component {
 	            <div className="nav-wrapper container">
 	              <Link to='/' className='brand-logo'>Jr. Devs</Link>
 	              <ul id="nav-mobile" className="right">
-	                <li className="white-text"><Link to="/">Home</Link></li>
-	                <li className="white-text"><Link to="/">Dashboard</Link></li>
 	                <li><i className="material-icons dropdown-button white-text" data-activates="dropdown1">more_vert</i></li>
 	                <ul id="dropdown1" className="dropdown-content cyan-text">
 	                	{ this.authLink() }
+		                <li className="white-text"><Link to="/">Dashboard</Link></li>
 	                </ul>
 	              </ul>
 	            </div>

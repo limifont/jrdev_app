@@ -2,7 +2,7 @@ import React from 'react';
 import { Parallax } from 'react-parallax';
 import { Link } from 'react-router';
 
-const Splash =() => (
+const Splash = () => (
   <div>
       <Parallax bgImage="assets/Kid1.jpg" strength={200}>
         <div style={{width: 800, height: 425}}>
