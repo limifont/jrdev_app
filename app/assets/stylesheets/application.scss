@@ -1,3 +1,5 @@
+@import "materialize/components/color";
+$primary-color: #00838F  !default;
 @import 'materialize';
 
 html, body {
@@ -11,7 +13,7 @@ html, body {
     position: relative;
     padding-left: 10px;
 }
-#editor { 
+#editor {
     position: absolute;
     top: 0;
     right: 0;
