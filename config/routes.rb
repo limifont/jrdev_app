@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'classroom_jrdevs/:id', to: 'classroom_jrdevs#index', as: 'classroom_jrdevs'
     get 'user_classrooms/:id', to: 'classroom_jrdevs#user_classrooms', as: 'jrdev_classcount'
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
+    get 'lessons_index/:user_id', to: 'lessons#index', as: 'lessons_index'
 
     resources :friends, only: [:index]
     resources :mentors, controller: 'users', type: 'Mentor'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     resources :completed_lessons, only: [:index, :create]
     resources :completed_exercises, only: [:index, :create]
 
-    resources :lessons do
+    resources :lessons, only: [:show] do
       resources :exercises
     end
     

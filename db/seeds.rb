@@ -3,7 +3,7 @@
 end
 
 
-lesson1 = Lesson.find_or_create_by(name: "Intro to programming")
+lesson1 = Lesson.find_or_create_by(name: "Intro to Programming")
 exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
 	name: "What is Code", 

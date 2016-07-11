@@ -7,7 +7,7 @@ import ClassesStats from './ClassesStats';
 class EducatorDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {user: null, classrooms: []}
+		this.state = {user: null, classrooms: [], lessons: []}
 		this.displayClassrooms = this.displayClassrooms.bind(this)
 	}
 
@@ -29,6 +29,15 @@ class EducatorDashboard extends React.Component {
 			this.setState({ classrooms })
 		}).fail( data => {
 			console.log("Failed to retrieve classrooms", data)
+		})
+		$.ajax({
+			url: `/api/lessons_index/${this.props.id}`,
+			type: 'GET',
+			dataType: 'JSON'
+		}).done( lessons => {
+			this.setState({ lessons })
+		}).fail( data => {
+			console.log("Failure to get all lessons for JrdevDashboard", data)
 		})
 	}
 
@@ -58,7 +67,7 @@ class EducatorDashboard extends React.Component {
 			<div className="row">
 				<h1>Educator Dashboard</h1>
 				<div className="col m6">
-					<Lessons />
+					<Lessons lessons={this.state.lessons} links={true}/>
 				</div>
 				<div className="col m3">
 					<ClassesStats classes={this.state.classrooms} id={this.props.id} />

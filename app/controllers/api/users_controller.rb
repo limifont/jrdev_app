@@ -9,6 +9,7 @@ class Api::UsersController < ApiController
 		exercises_by_day = CompletedExercise.exercises_by_day(@user)
 		classrooms = @user.get_classrooms
 		mentors = @user.mentors
+		
 		render json: { jrdev: @user, exercises_by_day: exercises_by_day, classrooms: classrooms, mentors: mentors }
 	end
 

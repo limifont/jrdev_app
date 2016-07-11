@@ -43,6 +43,20 @@ class User < ActiveRecord::Base
     return classrooms
   end
 
+  def get_lessons
+    lessons = []
+    Lesson.all.each do |lesson|
+      lessons << {
+        id: lesson.id,
+        name: lesson.name,
+        completed: lesson.completed?(self),
+        exercises_count: lesson.exercises_count,
+        exercises_completed_count: lesson.exercises_completed_count(self)
+      }
+    end
+    return lessons
+  end
+
   def self.mentors
   	where(type: 'Mentor')
   end
