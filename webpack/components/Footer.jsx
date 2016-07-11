@@ -4,10 +4,9 @@ import { Link } from 'react-router';
 const Footer = () => (
 		<footer className="page-footer">
 		  <div className="footer-copyright">
-		    <div className="container">
+		    <div className="container " >
 			    © 2016 Jr. Devs
-					<Link to='/Splash' className='right'>Splash</Link>
-					<Link to='/About' className='right'>About Us</Link>
+					<Link to='/Splash' className='right white-text' style={{ padding: '4px'}} >About Us</Link>
 		  	</div>
 		  </div>
 		</footer>
