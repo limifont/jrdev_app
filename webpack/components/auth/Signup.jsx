@@ -36,7 +36,6 @@ class Signup extends React.Component {
 				let response = data.responseJSON.errors
 				let errors = []
 				for(let i in response ) {
-					debugger
 					errors.push(`${i} ${response[i][0]}`)
 				}
 				this.setState({ errors })
@@ -67,17 +66,21 @@ class Signup extends React.Component {
 	render() {
 		this.checkParams()
 		return (
-			<div className="row">
-				<h3>Sign Up as: {this.props.params.type}</h3>
-				<form onSubmit={ this.handleSubmit.bind(this) } >
-					<input type='text' placeholder='Name' ref='name' required />
-					<input type='text' placeholder='Username' ref='username' required />
-					<input type='email' placeholder='Email' ref='email' required />
-					<input type='password' placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
-					<input type='password' placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
-					<input type='submit' className='btn' value='login' />
-				</form>
-					{this.displayErrors()}
+			<div className="center-align container">
+					<h3>Sign Up as: {this.props.params.type}</h3>
+					<div className="row">
+						<form onSubmit={ this.handleSubmit.bind(this) } >
+							<div className="input-field col s6 offset-s3">
+								<input type='text' placeholder='Name' ref='name' required />
+								<input type='text' placeholder='Username' ref='username' required />
+								<input type='email' placeholder='Email' ref='email' required />
+								<input type='password' placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
+								<input type='password' placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
+								<input type='submit' className='btn' value='Sign Up' />
+							</div>
+						</form>
+							{this.displayErrors()}
+					</div>
 			</div>
 		)
 	}

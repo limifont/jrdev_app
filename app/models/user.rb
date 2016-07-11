@@ -76,4 +76,9 @@ class User < ActiveRecord::Base
   def self.types
   	%w(Mentor Educator Jr\ Dev)
   end
+
+  private
+    def send_welcome_email
+      SignupMailer.delay.new_signup(self.name, self.email)
+    end
 end
