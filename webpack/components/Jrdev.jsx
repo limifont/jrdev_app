@@ -1,10 +1,11 @@
 import React from 'react'
 import ExercisesByDayChart from './ExercisesByDayChart'
+import Lessons from './Lessons'
 
 class Jrdev extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { jrdev: null, completed_by_day: [], mentors: [], classrooms: [] }
+		this.state = { jrdev: null, completed_by_day: [], mentors: [], classrooms: [], lessons: [] }
 		this.displayClassrooms = this.displayClassrooms.bind(this)
 		this.displayMentors = this.displayMentors.bind(this)
 	}
@@ -24,6 +25,15 @@ class Jrdev extends React.Component {
 			})
 		}).fail( data => {
 			console.log("Failed to get completions by day", data)
+		})
+		$.ajax({
+			url: `/api/lessons_index/${this.props.params.id}`,
+			type: 'GET',
+			dataType: 'JSON'
+		}).done( lessons => {
+			this.setState({ lessons })
+		}).fail( data => {
+			console.log("Failure to get all lessons", data)
 		})
 	}
 
@@ -56,14 +66,20 @@ class Jrdev extends React.Component {
 		if(this.state.jrdev) {
 			let jrdev = this.state.jrdev
 			return(
-				<div>
-					<h2>{this.state.jrdev.name}</h2>
-					<p>Username: {this.state.jrdev.username}</p>
-					<ExercisesByDayChart data={this.state.completed_by_day}/>
-					<h4>{`${jrdev.name}'s Classrooms`}</h4>
-					{this.displayClassrooms()}
-					<h4>{`${jrdev.name}'s Mentors`}</h4>
-					{this.displayMentors()}
+				<div className="row">
+					<h2 className="center">{this.state.jrdev.name}</h2>
+						<p className="center">Username: {this.state.jrdev.username}</p>
+					<div className="col m8">
+						<ExercisesByDayChart data={this.state.completed_by_day}/>
+						<h4>{`${jrdev.name}'s Classrooms`}</h4>
+						{this.displayClassrooms()}
+						<h4>{`${jrdev.name}'s Mentors`}</h4>
+						{this.displayMentors()}
+					</div>
+					<div className="col m4">
+						<h5>{`${jrdev.name}'s Lesson Progress`}</h5>
+						<Lessons lessons={this.state.lessons} links={false} />
+					</div>
 				</div>
 			)
 		} else {

@@ -4,7 +4,7 @@ import Lessons from './Lessons'
 class MentorDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {user: null, mentees: []}
+		this.state = {user: null, mentees: [], lessons: []}
 		this.displayMentees = this.displayMentees.bind(this)
 	}
 
@@ -28,6 +28,15 @@ class MentorDashboard extends React.Component {
 				...this.state.mentees
 			]})
 		})
+		$.ajax({
+			url: `/api/lessons_index/${this.props.id}`,
+			type: 'GET',
+			dataType: 'JSON'
+		}).done( lessons => {
+			this.setState({ lessons })
+		}).fail( data => {
+			console.log("Failure to get all lessons for JrdevDashboard", data)
+		})
 	}
 
 	addMentee(e) {
@@ -40,7 +49,7 @@ class MentorDashboard extends React.Component {
 		}).done( mentee => {
 			this.setState({ mentees: [{ ...mentee }, ...this.state.mentees]})
 		})
-		this.refs.addMentee.reset();
+		this.refs.secret_phrase.value = '';
 	}
 
 	displayMentees() {
@@ -54,7 +63,7 @@ class MentorDashboard extends React.Component {
 			return(
 				<div className="row">
 					<h1>Mentor Dashboard</h1>
-					<Lessons />
+					<Lessons lessons={this.state.lessons} links={true}/>
 					<div className="col m3 offset-m9">
 						<h6>Add a Jr Dev to your mentorship</h6>
 						<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>

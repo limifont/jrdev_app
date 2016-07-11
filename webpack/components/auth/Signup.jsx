@@ -6,6 +6,8 @@ import { browserHistory } from 'react-router'
 class Signup extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = { errors: [] }
+		this.displayErrors = this.displayErrors.bind(this)
 	}
 
 	checkParams() {
@@ -16,38 +18,66 @@ class Signup extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const name = this.refs.name.value
-		const username = this.refs.username.value
-		const email =  this.refs.email.value		
-		const password = this.refs.password.value
-		const passwordConfirmation = this.refs.passwordConfirmation.value
-		const type = this.props.params.type
-		$.ajax({
-			url:'/users',
-			type: 'POST',
-			dataType: 'JSON',
-			data: { user: { name, username, email, password, passwordConfirmation, type }}
-		}).done( data => {
-			this.props.dispatch(handleLogin(email, password, this.props.history))
-		}).fail( data => {
-			alert('User Sign Up Failed')
-			console.log(data)
-		})
+		let password = this.refs.password.value
+		let passwordConfirmation = this.refs.passwordConfirmation.value
+		if(password === passwordConfirmation) {
+			let name = this.refs.name.value
+			let username = this.refs.username.value
+			let email =  this.refs.email.value		
+			let type = this.props.params.type
+			$.ajax({
+				url:'/users',
+				type: 'POST',
+				dataType: 'JSON',
+				data: { user: { name, username, email, password, passwordConfirmation, type }}
+			}).done( data => {
+				this.props.dispatch(handleLogin(email, password, this.props.history))
+			}).fail( data => {
+				let response = data.responseJSON.errors
+				let errors = []
+				for(let i in response ) {
+					debugger
+					errors.push(`${i} ${response[i][0]}`)
+				}
+				this.setState({ errors })
+				console.log(data)
+			})
+		} else {
+			this.setState({
+				errors: [
+					"Password and Password Confirmation Must Match"
+				]
+			})
+		}
+	}
+
+	displayErrors() {
+		if(this.state.errors.length > 0) {
+			let messages =  this.state.errors.map( error => {
+				return(<p className="center" style={{color: "red"}}>{error}</p>)
+			})
+			return(
+				<div className="col m6 offset-m3" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+					{messages}
+				</div>	
+			)
+		}
 	}
 
 	render() {
 		this.checkParams()
 		return (
-			<div>
+			<div className="row">
 				<h3>Sign Up as: {this.props.params.type}</h3>
 				<form onSubmit={ this.handleSubmit.bind(this) } >
 					<input type='text' placeholder='Name' ref='name' required />
 					<input type='text' placeholder='Username' ref='username' required />
 					<input type='email' placeholder='Email' ref='email' required />
-					<input type='password' placeholder='Password' ref='password' require />
-					<input type='password' placeholder='Password Confirmation' ref='passwordConfirmation' require />
+					<input type='password' placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
+					<input type='password' placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
 					<input type='submit' className='btn' value='login' />
 				</form>
+					{this.displayErrors()}
 			</div>
 		)
 	}

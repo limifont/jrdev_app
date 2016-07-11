@@ -234,7 +234,7 @@ class Exercise extends React.Component {
 							</div>
 						</div>
 						<div className="col m6">
-							<div className="console" style={{backgroundColor: 'black', color: 'green', height: '80vh', padding: '5px', whiteSpace: 'pre'}}>
+							<div className="console" style={{backgroundColor: 'black', color: 'green', height: '60vh', padding: '5px', whiteSpace: 'pre'}}>
 								{this.state.results}
 							</div>
 						</div>

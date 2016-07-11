@@ -48,7 +48,7 @@ export const handleLogout = (history) => {
 			localStorage.removeItem('userType');
 			localStorage.removeItem('token');
 			dispatch(logout());
-			history.push('/');
+			history.push('/splash');
 		}).fail( response => {
 			console.log(response)
 		})

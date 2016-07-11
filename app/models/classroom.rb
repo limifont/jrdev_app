@@ -17,6 +17,7 @@ class Classroom < ActiveRecord::Base
     binding.pry
     counts.each do |record|
       days << { x: record.created_at.strftime("%D"), y: record.count }
+    end
    end
 
   def student_stats

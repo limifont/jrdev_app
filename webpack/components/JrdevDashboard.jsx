@@ -5,7 +5,7 @@ import Badge from './Badge'
 class JrdevDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { secret_phrase: "" }
+		this.state = { secret_phrase: "", lessons: [] }
 		this.displayPhrase = this.displayPhrase.bind(this);
 	}
 
@@ -19,6 +19,15 @@ class JrdevDashboard extends React.Component {
 	  }).fail( data => {
 	    console.log('failure', data)
 	  })
+	  $.ajax({
+			url: `/api/lessons_index/${this.props.id}`,
+			type: 'GET',
+			dataType: 'JSON'
+		}).done( lessons => {
+			this.setState({ lessons })
+		}).fail( data => {
+			console.log("Failure to get all lessons for JrdevDashboard", data)
+		})
 	}
 
 	displayPhrase() {
@@ -30,14 +39,20 @@ class JrdevDashboard extends React.Component {
 	}
 
 	render() {
-		return(
-			<div>
-				<h1>Jr Dev Dashboard</h1>
-				{this.displayPhrase()}
-				<Lessons />
-				<Badge id={this.props.id} />
-			</div>
-		)
+		if(this.state.lessons.length > 0) {
+			return(
+				<div className="row">
+					<h1>Jr Dev Dashboard</h1>
+					{this.displayPhrase()}
+					<div className="col m8">
+						<Lessons lessons={this.state.lessons} links={true}/>
+					</div >
+					<Badge id={this.props.id} />
+				</div>
+			)
+		} else {
+			return(<h3>Loading...</h3>)
+		}
 	}
 }
 
