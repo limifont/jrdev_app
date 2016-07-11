@@ -5,4 +5,5 @@ class MentorsJrdev < ActiveRecord::Base
   def self.UserMentees(user)
   	user.mentors_jrdevs.map{ |m| Jrdev.find(m.jrdev_id)}
   end
+
 end

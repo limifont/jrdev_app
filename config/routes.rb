@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
     get 'lessons_index/:user_id', to: 'lessons#index', as: 'lessons_index'
 
+    get 'student_stats/:id', to: 'classrooms#student_stats', as: 'student_stats'
     resources :friends, only: [:index]
     resources :mentors, controller: 'users', type: 'Mentor'
     resources :educators, controller: 'users', type: 'Educator'
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
 
   # KEEP THIS AT BOTTOM
   get '*unmatched_route', to: 'home#index'
+
 end

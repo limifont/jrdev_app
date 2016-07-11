@@ -19,7 +19,7 @@ class EducatorDashboard extends React.Component {
 		}).done( user => {
 			this.setState({ user })
 		}).fail( data => {
-			console.log("failed to retrieve usere", data)
+			console.log("failed to retrieve user", data)
 		})
 		$.ajax({
 			url: 'api/classrooms',

@@ -25,8 +25,8 @@ class Lessons extends React.Component {
 						{this.displayLessonName(lesson)}
 						<p>Completed: {lesson.completed.toString()}</p>
 						<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>
-						<div className="col m10">
-							<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count} />
+						<div className="col m5">
+							<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
 						</div>
 					</div>
 		    </MuiThemeProvider>

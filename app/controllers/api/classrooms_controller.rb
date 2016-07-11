@@ -35,6 +35,10 @@ class Api::ClassroomsController < ApiController
   	render json: true
   end
 
+  def student_stats
+    render json: @classroom.student_stats
+  end
+
   private
   	def classroom
   		@classroom = current_user.classrooms.find_by(id: params[:id])

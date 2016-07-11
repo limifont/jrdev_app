@@ -207,42 +207,44 @@ class Exercise extends React.Component {
 	render() {
 		if(this.state.exercise) {
 			return (
-				<div className="row">
-	        <div className="col m10 offset-m1">
-	        	<div style={{backgroundColor: "white", borderRadius: "5px", margin: "10px 0 5px 0", padding: "5px", whiteSpace: "per"}}>
-		        	<p dangerouslySetInnerHTML={{__html: this.state.exercise.instruction}}></p>
-	        	</div>
-	        </div>
-					{this.popup()}
-					<div className="col m6">
-						<div id="editorContainer">
-							<div id="editor">
-								<AceEditor
-							    mode="ruby"
-							    theme="crimson_editor"
-							    onChange={this.onChange}
-							    name="UNIQUE_ID_OF_DIV"
-							    tabSize={2}
-							    height="100%"
-							    width="100%"
-							    value={this.state.value || ''}
-							    editorProps={{$blockScrolling: true}}
-							  />
-						  </div>
-							&nbsp;
+				<div className="container">
+					<div className="row">
+		        <div className="col m12">
+		        	<div style={{backgroundColor: "white", borderRadius: "5px", margin: "10px 0 5px 0", padding: "5px", whiteSpace: "per"}}>
+			        	<p dangerouslySetInnerHTML={{__html: this.state.exercise.instruction}}></p>
+		        	</div>
+		        </div>
+						{this.popup()}
+						<div className="col m6">
+							<div id="editorContainer">
+								<div id="editor">
+									<AceEditor
+								    mode="ruby"
+								    theme="crimson_editor"
+								    onChange={this.onChange}
+								    name="UNIQUE_ID_OF_DIV"
+								    tabSize={2}
+								    height="100%"
+								    width="100%"
+								    value={this.state.value || ''}
+								    editorProps={{$blockScrolling: true}}
+								  />
+							  </div>
+								&nbsp;
+							</div>
 						</div>
-					</div>
-					<div className="col m6">
-						<div className="console" style={{backgroundColor: 'black', color: 'green', height: '80vh', padding: '5px', whiteSpace: 'pre'}}>
-							{this.state.results}
+						<div className="col m6">
+							<div className="console" style={{backgroundColor: 'black', color: 'green', height: '80vh', padding: '5px', whiteSpace: 'pre'}}>
+								{this.state.results}
+							</div>
 						</div>
+						<div className='clearfix'></div>
+						<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
+						{this.nextButton()}
+						{this.previousButton()}
+						{this.exercisePopup()}
+						{this.exerciseFailPopup()}
 					</div>
-					<div className='clearfix'></div>
-					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
-					{this.nextButton()}
-					{this.previousButton()}
-					{this.exercisePopup()}
-					{this.exerciseFailPopup()}
 				</div>
 			)
 		} else {

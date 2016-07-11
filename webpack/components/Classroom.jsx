@@ -53,23 +53,27 @@ class Classroom extends React.Component {
 	render() {
 		if(this.state.classroom){
 			return(
-				<div className="row">
-					<h1>{this.state.classroom.name}</h1>
-					<div className="col m9">
-						<h3>Stats</h3>
-						<ClassroomGraph />
-					</div>
-					<div className="col m3">
-						<div>
-							<h6>Add a student to this classroom</h6>
-							<form ref="addStudent" onSubmit={this.addStudent.bind(this)}>
-								<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" />
-								<button type="submit" className="btn">Add</button>
-							</form>
+				<div className="container">
+					<div className="row">
+						<h1>{this.state.classroom.name}</h1>
+						<div className="col m9">
+							<h3>Stats</h3>
+							<ClassroomGraph classroom={this.state.classroom}/>
 						</div>
-						<div>
-							<h6>Students</h6>
-							{this.displayStudents()}
+						<div className="col m3">
+							<div>
+								<h6>Add a student to this classroom</h6>
+								<form ref="addStudent" onSubmit={this.addStudent.bind(this)}>
+									<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" />
+									<button type="submit" className="btn">Add</button>
+								</form>
+							</div>
+							<div className="col m3">
+								<div>
+									<h6>Students</h6>
+									{this.displayStudents()}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
