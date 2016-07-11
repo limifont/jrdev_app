@@ -1,11 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router'
 import Lessons from './Lessons'
 
 class MentorDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {user: null, mentees: [], lessons: []}
+		this.state = { user: null, mentees: [], lessons: [], addFail: false }
 		this.displayMentees = this.displayMentees.bind(this)
+		this.failMessage = this.failMessage.bind(this)
 	}
 
 	componentWillMount() {
@@ -48,14 +50,27 @@ class MentorDashboard extends React.Component {
 			data: { secret_phrase: this.refs.secret_phrase.value }
 		}).done( mentee => {
 			this.setState({ mentees: [{ ...mentee }, ...this.state.mentees]})
+		}).fail( data => {
+			this.setState({ addFail: true })
 		})
 		this.refs.secret_phrase.value = '';
 	}
 
 	displayMentees() {
 		return this.state.mentees.map( mentee => {
-			return(<p>{mentee.name}</p>)
+			return(<p><Link to={`/jrdev/${mentee.id}`}>{mentee.name}</Link></p>)
 		}) 
+	}
+
+	failMessage() {
+		if(this.state.addFail) {
+			return (
+				<div className="center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+					<p style={{color: "red", marginBottom: "2px"}}>Failed to find Jr Dev</p>
+				  <p style={{color: "red", marginTop: "0px"}}>Please confirm secret phrase</p>
+				</div>	
+			)
+		}
 	}
 
 	render() {
@@ -63,12 +78,15 @@ class MentorDashboard extends React.Component {
 			return(
 				<div className="row">
 					<h1>Mentor Dashboard</h1>
-					<Lessons lessons={this.state.lessons} links={true}/>
-					<div className="col m3 offset-m9">
+					<div className="col m9">
+						<Lessons lessons={this.state.lessons} links={true}/>
+					</div>
+					<div className="col m3">
 						<h6>Add a Jr Dev to your mentorship</h6>
 						<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
 							<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
 						</form>
+						{this.failMessage()}
 						<div>
 							<h6>Jr Devs You Mentor</h6>
 							{this.displayMentees()}
