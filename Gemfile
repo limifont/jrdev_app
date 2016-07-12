@@ -16,6 +16,8 @@ gem 'devise'
 gem 'webpack-rails-react'
 
 gem 'faker'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
 
 group :production do
 	gem 'puma'
@@ -28,7 +30,7 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-
+	gem 'letter_opener'
   gem 'spring'
 end
 

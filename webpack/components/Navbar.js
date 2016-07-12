@@ -17,11 +17,11 @@ class Navbar extends React.Component {
 	authLink(){
 		if(this.props.auth)
 			return([<li><a href='#' onClick={this.logout.bind(this)}>Logout</a></li>,
-							<li><Link to='/admin'>Admin</Link></li>])
+							<li><Link to='/admin'>Admin</Link></li>,
+              <li className="white-text"><Link to="/">Dashboard</Link></li>])
 		else {
-		return(
-			<li><Link to='/login'>Login</Link></li>
-		)
+			return([<li><Link to='/login'>Login</Link></li>,
+							<li><Link to='/Splash'>Signup</Link></li>])
 	}
 }
 
@@ -33,12 +33,7 @@ class Navbar extends React.Component {
 	            <div className="nav-wrapper container">
 	              <Link to='/' className='brand-logo'>Jr. Devs</Link>
 	              <ul id="nav-mobile" className="right">
-	                <li className="white-text"><Link to="/">Home</Link></li>
-	                <li className="white-text"><Link to="/">Dashboard</Link></li>
-	                <li><i className="material-icons dropdown-button white-text" data-activates="dropdown1">more_vert</i></li>
-	                <ul id="dropdown1" className="dropdown-content cyan-text">
-	                	{ this.authLink() }
-	                </ul>
+	                { this.authLink() }
 	              </ul>
 	            </div>
 	          </nav>

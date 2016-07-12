@@ -24,7 +24,6 @@ class Lessons extends React.Component {
 					<div className="row">
 						{this.displayLessonName(lesson)}
 						<p>Completed: {lesson.completed.toString()}</p>
-						<p>You have completed {lesson.exercises_completed_count} of {lesson.exercises_count} exercises</p>
 						<div className="col m5">
 							<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
 						</div>

@@ -8,6 +8,12 @@ export const loggedIn = (id, apiKey, userType, token) => {
 	}
 }
 
+export const loginFail = () => {
+	return {
+		type: 'FAIL'
+	}
+}
+
 export const logout = () => {
 	return {
 		type: 'LOGOUT'
@@ -30,7 +36,7 @@ export const handleLogin = (email, password, history) => {
 			dispatch(loggedIn(response.id, response.api_key, response.type, response.repl_token));
 			history.push('/')
 		}).fail( response => {
-			//TODO: handle this better
+			dispatch(loginFail())
 			console.log(response)
 		})
 	}

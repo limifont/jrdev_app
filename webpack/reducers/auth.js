@@ -6,7 +6,13 @@ const auth = (state = [], action) => {
 				id: action.id,
 				apiKey: action.apiKey,
 				userType: action.userType,
-				token: action.token
+				token: action.token,
+				loginFail: false
+			}
+		case 'FAIL':
+			return {
+				isAuthenticated: false,
+				loginFail: true
 			}
 		case 'LOGOUT':
 			return {
