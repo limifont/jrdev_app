@@ -17,7 +17,6 @@ class Navbar extends React.Component {
 	authLink(){
 		if(this.props.auth)
 			return([<li><a href='#' onClick={this.logout.bind(this)}>Logout</a></li>,
-							<li><Link to='/admin'>Admin</Link></li>,
               <li className="white-text"><Link to="/">Dashboard</Link></li>])
 		else {
 			return([<li><Link to='/login'>Login</Link></li>,
