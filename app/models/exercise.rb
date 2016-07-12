@@ -1,5 +1,6 @@
 class Exercise < ActiveRecord::Base
   belongs_to :lesson
+  validates_presence_of :name, :instruction, :expected_output, :position
 
   def last?(lesson)
   	self == lesson.exercises.last
