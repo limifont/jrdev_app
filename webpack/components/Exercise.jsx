@@ -78,7 +78,11 @@ class Exercise extends React.Component {
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
 
-		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output) {
+		
+		let regEx = new RegExp(this.state.exercise.expected_output)
+
+
+		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output || regEx.test(this.state.results[this.state.results.length -2]) ) {
 			this.setState({ exerciseMessage: true })
 			if(!this.state.completed) {
 				$.ajax({
