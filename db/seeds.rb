@@ -1,4 +1,4 @@
-100.times do |num|
+15.times do |num|
 	Jrdev.create(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}")
 end
 
@@ -80,15 +80,15 @@ lesson2 = Lesson.find_or_create_by(name: "Variables")
 		name: "Variable Naming",
 		instruction: "Variables can take shape into many forms of words. We can name a variable whatever we want.
 		In the code below we can see all sorts of words that acts like a variable.",
-		prefill: "pokemon = 'cool'\nteam = 'Yellow'\nputs pokemon\nputs the_best",
+		prefill: "pokemon = 'cool'\nteam = 'Yellow'\nputs pokemon\nputs team",
 		expected_output: "\\S",
 		position: 3
 		)
 	exercise2_4 = Exercise.find_or_create_by(
 		lesson_id: lesson2.id, 
 		name: "Variables Naming Exercise",
-		instruction: "Now its your turn! In the editor below, name a variable 'food' and have it equal to your favorite food. (Hint: Remember to use quotations!)", 
-		prefill: "food = ''",
+		instruction: "Now its your turn! In the editor below, name a variable 'food' and have it equal to your favorite food and print to the console. (Hint: Remember to use quotations!)", 
+		prefill: "food = ''\nputs ",
 		expected_output: "\\S",
 		position: 4
 		)
@@ -97,7 +97,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables")
 		name: "Variables Naming Cont.",
 		instruction: "Variables can also be a combination of words with numbers as well. Check out the example in the text editor. <br />I bet you can guess what the console will print out!", 
 		prefill: "my_favorite_game = 'Pokemon Go'\ntrainer1 = 'Ash'\ntrainer2 = 'Misty'",
-		expected_output: "Pokemon Go\nAsh\nMisty",
+		expected_output: ["Pokemon Go", "↵", "Ash", "↵", "Misty", "↵"],
 		position: 5
 		)
 	exercise2_6 = Exercise.find_or_create_by(
