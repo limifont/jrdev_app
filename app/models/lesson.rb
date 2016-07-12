@@ -1,5 +1,6 @@
 class Lesson < ActiveRecord::Base
   has_many :exercises, dependent: :destroy
+  validates_presence_of :name
 
 	def completed?(user)
   	arr = user.completed_lessons.pluck(:lesson_id)
