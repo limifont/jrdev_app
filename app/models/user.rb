@@ -81,6 +81,7 @@ class User < ActiveRecord::Base
 
   private
     def send_welcome_email
-      SignupMailer.new_signup(self.name, self.email)
+      user = self
+      SignupMailer.new_signup(user)
     end
 end
