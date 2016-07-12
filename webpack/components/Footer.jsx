@@ -6,7 +6,7 @@ const Footer = () => (
 		  <div className="footer-copyright">
 		    <div className="container " >
 			    © 2016 Jr. Devs
-					<Link to='/Splash' className='right white-text' style={{ padding: '4px'}} >About Us</Link>
+					<Link to='/Splash' className='right white-text'>About Us</Link>
 		  	</div>
 		  </div>
 		</footer>

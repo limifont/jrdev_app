@@ -26,14 +26,18 @@ class Login extends React.Component {
 
 	render() {
 		return(
-			<div className='row'>
+			<div className='center-align container'>
 				<h3>Login</h3>
-				<form onSubmit={ this.handleSubmit.bind(this) } >
-					<input type='email' placeholder='Email' ref='email' required />
-					<input type='password' placeholder='Password' ref='password' require />
-					<input type='submit' className='btn' value='login' />
-				</form>
-				{this.displayError()}
+				<div className="row">
+					<form onSubmit={ this.handleSubmit.bind(this) } >
+						<div className="input-field col s6 offset-s3">
+							<input type='email' placeholder='Email' ref='email' required />
+							<input type='password' placeholder='Password' ref='password' require />
+							<input type='submit' className='btn' value='login' />
+						</div>
+					</form>
+					{this.displayError()}
+				</div>
 			</div>
 		)
 	}

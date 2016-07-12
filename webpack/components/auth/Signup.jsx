@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { handleLogin } from './actions';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router' 
 
 class Signup extends React.Component {
 	constructor(props) {
