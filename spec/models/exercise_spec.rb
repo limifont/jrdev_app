@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Exercise, type: :model do
 	let(:exercise) { FactoryGirl.create(:exercise) }
+	let(:exercise2) { FactoryGirl.create(:exercise) }
+	let(:user) { FactoryGirl.create(:user) }
 
 	before(:each) do
 		@lesson = Lesson.find(exercise.lesson_id)
@@ -27,6 +29,18 @@ RSpec.describe Exercise, type: :model do
 	describe 'first?' do
 		it 'should return true as exercise is first' do
 			expect(exercise.first?(@lesson)).to eq(true)
+		end
+	end
+
+	describe 'completed?' do
+		it 'should return false as the exercise is not complted' do
+			expect(exercise.completed?(user)).to eq(false)
+		end
+	end
+
+	describe 'next_up?' do
+		it 'should return false as not exercises are completed' do
+			expect(exercise.next_up?(user)).to eq(false)
 		end
 	end
 
