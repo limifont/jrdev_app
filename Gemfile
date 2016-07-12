@@ -18,6 +18,7 @@ gem 'webpack-rails-react'
 gem 'faker'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
+gem 'sendgrid'
 
 group :production do
 	gem 'puma'
