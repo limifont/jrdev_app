@@ -4,7 +4,6 @@ class SignupMailer < ApplicationMailer
   sendgrid_category :use_subject_lines
 
 	def new_signup(user)
-		binding.pry
 		puts user
 		sendgrid_category "Welcome"
 		mail(to: user.email, subject: 'Thanks for signing up!') do |format|
