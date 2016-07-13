@@ -37,13 +37,19 @@ class Badge extends React.Component {
   marathonBadge() {
     if (this.state.marathon) {
       return (
-        <div>
-          <p>MARATHON</p>
-          <p>
-            <i className="material-icons">assignment_turned_in</i>
-            <i className="material-icons">assignment_turned_in</i>
-            <i className="material-icons">assignment_turned_in</i>
-          </p>
+        <div class="col s12 m4">
+          <div className="card blue lighten-2 white-text center">
+            <br />
+              <div>
+                <p>MARATHON</p>
+                <p>
+                  <i className="material-icons">assignment_turned_in</i>
+                  <i className="material-icons">assignment_turned_in</i>
+                  <i className="material-icons">assignment_turned_in</i>
+                </p>
+              </div>
+            <br />
+          </div>  
         </div>
       )
     }
@@ -52,11 +58,17 @@ class Badge extends React.Component {
   speedDemonBadge() {
     if (this.state.speedDemon) {
       return (
-        <div>
-          <p>SPEEDY</p>
-          <p>
-            <i className="material-icons">done_all</i>
-          </p>
+        <div class="col s12 m4">
+          <div className="card deep-orange lighten-1 white-text center">
+            <br />
+              <div>
+                <p>SPEEDY</p>
+                <p>
+                  <i className="material-icons">done_all</i>
+                </p>
+              </div>
+            <br />
+          </div>
         </div>
       )
     }
@@ -78,9 +90,15 @@ class Badge extends React.Component {
     if (this.state.newbie != null) {
       if (newbieTime >= currentTime) { 
         return (
-          <div>
-            <p>NEWBIE</p>
-            <p><i className="material-icons md-48">fiber_new</i></p>
+          <div class="col s12 m4">
+            <div className="card amber white-text center">
+              <br />
+                <div>
+                  <p>NEWBIE</p>
+                  <p><i className="material-icons md-48">fiber_new</i></p>
+                </div>
+              <br />
+            </div>
           </div>
         )
       }
@@ -143,31 +161,9 @@ class Badge extends React.Component {
         </span>
         <div>  
           <div className="row">
-            
-            <div class="col s12 m4">
-              <div className="card amber white-text center">
-                <br />
-                  {this.newbieBadge()}
-                <br />
-              </div>
-            </div>
-            
-            <div class="col s12 m4">
-              <div className="card blue lighten-2 white-text center">
-                <br />
-                  {this.marathonBadge()}
-                <br />
-              </div>  
-            </div>
-            
-            
-            <div class="col s12 m4">
-              <div className="card deep-orange lighten-1 white-text center">
-                <br />
-                  {this.speedDemonBadge()}
-                <br />
-              </div>
-            </div>
+            {this.newbieBadge()}
+            {this.marathonBadge()}
+            {this.speedDemonBadge()}
           </div>
         </div>
       </div>
