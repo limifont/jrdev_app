@@ -1,10 +1,10 @@
-15.times do |num|
-	User.create(username: "jrdev#{num}", password: "password", password_confirmation: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
-end
+# 15.times do |num|
+# 	User.create(username: "jrdev#{num}", password: "password", password_confirmation: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
+# end
 
-educator =	User.create(username: "teacher", password: "password", password_confirmation: "password", email: "teacher@gmail.com", name: "teacher", type: "Educator")
+# educator =	User.create(username: "teacher", password: "password", password_confirmation: "password", email: "teacher@gmail.com", name: "teacher", type: "Educator")
 
-mentor = User.create(username: "mentor", password: "password", password_confirmation: "password", email: "mentor@gmail.com", name: "mentor", type: "Mentor")
+# mentor = User.create(username: "mentor", password: "password", password_confirmation: "password", email: "mentor@gmail.com", name: "mentor", type: "Mentor")
 
 lesson1 = Lesson.create(name: "Intro to Programming")
 exercise1_1 = Exercise.find_or_create_by(
