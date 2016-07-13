@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 class ClassroomPreview extends React.Component {
 	constructor(props) {
@@ -12,7 +13,8 @@ class ClassroomPreview extends React.Component {
 		} else {
 			return(
 				<div >
-					<p><Link to={`/classroom/${classroom.id}`}>{classroom.name}</Link></p>
+					<p><Link to={`/classroom/${this.props.classroom.id}`}>{this.props.classroom.name}</Link></p>
+					<a>Delete</a>
 				</div>	
 			)
 		}

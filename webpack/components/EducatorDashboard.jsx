@@ -57,7 +57,7 @@ class EducatorDashboard extends React.Component {
 		}).fail( data => {
 			this.setState({ addFail: true })
 		})
-		this.refs.name.reset();
+		this.refs.createClassroom.reset();
 	}
 
 	displayClassrooms() {
