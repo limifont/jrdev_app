@@ -1,10 +1,10 @@
 15.times do |num|
-	Jrdev.create(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
+	User.find_or_create_by(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
 end
 
-educator =	Educator.find_or_create_by(username: "teacher", password: "password", email: "teacher@gmail.com", name: "teacher")
+educator =	User.find_or_create_by(username: "teacher", password: "password", email: "teacher@gmail.com", name: "teacher", type: "Educator")
 
-mentor = Mentor.find_or_create_by(username: "mentor", password: "password", email: "mentor@gmail.com", name: "mentor")
+mentor = User.find_or_create_by(username: "mentor", password: "password", email: "mentor@gmail.com", name: "mentor", type: "Mentor")
 
 lesson1 = Lesson.find_or_create_by(name: "Intro to Programming")
 exercise1_1 = Exercise.find_or_create_by(
