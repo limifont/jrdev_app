@@ -4,6 +4,7 @@ import Lessons from './Lessons'
 import Classroom from './Classroom'
 import ClassesStats from './ClassesStats';
 import RaisedButton from 'material-ui/RaisedButton';
+import ClassroomPreview from './ClassroomPreview'
 
 
 class EducatorDashboard extends React.Component {
@@ -62,9 +63,7 @@ class EducatorDashboard extends React.Component {
 	displayClassrooms() {
 		return this.state.classrooms.map( classroom => {
 			return (
-				<p key={`classroom-${classroom.id}`}>
-					<Link to={`/classroom/${classroom.id}`}>{classroom.name}</Link>
-				</p>
+				<ClassroomPreview key={`classroomPreview-${classroom.id}`} classroom={classroom} />
 			)
 		})
 	}
