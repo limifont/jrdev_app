@@ -3,6 +3,8 @@ import { Link } from 'react-router'
 import Lessons from './Lessons'
 import Classroom from './Classroom'
 import ClassesStats from './ClassesStats';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 class EducatorDashboard extends React.Component {
 	constructor(props) {
@@ -90,8 +92,8 @@ class EducatorDashboard extends React.Component {
 					</div>
 				</div>
 				
-				<div className="row">
-					<div className="col m4 s12">
+				<div className="row" style={{overflow: 'hidden'}}>
+					<div className="col m4 s12" style={{height: '100%'}}>
 						<div className="card">
 							<div className="card-content">
 								<span class="card-title">Create a Classroom</span>
@@ -101,10 +103,9 @@ class EducatorDashboard extends React.Component {
 								</form>
 								{ this.failMessage() }
 							</div>
-							
 						</div>
 
-						<div>
+						<div style={{height: '100%'}}>
 							<div className="card">
 								<div className="card-content"> 
 									<span className="card-title">
@@ -116,8 +117,8 @@ class EducatorDashboard extends React.Component {
 						</div>
 					</div>
 
-					<div className="col m8 s12">
-						<div className="card">
+					<div className="col m8 s12" style={{height: '100%'}}>
+						<div className="card" style={{height: '100%'}}>
 							<Lessons lessons={this.state.lessons} links={true}/>
 						</div>
 					</div>

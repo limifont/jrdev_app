@@ -23,7 +23,7 @@ class App extends React.Component {
 		return (
 		  <div>
 		  	<Navbar auth={this.props.auth} history={this.props.history} />
-		  	<div style={{minHeight: "82vh", marginBottom: "-50px", backgroundImage: 'assets/pattern-triangle-2-01.jpg'}}>
+		  	<div style={{minHeight: "82vh", backgroundImage: 'assets/pattern-triangle-2-01.jpg'}}>
 			    { this.props.children }
 			  </div>
 			  <Footer />
