@@ -5,7 +5,7 @@ import Badge from './Badge'
 class JrdevDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { secret_phrase: "", lessons: [] }
+		this.state = { secret_phrase: "", lessons: [], hidden: true }
 		this.displayPhrase = this.displayPhrase.bind(this);
 	}
 
@@ -30,12 +30,15 @@ class JrdevDashboard extends React.Component {
 		})
 	}
 
-	displayPhrase() {
-		return(
-			<div className="card-content center" style={{overflow: 'scroll'}}>
-				<i>{this.state.secret_phrase}</i>
-			</div>
-		)
+	displayPhrase = () => {
+		$("#secret-phrase").text(this.state.secret_phrase).css('overflow', 'scroll');
+		$("#secret-phrase").text(this.state.secret_phrase).css('cursor', 'text')
+		$("#hide-btn").css('display', 'block')
+	}
+
+	hidePhrase = () => {
+		$("#secret-phrase").text('SECRET PHRASE').css('cursor', 'pointer');
+		$("#hide-btn").css('display', 'none');
 	}
 
 	render() {
@@ -55,7 +58,10 @@ class JrdevDashboard extends React.Component {
 							</div>
 
 							<div className="card lime accent-2">
-								{this.displayPhrase()}
+								<div className="card-content center">
+									<div className="card-title" id="secret-phrase" style={{cursor: 'pointer'}} onClick={this.displayPhrase}>SECRET PHRASE</div>
+									<div className="btn" id="hide-btn" style={{display: 'none'}} onClick={this.hidePhrase}>HIDE</div>
+								</div>
 							</div>
 						</div>
 					</div>
