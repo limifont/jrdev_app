@@ -43,7 +43,7 @@ class Lesson extends React.Component {
 			return(
 				<div className="container">
 					<div className="row">
-						<h5 className="center">Lesson #{this.state.lesson.id}</h5>
+						<h5 className="center">Lesson #{this.state.lesson.position}</h5>
 						<h2 className="center">{this.state.lesson.name}</h2>
 						{this.displayExercises()}
 					</div>
