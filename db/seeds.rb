@@ -1,5 +1,5 @@
 15.times do |num|
-	Jrdev.find_or_create_by(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
+	Jrdev.create(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
 end
 
 educator =	Educator.find_or_create_by(username: "teacher", password: "password", email: "teacher@gmail.com", name: "teacher")
