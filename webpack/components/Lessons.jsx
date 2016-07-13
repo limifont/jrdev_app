@@ -21,13 +21,13 @@ class Lessons extends React.Component {
 		return this.props.lessons.map( lesson => {
 			return(
 				<MuiThemeProvider key={`lesson-${lesson.id}`}>
-					<div className="row">
-						{this.displayLessonName(lesson)}
-						<p>Completed: {lesson.completed.toString()}</p>
-						<div className="col m5">
-							<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
-						</div>
-					</div>
+					<div className="card-content">
+            <span className="card-title">{this.displayLessonName(lesson)}</span>
+            <p>Completed: {lesson.completed.toString()}</p>
+            <div className="col m5">
+            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
+            </div>
+          </div>
 		    </MuiThemeProvider>
 			)
 		})

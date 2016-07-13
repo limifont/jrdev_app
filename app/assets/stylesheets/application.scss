@@ -4,7 +4,7 @@ $primary-color: #00838F  !default;
 
 html, body {
 	height: 100%;
-	background-color: #EDEDED;
+  background: white;
 }
 
 #editorContainer {
@@ -13,6 +13,7 @@ html, body {
   position: relative;
   padding-left: 10px;
 }
+
 #editor {
   position: absolute;
   top: 0;
@@ -25,6 +26,25 @@ html, body {
   min-height: 100%;
 }
 
+.container {
+  width: 80%;
+}
 
+.container .row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card .classesStats {
+  min-height: 20vh;
+}
+
+nav {
+  box-shadow: none;
+  z-index: 1;
+}
+
+.edcuator-img {
+}
 
   

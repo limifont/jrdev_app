@@ -83,7 +83,7 @@ class ClassesStats extends React.Component {
   render() {
     if (this.state.data.length < 1){
       return(
-        <div>
+        <div className="card">
           Loading
         </div>
       )

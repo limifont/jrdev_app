@@ -5,9 +5,11 @@ import { Link } from 'react-router';
 const Splash = () => (
   <div>
       <Parallax bgImage="assets/Kid1.jpg" strength={200}>
-        <div style={{width: 1250, height: 400, marginTop: 145}}>
+        <div style={{width: '100vw', height: '50vh', marginTop: 1}}>
+          <br />
+          <br />
           <h1 className="header valign center cyan-text text-accent-3">Jr. Devs</h1>
-          <div className="row valign center">
+          <div className="row valign center col s12">
             <h5 className="header col s12 light white-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
           </div>
         </div>
@@ -24,7 +26,7 @@ const Splash = () => (
                 <h2 className="center deep-orange-text text-lighten-1"><i className="material-icons">group</i></h2>
                 <h5 className="center">Jr. Dev</h5>
 
-                <p className="light center">Here to learn how to code? With a Jr Dev account, you'll have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
+                <p className="light center">Here to learn how to code? With a Jr Dev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
                 <Link to='/signup/Jrdev'>Create a Jr Dev Account</Link>
               </div>
             </div>

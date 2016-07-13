@@ -28,8 +28,8 @@ class Navbar extends React.Component {
 	render() {
 		return(
 			<header>
-	      <div className="navbar-fixed">
-	          <nav className='cyan darken-3'>
+		      <div className="navbar-fixed">
+	          <nav className='cyan'>
 	            <div className="nav-wrapper container">
 	              <Link to='/' className='brand-logo'>Jr. Devs</Link>
 	              <ul id="nav-mobile" className="right">
@@ -38,6 +38,9 @@ class Navbar extends React.Component {
 	            </div>
 	          </nav>
 	        </div>
+
+
+
 	    </header>
     )
 	}

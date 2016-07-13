@@ -13,19 +13,24 @@ class Dashboard extends React.Component {
     if( userType === "Jrdev") {
     	return( 
     		<div className="container">
-          <JrdevDashboard id={id}/>
+            <JrdevDashboard id={id} />
         </div>
   		)
   	} else if(userType === "Mentor") {
   		return(
   			<div className="container">
-          <MentorDashboard id={id}/>
+          <MentorDashboard id={id} />
         </div>
     	)
     } else {
     	return(
         <div className="container">
-    			<EducatorDashboard id={id}/>
+          <div style={{width: '100%'}}>
+            <div className="col s12 m12 center">
+              <h1>Educator Dashboard</h1>
+            </div>
+          </div>
+         <EducatorDashboard id={id} />
         </div>
     	)
     }

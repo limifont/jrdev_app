@@ -59,7 +59,11 @@ class EducatorDashboard extends React.Component {
 
 	displayClassrooms() {
 		return this.state.classrooms.map( classroom => {
-			return (<p key={`classroom-${classroom.id}`}><Link to={`/classroom/${classroom.id}`}>{classroom.name}</Link></p>)
+			return (
+				<p key={`classroom-${classroom.id}`}>
+					<Link to={`/classroom/${classroom.id}`}>{classroom.name}</Link>
+				</p>
+			)
 		})
 	}
 
@@ -75,27 +79,49 @@ class EducatorDashboard extends React.Component {
 
 	render() {
 		return(
-			<div className="row">
-				<h1>Educator Dashboard</h1>
-				<div className="col m6">
-					<Lessons lessons={this.state.lessons} links={true}/>
-				</div>
-				<div className="col m3">
-					<ClassesStats classes={this.state.classrooms} id={this.props.id} />
-				</div>
-				<div className="col m3">
-					<div>
-						<h6>Create a Classroom</h6>
-						<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
-							<input ref="name" type="text" placeholder="Classroom Name" />
-							<button type="submit" className="btn">Create</button>
-						</form>
-						{ this.failMessage() }
+			<div>
+				<div className="row">
+					<div className="col m12 s12">
+						<div className="card">
+							<div className="card-content center">
+								<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
+							</div>
+						</div>
 					</div>
-					<div>
-						<h6>Your Classrooms</h6>
-						{this.displayClassrooms()}
+				</div>
+				
+				<div className="row">
+					<div className="col m4 s12">
+						<div className="card">
+							<div className="card-content">
+								<span class="card-title">Create a Classroom</span>
+								<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
+									<input ref="name" type="text" placeholder="Classroom Name" />
+									<button type="submit" className="btn">Create</button>
+								</form>
+								{ this.failMessage() }
+							</div>
+							
+						</div>
+
+						<div>
+							<div className="card">
+								<div className="card-content"> 
+									<span className="card-title">
+										Classrooms:
+									</span>
+									{this.displayClassrooms()}
+								</div>
+							</div>
+						</div>
 					</div>
+
+					<div className="col m8 s12">
+						<div className="card">
+							<Lessons lessons={this.state.lessons} links={true}/>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		)
