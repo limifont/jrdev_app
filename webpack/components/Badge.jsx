@@ -38,7 +38,12 @@ class Badge extends React.Component {
     if (this.state.marathon) {
       return (
         <div>
-          <p>You got the marathon badge!!</p>
+          <p>MARATHON</p>
+          <p>
+            <i className="material-icons">assignment_turned_in</i>
+            <i className="material-icons">assignment_turned_in</i>
+            <i className="material-icons">assignment_turned_in</i>
+          </p>
         </div>
       )
     }
@@ -48,7 +53,10 @@ class Badge extends React.Component {
     if (this.state.speedDemon) {
       return (
         <div>
-          <p>You got the Speed Demon Badge!!</p>
+          <p>SPEEDY</p>
+          <p>
+            <i className="material-icons">done_all</i>
+          </p>
         </div>
       )
     }
@@ -71,7 +79,8 @@ class Badge extends React.Component {
       if (newbieTime >= currentTime) { 
         return (
           <div>
-            <p>You are a newbie!!</p>
+            <p>NEWBIE</p>
+            <p><i className="material-icons md-48">fiber_new</i></p>
           </div>
         )
       }
@@ -128,11 +137,39 @@ class Badge extends React.Component {
   render() {
     
     return(
-      <div className="row">
-        <i>These exercises have been completed:</i>
-        {this.marathonBadge()}
-        {this.speedDemonBadge()}
-        {this.newbieBadge()}
+      <div className="card-content">
+        <span className="card-title">
+          BADGES:
+        </span>
+        <div>  
+          <div className="row">
+            
+            <div class="col s12 m4">
+              <div className="card amber white-text center">
+                <br />
+                  {this.newbieBadge()}
+                <br />
+              </div>
+            </div>
+            
+            <div class="col s12 m4">
+              <div className="card blue lighten-2 white-text center">
+                <br />
+                  {this.marathonBadge()}
+                <br />
+              </div>  
+            </div>
+            
+            
+            <div class="col s12 m4">
+              <div className="card deep-orange lighten-1 white-text center">
+                <br />
+                  {this.speedDemonBadge()}
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

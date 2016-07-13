@@ -32,7 +32,7 @@ class JrdevDashboard extends React.Component {
 
 	displayPhrase() {
 		return(
-			<div>
+			<div className="card-content center" style={{overflow: 'scroll'}}>
 				<i>{this.state.secret_phrase}</i>
 			</div>
 		)
@@ -41,13 +41,24 @@ class JrdevDashboard extends React.Component {
 	render() {
 		if(this.state.lessons.length > 0) {
 			return(
-				<div className="row">
-					<h1>Jr Dev Dashboard</h1>
-					{this.displayPhrase()}
-					<div className="col m8">
-						<Lessons lessons={this.state.lessons} links={true}/>
-					</div >
-					<Badge id={this.props.id} />
+				<div>
+					<div className="row">
+						<div className="col m8 s12" style={{height: '100%'}}>
+							<div className="card">
+								<Lessons lessons={this.state.lessons} links={true}/>
+							</div>
+						</div >
+
+						<div className="col m4 s12">
+							<div className="card">
+								<Badge id={this.props.id} />
+							</div>
+
+							<div className="card lime accent-2">
+								{this.displayPhrase()}
+							</div>
+						</div>
+					</div>
 				</div>
 			)
 		} else {
