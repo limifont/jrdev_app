@@ -24,14 +24,24 @@ class Lesson extends React.Component {
 		return this.state.exercises.map( e => {
 			if(e.completed || e.next_up) {
 				return(
-					<div className="center">
-						<h5><Link to={`/lesson/${this.state.lesson.id}/exercise/${e.position}`}>{e.name}</Link></h5>
+					<div className="col s12 m12">
+						<div className="card">
+							<div className="card-content">
+								<h5 className="center"><Link to={`/lesson/${this.state.lesson.id}/exercise/${e.position}`}>{e.name}</Link></h5>
+							</div>
+						</div>
 					</div>
 				)
 			} else {
 				return(
-					<div className="center">
-						<h5>{e.name}</h5>
+					<div className="col s12 m12">
+						<div className="card">
+							<div className="card-content">
+								<div className="center">
+									<h5>{e.name}</h5>
+								</div>
+							</div>
+						</div>
 					</div>
 				)	
 			}
@@ -43,9 +53,10 @@ class Lesson extends React.Component {
 			return(
 				<div className="container">
 					<div className="row">
-						<h5 className="center">Lesson #{this.state.lesson.position}</h5>
 						<h2 className="center">{this.state.lesson.name}</h2>
-						{this.displayExercises()}
+						<div className="row">
+							{this.displayExercises()}
+						</div>
 					</div>
 				</div>
 			)

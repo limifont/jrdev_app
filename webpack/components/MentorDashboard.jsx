@@ -76,21 +76,37 @@ class MentorDashboard extends React.Component {
 	render() {
 		if(this.state.user){
 			return(
-				<div className="row">
-					<h1>Mentor Dashboard</h1>
-					<div className="col m9">
-						<Lessons lessons={this.state.lessons} links={true}/>
-					</div>
-					<div className="col m3">
-						<h6>Add a Jr Dev to your mentorship</h6>
-						<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
-							<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
-						</form>
-						{this.failMessage()}
-						<div>
-							<h6>Jr Devs You Mentor</h6>
-							{this.displayMentees()}
+				<div>
+					<div className="row" style={{overflow: 'hidden'}}>
+						<div className="col m4 s12" style={{height: '100%'}}>
+							<div className="card">
+								<div className="card-content">
+									<span class="card-title">Add a JrDev</span>
+									<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
+										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
+									</form>
+									{this.failMessage()}
+								</div>
+							</div>
+
+							<div style={{height: '100%'}}>
+								<div className="card">
+									<div className="card-content"> 
+										<span className="card-title">
+											JrDevs:
+										</span>
+										{this.displayMentees()}
+									</div>
+								</div>
+							</div>
 						</div>
+
+						<div className="col m8 s12" style={{height: '100%'}}>
+							<div className="card" style={{height: '100%'}}>
+								<Lessons lessons={this.state.lessons} links={true}/>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			)	

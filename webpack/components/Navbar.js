@@ -31,15 +31,15 @@ class Navbar extends React.Component {
 	          <nav className='cyan'>
 	            <div className="nav-wrapper container">
 	              <Link to='/' className='brand-logo'>Jr. Devs</Link>
-	              <ul id="nav-mobile" className="right">
+	              <ul id="nav-mobile" className="right hide-on-med-and-down">
 	                { this.authLink() }
+	              </ul>
+	              <ul className="right hide-on-med-and-up">
+	              	<i className="material-icons">menu</i>
 	              </ul>
 	            </div>
 	          </nav>
 	        </div>
-
-
-
 	    </header>
     )
 	}

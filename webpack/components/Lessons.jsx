@@ -7,7 +7,6 @@ class Lessons extends React.Component {
 	constructor(props) {
 		super(props)
 		this.displayLessons = this.displayLessons.bind(this)
-		this.checkMark = this.checkMark.bind(this)
 	}
 
 	displayLessonName(lesson) {
@@ -18,50 +17,37 @@ class Lessons extends React.Component {
 		}
 	}
 
-	checkMark(lesson) {
-		if(lesson) {
-			return(
-				<div>
-					<i className="material-icons">add</i>
-				</div>
-			)
-		} else {
-			return(
-				<div>
-					You have more exercises to complete!
-				</div>
-			)
-		}
-	}
-
 	displayLessons() {
 		return this.props.lessons.map( lesson => {
-			if(lesson.completed.toString() == true) {
+			let check = lesson.completed.toString()
+			if(check === 'true' ) {
 				return(
 					<MuiThemeProvider key={`lesson-${lesson.id}`}>
-						<div className="card-content">
-	            <span className="card-title">{this.displayLessonName(lesson)}</span>
-	            <p>Completed: 
-	            	<div>
-									<i className="material-icons">add</i>
-								</div>
-							</p>
-	            <div className="col m12">
-	            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
-	            </div>
-	          </div>
+						<div className="col s12 m12">
+							<div className="card">	
+								<div className="card-content">
+			            <span className="card-title">{this.displayLessonName(lesson)}<i className="material-icons">done</i></span>
+			          </div>
+			        </div>
+		        </div>
 			    </MuiThemeProvider>
 				)
 			} else {
+				let complete = lesson.exercises_completed_count
+				let total = lesson.exercises_count
+				let num = total - complete
 				return(
 					<MuiThemeProvider key={`lesson-${lesson.id}`}>
-						<div className="card-content">
-	            <span className="card-title">{this.displayLessonName(lesson)}</span>
-	            <p>Completed: {lesson.completed.toString()}</p>
-	            <div className="col m12">
-	            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
-	            </div>
-	          </div>
+						<div className="col s12 m12">
+							<div className="card">		
+								<div className="card-content">
+			            <span className="card-title">{this.displayLessonName(lesson)} ({complete}/{total})</span>
+			            <div className="col s12 m12">
+			            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
+			            </div>
+			          </div>
+			    		</div>
+			    	</div>      	
 			    </MuiThemeProvider>
 				)
 			}
@@ -70,8 +56,15 @@ class Lessons extends React.Component {
 
 	render() {
 		return (
-			<div>
-				{this.displayLessons()}
+			<div className="card-content">	
+				<span className="card-title">
+					Lessons:
+				</span>
+				<div>
+					<div className="row">
+						{this.displayLessons()}
+					</div>
+				</div>
 			</div>
 		);
 	}
