@@ -22,7 +22,7 @@ class Lesson extends React.Component {
 
 	displayExercises() {
 		return this.state.exercises.map( e => {
-			if(e.id == 1 || e.completed || e.next_up) {
+			if(e.completed || e.next_up) {
 				return(
 					<div className="center">
 						<h5><Link to={`/lesson/${this.state.lesson.id}/exercise/${e.position}`}>{e.name}</Link></h5>

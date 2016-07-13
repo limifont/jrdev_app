@@ -19,6 +19,8 @@ class Exercise < ActiveRecord::Base
     arr = user.completed_exercises.pluck(:exercise_id)
     if arr.length > 0
       return self.id == arr.last + 1
+    elsif self == Exercise.first
+      return true
     else
       return false
     end
