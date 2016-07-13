@@ -15,3 +15,5 @@
 /node_modules
 /public/webpack
 /config/replit.yml
+/config/sendgrid.yml
+/coverage

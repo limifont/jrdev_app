@@ -1,12 +1,12 @@
-15.times do |num|
-	Jrdev.find_or_create_by(username: "jrdev#{num}", password: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}")
-end
+# 15.times do |num|
+# 	User.create(username: "jrdev#{num}", password: "password", password_confirmation: "password", email: "jrdev#{num}@gmail.com", name: "jrdev#{num}", type: "Jrdev")
+# end
 
-educator =	Educator.find_or_create_by(username: "teacher", password: "password", email: "teacher@gmail.com", name: "teacher")
+# educator =	User.create(username: "teacher", password: "password", password_confirmation: "password", email: "teacher@gmail.com", name: "teacher", type: "Educator")
 
-mentor = Mentor.find_or_create_by(username: "mentor", password: "password", email: "mentor@gmail.com", name: "mentor")
+# mentor = User.create(username: "mentor", password: "password", password_confirmation: "password", email: "mentor@gmail.com", name: "mentor", type: "Mentor")
 
-lesson1 = Lesson.find_or_create_by(name: "Intro to Programming")
+lesson1 = Lesson.create(name: "Intro to Programming", position: 1)
 exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
 	name: "What is Code", 
@@ -56,7 +56,7 @@ exercise1_5 = Exercise.find_or_create_by(
 
 # TODO: have code examples in the editor for the code below sections.
 
-lesson2 = Lesson.find_or_create_by(name: "Variables")
+lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 	exercise2_1 = Exercise.find_or_create_by(
 		lesson_id: lesson2.id, 
 		name: "Variables Intro",
@@ -114,7 +114,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables")
 		# TODO: hint of using puts
 	# TODO: have a recap quiz. have a recap of puts, what is a string, number, and the new concept of variables.
 	
-lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation")
+lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 	exercise3_1 = Exercise.find_or_create_by(
 		lesson_id: lesson3.id, 
 		name: "Variables Manipulation",

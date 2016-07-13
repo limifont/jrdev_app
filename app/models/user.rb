@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
     user.secret_phrase = user.generate_secret_phrase if user.type == "Jrdev"
   end
 
+  after_create :send_welcome_email
+
   def generate_api_key
     loop do
       token = SecureRandom.base64
@@ -79,6 +81,7 @@ class User < ActiveRecord::Base
 
   private
     def send_welcome_email
-      SignupMailer.delay.new_signup(self.name, self.email)
+      user = self
+      SignupMailer.new_signup(user)
     end
 end

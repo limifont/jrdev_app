@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :lessons, only: [:show] do
       resources :exercises
     end
-    
+
   end
 
   devise_for :users, controllers: {
