@@ -13,12 +13,22 @@ class Dashboard extends React.Component {
     if( userType === "Jrdev") {
     	return( 
     		<div className="container">
-            <JrdevDashboard id={id} />
+          <div style={{width: '100%'}}>
+            <div className="col s12 m12 center">
+              <h1>JrDev Dashboard</h1>
+            </div>
+          </div>
+          <JrdevDashboard id={id} />
         </div>
   		)
   	} else if(userType === "Mentor") {
   		return(
-  			<div className="container">
+		   <div className="container">
+          <div style={{width: '100%'}}>
+            <div className="col s12 m12 center">
+              <h1>Mentor Dashboard</h1>
+            </div>
+          </div>
           <MentorDashboard id={id} />
         </div>
     	)
@@ -30,7 +40,7 @@ class Dashboard extends React.Component {
               <h1>Educator Dashboard</h1>
             </div>
           </div>
-         <EducatorDashboard id={id} />
+          <EducatorDashboard id={id} />
         </div>
     	)
     }
