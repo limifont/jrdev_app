@@ -58,17 +58,34 @@ class MentorDashboard extends React.Component {
 
 	displayMentees() {
 		return this.state.mentees.map( mentee => {
-			return(<p><Link to={`/jrdev/${mentee.id}`}>{mentee.name}</Link></p>)
+			let name = mentee.name
+			return(
+				<div className="col s12 m6">
+					<div className="card">
+						<div className="card-content">
+							<div className="center" style={{overflow: 'scroll'}}>
+								<Link to={`/jrdev/${mentee.id}`}>{name.toUpperCase()}</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+			)
 		}) 
 	}
 
 	failMessage() {
 		if(this.state.addFail) {
 			return (
-				<div className="center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
 					<p style={{color: "red", marginBottom: "2px"}}>Failed to find Jr Dev</p>
 				  <p style={{color: "red", marginTop: "0px"}}>Please confirm secret phrase</p>
 				</div>	
+			)
+		} else {
+			return (
+				<div>
+					<i className="material-icons">person_add</i>
+				</div>
 			)
 		}
 	}
@@ -77,36 +94,46 @@ class MentorDashboard extends React.Component {
 		if(this.state.user){
 			return(
 				<div>
-					<div className="row" style={{overflow: 'hidden'}}>
-						<div className="col m4 s12" style={{height: '100%'}}>
-							<div className="card">
+					<div className="row">
+						
+						<div className="col m4 s12">
+							<div className="card" style={{height: '40vh'}}>
 								<div className="card-content">
 									<span class="card-title">Add a JrDev</span>
 									<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
-										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" />
+										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" onClick={()=>{this.setState({ addFail: false })}}/>
 									</form>
+
 									{this.failMessage()}
 								</div>
 							</div>
+						</div>
 
-							<div style={{height: '100%'}}>
-								<div className="card">
+						<div className="col m8 s12">
+							<div>
+								<div className="card" style={{height: '40vh', overflowY: 'scroll'}}>
 									<div className="card-content"> 
 										<span className="card-title">
 											JrDevs:
 										</span>
-										{this.displayMentees()}
+										<div className="row">
+											{this.displayMentees()}
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+					
+					</div>
 
-						<div className="col m8 s12" style={{height: '100%'}}>
+					<div className="row">
+
+						<div className="col m12 s12" style={{height: '100%'}}>
 							<div className="card" style={{height: '100%'}}>
 								<Lessons lessons={this.state.lessons} links={true}/>
 							</div>
 						</div>
-
+			
 					</div>
 				</div>
 			)	

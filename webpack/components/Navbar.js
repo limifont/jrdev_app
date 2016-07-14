@@ -20,7 +20,7 @@ class Navbar extends React.Component {
               <li className="white-text"><Link to="/">Dashboard</Link></li>])
 		else {
 			return([<li><Link to='/login'>Login</Link></li>,
-							<li><Link to='/Splash'>Signup</Link></li>])
+							<li><Link to='/signup_landing' >Signup</Link></li>])
 	}
 }
 
