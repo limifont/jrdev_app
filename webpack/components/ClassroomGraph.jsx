@@ -34,12 +34,8 @@ class ClassroomGraph extends React.Component {
 				dataType: 'JSON',
 			}).done( stats => {
 				let student_stats = [];
-				if (stats.length === 0) {
-					student_stats = [{x: 0, y: null}]
-				} else {
-					for (let student of stats) {
-						student_stats.push({x: student.name, y: student.completed_count})
-					}
+				for (let student of stats) {
+					student_stats.push({x: student.name, y: student.completed_count})
 				}
 				this.setState({ student_stats })
 			}).fail( data  => {
@@ -69,7 +65,7 @@ class ClassroomGraph extends React.Component {
 					</div>
 	      );
 	    } else {
-	    	return (<h6>Loading...</h6>)
+	    	return (<h6>Once you add some students, you'll see some cool stats here. Added students but still can't see the stats? Try refreshing!</h6>)
 	    }
     }
 }

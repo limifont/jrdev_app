@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-
-class ClassroomPreview extends React.Component {
+class JrdevPreview extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = { delete: false }
@@ -16,7 +15,7 @@ class ClassroomPreview extends React.Component {
 
 	handleDelete(e) {
 		e.preventDefault();
-		this.props.deleteClassroom(this.props.classroom.id)
+		this.props.deleteJrdev(this.props.jrdev.id)
 	}
 
 	render () {
@@ -26,8 +25,8 @@ class ClassroomPreview extends React.Component {
 					<div className="col m12">
 	          <div className="card orange lighten-2 white-text">
 	          	<div className="card-content white-text center" style={{padding: "0px"}}>
-	              <span className="card-title">{this.props.classroom.name}</span>
-	              <p>Are you sure you want to delete this classroom?</p>
+	              <span className="card-title">{this.props.jrdev.name}</span>
+	              <p>Are you sure you want to delete this JrDev?</p>
 	              <a href='#' style={{color: "red", marginRight: "6px"}} onClick={this.handleDelete.bind(this)}>Yes</a>
 	              <a href='#' onClick={this.toggleDelete}>Nope</a>
 	            </div>
@@ -40,9 +39,9 @@ class ClassroomPreview extends React.Component {
 				<div className='row'>
 					<div className="col m12">
 	          <div className="card orange lighten-2 white-text">
-	          	<Link to={`/classroom/${this.props.classroom.id}`}>
+	          	<Link to={`/jrdev/${this.props.jrdev.id}`}>
 		          	<div className="card-content white-text center" style={{padding: "0px"}}>
-		              <span className="card-title">{this.props.classroom.name}</span>
+		              <span className="card-title">{this.props.jrdev.name}</span>
 		            </div>
 	            </Link>
 	            <div className="card-action white-text" style={{padding: "2px"}}>
@@ -56,4 +55,4 @@ class ClassroomPreview extends React.Component {
 	}
 }
 
-export default ClassroomPreview;
+export default JrdevPreview;

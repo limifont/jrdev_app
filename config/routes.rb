@@ -8,12 +8,15 @@ Rails.application.routes.draw do
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
     get 'lessons_index/:user_id', to: 'lessons#index', as: 'lessons_index'
 
+    delete 'mentors_jrdevs/:mentor_id/:jrdev_id', to: 'mentors_jrdevs#destroy', as: 'delete_mentors_jrdev'
+    delete 'classroom_jrdevs/:id/:jrdev_id', to: 'classroom_jrdevs#destroy', as: 'delete_classroom_jrdev'
+
     get 'student_stats/:id', to: 'classrooms#student_stats', as: 'student_stats'
     resources :friends, only: [:index]
     resources :mentors, controller: 'users', type: 'Mentor'
     resources :educators, controller: 'users', type: 'Educator'
     resources :jrdevs, controller: 'users', type: 'Jrdev'
-    resources :mentors_jrdevs, only: [:index, :create, :destroy]
+    resources :mentors_jrdevs, only: [:index, :create]
     resources :classrooms
     resources :classroom_jrdevs, only: [:create, :destroy]
     resources :completed_lessons, only: [:index, :create]
