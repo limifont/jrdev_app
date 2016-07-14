@@ -14,8 +14,7 @@ class SignupLanding extends React.Component {
     this.setState({
         hover: type
     });
-
-   }
+  }
 
   onMouseOutHandler(){
     this.setState({
@@ -34,18 +33,6 @@ class SignupLanding extends React.Component {
     	default:
     		return(<div></div>)
     }
-  }
-
-  jrdevHoverInfo(){
-  	console.log('jrdevInfo')
-  }
-
-  mentorHoverInfo(){
-
-  }
-
-  educatorHoverInfo(){
-
   }
 
 	render() {
