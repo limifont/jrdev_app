@@ -66,20 +66,43 @@ class Jrdev extends React.Component {
 		if(this.state.jrdev) {
 			let jrdev = this.state.jrdev
 			return(
-				<div className="row">
-					<h2 className="center">{this.state.jrdev.name}</h2>
-						<p className="center">Username: {this.state.jrdev.username}</p>
-					<div className="col m8">
-						<ExercisesByDayChart data={this.state.completed_by_day}/>
-						<h4>{`${jrdev.name}'s Classrooms`}</h4>
-						{this.displayClassrooms()}
-						<h4>{`${jrdev.name}'s Mentors`}</h4>
-						{this.displayMentors()}
+				<div>
+					<div className="row">
+						<div className="col s12 m12 center">
+							<h2>{this.state.jrdev.name}</h2>
+							<p>Username: {this.state.jrdev.username}</p>
+						</div>
 					</div>
-					<div className="col m4">
-						<h5>{`${jrdev.name}'s Lesson Progress`}</h5>
-						<Lessons lessons={this.state.lessons} links={false} />
+					
+					<div className="row">
+						<div className="col s12 m4">
+							<div className="card">
+								<h4>{`${jrdev.name}'s Classrooms`}</h4>
+								{this.displayClassrooms()}
+							</div>
+						</div>
+
+						<div className="col s12 m4">
+							<div className="card">
+								<h4>{`${jrdev.name}'s Mentors`}</h4>
+								{this.displayMentors()}
+							</div>
+						</div>
+
+						<div className="col s12 m4">
+							<div className="card">
+								<ExercisesByDayChart data={this.state.completed_by_day}/>
+							</div>
+						</div>
 					</div>
+					
+					<div className="row">
+						<div className="col s12 m12">
+							<h5>{`${jrdev.name}'s Lesson Progress`}</h5>
+							<Lessons lessons={this.state.lessons} links={false} />
+						</div>
+					</div>
+
 				</div>
 			)
 		} else {
