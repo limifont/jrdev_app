@@ -1,52 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+var ReactTooltip = require("react-tooltip")
+
 class SignupLanding extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { hover: '' }
-		this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this)
-		this.onMouseOutHandler = this.onMouseOutHandler.bind(this)
-		this.displayDescription = this.displayDescription.bind(this)
+
 	}
-
-	onMouseEnterHandler(type){
-    this.setState({
-        hover: type
-    });
-
-   }
-
-  onMouseOutHandler(){
-    this.setState({
-        hover: ''
-    });
-  }
-
-  displayDescription(){
-  	switch (this.state.hover) {
-    	case 'jrdev':
-    		return(<div>Here to learn how to code? With a Jr Dev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</div>)
-    	case 'mentor':
-    		return(<div>Mentor accounts are for those looking to help Jr Devs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</div>)
-    	case 'educator':
-    		return(<div>Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</div>)
-    	default:
-    		return(<div></div>)
-    }
-  }
-
-  jrdevHoverInfo(){
-  	console.log('jrdevInfo')
-  }
-
-  mentorHoverInfo(){
-
-  }
-
-  educatorHoverInfo(){
-
-  }
 
 	render() {
 		return(
@@ -59,26 +20,36 @@ class SignupLanding extends React.Component {
 					<div className='row'>
 
 						<div className='col s12 m4'>
-							<Link to='/signup/Jrdev' onMouseEnter={() => this.onMouseEnterHandler('jrdev')} onMouseOut={this.onMouseOutHandler}>
+
+							<Link to='/signup/Jrdev' data-tip data-for='jrdev' >
 						  	<i className="large material-icons" id='jrdev_symbol'>sentiment_very_satisfied</i>
-					  	<p id='jrdev_symbol'>JrDev</p>
+					  		<p id='jrdev_symbol'>JrDev</p>
 						  </Link>
+						  <ReactTooltip id='jrdev' type='success' place="right" multiline >
+							  <p className='gray-text'>Here to learn how to code? With a Jr Dev account, <br/> you will have access to all exercises. Our exercises are designed <br/> for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
+							</ReactTooltip>
 					  </div>
 
 					  <div className='col s12 m4'>
-						  <Link to='/signup/Mentor' onMouseEnter={() => this.onMouseEnterHandler('mentor')} onMouseOut={this.onMouseOutHandler}>
+						  <Link to='/signup/Mentor' data-tip data-for='mentor'>
 					  		<i className="large material-icons" id='mentor_symbol'>supervisor_account</i>
 					  		<p id='mentor_symbol'>Mentor</p>
 					  	</Link>
+					  	<ReactTooltip id='mentor' type='success' place="top" multiline >
+							  <p className='gray-text'>Mentor accounts are for those looking to help Jr Devs.<br/> This account is ideal for parents, older siblings, tutors, or <br/> any other type of mentor. You'll be able to add Jr Devs to you <br/> mentorship and monitor their progress. Don't know how to code? <br/>Don't worry--you'll have access to all the exercises too!</p>
+							</ReactTooltip>
 					  </div>
 
 					  <div className='col s12 m4'>
-					  	<Link to='/signup/Educator' onMouseEnter={() => this.onMouseEnterHandler('educator')} onMouseOut={this.onMouseOutHandler}>
+					  	<Link to='/signup/Educator' data-tip data-for='educator'>
 					 			<i className="large material-icons" id='educator_symbol'>school</i>
 					 			<p id='educator_symbol'>Educator</p>
 					  	</Link>
+					  	<ReactTooltip id='educator' type='success' place="left" multiline >
+							  <p className='gray-text'>Educator accounts are for those looking to teach <br/>groups of kids. Educators can organize their kids into classrooms,<br/> see classroom statistics, and track individual progress. Just like the <br/> other accounts, an Educator has access to all exercises.</p>
+							</ReactTooltip>
 					  </div>
-					  {this.displayDescription()}
+			
 				  </div>
 			</div>
 		)

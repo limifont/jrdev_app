@@ -26,7 +26,7 @@ class Api::ClassroomsController < ApiController
   	if @classroom.update(classroom_params)
   		render json: @classroom.reload
   	else
-  		render json: {erors: @classroom.errors.full_messages}
+  		render json: {errors: @classroom.errors.full_messages}
   	end
   end
 

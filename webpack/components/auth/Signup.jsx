@@ -76,7 +76,7 @@ class Signup extends React.Component {
 							<input type='email' placeholder='Email' ref='email' required />
 							<input type='password' placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
 							<input type='password' placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
-							<input type='submit' className='btn' value='Sign Up' />
+							<input type='submit' className='btn btn-success' value='Sign Up' />
 						</div>
 					</form>
 						{this.displayErrors()}
