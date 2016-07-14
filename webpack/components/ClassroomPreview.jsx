@@ -5,8 +5,20 @@ import { Link } from 'react-router'
 class ClassroomPreview extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { delete: false }
+		this.state = { delete: false, edit: false }
 		this.toggleDelete = this.toggleDelete.bind(this)
+		this.toggleEdit = this.toggleEdit.bind(this)
+	}
+
+	toggleEdit(e) {
+		e.preventDefault();
+		this.setState({ edit: !this.state.edit })
+	}
+
+	handleEdit(e) {
+		e.preventDefault();
+		this.props.editClassroom(this.props.classroom.id, this.refs.name.value)
+		this.setState({ edit: false })
 	}
 
 	toggleDelete(e) {
@@ -35,6 +47,24 @@ class ClassroomPreview extends React.Component {
 	        </div>
         </div>
 			)
+		} else if(this.state.edit) {
+			return(
+				<div className='row'>
+					<div className="col m12">
+	          <div className="card orange lighten-2 white-text">
+	          	<div className="card-content white-text center" style={{padding: "0px"}}>
+	          		<div className="container">
+		              <form ref="editForm" onSubmit={this.handleEdit.bind(this)} stlye={{margin: "0px 2px 0px 2px"}}>
+		              	<input ref="name" type="text" defaultValue={this.props.classroom.name} required={true}/>
+		              </form>
+	              </div>
+	            </div>
+          	<a href='#' style={{margin: "0px 6px 0px 6px"}} onClick={this.handleEdit.bind(this)}>Update Name</a>
+            <a href='#' onClick={this.toggleEdit}>Cancel</a>
+	          </div>  
+	        </div>
+        </div>
+			)
 		} else {
 			return(
 				<div className='row'>
@@ -46,7 +76,8 @@ class ClassroomPreview extends React.Component {
 		            </div>
 	            </Link>
 	            <div className="card-action white-text" style={{padding: "2px"}}>
-								<a herf='#' onClick={this.toggleDelete}>Delete</a>
+								<a href='#' onClick={this.toggleDelete} style={{color: "white"}}>Delete</a>
+								<a href='#' onClick={this.toggleEdit} style={{color: "white"}}>Edit</a>
 	            </div>
 	          </div>  
 	        </div>
