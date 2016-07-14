@@ -8,8 +8,9 @@ import Lesson from './components/Lesson';
 import Exercise from './components/Exercise'
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import Classroom from './components/Classroom'; 
+import Classroom from './components/Classroom';
 import Jrdev from './components/Jrdev';
+import SignupLanding from './components/SignupLanding';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { handleLogout } from './components/auth/actions';
 
@@ -50,6 +51,7 @@ export default (
       <Route path='/login' component={Login} />
       <Route path='/signup/:type' component={Signup} />
       <Route path='/splash' component={Splash} />
+      <Route path='/signup_landing' component={SignupLanding} />
       <Route path='/classroom/:id' component={UserIsAuthenticated(Classroom)} />
       <Route path='/jrdev/:id' component={UserIsAuthenticated(Jrdev)} />
     </Route>

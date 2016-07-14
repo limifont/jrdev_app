@@ -15,7 +15,7 @@ const Splash = () => (
         </div>
       </Parallax>
 
-      <div className="container">
+      <div className="container" id="get_started">
         <div className="section">
 
           <div className="row section center">
@@ -24,7 +24,7 @@ const Splash = () => (
             <div className="col s12 m4 center">
               <div className="icon-block">
                 <Link to='/signup/Jrdev'>
-                  <h2 className="center deep-orange-text text-lighten-1"><i className="material-icons md-48">sentiment_very_satisfied</i></h2>
+                  <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">sentiment_very_satisfied</i></h2>
                   <h5 className="center black-text">Jr. Dev</h5>
                 </Link>
 
@@ -36,7 +36,7 @@ const Splash = () => (
             <div className="col s12 m4 center">
               <div className="icon-block">
                 <Link to='/signup/Mentor'>
-                  <h2 className="center deep-orange-text text-lighten-1"><i className="material-icons md-48">group</i></h2>
+                  <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">group</i></h2>
                   <h5 className="center black-text">Mentor</h5>
                 </Link>
 
@@ -48,7 +48,7 @@ const Splash = () => (
             <div className="col s12 m4 center">
               <div className="icon-block">
                 <Link to='/signup/Educator'>
-                  <h2 className="center deep-orange-text text-lighten-1"><i className="material-icons md-48">edit</i></h2>
+                  <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">edit</i></h2>
                   <h5 className="center black-text">Educator</h5>
                 </Link>
 
