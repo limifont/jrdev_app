@@ -7,6 +7,12 @@ class Login extends React.Component {
 		super(props);
 	}
 
+	componentWillMount() {
+		if(this.props.auth){
+			this.props.history.push('/')
+		}
+	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 		const email = this.refs.email.value
