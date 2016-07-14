@@ -29,7 +29,7 @@ const Splash = () => (
                 </Link>
 
                 <p className="light center">Here to learn how to code? With a Jr Dev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
-                <Link to='/signup/Jrdev'>Create a Jr Dev Account</Link>
+                <Link to='/signup/Jrdev'>Create a JrDev Account</Link>
               </div>
             </div>
 

@@ -61,7 +61,7 @@ class SignupLanding extends React.Component {
 						<div className='col s12 m4'>
 							<Link to='/signup/Jrdev' onMouseEnter={() => this.onMouseEnterHandler('jrdev')} onMouseOut={this.onMouseOutHandler}>
 						  	<i className="large material-icons" id='jrdev_symbol'>sentiment_very_satisfied</i>
-						  	<p id='jrdev_symbol'>Jrdev</p>
+					  	<p id='jrdev_symbol'>JrDev</p>
 						  </Link>
 					  </div>
 
