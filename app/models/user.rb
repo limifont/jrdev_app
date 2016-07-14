@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   before_create do |user|
     user.api_key = user.generate_api_key
-    user.secret_phrase = user.generate_secret_phrase if user.type == "Jrdev"
+    user.secret_phrase = User.generate_secret_phrase if user.type == "Jrdev"
   end
 
   after_create :send_welcome_email
@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def generate_secret_phrase
+  
+  def self.generate_secret_phrase
     loop do
       arr = [Faker::StarWars.planet, Faker::StarWars.specie, Faker::StarWars.vehicle]
       phrase = arr.shuffle.join.gsub(/ /,'')

@@ -5,6 +5,20 @@ class Api::UsersController < ApiController
 		render json: @user
 	end
 
+	def new_secret_phrase
+		secret_phrase = User.generate_secret_phrase
+		render json: {secret_phrase: secret_phrase}
+	end
+
+	def update
+		if @user.update(user_params)
+			render json: @user.reload
+		else
+			render json: {errors: @user.errors.full_messages}
+		end
+	end
+
+
 	def show_stats
 		exercises_by_day = CompletedExercise.exercises_by_day(@user)
 		classrooms = @user.get_classrooms
@@ -15,7 +29,11 @@ class Api::UsersController < ApiController
 
 	private
 
-	def user
-		@user = User.find_by(id: params[:id])
-	end
+		def user
+			@user = User.find_by(id: params[:id])
+		end
+
+		def user_params
+			params.require(:user).permit(:secret_phrase)
+		end
 end

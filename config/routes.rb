@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'user_classrooms/:id', to: 'classroom_jrdevs#user_classrooms', as: 'jrdev_classcount'
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
     get 'lessons_index/:user_id', to: 'lessons#index', as: 'lessons_index'
+    get 'new_secret_phrase/', to: 'users#new_secret_phrase', as: 'new_secret_phrase'
 
     get 'student_stats/:id', to: 'classrooms#student_stats', as: 'student_stats'
     resources :friends, only: [:index]

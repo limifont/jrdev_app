@@ -12,8 +12,8 @@ class ExercisesByDayChart extends React.Component {
 			<AreaChart 
 			interpolate='cardinal'
 			axes
-			height={300}
-			width={500}
+			height={100}
+			width={600}
 			xType={'text'}
 			yTicks={3}
 			areaColors={['#130069']}
