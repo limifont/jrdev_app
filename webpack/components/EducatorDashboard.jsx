@@ -13,6 +13,7 @@ class EducatorDashboard extends React.Component {
 		this.state = { user: null, classrooms: [], lessons: [], addFail: false }
 		this.displayClassrooms = this.displayClassrooms.bind(this)
 		this.failMessage = this.failMessage.bind(this)
+		this.deleteClassroom = this.deleteClassroom.bind(this)
 	}
 
 	componentWillMount() {
@@ -60,10 +61,29 @@ class EducatorDashboard extends React.Component {
 		this.refs.createClassroom.reset();
 	}
 
+	deleteClassroom(id) {
+		$.ajax({
+			url: `/api/classrooms/${id}`,
+			type: 'DELETE',
+			dataType: 'JSON'
+		}).done( data => {
+			let index = this.state.classrooms.findIndex(c => c.id === id)
+			let classrooms = this.state.classrooms
+			this.setState({
+				classrooms: [
+					...classrooms.slice(0, index),
+					...classrooms.slice(index + 1, classrooms.length)
+				]
+			})
+		}).fail( data => {
+			console.log(data)
+		})
+	}
+
 	displayClassrooms() {
 		return this.state.classrooms.map( classroom => {
 			return (
-				<ClassroomPreview key={`classroomPreview-${classroom.id}`} classroom={classroom} />
+				<ClassroomPreview key={`classroomPreview-${classroom.id}`} classroom={classroom} deleteClassroom={this.deleteClassroom}/>
 			)
 		})
 	}
