@@ -31,14 +31,19 @@ class JrdevDashboard extends React.Component {
 	}
 
 	displayPhrase = () => {
-		$("#secret-phrase").text(this.state.secret_phrase).css('overflow', 'scroll');
-		$("#secret-phrase").text(this.state.secret_phrase).css('cursor', 'text')
-		$("#hide-btn").css('display', 'block')
+		$("#secret-phrase").text(this.state.secret_phrase).css({'overflow':'scroll', 'cursor':'text'}).after("<br id='remove-me' />");
+		$("#secret-phrase").toggleClass('white', true);
+		$("#hide-btn").css('display', 'block').after("<br id='remove-me2' />");
+		$("#new-secret").css('display', 'block');
 	}
 
 	hidePhrase = () => {
-		$("#secret-phrase").text('SECRET PHRASE').css('cursor', 'pointer');
+		$("#secret-phrase").text('SECRET PHRASE').css('cursor', 'pointer').toggleClass('white', false);
+		$("#remove-me").remove();
+		$("#remove-me2").remove();
+
 		$("#hide-btn").css('display', 'none');
+		$("#new-secret").css('display', 'none');
 	}
 
 	render() {
@@ -60,7 +65,8 @@ class JrdevDashboard extends React.Component {
 							<div className="card lime accent-2">
 								<div className="card-content center">
 									<div className="card-title" id="secret-phrase" style={{cursor: 'pointer'}} onClick={this.displayPhrase}>SECRET PHRASE</div>
-									<div className="btn" id="hide-btn" style={{display: 'none'}} onClick={this.hidePhrase}>HIDE</div>
+									<div className="btn lime" id="hide-btn" style={{display: 'none'}} onClick={this.hidePhrase}>HIDE</div>
+									<div className="btn lime" id="new-secret" style={{display: 'none'}}>NEW PHRASE</div>
 								</div>
 							</div>
 						</div>

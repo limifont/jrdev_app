@@ -28,6 +28,8 @@ class Api::ClassroomJrdevsController < ApiController
 	end
 
 	def destroy
+		@classroom.classroom_jrdevs.find_by(jrdev_id: params[:jrdev_id]).delete
+		render json: true
 	end
 
 	private

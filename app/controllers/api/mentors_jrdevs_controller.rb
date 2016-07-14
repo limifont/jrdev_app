@@ -14,4 +14,10 @@ class Api::MentorsJrdevsController < ApiController
 			end
 		end
 	end
+
+	def destroy
+		mentor = Mentor.find_by(id: params[:mentor_id])
+		mentor.mentors_jrdevs.find_by(jrdev_id: params[:jrdev_id]).delete
+		render json: true
+	end
 end

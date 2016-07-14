@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Lessons from './Lessons'
+import JrdevPreview from './JrdevPreview'
 
 class MentorDashboard extends React.Component {
 	constructor(props) {
@@ -56,6 +57,25 @@ class MentorDashboard extends React.Component {
 		this.refs.secret_phrase.value = '';
 	}
 
+	deleteMentee(id) {
+		$.ajax({
+			url: `/api/mentors_jrdevs/${this.state.user.id}/${id}`,
+			type: 'DELETE',
+			dataType: 'JSON'
+		}).done( data => {
+			let index = this.state.mentees.findIndex(c => c.id === id)
+			let mentees = this.state.mentees
+			this.setState({
+				mentees: [
+					...mentees.slice(0, index),
+					...mentees.slice(index + 1, mentees.length)
+				]
+			})
+		}).fail( data => {
+			console.log(data)
+		})
+	}
+
 	displayMentees() {
 		return this.state.mentees.map( mentee => {
 			let name = mentee.name
@@ -64,7 +84,7 @@ class MentorDashboard extends React.Component {
 					<div className="card">
 						<div className="card-content">
 							<div className="center" style={{overflow: 'scroll'}}>
-								<Link to={`/jrdev/${mentee.id}`}>{name.toUpperCase()}</Link>
+								<JrdevPreview key={`jrdevPreview-${mentee.id}`} jrdev={mentee} deleteJrdev={this.deleteMentee.bind(this)}/>
 							</div>
 						</div>
 					</div>

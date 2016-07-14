@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import ClassroomGraph from './ClassroomGraph';
+import JrdevPreview from './JrdevPreview'
 
 class Classroom extends React.Component {
 	constructor(props) {
@@ -45,10 +46,31 @@ class Classroom extends React.Component {
 		this.refs.addStudent.reset();
 	}
 
+	deleteJrdev(id) {
+		$.ajax({
+			url: `/api/classroom_jrdevs/${this.state.classroom.id}/${id}`,
+			type: 'DELETE',
+			dataType: 'JSON'
+		}).done( data => {
+			let index = this.state.jrdevs.findIndex(j => j.id === id)
+			let jrdevs = this.state.jrdevs
+			this.setState({
+				jrdevs: [
+					...jrdevs.slice(0, index),
+					...jrdevs.slice(index + 1, jrdevs.length)
+				]
+			})
+		}).fail( data => {
+			console.log(data)
+		})
+	}
+
 
 	displayStudents() {
 		return this.state.jrdevs.map( jrdev => {
-			return(<p><Link to={`/jrdev/${jrdev.id}`}>{jrdev.name}</Link></p>);
+			return(
+				<JrdevPreview key={`classroomJrdevPreview-${jrdev.id}`} jrdev={jrdev} deleteJrdev={this.deleteJrdev.bind(this)}/>
+			)
 		})
 	}
 
@@ -82,10 +104,14 @@ class Classroom extends React.Component {
 								</form>
 								{this.failMessage()}
 							</div>
-							<div className="col m3">
-								<div>
-									<h6>Students</h6>
-									{this.displayStudents()}
+							<div style={{height: '100%'}}>
+								<div className="card">
+									<div className="card-content"> 
+										<span className="card-title">
+											JrDevs:
+										</span>
+										{this.displayStudents()}
+									</div>
 								</div>
 							</div>
 						</div>
