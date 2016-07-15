@@ -129,10 +129,10 @@ class EducatorDashboard extends React.Component {
 						<div className="card">
 							<div className="card-content center">
 								<div className="row">
-									<div className="col m6">
+									<div className="col m12 l6">
 										<ClassesAverages id={this.props.id} />
 									</div>
-									<div className="col m6">
+									<div className="col m12 l6">
 										<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
 									</div>
 								</div>
@@ -145,7 +145,7 @@ class EducatorDashboard extends React.Component {
 					<div className="col m4 s12" style={{height: '100%'}}>
 						<div className="card">
 							<div className="card-content">
-								<span class="card-title">Create a Classroom</span>
+								<span className="card-title">Create a Classroom</span>
 								<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
 									<input ref="name" type="text" placeholder="Classroom Name" />
 									<button type="submit" className="btn">Create</button>

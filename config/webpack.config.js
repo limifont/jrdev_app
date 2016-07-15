@@ -30,7 +30,10 @@ var config = {
 
   resolve: {
     root: path.join(__dirname, '..', 'webpack'),
-    extensions: ["", ".js", ".jsx", ".es6"]
+    extensions: ["", ".js", ".jsx", ".es6"],
+    alias: {
+      react: path.resolve('./node_modules/react')
+    }
   },
 
   module: {
