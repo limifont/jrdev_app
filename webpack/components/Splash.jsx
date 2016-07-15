@@ -78,7 +78,7 @@ const Splash = () => (
                   <img src="assets/Charmander.gif" style={{width:'64px', height: '64px', marginTop: '-11px'}}></img>
                   <h5 className="center black-text">Henry Doan</h5>
                 </Link>
-                <a href='https://github.com/nightwing891'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/nightwing891</a>
+                <a href='https://github.com/nightwing891'><img src="assets/GitHub.png"></img></a>
 
                 <p className="light center">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>
                 <a href='mailto:henrydoan96@gmail.com'>henrydoan96@gmail.com</a>
