@@ -71,23 +71,24 @@ const Splash = () => (
 
           <div className="row section center">
             <h4 className="contact-us">The Jrdev Team</h4>
+            <br/>
             <div className="col s12 m4 center">
               <div className="icon-block">
-                <Link to='/signup/Jrdev'>
-                  <img src="http://www.poke-amph.com/heartgoldsoulsilver/sprites/small/004.gif" style={{width:'64px', height: '64px', marginTop: '-11px'}}></img>
+                <Link to='/about_us'>
+                  <img src="assets/Charmander.gif" style={{width:'64px', height: '64px', marginTop: '-11px'}}></img>
                   <h5 className="center black-text">Henry Doan</h5>
                 </Link>
                 <a href='https://github.com/nightwing891'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/nightwing891</a>
 
-                <p className="light center">Bio</p>
+                <p className="light center">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>
                 <a href='mailto:henrydoan96@gmail.com'>henrydoan96@gmail.com</a>
               </div>
             </div>
 
             <div className="col s12 m4 center">
               <div className="icon-block">
-                <Link to='/signup/Mentor'>
-                  <img src="http://orig04.deviantart.net/b545/f/2012/306/7/b/bulbasaur_icon_by_vanmall-d5jpuyw.gif" style={{width:'54px', height: '54px'}}></img>
+                <Link to='/about_us'>
+                  <img src="assets/bulbasaur.gif" style={{width:'54px', height: '54px'}}></img>
                   <h5 className="center black-text">Lindsey Font</h5>
                 </Link>
                 <a href='https://github.com/limifont'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/limifont</a>
@@ -99,8 +100,8 @@ const Splash = () => (
 
             <div className="col s12 m4 center">
               <div className="icon-block">
-                <Link to='/signup/Educator'>
-                  <img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_shiny/007.gif" style={{width:'44px', height: '44px', marginTop: '9px'}}></img>
+                <Link to='/about_us'>
+                  <img src="assets/Squirtle.gif" style={{width:'44px', height: '44px', marginTop: '9px'}}></img>
                   <h5 className="center black-text">Matt Hadley</h5>
                 </Link>
                 <a href='https://github.com/mghadley'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/mghadley</a>
