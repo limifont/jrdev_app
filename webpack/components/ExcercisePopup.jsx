@@ -28,7 +28,7 @@ class ExcercisePopup extends React.Component {
             autoHideDuration={4000}
             onRequestClose={this.handleRequestClose}
             bodyStyle={{
-              background: '#08C9CC'
+              background: '#00e5ff' 
             }}
           />
         </div>

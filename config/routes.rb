@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'show_stats/:id', to: 'users#show_stats', as: 'show_stats'
     get 'lessons_index/:user_id', to: 'lessons#index', as: 'lessons_index'
     get 'new_secret_phrase/', to: 'users#new_secret_phrase', as: 'new_secret_phrase'
+    get 'show_classroom_averages', to: 'users#show_classroom_averages', as: 'show_classroom_averages'
 
     delete 'mentors_jrdevs/:mentor_id/:jrdev_id', to: 'mentors_jrdevs#destroy', as: 'delete_mentors_jrdev'
     delete 'classroom_jrdevs/:id/:jrdev_id', to: 'classroom_jrdevs#destroy', as: 'delete_classroom_jrdev'

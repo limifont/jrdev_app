@@ -60,6 +60,14 @@ class User < ActiveRecord::Base
     return lessons
   end
 
+  def get_averages
+    classrooms = []
+    self.classrooms.each do |classroom|
+      classrooms << { x: classroom.name, y: classroom.average }
+    end
+    return classrooms
+  end
+
   def self.mentors
   	where(type: 'Mentor')
   end

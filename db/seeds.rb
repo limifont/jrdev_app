@@ -39,7 +39,8 @@ exercise1_3 = Exercise.find_or_create_by(
 exercise1_4 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
 	name: "Working with Words",
-	instruction: "Computers can also handle words as well. Type the words 'Hello, world' after the 'puts' and run the code",
+	instruction: "Computers can also handle words as well. As long as they are inside quotation marks, the computer know to treat them as normal words and not as code. <br />
+		Type the words 'Hello, world' after the 'puts' and run the code (be sure to include the quotation marks).",
 	prefill: "puts",
 	expected_output: "Hello, world",
 	position: 4
@@ -51,6 +52,25 @@ exercise1_5 = Exercise.find_or_create_by(
 	prefill: "",
 	expected_output: "I love coding!",
 	position: 5
+	)
+exercise1_6 = Exercise.find_or_create_by(
+	lesson_id: lesson1.id,
+	name: "Data Types",
+	instruction: "In coding, we call words and numbers data types (data is just another word for information). A computer can recognize many different data types. <br />
+		These data types have special names. Whole numbers like 2 or 15 or are called integers (decimal numbers like 3.5 are called something different). Words inside quotation marks are called strings. <br />
+		There are many other data types, but let's start with just strings and integers. Run the below code to review what we just learned!",
+	prefill: "x = 'Coding is the best!'\ny = 57\nputs 'x is a string!'\nputs 'y is an integer!'",
+	expected_output: "y is an integer",
+	position: 6
+	)
+exercise1_7 = Exercise.find_or_create_by(
+	lesson_id: lesson1.id,
+	name: "Data Types Review",
+	instructions: "Wondering what x and y were in the last exercise? These are variables, you'll learn all about them in the next lesson. Solve this last problem to move on to the Variables lesson! <br />
+	  Replace the blank spaces in the code below with the correct data type names",
+	prefill: "x = 45\ny = 'I love data types!'\nputs 'x is an _ and y is a _",
+	expected_output: "x is an integer and y is a string",
+	position: 7
 	)
 
 

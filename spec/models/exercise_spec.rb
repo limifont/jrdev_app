@@ -40,8 +40,12 @@ RSpec.describe Exercise, type: :model do
 		end
 
 		describe 'next_up?' do
-			it 'should return false as not exercises are completed' do
-				expect(exercise.next_up?(user)).to eq(false)
+			it 'should return true as this is first exercise and no exercises are completed' do
+				expect(exercise.next_up?(user)).to eq(true)
+			end
+
+			it 'should return false' do
+				expect(exercise2.next_up?(user)).to eq(false)
 			end
 		end
 	end
@@ -53,6 +57,10 @@ RSpec.describe Exercise, type: :model do
 
 		it 'should return true for completed exercise' do
 			expect(exercise.completed?(user)).to eq(true)
+		end
+
+		it 'should return false for next_up' do
+			expect(exercise.next_up?(user)).to eq(false)
 		end
 
 		it 'should return true for next_up' do
