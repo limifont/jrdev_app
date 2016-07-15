@@ -1,10 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router'
-import Lessons from './Lessons'
-import Classroom from './Classroom'
+import React from 'react';
+import { Link } from 'react-router';
+import Lessons from './Lessons';
+import Classroom from './Classroom';
 import ClassesStats from './ClassesStats';
 import RaisedButton from 'material-ui/RaisedButton';
-import ClassroomPreview from './ClassroomPreview'
+import ClassroomPreview from './ClassroomPreview';
+import ClassesAverages from './ClassesAverages';
 
 
 class EducatorDashboard extends React.Component {
@@ -127,7 +128,14 @@ class EducatorDashboard extends React.Component {
 					<div className="col m12 s12">
 						<div className="card">
 							<div className="card-content center">
-								<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
+								<div className="row">
+									<div className="col m6">
+										<ClassesAverages id={this.props.id} />
+									</div>
+									<div className="col m6">
+										<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
