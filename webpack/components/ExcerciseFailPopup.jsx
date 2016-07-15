@@ -7,7 +7,7 @@ class ExcerciseFailPopup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      open: true
     };
   }
 
@@ -15,6 +15,7 @@ class ExcerciseFailPopup extends React.Component {
     this.setState({
       open: false,
     });
+    $('.console').empty("");
   };
 
 
