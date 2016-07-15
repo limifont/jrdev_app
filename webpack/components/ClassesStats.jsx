@@ -6,7 +6,7 @@ import ToolTip from './ToolTip';
 class ClassesStats extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { classrooms: [], jrdevs: null, data: [], showToolTip: false }
+    this.state = { classrooms: [], jrdevs: [], data: [], showToolTip: false }
     this.organizeData = this.organizeData.bind(this);
     this.rGB = this.rGB.bind(this);
   }
@@ -19,7 +19,6 @@ class ClassesStats extends React.Component {
     }).done( classrooms => {
       console.log(classrooms)
       this.setState({ classrooms })
-      this.organizeData()
     }).fail( data => {
       console.log("failed to retrieve data", data)
     })
@@ -53,8 +52,7 @@ class ClassesStats extends React.Component {
       i += 1;
     })
     console.log(data)
-    this.setState({ data })
-    console.log(this.state.data)
+    return data;
   }
 
   rGB(min, max) {
@@ -81,7 +79,7 @@ class ClassesStats extends React.Component {
   }
 
   render() {
-    if (this.state.data.length < 1){
+    if (this.state.jrdevs.length < 1 || this.state.classrooms.length < 1){
       return(
         <div>
         </div>
@@ -91,7 +89,7 @@ class ClassesStats extends React.Component {
         <div>
           <PieChart 
             size={200}
-            data={this.state.data} 
+            data={this.organizeData()} 
             // innerHoleSize={200}
             mouseOverHandler={this.mouseOverHandler.bind(this)}
             mouseOutHandler={this.mouseOutHandler.bind(this)}

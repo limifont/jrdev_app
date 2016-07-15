@@ -26,10 +26,20 @@ RSpec.describe Api::LessonsController, type: :controller do
 	end
 
 	describe 'GET #show' do
-		it 'returns http succes'do
-			request.session[:user] = user.id
+		before(:each) do
+			sign_in user
 			get :show, id: @lesson.id
+		end
+
+		it 'returns http succes'do
 			expect(response).to have_http_status(:success)
+		end
+
+		it 'renders correct json response' do
+			json = JSON.parse(response.body)
+			expect(json['lesson']['id']).to eq(@lesson.id)
+			expect(json['lesson']['name']).to eq(@lesson.name)
+			expect(json['lesson']['position']).to eq(@lesson.position)
 		end
 	end
 end

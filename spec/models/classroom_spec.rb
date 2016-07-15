@@ -11,10 +11,9 @@ RSpec.describe Classroom, type: :model do
 	end
 
 	describe 'jrdevs' do
-		it 'should return all of the Jrdevs id in the classrooms'
-		classroom = Classroom(id)
-		jrdevs = Jrdevs(id)
-		expect(classroom.jrdevs).to eq(0)
+		it 'should return all of the Jrdevs id in the classrooms' do
+			expect(classroom.jrdevs.length).to eq(0)
+		end
 	end
 
 	describe 'Students' do

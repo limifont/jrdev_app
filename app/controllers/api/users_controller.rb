@@ -5,6 +5,10 @@ class Api::UsersController < ApiController
 		render json: @user
 	end
 
+	def show_classroom_averages
+		render json: current_user.get_averages
+	end
+
 	def new_secret_phrase
 		secret_phrase = User.generate_secret_phrase
 		render json: {secret_phrase: secret_phrase}

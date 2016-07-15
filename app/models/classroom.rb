@@ -17,7 +17,16 @@ class Classroom < ActiveRecord::Base
     counts.each do |record|
       days << { x: record.created_at.strftime("%D"), y: record.count }
     end
-   end
+  end
+
+  def average
+    counts = []
+    self.jrdevs.each do |jrdev|
+      counts << jrdev.completed_exercises.count
+    end
+    average = counts.inject{ |sum, el| sum + el }.to_f / counts.size
+    return average.nan? ? 0 : average
+  end
 
   def student_stats
   	return self.jrdevs.map { |jrdev| {name: jrdev.name, completed_count: jrdev.completed_exercises.count} }
