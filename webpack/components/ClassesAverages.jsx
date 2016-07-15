@@ -14,7 +14,6 @@ class ClassesAverages extends React.Component {
 			type: 'GET',
 			dataType: 'JSON'
 		}).done( data => {
-			debugger
 			this.setState({ data })
 		}).fail( data => {
 			console.log("failed to get classroom averages", data)

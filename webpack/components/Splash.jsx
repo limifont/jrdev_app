@@ -21,7 +21,7 @@ const Splash = () => (
           <div className="row section center">
             <h4>Get Started</h4>
             <h5>Choose your account type</h5>
-            <div className="col s12 m4 center">
+            <div className="col s12 m4 center" style={{height: "100%"}}>
               <div className="icon-block">
                 <Link to='/signup/Jrdev'>
                   <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">sentiment_very_satisfied</i></h2>
@@ -33,7 +33,7 @@ const Splash = () => (
               </div>
             </div>
 
-            <div className="col s12 m4 center">
+            <div className="col s12 m4 center" style={{height: "100%"}}>
               <div className="icon-block">
                 <Link to='/signup/Mentor'>
                   <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">group</i></h2>
@@ -45,7 +45,7 @@ const Splash = () => (
               </div>
             </div>
 
-            <div className="col s12 m4 center">
+            <div className="col s12 m4 center" style={{height: "100%"}}>
               <div className="icon-block">
                 <Link to='/signup/Educator'>
                   <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">edit</i></h2>
