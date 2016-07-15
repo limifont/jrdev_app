@@ -69,11 +69,46 @@ const Splash = () => (
       <div className="container">
         <div className="section">
 
-          <div className="row">
-            <div className="col s12 center" style={{height: 400}}>
-              <h4 className="contact-us">Contact Us</h4>
-              <p className="left-align light center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          <div className="row section center">
+            <h4 className="contact-us">The Jrdev Team</h4>
+            <div className="col s12 m4 center">
+              <div className="icon-block">
+                <Link to='/signup/Jrdev'>
+                  <img src="http://www.poke-amph.com/heartgoldsoulsilver/sprites/small/004.gif" style={{width:'64px', height: '64px', marginTop: '-11px'}}></img>
+                  <h5 className="center black-text">Henry Doan</h5>
+                </Link>
+                <a href='https://github.com/nightwing891'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/nightwing891</a>
+
+                <p className="light center">Bio</p>
+                <a href='mailto:henrydoan96@gmail.com'>henrydoan96@gmail.com</a>
+              </div>
             </div>
+
+            <div className="col s12 m4 center">
+              <div className="icon-block">
+                <Link to='/signup/Mentor'>
+                  <img src="http://orig04.deviantart.net/b545/f/2012/306/7/b/bulbasaur_icon_by_vanmall-d5jpuyw.gif" style={{width:'54px', height: '54px'}}></img>
+                  <h5 className="center black-text">Lindsey Font</h5>
+                </Link>
+                <a href='https://github.com/limifont'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/limifont</a>
+
+                <p className="light center">Bio</p>
+                <a href='mailto:lindsey.font@gmail.com'>lindsey.font@gmail.com</a>
+              </div>
+            </div>
+
+            <div className="col s12 m4 center">
+              <div className="icon-block">
+                <Link to='/signup/Educator'>
+                  <img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_shiny/007.gif" style={{width:'44px', height: '44px', marginTop: '9px'}}></img>
+                  <h5 className="center black-text">Matt Hadley</h5>
+                </Link>
+                <a href='https://github.com/mghadley'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/mghadley</a>
+                <p className="light center">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p>
+                <a href='mailto:matthew.g.hadley@gmail.com'>matthew.g.hadley@gmail.com</a>
+              </div>
+            </div>
+
           </div>
 
         </div>
