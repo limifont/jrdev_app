@@ -104,9 +104,7 @@ class Jrdev extends React.Component {
 					
 					<div className="row">
 						<div className="col s12 m12">
-							<div className="card">
-								<ExercisesByDayChart data={this.state.completed_by_day}/>
-							</div>
+							<ExercisesByDayChart data={this.state.completed_by_day}/>
 						</div>
 					</div>
 

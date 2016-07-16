@@ -8,17 +8,23 @@ class ExercisesByDayChart extends React.Component {
 	}
 
 	render() {
-		return(
-			<AreaChart 
-			interpolate='cardinal'
-			axes
-			height={100}
-			width={600}
-			xType={'text'}
-			yTicks={3}
-			areaColors={['#130069']}
-			data={[this.props.data]}/>
-		)
+		if(this.props.data.length > 1) {
+			return(
+				<div className="card">
+					<AreaChart 
+					interpolate='cardinal'
+					axes
+					height={100}
+					width={600}
+					xType={'text'}
+					yTicks={3}
+					areaColors={['#130069']}
+					data={[this.props.data]}/>
+				</div>
+			)
+		} else  {
+			return(<div></div>)
+		}
 	}
 }
 

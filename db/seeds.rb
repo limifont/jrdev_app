@@ -9,7 +9,7 @@
 lesson1 = Lesson.create(name: "Intro to Programming", position: 1)
 exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
-	name: "What is Code", 
+	name: "What is Code?", 
 	instruction: "What is code? Code is just instructions that a computer knows how to follow. <br />
 	  A computer is kind of like a calculator, you can give it some instructions, and it will follow them. For example, a computer can follow instructions to do math. <br />
 	  Click the 'Run' button at the bottom of the screen to run the code and see what happens",
@@ -19,7 +19,7 @@ exercise1_1 = Exercise.find_or_create_by(
 	)
 exercise1_2 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
-	name: "Let's do math!",
+	name: "Let's do Math!",
 	instruction: "Your turn! Write some code after 'puts' that subtracts 3 from 5. <br />
 	  Click 'Run' when you are done to see if you got it right.",
 	prefill: "puts",
@@ -28,7 +28,7 @@ exercise1_2 = Exercise.find_or_create_by(
 	)
 exercise1_3 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
-	name: "What is puts?",
+	name: "What is Puts?",
 	instruction: "You probably noticed the word 'puts' in the last two exercises. In ruby, the word puts is a command (instruction) that tells the computer what to put to the console. <br />
 	  See that black square on the right? That is the console. If you don't tell the computer what to output to the console, it will show nothing. <br />
 	  The code below is missing puts. Click run to see what happens without 'puts.' Done? Now add 'puts' at the beginning of the line and run the code again.",
@@ -66,7 +66,7 @@ exercise1_6 = Exercise.find_or_create_by(
 exercise1_7 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
 	name: "Data Types Review",
-	instructions: "Wondering what x and y were in the last exercise? These are variables, you'll learn all about them in the next lesson. Solve this last problem to move on to the Variables lesson! <br />
+	instruction: "Wondering what x and y were in the last exercise? These are variables, you'll learn all about them in the next lesson. Solve this last problem to move on to the Variables lesson! <br />
 	  Replace the blank spaces in the code below with the correct data type names",
 	prefill: "x = 45\ny = 'I love data types!'\nputs 'x is an _ and y is a _",
 	expected_output: "x is an integer and y is a string",
@@ -157,13 +157,13 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 	# TODO: have a hint of the first example to start them off, 5 + 5 = 10 etc.
 	exercise3_3 = Exercise.find_or_create_by(
 		lesson_id: lesson3.id, 
-		name: "Variables, values of strings, and operations",
+		name: "Variables, Values of Strings, and Operations",
 		instruction: "You may be wondering if we can also have the operations works with strings. lets try running the code below to see the what each code does.", 
 		position: 3
 		)
 	exercise3_4 = Exercise.find_or_create_by(
 		lesson_id: lesson3.id, 
-		name: "Variables, values of strings, and operations recap",
+		name: "Variables, Values of Strings, and Operations Recap",
 		instruction: "Ok. lets recap, as you saw in the last exercise, all of the values throws errors all but except for one.
 	  when we add two separate strings together we get a combination of the two strings. This is because the + operations has two meanings, when it is with numbers it means add and with it is with strings it means combined.
 	  With the other operations we get an error because in programing you cannot use the other operations with strings.",

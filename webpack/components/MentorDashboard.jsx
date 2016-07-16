@@ -81,12 +81,8 @@ class MentorDashboard extends React.Component {
 			let name = mentee.name
 			return(
 				<div className="col s12 m6">
-					<div className="card">
-						<div className="card-content">
-							<div className="center" style={{overflow: 'scroll'}}>
-								<JrdevPreview key={`jrdevPreview-${mentee.id}`} jrdev={mentee} deleteJrdev={this.deleteMentee.bind(this)}/>
-							</div>
-						</div>
+					<div className="center" style={{overflow: 'scroll'}}>
+						<JrdevPreview key={`jrdevPreview-${mentee.id}`} jrdev={mentee} deleteJrdev={this.deleteMentee.bind(this)}/>
 					</div>
 				</div>
 			)

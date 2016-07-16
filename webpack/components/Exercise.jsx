@@ -37,9 +37,19 @@ class Exercise extends React.Component {
     })
   }
 
+  componentDidMount() {
+  	this.focusEditor();
+  }
+
+  focusEditor() {
+  	window.setTimeout(function(){
+      var content = $('.ace_text-input:first');
+      content.focus();
+		}, 300); 
+  }
+
 	onChange(newValue) {
 	  this.setState({ value: newValue });
-	  console.log(this.state.value)
 	}
 
 	replCode() {
@@ -168,7 +178,8 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed });
+    	this.focusEditor();
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -182,6 +193,7 @@ class Exercise extends React.Component {
       dataType: 'JSON'
     }).done( result => {
     	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed, endMessage: false  })
+    	this.focusEditor();
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -203,6 +215,7 @@ class Exercise extends React.Component {
       dataType: 'JSON'
     }).done( result => {
     	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	this.focusEditor();
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -216,7 +229,7 @@ class Exercise extends React.Component {
 		        <div className="col s12 m12">
 			        <div className="card">
 			        	<div style={{backgroundColor: "white", borderRadius: "5px", margin: "10px 0 5px 0", padding: "5px", whiteSpace: "per"}}>
-				        	<span className="card-title"><p className="center">{this.state.exercise.name}</p></span>
+				        	<span className="card-title"><p className="center" style={{margin: "4px 0 4px 0"}}>{this.state.exercise.name}</p></span>
 				        	<p dangerouslySetInnerHTML={{__html: this.state.exercise.instruction}}></p>
 			        	</div>
 			        </div>
@@ -228,12 +241,13 @@ class Exercise extends React.Component {
 							<div className="col s12 m6">
 								<div className="card">
 									<div id="editorContainer">
-										<div id="editor">
+										<div>
 											<AceEditor
+												autofocus={true}
 										    mode="ruby"
 										    theme="crimson_editor"
 										    onChange={this.onChange}
-										    name="UNIQUE_ID_OF_DIV"
+										    name="editor"
 										    tabSize={2}
 										    height="100%"
 										    width="100%"
@@ -249,7 +263,7 @@ class Exercise extends React.Component {
 							
 							<div className="col s12 m6">
 								<div className="card">	
-									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '60vh', padding: '5px', whiteSpace: 'pre'}}>
+									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '40vh', padding: '5px', whiteSpace: 'pre'}}>
 										{this.state.results}
 									</div>
 								</div>

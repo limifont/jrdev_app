@@ -100,7 +100,7 @@ class JrdevDashboard extends React.Component {
 
 							<div className="card lime accent-2">
 								<div className="card-content center">
-									<div className="card-title" id="secret-phrase" style={{cursor: 'pointer'}} onClick={this.displayPhrase}>SECRET PHRASE</div>
+									<div className="card-title" id="secret-phrase" style={{cursor: 'pointer', fontSize: "16px"}} onClick={this.displayPhrase}>SECRET PHRASE</div>
 									<div className="btn lime" id="hide-btn" style={{display: 'none', marginTop: '12px'}} onClick={this.hidePhrase}>HIDE</div>
 									<div id="new-secret" className="btn lime" onClick={this.newPhrase.bind(this)} style={{display: 'none', marginTop: '12px', width: '100%'}}>NEW PHRASE</div>
 								</div>
