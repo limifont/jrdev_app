@@ -45,7 +45,7 @@ const UserIsJrdev = UserAuthWrapper({
 
 export default (
   <Route>
-    <Route path="/" component={App}>
+    <Route path="/" component={App} onUpdate={() => window.scrollTo(0, 0)}>
     	<IndexRoute component={UserIsAuthenticated(Dashboard)} />
     	<Route path="/lesson/:lesson_id" component={UserIsAuthenticated(Lesson)} />
       <Route path="/lesson/:lesson_id/exercise/:exercise_position" component={UserIsAuthenticated(Exercise)} />

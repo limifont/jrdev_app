@@ -23,7 +23,7 @@ class Login extends React.Component {
 	displayError() {
 		if(this.props.loginFail) {
 			return (
-				<div className="col m6 offset-m3 center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+				<div className="col m6 offset-m3 center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", marginTop: "30px"}}>
 					<p style={{color: "red"}}>Email or Password Incorrect</p>
 				</div>	
 			)

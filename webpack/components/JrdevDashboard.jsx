@@ -88,9 +88,10 @@ class JrdevDashboard extends React.Component {
 				<div>
 					<div className="row">
 						<div className="col m8 s12" style={{height: '100%'}}>
-							<div className="card">
-								<Lessons lessons={this.state.lessons} links={true}/>
+							<div className="col m1 card" style={{height: "514px", padding: "0"}}>
+								<img src="assets/lessons.png" style={{width: "100%", height: "100%"}} alt="Lessons"></img>
 							</div>
+							<Lessons lessons={this.state.lessons} links={true}/>
 						</div >
 
 						<div className="col m4 s12">

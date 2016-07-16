@@ -57,14 +57,9 @@ class Lessons extends React.Component {
 	render() {
 		return (
 			<div className="card-content">	
-				<div>
-					<div className="row">
-						<div className="col m1" style={{fontSize: "40px", transform: "rotate(270deg)", transformOrigin: "left top 0", verticalAlign: "baseline"}}>
-							<h4>Lessons</h4>
-						</div>
-						<div className="col s11">
-							{this.displayLessons()}
-						</div>
+				<div>						
+					<div className="col s11">
+						{this.displayLessons()}
 					</div>
 				</div>
 			</div>

@@ -49,13 +49,12 @@ class ClassroomGraph extends React.Component {
     	if (this.state.student_stats.length > 0) {
 	      return(
 	      	<div style={{display: 'inline-block'}}>
-	      		<h3>Class Averages</h3>
+	      		<h5>Exercises Completed</h5>
 					  <BarChart
 						  axisLabels={{x: 'Students', y: 'Excercise Completed'}}
 						  axes
 						  grid
 						  colorBars
-						  yAxisOrientRight
 						  xType={'text'}
 						  height={250}
 						  width={450}
@@ -69,7 +68,7 @@ class ClassroomGraph extends React.Component {
 	      );
 	    } else {
 	    	return (
-	    		<h3 className="center">Once your add some students, you'll see some cool stats here. Added students but still can't see the stats? Try refreshing!</h3>
+	    		<h6 className="center">Once your add some students, you'll see some cool stats here. Added students but still can't see the stats? Try refreshing!</h6>
 	    	)
 	    }
     }

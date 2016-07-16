@@ -84,6 +84,7 @@ class ClassesStats extends React.Component {
     } else {
       return(
         <div className="col m12 l6">
+          <h5>Students Per Classroom</h5>
           <PieChart 
             size={200}
             data={this.organizeData()} 

@@ -11,15 +11,18 @@ class ExercisesByDayChart extends React.Component {
 		if(this.props.data.length > 1) {
 			return(
 				<div className="card">
-					<AreaChart 
-					interpolate='cardinal'
-					axes
-					height={100}
-					width={600}
-					xType={'text'}
-					yTicks={3}
-					areaColors={['#130069']}
-					data={[this.props.data]}/>
+					<div className="card-content">
+						<h4>Exercises Completed by Day</h4>
+						<AreaChart 
+						interpolate='cardinal'
+						axes
+						height={200}
+						width={500}
+						xType={'text'}
+						yTicks={3}
+						areaColors={['#130069']}
+						data={[this.props.data]}/>
+					</div>
 				</div>
 			)
 		} else  {

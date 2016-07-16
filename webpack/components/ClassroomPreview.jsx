@@ -60,6 +60,7 @@ class ClassroomPreview extends React.Component {
 	              </div>
 	            </div>
           	<a href='#' style={{margin: "0px 6px 0px 6px"}} onClick={this.handleEdit.bind(this)}>Update Name</a>
+          	<span> | </span>
             <a href='#' onClick={this.toggleEdit}>Cancel</a>
 	          </div>  
 	        </div>
@@ -71,14 +72,12 @@ class ClassroomPreview extends React.Component {
 					<div className="col m12">
 	          <div className="card orange lighten-2 white-text">
 	          	<Link to={`/classroom/${this.props.classroom.id}`}>
-		          	<div className="card-content white-text center" style={{padding: "0px"}}>
-		              <span className="card-title">{this.props.classroom.name}</span>
+		          	<div className="card-content white-text center" style={{padding: "0px", display: "inline-block"}}>
+		              <span className="card-title" style={{marginLeft: "8px"}}>{this.props.classroom.name}</span>
 		            </div>
 	            </Link>
-	            <div className="card-action white-text" style={{padding: "2px"}}>
-								<a href='#' onClick={this.toggleDelete} style={{color: "white"}}>Delete</a>
-								<a href='#' onClick={this.toggleEdit} style={{color: "white"}}>Edit</a>
-	            </div>
+							<a href='#' onClick={this.toggleDelete} style={{color: "white"}}><i className="small material-icons" style={{float: "right", marginTop: "7px", cursor: "pointer"}}>delete_forever</i></a>
+							<a href='#' onClick={this.toggleEdit} style={{color: "white"}}><i className="small material-icons" style={{float: "right", marginTop: "7px", cursor: "pointer"}}>mode_edit</i></a>
 	          </div>  
 	        </div>
         </div>

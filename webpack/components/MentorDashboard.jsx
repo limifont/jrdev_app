@@ -112,19 +112,20 @@ class MentorDashboard extends React.Component {
 				<div>
 					<div className="row">
 						<div className="col m12 l8" style={{height: '100%'}}>
-							<div className="" style={{height: '100%'}}>
+							<div className="row" style={{height: '100%'}}>
+								<div className="col s1 card" style={{height: "514px", padding: "0"}}>
+									<img src="assets/lessons.png" style={{width: "100%", height: "100%"}} alt="Lessons"></img>
+								</div>
 								<Lessons lessons={this.state.lessons} links={true}/>
 							</div>
 						</div>
-						
-						<div className="col m4 s12">
+						<div className="col s12 m8 l4 offset-m2">
 							<div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
 								<div className="card-content">
-									<span class="card-title">Add a JrDev</span>
+									<span class="card-title">Add a JrDev to Your Mentorship</span>
 									<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
 										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" onClick={()=>{this.setState({ addFail: false })}}/>
 									</form>
-
 									{this.failMessage()}
 									<div className="row" style={{paddingTop: "30px"}}>
 											JrDevs:
@@ -133,11 +134,7 @@ class MentorDashboard extends React.Component {
 								</div>
 							</div>
 						</div>
-					
 					</div>
-
-
-			
 				</div>
 			)	
 		} else {
