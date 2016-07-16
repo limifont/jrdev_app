@@ -126,15 +126,12 @@ class EducatorDashboard extends React.Component {
 			<div>
 				<div className="row">
 					<div className="col m12 s12">
-						<div className="card">
+						<div className="card" style={{marginTop: "10px"}}>
+							<h3 className="center">Stats</h3>
 							<div className="card-content center">
 								<div className="row">
-									<div className="col m12 l6">
-										<ClassesAverages id={this.props.id} />
-									</div>
-									<div className="col m12 l6">
-										<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
-									</div>
+									<ClassesAverages id={this.props.id} />
+									<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
 								</div>
 							</div>
 						</div>

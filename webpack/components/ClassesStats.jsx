@@ -17,7 +17,6 @@ class ClassesStats extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( classrooms => {
-      console.log(classrooms)
       this.setState({ classrooms })
     }).fail( data => {
       console.log("failed to retrieve data", data)
@@ -29,7 +28,6 @@ class ClassesStats extends React.Component {
       dataType: 'JSON'
     }).done( jrdevs => {
       this.setState({ jrdevs })
-      console.log(jrdevs);
     }).fail( data => {
       console.log("failed to get jrdevs for classroom", data)
     })
@@ -51,7 +49,6 @@ class ClassesStats extends React.Component {
       data[i]["value"] = jrdev;
       i += 1;
     })
-    console.log(data)
     return data;
   }
 
@@ -86,7 +83,7 @@ class ClassesStats extends React.Component {
       )
     } else {
       return(
-        <div>
+        <div className="col m12 l6">
           <PieChart 
             size={200}
             data={this.organizeData()} 

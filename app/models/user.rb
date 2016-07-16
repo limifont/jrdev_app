@@ -62,10 +62,13 @@ class User < ActiveRecord::Base
 
   def get_averages
     classrooms = []
+    average_total = 0
     self.classrooms.each do |classroom|
-      classrooms << { x: classroom.name, y: classroom.average }
+      average = classroom.average
+      classrooms << { x: classroom.name, y: average }
+      average_total += average
     end
-    return classrooms
+    return { classrooms: classrooms, average_total: average_total }
   end
 
   def self.mentors
