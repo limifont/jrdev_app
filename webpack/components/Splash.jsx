@@ -78,10 +78,11 @@ const Splash = () => (
                   <img src="assets/Charmander.gif" style={{width:'64px', height: '64px', marginTop: '-11px'}}></img>
                   <h5 className="center black-text">Henry Doan</h5>
                 </Link>
-                <a href='https://github.com/nightwing891'><img src="assets/GitHub.png"></img></a>
-
                 <p className="light center">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>
-                <a href='mailto:henrydoan96@gmail.com'>henrydoan96@gmail.com</a>
+
+                <a href='https://github.com/nightwing891' target="github"><img src="assets/GitHub.png"></img></a>
+                <a href='https://www.linkedin.com/in/henrydoan' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
+                <a href='mailto:henrydoan96@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
               </div>
             </div>
 
@@ -91,10 +92,11 @@ const Splash = () => (
                   <img src="assets/bulbasaur.gif" style={{width:'54px', height: '54px'}}></img>
                   <h5 className="center black-text">Lindsey Font</h5>
                 </Link>
-                <a href='https://github.com/limifont'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/limifont</a>
-
                 <p className="light center">Bio</p>
-                <a href='mailto:lindsey.font@gmail.com'>lindsey.font@gmail.com</a>
+
+                <a href='https://github.com/limifont' target="github"><img src="assets/GitHub.png"></img></a>
+                <a href='https://www.linkedin.com/in/lindseyfont' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
+                <a href='mailto:lindsey.font@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
               </div>
             </div>
 
@@ -104,9 +106,11 @@ const Splash = () => (
                   <img src="assets/Squirtle.gif" style={{width:'44px', height: '44px', marginTop: '9px'}}></img>
                   <h5 className="center black-text">Matt Hadley</h5>
                 </Link>
-                <a href='https://github.com/mghadley'><img src="assets/GitHub.png" style={{width: "16px", height: "16px"}}></img> github.com/mghadley</a>
                 <p className="light center">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p>
-                <a href='mailto:matthew.g.hadley@gmail.com'>matthew.g.hadley@gmail.com</a>
+
+                <a href='https://github.com/mghadley' target="github"><img src="assets/GitHub.png"></img></a>
+                <a href='https://www.linkedin.com/in/mghadley' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
+                <a href='mailto:matthew.g.hadley@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
               </div>
             </div>
 
