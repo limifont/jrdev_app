@@ -24,11 +24,14 @@ class ExcercisePopup extends React.Component {
         <div >
           <Snackbar
             open={this.state.open}
-            message="You got it correct!"
+            message="Correct!"
             autoHideDuration={4000}
             onRequestClose={this.handleRequestClose}
             bodyStyle={{
-              background: '#00e5ff' 
+              background: '#6ae817'
+            }}
+            style={{
+              textAlign: 'center',
             }}
           />
         </div>
