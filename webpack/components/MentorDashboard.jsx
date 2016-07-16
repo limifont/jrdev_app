@@ -92,9 +92,9 @@ class MentorDashboard extends React.Component {
 	failMessage() {
 		if(this.state.addFail) {
 			return (
-				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
-					<p style={{color: "red", marginBottom: "2px"}}>Failed to find Jr Dev</p>
-				  <p style={{color: "red", marginTop: "0px"}}>Please confirm secret phrase</p>
+				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", padding: "5px"}}>
+					<p style={{color: "red", margin: "2px 0 2px 0"}}>Failed to add JrDev</p>
+				  <p style={{color: "red", marginTop: "0px"}}>Secret Phrase could be incorrect or you may have already added this JrDev</p>
 				</div>	
 			)
 		} else {
@@ -112,7 +112,7 @@ class MentorDashboard extends React.Component {
 				<div>
 					<div className="row">
 						<div className="col m12 l8" style={{height: '100%'}}>
-							<div className="card" style={{height: '100%'}}>
+							<div className="" style={{height: '100%'}}>
 								<Lessons lessons={this.state.lessons} links={true}/>
 							</div>
 						</div>
