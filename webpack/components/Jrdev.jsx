@@ -134,7 +134,7 @@ class Jrdev extends React.Component {
 							<div className="card">	
 								<div className="card-content">
 									<h4>{`${jrdev.name}'s Lesson Progress`}</h4>
-									<Lessons lessons={this.state.lessons} links={true} />
+									<Lessons lessons={this.state.lessons} links={false} />
 								</div>
 							</div>
 						</div>

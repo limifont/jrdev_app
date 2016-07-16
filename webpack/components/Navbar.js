@@ -16,8 +16,8 @@ class Navbar extends React.Component {
 	// TODO: add the three users and replace admin
 	authLink(){
 		if(this.props.auth)
-			return([<li><a href='#' onClick={this.logout.bind(this)}>Logout</a></li>,
-              <li className="white-text"><Link to="/">Dashboard</Link></li>])
+			return([<li className="white-text"><Link to="/">Dashboard</Link></li>,
+              <li><a href='#' onClick={this.logout.bind(this)}>Logout</a></li>])
 		else {
 			return([<li><Link to='/login'>Login</Link></li>,
 							<li><Link to='/signup_landing' >Signup</Link></li>])
@@ -30,7 +30,7 @@ class Navbar extends React.Component {
 		      <div className="navbar-fixed">
 	          <nav className='cyan'>
 	            <div className="nav-wrapper container">
-	              <Link to='/' className='brand-logo'>Jr. Devs</Link>
+	              <Link to='/' className='brand-logo'>JrDevs</Link>
 	              <ul id="nav-mobile" className="right hide-on-med-and-down">
 	                { this.authLink() }
 	              </ul>

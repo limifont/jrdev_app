@@ -10,7 +10,7 @@ class Api::MentorsJrdevsController < ApiController
 			if mentors_jrdev.save
 				render json: jrdev
 			else
-				render json: { errors: mentors_jrdev.errors.full_messages }
+				render json: { errors: mentors_jrdev.errors.full_messages }, status: 400 
 			end
 		end
 	end

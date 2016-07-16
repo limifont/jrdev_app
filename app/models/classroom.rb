@@ -13,6 +13,7 @@ class Classroom < ActiveRecord::Base
 	belongs_to :user
   has_many :classroom_jrdevs
   has_many :jrdevs, through: :classroom_jrdevs
+  validates_uniqueness_of :name, scope: :user_id
 
   def jrdevs
   	jrdev_ids = ClassroomJrdev.where(classroom_id: id).pluck(:jrdev_id)
