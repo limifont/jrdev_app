@@ -44,7 +44,6 @@ class Exercise extends React.Component {
 	}
 
 	replCode() {
-		$('.console').empty("");
 		var repl = new ReplitClient('api.repl.it', 80, 'ruby', {msg_mac: localStorage.getItem('token'), time_created: localStorage.getItem('time_created')})
 		self = this
 		repl.evaluateOnce(
@@ -77,6 +76,7 @@ class Exercise extends React.Component {
 
 
 	checkAnswer() {
+		debugger
 		this.setState({ exerciseFailMessage: false, exerciseMessage: false })
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)

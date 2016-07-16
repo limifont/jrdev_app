@@ -51,7 +51,7 @@ exercise1_4 = Exercise.find_or_create_by(
 	instruction: "Computers can also handle words as well. As long as they are inside quotation marks, the computer know to treat them as normal words and not as code. <br />
 		Type the words 'Hello, world' after the 'puts' and run the code (be sure to include the quotation marks).",
 	prefill: "puts",
-	expected_code: "\(puts 'Hello world')|(puts \"Hello world\")",
+	expected_code: "\(puts 'Hello, world')|(puts \"Hello, world\")",
 	code_regex: true,
 	expected_output: "Hello, world",
 	output_regex: false,
@@ -142,7 +142,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		name: "Variables Naming Exercise",
 		instruction: "Now its your turn! In the editor below, name a variable 'food' and have it equal to your favorite food and print to the console. (Hint: Remember to use quotations!)", 
 		prefill: "food = ''\nputs ",
-		expected_code: "\(\s=\s')(.*)('$)[\s\S]*(puts )"
+		expected_code: "\(\s=\s')(.*)('$)[\s\S]*(puts )",
 		code_regex: true,
 		expected_output: "\\S",
 		output_regex: true,
@@ -206,7 +206,7 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		lesson_id: lesson3.id, 
 		name: "Variables, values of strings, and operations",
 		instruction: "You may be wondering if we can also have the operations works with strings. Let's try running the code below to see the what each code does!", 
-		prefill: "instinct = 'Yellow Team'\nmystic = 'Blue Team'\nvalor = 'Red Team'\n\n\nbest = ' is the best team!'\nok = ' is ok.'\nok2 = ' is ok, too.'\n\nputs instinct + best\nputs mystic + ok\nputs valor + ok2"
+		prefill: "instinct = 'Yellow Team'\nmystic = 'Blue Team'\nvalor = 'Red Team'\n\n\nbest = ' is the best team!'\nok = ' is ok.'\nok2 = ' is ok, too.'\n\nputs instinct + best\nputs mystic + ok\nputs valor + ok2",
 		expected_code: "\(instinct = 'Yellow Team').(mystic = 'Blue Team').(valor = 'Red Team')$\s*(best = ' is the best team!').(ok = ' is ok.').(ok2 = ' is ok, too.')$\s*(puts instinct + best).(puts mystic + ok).(puts valor + ok2)/m",
 		code_regex: true,
 		expected_output: "\(Yellow Team is the best team!)$\s(Blue Team is ok.)$\s(Red Team is ok, too.)",
@@ -238,7 +238,7 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		expected_code: "",
 		code_regex: true,
 		expected_output: "",
-		output_regex: "",
+		output_regex: false,
 		position: 5
 		)
 	# TODO: final review quiz and achievement of completion.

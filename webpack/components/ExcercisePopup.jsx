@@ -15,7 +15,6 @@ class ExcercisePopup extends React.Component {
     this.setState({
       open: false,
     });
-    $('.console').empty("");
   };
 
 
