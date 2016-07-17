@@ -62,7 +62,7 @@ exercise1_5 = Exercise.find_or_create_by(
 	name: "More Words",
 	instruction: "Let's try it again, but starting from scratch. Write your own code that will output the words 'I love coding!'",
 	prefill: "",
-	expected_code: "\(\s=\s')(.*)('$)[\s\S]*(puts )",
+	expected_code: "[\\s\\S]*(\\s=\\s')(.*)[\\s\\S]*(puts )[\\s\\S]*",
 	code_regex: true,
 	expected_output: "I love coding!",
 	output_regex: false,
@@ -75,9 +75,9 @@ exercise1_6 = Exercise.find_or_create_by(
 		These data types have special names. Whole numbers like 2 or 15 or are called integers (decimal numbers like 3.5 are called something different). Words inside quotation marks are called strings. <br />
 		There are many other data types, but let's start with just strings and integers. Run the below code to review what we just learned!",
 	prefill: "x = 'Coding is the best!'\ny = 57\nputs 'x is a string!'\nputs 'y is an integer!'",
-	expected_code: "\(x = 'Coding is the best!')$\s(y = 57)$\s(puts 'x is a string!')$\s(puts 'y is an integer!')$\s(puts x)",
+	expected_code: "\(x = 'Coding is the best!')\\s(y = 57)\\s(puts 'x is a string!')\\s(puts 'y is an integer!')",
 	code_regex: true,
-	expected_output: "y is an integer",
+	expected_output: ["x is a string!", "↵", "y is an integer!", "↵"],
 	output_regex: false,
 	position: 6
 	)
@@ -87,7 +87,7 @@ exercise1_7 = Exercise.find_or_create_by(
 	instruction: "Wondering what x and y were in the last exercise? These are variables, you'll learn all about them in the next lesson. Solve this last problem to move on to the Variables lesson! <br />
 	  Replace the blank spaces in the code below with the correct data type names",
 	prefill: "x = 45\ny = 'I love data types!'\nputs 'x is an _ and y is a _",
-	expected_code: "\(x = 45)$\s(y = 'I love data types!')$\s(puts 'x is an integer and y is a string')",
+	expected_code: "\(x = 45)\\s(y = 'I love data types!')\\s(puts 'x is an integer and y is a string')",
 	code_regex: true,
 	expected_output: "x is an integer and y is a string",
 	output_regex: false,
@@ -105,7 +105,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		In the code below, you can see that the variable 'x' is holding the words 'Hello, World'.
 		Let\'s run the code below to see what happens when we 'puts x'",
 		prefill: "x = 'Hello, World'\nputs x",
-		expected_code: "\(x = 'Hello World')$\s(puts x)",
+		expected_code: "\(x = 'Hello World')\\s(puts x)",
 		code_regex: true,
 		expected_output: "Hello, World",
 		output_regex: false,
@@ -119,7 +119,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		How about you give it a try now? <br />
 		Instead of putting 'Hello, World' into the 'x' variable, have fun and put your own word!",
 		prefill: "x = 'Hello, World'\nputs x",
-		expected_code: "\(x = ')[\s\S]*(')$\s(puts x)",
+		expected_code: "\(x = ')[\\s\\S]*(')\\s(puts x)",
 		code_regex: true,
 		expected_output: "\\S",
 		output_regex: true,
@@ -131,7 +131,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		instruction: "Variables can take shape into many forms of words. We can name a variable whatever we want.
 		In the code below we can see all sorts of words that acts like a variable.",
 		prefill: "pokemon = 'cool'\nteam = 'Yellow'\nputs pokemon\nputs team",
-		expected_code: "\(pokemon = 'cool')$\s(team = 'Yellow')$\s(puts pokemon)$\s(puts team)",
+		expected_code: "\(pokemon = 'cool')\\s(team = 'Yellow')\\s(puts pokemon)\\s(puts team)",
 		code_regex: true,
 		expected_output: ["cool", "↵", "Yellow"],
 		output_regex: false,
@@ -142,7 +142,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		name: "Variables Naming Exercise",
 		instruction: "Now its your turn! In the editor below, name a variable 'food' and have it equal to your favorite food and print to the console. (Hint: Remember to use quotations!)", 
 		prefill: "food = ''\nputs ",
-		expected_code: "\(\s=\s')(.*)('$)[\s\S]*(puts )",
+		expected_code: "\(\\s=\\s')(.*)(')[\\s\\S]*(puts )",
 		code_regex: true,
 		expected_output: "\\S",
 		output_regex: true,
@@ -153,7 +153,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		name: "Variables Naming Cont.",
 		instruction: "Variables can also be a combination of words with numbers as well. Check out the example in the text editor. <br />I bet you can guess what the console will print out!", 
 		prefill: "my_favorite_game = 'Pokemon Go'\ntrainer1 = 'Ash'\ntrainer2 = 'Misty'",
-		expected_code: "\(my_favorite_game = 'Pokemon Go')$\s(trainer1 = 'Ash')$\s(trainer2 = 'Misty')",
+		expected_code: "\(my_favorite_game = 'Pokemon Go')\\s(trainer1 = 'Ash')\\s(trainer2 = 'Misty')",
 		code_regex: true,
 		expected_output: ["Pokemon Go", "↵", "Ash", "↵", "Misty", "↵"],
 		output_regex: false,
@@ -164,7 +164,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		name: "Variables Naming Exercise Cont.",
 		instruction: "Now lets make your own variables with a combination of words and numbers. Make the variable equal to a string and then display it in the console!",
 		prefill: "# You can do it!",
-		expected_code: "\(\s=\s')(.*)('$)[\s\S]*(puts )",
+		expected_code: "\(\\s=\\s')(.*)(')[\\s\\S]*(puts )",
 		code_regex: true,
 		expected_output: "\\S",
 		output_regex: true,
@@ -181,7 +181,7 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		Now instead of using the numbers themselves, we're going to use variables to do math!<br />
 		Take a look at the code below and guess what will be displayed in the console when you press the 'run' button.<br />",
 		prefill: "x = 2\ny = 3\nputs x + y",
-		expected_code: "\(x = 2)$\s(y = 3)$\s(puts x + y)",
+		expected_code: "\(x = 2)\\s(y = 3)\\s(puts x + y)",
 		code_regex: true,
 		expected_output: '5',
 		output_regex: false,
@@ -195,7 +195,7 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		In the editor below, let's make some variables called 'x' and 'y' and then assign a number value to the variable.<br />
 		Let's see how many different ways we can have the value print out 10 in the console!",
 		prefill: "x = \ny =",
-		expected_code: "\(x = )(-[\d]*|[\d]*)[$\s]*(y = )(-[\d]*|[\d]*)[$\s]*(puts)",
+		expected_code: "\(x = )(-[\\d]*|[\\d]*)[\\s]*(y = )(-[\\d]*|[\\d]*)[\\s]*(puts)",
 		code_regex: true,
 		expected_output: '10',
 		output_regex: false,
@@ -207,9 +207,9 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		name: "Variables, values of strings, and operations",
 		instruction: "You may be wondering if we can also have the operations works with strings. Let's try running the code below to see the what each code does!", 
 		prefill: "instinct = 'Yellow Team'\nmystic = 'Blue Team'\nvalor = 'Red Team'\n\n\nbest = ' is the best team!'\nok = ' is ok.'\nok2 = ' is ok, too.'\n\nputs instinct + best\nputs mystic + ok\nputs valor + ok2",
-		expected_code: "\(instinct = 'Yellow Team').(mystic = 'Blue Team').(valor = 'Red Team')$\s*(best = ' is the best team!').(ok = ' is ok.').(ok2 = ' is ok, too.')$\s*(puts instinct + best).(puts mystic + ok).(puts valor + ok2)/m",
+		expected_code: "\(instinct = 'Yellow Team').(mystic = 'Blue Team').(valor = 'Red Team')\\s*(best = ' is the best team!').(ok = ' is ok.').(ok2 = ' is ok, too.')\\s*(puts instinct + best).(puts mystic + ok).(puts valor + ok2)/m",
 		code_regex: true,
-		expected_output: "\(Yellow Team is the best team!)$\s(Blue Team is ok.)$\s(Red Team is ok, too.)",
+		expected_output: "\(Yellow Team is the best team!)$\\s(Blue Team is ok.)$\\s(Red Team is ok, too.)",
 		output_regex: true,
 		position: 3
 		)
@@ -222,7 +222,7 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 	  With the other operations we get an error because in programing you cannot use the other operations with strings.<br />
 	  Now try fixing the code below so there are no longer any errors",
 	  prefill: "x = 'Catch em all!'\ny = 'Pokemon '\nz = 'Go!'\nputs y - z\nputs x",
-	  expected_code: "\(x = 'Catch em all!')$\s(y = 'Pokemon ')$\s(z = 'Go!')",
+	  expected_code: "\(x = 'Catch em all!')\\s(y = 'Pokemon ')\\s(z = 'Go!')",
 	  code_regex: true,
 	  expected_output: ["Pokemon Go!", "↵", "Catch em all!"],
 	  output_regex: false,

@@ -76,7 +76,10 @@ class Exercise extends React.Component {
 
 
 	checkAnswer() {
-		debugger
+		if(!$('.console').html()) {
+			$('.console').empty("");
+		}
+
 		this.setState({ exerciseFailMessage: false, exerciseMessage: false })
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
@@ -102,14 +105,15 @@ class Exercise extends React.Component {
 			}
 		} else {
 			if(this.state.exercise.code_regex == true) {
-				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output  && codeRegEx.test(this.state.value)) {
+		debugger
+				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
 					this.checkAnswerAjax()
 				} else {
 					this.setState({ exerciseFailMessage: true})
 				}
 			} else {
-	      if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output  && this.state.value === this.state.exercise.expected_code) {
+	      if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && this.state.value === this.state.exercise.expected_code) {
 					this.setState({ exerciseMessage: true })
 					this.checkAnswerAjax()
 				} else {
