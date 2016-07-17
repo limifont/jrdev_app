@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: exercises
+#
+#  id              :integer          not null, primary key
+#  name            :string           not null
+#  instruction     :text             not null
+#  prefill         :string
+#  expected_output :string           not null
+#  expected_code   :string
+#  position        :integer          not null
+#  lesson_id       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Exercise < ActiveRecord::Base
   belongs_to :lesson
   validates_presence_of :name, :instruction, :expected_output, :position

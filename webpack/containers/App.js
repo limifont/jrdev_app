@@ -23,7 +23,7 @@ class App extends React.Component {
 		return (
 		  <div>
 		  	<Navbar auth={this.props.auth} history={this.props.history} />
-		  	<div style={{minHeight: "72vh"}}>
+		  	<div style={{minHeight: "85vh"}}>
 			    { this.props.children }
 			  </div>
 			  <Footer />

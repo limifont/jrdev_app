@@ -42,11 +42,9 @@ class JrdevPreview extends React.Component {
 	          	<Link to={`/jrdev/${this.props.jrdev.id}`}>
 		          	<div className="card-content white-text center" style={{padding: "0px"}}>
 		              <span className="card-title">{this.props.jrdev.name}</span>
+	              <a herf='#' onClick={this.toggleDelete} style={{color: "white"}}><i className="small material-icons" style={{float: "right", marginTop: "7px", cursor: "pointer"}}>delete_forever</i></a>
 		            </div>
 	            </Link>
-	            <div className="card-action white-text" style={{padding: "2px"}}>
-								<a herf='#' onClick={this.toggleDelete}>Delete</a>
-	            </div>
 	          </div>  
 	        </div>
         </div>

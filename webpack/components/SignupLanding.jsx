@@ -13,7 +13,7 @@ class SignupLanding extends React.Component {
 		return(
 			<div className='container center'>
 
-				<h1>Sign up</h1>
+				<h1 style={{margin: "0px", padding: "31px 0 25px 0"}}>Sign up</h1>
 				<br/>
 				<h5>Who are you?</h5>
 				<br/>

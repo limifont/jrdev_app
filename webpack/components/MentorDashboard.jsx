@@ -80,13 +80,9 @@ class MentorDashboard extends React.Component {
 		return this.state.mentees.map( mentee => {
 			let name = mentee.name
 			return(
-				<div className="col s12 m6">
-					<div className="card">
-						<div className="card-content">
-							<div className="center" style={{overflow: 'scroll'}}>
-								<JrdevPreview key={`jrdevPreview-${mentee.id}`} jrdev={mentee} deleteJrdev={this.deleteMentee.bind(this)}/>
-							</div>
-						</div>
+				<div className="col s12">
+					<div className="center" style={{overflow: 'scroll'}}>
+						<JrdevPreview key={`jrdevPreview-${mentee.id}`} jrdev={mentee} deleteJrdev={this.deleteMentee.bind(this)}/>
 					</div>
 				</div>
 			)
@@ -96,9 +92,9 @@ class MentorDashboard extends React.Component {
 	failMessage() {
 		if(this.state.addFail) {
 			return (
-				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
-					<p style={{color: "red", marginBottom: "2px"}}>Failed to find Jr Dev</p>
-				  <p style={{color: "red", marginTop: "0px"}}>Please confirm secret phrase</p>
+				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", padding: "5px"}}>
+					<p style={{color: "red", margin: "2px 0 2px 0"}}>Failed to add JrDev</p>
+				  <p style={{color: "red", marginTop: "0px"}}>Secret Phrase could be incorrect or you may have already added this JrDev</p>
 				</div>	
 			)
 		} else {
@@ -115,45 +111,29 @@ class MentorDashboard extends React.Component {
 			return(
 				<div>
 					<div className="row">
-						
-						<div className="col m4 s12">
-							<div className="card" style={{height: '40vh'}}>
+						<div className="col m12 l8" style={{height: '100%'}}>
+							<div className="row" style={{height: '100%'}}>
+								<div className="col s1 card" style={{height: "514px", padding: "0"}}>
+									<img src="assets/lessons.png" style={{width: "100%", height: "100%"}} alt="Lessons"></img>
+								</div>
+								<Lessons lessons={this.state.lessons} links={true}/>
+							</div>
+						</div>
+						<div className="col s12 m8 l4 offset-m2">
+							<div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
 								<div className="card-content">
-									<span class="card-title">Add a JrDev</span>
+									<span class="card-title">Add a JrDev to Your Mentorship</span>
 									<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
 										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" onClick={()=>{this.setState({ addFail: false })}}/>
 									</form>
-
 									{this.failMessage()}
-								</div>
-							</div>
-						</div>
-
-						<div className="col m8 s12">
-							<div>
-								<div className="card" style={{height: '40vh', overflowY: 'scroll'}}>
-									<div className="card-content"> 
-										<span className="card-title">
+									<div className="row" style={{paddingTop: "30px"}}>
 											JrDevs:
-										</span>
-										<div className="row">
-											{this.displayMentees()}
-										</div>
+										{this.displayMentees()}
 									</div>
 								</div>
 							</div>
 						</div>
-					
-					</div>
-
-					<div className="row">
-
-						<div className="col m12 s12" style={{height: '100%'}}>
-							<div className="card" style={{height: '100%'}}>
-								<Lessons lessons={this.state.lessons} links={true}/>
-							</div>
-						</div>
-			
 					</div>
 				</div>
 			)	

@@ -6,44 +6,38 @@ import EducatorDashboard from './EducatorDashboard'
 class Dashboard extends React.Component {
   constructor(props) {
       super(props);
+      this.displayDashboard = this.displayDashboard.bind(this)
   }
-  render() {
+
+  displayDashboard() {
     let userType = this.props.authData.userType
     let id = this.props.authData.id
     if( userType === "Jrdev") {
-    	return( 
-    		<div className="container">
-          <div style={{width: '100%'}}>
-            <div className="col s12 m12 center">
-              <h1>JrDev Dashboard</h1>
-            </div>
-          </div>
-          <JrdevDashboard id={id} />
-        </div>
-  		)
-  	} else if(userType === "Mentor") {
-  		return(
-		   <div className="container">
-          <div style={{width: '100%'}}>
-            <div className="col s12 m12 center">
-              <h1>Mentor Dashboard</h1>
-            </div>
-          </div>
-          <MentorDashboard id={id} />
-        </div>
-    	)
+      return( 
+        <JrdevDashboard id={id} />
+      )
+    } else if(userType === "Mentor") {
+      return(
+        <MentorDashboard id={id} />
+      )
     } else {
-    	return(
-        <div className="container">
-          <div style={{width: '100%'}}>
-            <div className="col s12 m12 center">
-              <h1>Educator Dashboard</h1>
-            </div>
-          </div>
-          <EducatorDashboard id={id} />
-        </div>
-    	)
+      return(
+        <EducatorDashboard id={id} />
+      )
     }
+  }
+
+  render() {
+  	return( 
+  		<div className="container">
+        <div style={{width: '100%'}}>
+          <div className="col s12 m12 center" style={{marginTop: "15px"}}>
+            <h2 style={{margin: "0", fontWeight: "900"}}>Dashboard</h2>
+          </div>
+            {this.displayDashboard()}
+        </div>
+      </div>
+		)
   }
 }
 

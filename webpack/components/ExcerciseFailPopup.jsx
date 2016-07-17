@@ -30,6 +30,9 @@ class ExcerciseFailPopup extends React.Component {
             bodyStyle={{
               background: '#FF6C55'
             }}
+            style={{
+              textAlign: 'center',
+            }}
           />
         </div>
       </MuiThemeProvider>

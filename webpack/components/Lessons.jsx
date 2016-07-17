@@ -23,7 +23,7 @@ class Lessons extends React.Component {
 			if(check === 'true' ) {
 				return(
 					<MuiThemeProvider key={`lesson-${lesson.id}`}>
-						<div className="col s12 m12">
+						<div className="col s11 m11">
 							<div className="card">	
 								<div className="card-content">
 			            <span className="card-title">{this.displayLessonName(lesson)}<i className="material-icons">done</i></span>
@@ -57,11 +57,8 @@ class Lessons extends React.Component {
 	render() {
 		return (
 			<div className="card-content">	
-				<span className="card-title">
-					Lessons:
-				</span>
-				<div>
-					<div className="row">
+				<div>						
+					<div className="col s11">
 						{this.displayLessons()}
 					</div>
 				</div>

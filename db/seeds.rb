@@ -9,7 +9,7 @@
 lesson1 = Lesson.create(name: "Intro to Programming", position: 1)
 exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
-	name: "What is Code", 
+	name: "What is Code?", 
 	instruction: "What is code? Code is just instructions that a computer knows how to follow. <br />
 	  A computer is kind of like a calculator, you can give it some instructions, and it will follow them. For example, a computer can follow instructions to do math. <br />
 	  Click the 'Run' button at the bottom of the screen to run the code and see what happens",
@@ -22,7 +22,7 @@ exercise1_1 = Exercise.find_or_create_by(
 	)
 exercise1_2 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
-	name: "Let's do math!",
+	name: "Let's do Math!",
 	instruction: "Your turn! Write some code after 'puts' that subtracts 3 from 5. <br />
 	  Click 'Run' when you are done to see if you got it right.",
 	prefill: "puts",
@@ -34,7 +34,7 @@ exercise1_2 = Exercise.find_or_create_by(
 	)
 exercise1_3 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
-	name: "What is puts?",
+	name: "What is Puts?",
 	instruction: "You probably noticed the word 'puts' in the last two exercises. In ruby, the word puts is a command (instruction) that tells the computer what to put to the console. <br />
 	  See that black square on the right? That is the console. If you don't tell the computer what to output to the console, it will show nothing. <br />
 	  The code below is missing puts. Click run to see what happens without 'puts.' Done? Now add 'puts' at the beginning of the line and run the code again.",

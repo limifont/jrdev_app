@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
+#  type                   :string
+#  username               :string
+#  name                   :string
+#  api_key                :string
+#  secret_phrase          :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
 class User < ActiveRecord::Base
 	has_many :classrooms
 	has_many :mentors_jrdevs
@@ -62,10 +86,13 @@ class User < ActiveRecord::Base
 
   def get_averages
     classrooms = []
+    average_total = 0
     self.classrooms.each do |classroom|
-      classrooms << { x: classroom.name, y: classroom.average }
+      average = classroom.average
+      classrooms << { x: classroom.name, y: average }
+      average_total += average
     end
-    return classrooms
+    return { classrooms: classrooms, average_total: average_total }
   end
 
   def self.mentors

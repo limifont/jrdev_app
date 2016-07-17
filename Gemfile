@@ -40,6 +40,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 	gem 'letter_opener'
   gem 'spring'
+  gem 'annotate', '~> 2.7'
 end
 
 
