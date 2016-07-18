@@ -33,7 +33,6 @@ describe RSpec.describe User, type: :model do
 		it 'returns correct classrooms and educators' do
 			ClassroomJrdev.create(classroom_id: classroom.id, jrdev_id: user.id)
 			classrooms = user.get_classrooms
-			binding.pry
 		end
 	end
 end

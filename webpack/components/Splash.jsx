@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Splash = () => (
   <div>
-      <Parallax bgImage="assets/splashpic.jpg" strength={200}>
+      <Parallax bgImage="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1468820442/splashpic_large.jpg" strength={200}>
         <div style={{width: '100vw', height: '90vh', marginTop: '15vh'}}>
           <br />
           <br />
@@ -43,7 +43,7 @@ const Splash = () => (
                 </Link>
 
                 <p className="light center" style={{textAlign: 'justify'}}>Here to learn how to code? With a JrDev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
-                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
                   <Link to='/signup/Jrdev' className="deep-orange-text text-lighten-1">Sign up as JrDev</Link>
                 </div>
               </div>
@@ -57,7 +57,7 @@ const Splash = () => (
                 </Link>
 
                 <p className="light center" style={{textAlign: 'justify'}}>Mentor accounts are for those looking to help JrDevs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
-                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
                   <Link to='/signup/Mentor' className="deep-orange-text text-lighten-1">Sign up as Mentor</Link>
                 </div>
               </div>
@@ -71,7 +71,7 @@ const Splash = () => (
                 </Link>
 
                 <p className="light center" style={{textAlign: 'justify'}}>Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
-                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
                   <Link to='/signup/Educator' className="deep-orange-text text-lighten-1">Sign up as Educator</Link>
                 </div>              
               </div>
@@ -80,7 +80,7 @@ const Splash = () => (
         </div>
       </div>
 
-      <Parallax bgImage="assets/splashpic2.jpg" strength={100}>
+      <Parallax bgImage="http://res.cloudinary.com/di0vizmtw/image/upload/v1468821593/splashpic2_copy_ber9cl.jpg" strength={100}>
         <div id="overlay" style={{width: '100vw', height: '50vh'}}></div>
       </Parallax>
 
@@ -143,7 +143,7 @@ const Splash = () => (
         </div>
       </div>
 
-      <Parallax bgImage="assets/splashpic3.jpg" strength={100}>
+      <Parallax bgImage="http://res.cloudinary.com/di0vizmtw/image/upload/v1468821798/splashpic3_copy_2_pm6rjo.jpg" strength={100}>
         <div style={{width: 800, height: 425}}></div>
       </Parallax>
 
