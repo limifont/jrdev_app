@@ -21,7 +21,7 @@ class App extends React.Component {
 
   render() {
 		return (
-		  <div>
+		  <div id="background">
 		  	<Navbar auth={this.props.auth} history={this.props.history} />
 		  	<div style={{minHeight: "85vh"}}>
 			    { this.props.children }
