@@ -20,6 +20,8 @@ class Lessons extends React.Component {
 	displayLessons() {
 		return this.props.lessons.map( lesson => {
 			let check = lesson.completed.toString()
+			let icon = lesson.icon_url
+			console.log(icon);
 			if(check === 'true' ) {
 				return(
 					<MuiThemeProvider key={`lesson-${lesson.id}`}>
@@ -41,6 +43,11 @@ class Lessons extends React.Component {
 						<div className="col s12 m12">
 							<div className="card">		
 								<div className="card-content">
+			            <div className="row">
+			            	<div className="col s12 m6 l6">
+			            		<img src={lesson.icon_url} />
+			            	</div>
+			            </div>
 			            <span className="card-title">{this.displayLessonName(lesson)} ({complete}/{total})</span>
 			            <div className="col s12 m12">
 			            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
@@ -66,5 +73,7 @@ class Lessons extends React.Component {
 		);
 	}
 }
+
+
 
 export default Lessons

@@ -90,7 +90,7 @@ class Badge extends React.Component {
     if (this.state.newbie != null) {
       if (newbieTime >= currentTime) { 
         return (
-          <div class="col s12 m4">
+          <div className="col s12 m12">
             <div className="card amber white-text center">
               <br />
                 <div>

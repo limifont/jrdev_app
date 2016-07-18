@@ -6,7 +6,7 @@
 
 # mentor = User.create(username: "mentor", password: "password", password_confirmation: "password", email: "mentor@gmail.com", name: "mentor", type: "Mentor")
 
-lesson1 = Lesson.create(name: "Intro to Programming", position: 1)
+lesson1 = Lesson.create(name: "Intro to Programming", icon_url: 'http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_80/v1468874271/Lesson1_jbkaq9.png', position: 1)
 exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
 	name: "What is Code?", 
