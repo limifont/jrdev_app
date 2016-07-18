@@ -63,7 +63,7 @@ exercise1_5 = Exercise.find_or_create_by(
 	instruction: "Let's try it again, but starting from scratch. Write your own code that will output the words 'I love coding!'",
 	prefill: "",
 	expected_code: "[\\s\\S]*(\\s=\\s')(.*)[\\s\\S]*(puts )[\\s\\S]*",
-	code_regex: true,
+	code_regex: false,
 	expected_output: "I love coding!",
 	output_regex: false,
 	position: 5
