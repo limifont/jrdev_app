@@ -4,23 +4,37 @@ import { Link } from 'react-router';
 
 const Splash = () => (
   <div>
-      <Parallax bgImage="assets/Kid1.jpg" strength={200}>
-        <div style={{width: '100vw', height: '50vh', marginTop: 1}}>
+      <Parallax bgImage="assets/splashpic.jpg" strength={200}>
+        <div style={{width: '100vw', height: '90vh', marginTop: '15vh'}}>
           <br />
           <br />
-          <h1 className="header valign center cyan-text text-accent-3">Jr. Devs</h1>
-          <div className="row valign center col s12">
-            <h5 className="header col s12 light white-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
+            <div className="container">
+              <div className="row">  
+                <div className="col s12 m6 l6">
+                  <h2 className="header valign cyan-text text-accent-4">TEACHING KIDS TO CODE</h2>
+                  <div className="row valign col s12">
+                    <p className="header col s12 light white-text" style={{fontWeight: 100, paddingLeft: 0}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                  <div className="row center col s12 m12 l12">
+                    <a href="#get_started" className="btn col s12 m5 l5 orange">Learn More</a>
+                    <a href="#jrdev_team" className="btn col s12 m5 offset-m1 l5 offset-l1 transparent" style={{border: "2px solid white"}}>The JrDev Team</a>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </Parallax>
 
-      <div className="container" id="get_started">
-        <div className="section">
 
-          <div className="row section center">
-            <h4>Get Started</h4>
-            <h5>Choose your account type</h5>
+      <div  id="get_started" className="white col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
+        <div className="container" style={{display: 'flex', flexDirection: 'column', minHeight: '20vh', marginTop: '15vh', marginBottom: '15vh'}}>
+          <div className="row center">
+            <div className="col s12 m12 l12">
+              <h5 style={{fontWeight: 'bold'}}>CHOOSE YOUR ACCOUNT TYPE</h5>
+            </div>
+          </div>
+          
+          <div className="row center">
             <div className="col s12 m4 center" style={{height: "100%"}}>
               <div className="icon-block">
                 <Link to='/signup/Jrdev'>
@@ -28,8 +42,10 @@ const Splash = () => (
                   <h5 className="center black-text">Jr. Dev</h5>
                 </Link>
 
-                <p className="light center">Here to learn how to code? With a Jr Dev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
-                <Link to='/signup/Jrdev'>Create a JrDev Account</Link>
+                <p className="light center" style={{textAlign: 'justify'}}>Here to learn how to code? With a JrDev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                  <Link to='/signup/Jrdev' className="deep-orange-text text-lighten-1">Sign up as JrDev</Link>
+                </div>
               </div>
             </div>
 
@@ -40,8 +56,10 @@ const Splash = () => (
                   <h5 className="center black-text">Mentor</h5>
                 </Link>
 
-                <p className="light center">Mentor accounts are for those looking to help Jr Devs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
-                <Link to='/signup/Mentor'>Create a Mentor Account</Link>
+                <p className="light center" style={{textAlign: 'justify'}}>Mentor accounts are for those looking to help JrDevs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                  <Link to='/signup/Mentor' className="deep-orange-text text-lighten-1">Sign up as Mentor</Link>
+                </div>
               </div>
             </div>
 
@@ -52,21 +70,21 @@ const Splash = () => (
                   <h5 className="center black-text">Educator</h5>
                 </Link>
 
-                <p className="light center">Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
-                <Link to='/signup/Educator'>Create an Educator Account</Link>
+                <p className="light center" style={{textAlign: 'justify'}}>Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                  <Link to='/signup/Educator' className="deep-orange-text text-lighten-1">Sign up as Educator</Link>
+                </div>              
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
 
-      <Parallax bgImage="assets/kid2.png" strength={200}>
-        <div style={{width: 800, height: 425}}></div>
+      <Parallax bgImage="assets/splashpic2.jpg" strength={100}>
+        <div id="overlay" style={{width: '100vw', height: '50vh'}}></div>
       </Parallax>
 
-      <div className="container">
+      <div className="container" id="jrdev_team">
         <div className="section">
 
           <div className="row section center">
@@ -119,7 +137,7 @@ const Splash = () => (
         </div>
       </div>
 
-      <Parallax bgImage="assets/kid2.png" strength={200}>
+      <Parallax bgImage="assets/splashpic3.jpg" strength={100}>
         <div style={{width: 800, height: 425}}></div>
       </Parallax>
 
