@@ -12,6 +12,7 @@ import Classroom from './components/Classroom';
 import Jrdev from './components/Jrdev';
 import SignupLanding from './components/SignupLanding';
 import AboutUs from './components/AboutUs';
+import Sandbox from './components/Sandbox';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { handleLogout } from './components/auth/actions';
 
@@ -56,6 +57,7 @@ export default (
       <Route path='/about_us' component={AboutUs} />
       <Route path='/classroom/:id' component={UserIsAuthenticated(Classroom)} />
       <Route path='/jrdev/:id' component={UserIsAuthenticated(Jrdev)} />
+      <Route path='/sandbox' component={UserIsAuthenticated(Sandbox)} />
     </Route>
     <Route path="*" status={404} component={NoMatch}/>
   </Route>

@@ -38,7 +38,7 @@ class ClassroomPreview extends React.Component {
 					<div className="col m12">
 	          <div className="card orange lighten-2 white-text">
 	          	<div className="card-content white-text center" style={{padding: "0px"}}>
-	              <span className="card-title">{this.props.classroom.name}</span>
+	              <span className="card-title" style={{fontSize: "14px"}}>{this.props.classroom.name}</span>
 	              <p>Are you sure you want to delete this classroom?</p>
 	              <a href='#' style={{color: "red", marginRight: "6px"}} onClick={this.handleDelete.bind(this)}>Yes</a>
 	              <a href='#' onClick={this.toggleDelete}>Nope</a>
@@ -73,7 +73,7 @@ class ClassroomPreview extends React.Component {
 	          <div className="card orange lighten-2 white-text">
 	          	<Link to={`/classroom/${this.props.classroom.id}`}>
 		          	<div className="card-content white-text center" style={{padding: "0px", display: "inline-block"}}>
-		              <span className="card-title" style={{marginLeft: "8px"}}>{this.props.classroom.name}</span>
+		              <span className="card-title" style={{marginLeft: "8px", fontSize: "15px"}}>{this.props.classroom.name}</span>
 		            </div>
 	            </Link>
 							<a href='#' onClick={this.toggleDelete} style={{color: "white"}}><i className="small material-icons" style={{float: "right", marginTop: "7px", cursor: "pointer"}}>delete_forever</i></a>

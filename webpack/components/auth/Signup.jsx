@@ -56,7 +56,7 @@ class Signup extends React.Component {
 				return(<p className="center" style={{color: "red"}}>{error}</p>)
 			})
 			return(
-				<div className="col m6 offset-m3" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
+				<div className="col m6 offset-m3" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", marginTop: "30px"}}>
 					{messages}
 				</div>	
 			)
