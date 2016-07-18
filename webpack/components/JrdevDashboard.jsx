@@ -63,7 +63,7 @@ class JrdevDashboard extends React.Component {
 
 	displayPhrase = () => {
 		if(this.state.hidden === true) {
-			$("#secret-phrase").text(this.state.secret_phrase).css({'overflow':'scroll', 'cursor':'text'});
+			$("#secret-phrase").text(this.state.secret_phrase).css({'overflow-x':'scroll', 'cursor':'text'});
 			$("#secret-phrase").toggleClass('white', true);
 			$("#hide-btn").css('display', 'block');
 			$("#new-secret").css('display', 'block');
@@ -74,6 +74,7 @@ class JrdevDashboard extends React.Component {
 	hidePhrase = () => {
 		if(this.state.hidden === false) {			
 			$("#secret-phrase").text('SECRET PHRASE').css('cursor', 'pointer').toggleClass('white', false);
+			$("#secret-phrase").text('SECRET PHRASE').css('overflow-x', 'hidden');
 			$(".remove-me").remove();
 			$("#remove-me2").remove();
 			this.setState({ hidden: true })

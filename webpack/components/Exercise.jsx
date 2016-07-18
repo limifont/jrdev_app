@@ -15,7 +15,7 @@ import ExcerciseFailPopup from './ExcerciseFailPopup';
 class Exercise extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, endMessage: false, exerciseMessage: false, exerciseFailMessage: false}
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, endMessage: false, exerciseMessage: false, exerciseFailMessage: false }
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
@@ -23,6 +23,7 @@ class Exercise extends React.Component {
 		this.popup = this.popup.bind(this)
 		this.exercisePopup = this.exercisePopup.bind(this)
 		this.exerciseFailPopup = this.exerciseFailPopup.bind(this)
+		this.checkAnswerAjax = this.checkAnswerAjax.bind(this)
 	}
 
   componentWillMount() {
@@ -83,45 +84,83 @@ class Exercise extends React.Component {
 		);
 	}
 
+
 	checkAnswer() {
+		if(!$('.console').html()) {
+			$('.console').empty("");
+		}
+
 		this.setState({ exerciseFailMessage: false, exerciseMessage: false })
 		console.log('current output', this.state.results)
 		console.log(this.state.exercise.expected_output)
 
-		
 		let regEx = new RegExp(this.state.exercise.expected_output)
+		let codeRegEx = new RegExp(this.state.exercise.expected_code)
 
-
-		if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output || regEx.test(this.state.results[this.state.results.length -2]) ) {
-			this.setState({ exerciseMessage: true })
-			if(!this.state.completed) {
-				$.ajax({
-					url: '/api/completed_exercises',
-					type: 'POST',
-					dataType: 'JSON',
-					data: { id: this.state.exercise.id }
-				}).done( result => {
-					this.setState({ completed: true})
-				}).fail( result => {
-					console.log("failed to mark exercise as completed")
-				})
-				if(this.state.last) {
-					$.ajax({
-						url: '/api/completed_lessons',
-						type: 'POST',
-						dataType: 'JSON',
-						data: { id: this.props.params.lesson_id }
-					}).done( result => {
-						this.setState({ endMessage: true })
-					}).fail( result => {
-						console.log("failed to mark lesson as completed")
-					})
+		if(this.state.exercise.output_regex == true) {
+			if(this.state.exercise.code_regex == true) {
+				if(regEx.test(this.state.results[this.state.results.length -2]) && codeRegEx.test(this.state.value)) {
+					this.setState({ exerciseMessage: true })
+					this.checkAnswerAjax()
+				} else {
+					this.setState({ exerciseFailMessage: true})
+				}
+			} else {	
+				if(regEx.test(this.state.results[this.state.results.length -2]) && this.state.value === this.state.exercise.expected_code) {
+					this.setState({ exerciseMessage: true })
+					this.checkAnswerAjax()
+				} else {
+					this.setState({ exerciseFailMessage: true})
 				}
 			}
 		} else {
-			this.setState({ exerciseFailMessage: true})
+			debugger
+			if(this.state.exercise.code_regex == true) {
+				debugger
+				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && codeRegEx.test(this.state.value)) {
+					this.setState({ exerciseMessage: true })
+					this.checkAnswerAjax()
+				} else {
+					this.setState({ exerciseFailMessage: true})
+				}
+			} else {
+	      if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && this.state.value === this.state.exercise.expected_code) {
+					this.setState({ exerciseMessage: true })
+					this.checkAnswerAjax()
+				} else {
+					this.setState({ exerciseFailMessage: true})
+				}
+			}
 		}
 	}
+
+	checkAnswerAjax() {
+		if(!this.state.completed) {
+			$.ajax({
+				url: '/api/completed_exercises',
+				type: 'POST',
+				dataType: 'JSON',
+				data: { id: this.state.exercise.id }
+			}).done( result => {
+				this.setState({ completed: true})
+			}).fail( result => {
+				console.log("failed to mark exercise as completed")
+			})
+			if(this.state.last) {
+				$.ajax({
+					url: '/api/completed_lessons',
+					type: 'POST',
+					dataType: 'JSON',
+					data: { id: this.props.params.lesson_id }
+				}).done( result => {
+					this.setState({ endMessage: true })
+				}).fail( result => {
+					console.log("failed to mark lesson as completed")
+				})
+			}
+		}
+	}
+
 
 	popup() {
 		if (this.state.endMessage){

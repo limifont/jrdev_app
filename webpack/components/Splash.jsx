@@ -4,23 +4,37 @@ import { Link } from 'react-router';
 
 const Splash = () => (
   <div>
-      <Parallax bgImage="assets/Kid1.jpg" strength={200}>
-        <div style={{width: '100vw', height: '50vh', marginTop: 1}}>
+      <Parallax bgImage="assets/splashpic.jpg" strength={200}>
+        <div style={{width: '100vw', height: '90vh', marginTop: '15vh'}}>
           <br />
           <br />
-          <h1 className="header valign center cyan-text text-accent-3">Jr. Devs</h1>
-          <div className="row valign center col s12">
-            <h5 className="header col s12 light white-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
-          </div>
+            <div className="container">
+              <div className="row">  
+                <div className="col s12 m6 l6">
+                  <h2 className="header valign cyan-text text-accent-4">TEACHING KIDS TO CODE</h2>
+                  <div className="row valign col s12">
+                    <p className="header col s12 light white-text" style={{fontWeight: 100, paddingLeft: 0}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                  <div className="row center col s12 m12 l12">
+                    <a href="#get_started" className="btn col s12 m5 l5 orange">Learn More</a>
+                    <a href="#jrdev_team" className="btn col s12 m5 offset-m1 l5 offset-l1 transparent" style={{border: "2px solid white"}}>The JrDev Team</a>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </Parallax>
 
-      <div className="container" id="get_started">
-        <div className="section">
 
-          <div className="row section center">
-            <h4>Get Started</h4>
-            <h5>Choose your account type</h5>
+      <div  id="get_started" className="white col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
+        <div className="container" style={{display: 'flex', flexDirection: 'column', minHeight: '20vh', marginTop: '15vh', marginBottom: '15vh'}}>
+          <div className="row center">
+            <div className="col s12 m12 l12">
+              <h5 style={{fontWeight: 'bold'}}>CHOOSE YOUR ACCOUNT TYPE</h5>
+            </div>
+          </div>
+          
+          <div className="row center">
             <div className="col s12 m4 center" style={{height: "100%"}}>
               <div className="icon-block">
                 <Link to='/signup/Jrdev'>
@@ -28,8 +42,10 @@ const Splash = () => (
                   <h5 className="center black-text">Jr. Dev</h5>
                 </Link>
 
-                <p className="light center">Here to learn how to code? With a Jr Dev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
-                <Link to='/signup/Jrdev'>Create a JrDev Account</Link>
+                <p className="light center" style={{textAlign: 'justify'}}>Here to learn how to code? With a JrDev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                  <Link to='/signup/Jrdev' className="deep-orange-text text-lighten-1">Sign up as JrDev</Link>
+                </div>
               </div>
             </div>
 
@@ -40,8 +56,10 @@ const Splash = () => (
                   <h5 className="center black-text">Mentor</h5>
                 </Link>
 
-                <p className="light center">Mentor accounts are for those looking to help Jr Devs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
-                <Link to='/signup/Mentor'>Create a Mentor Account</Link>
+                <p className="light center" style={{textAlign: 'justify'}}>Mentor accounts are for those looking to help JrDevs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                  <Link to='/signup/Mentor' className="deep-orange-text text-lighten-1">Sign up as Mentor</Link>
+                </div>
               </div>
             </div>
 
@@ -52,74 +70,80 @@ const Splash = () => (
                   <h5 className="center black-text">Educator</h5>
                 </Link>
 
-                <p className="light center">Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
-                <Link to='/signup/Educator'>Create an Educator Account</Link>
+                <p className="light center" style={{textAlign: 'justify'}}>Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
+                <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh'}}>
+                  <Link to='/signup/Educator' className="deep-orange-text text-lighten-1">Sign up as Educator</Link>
+                </div>              
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
 
-      <Parallax bgImage="assets/kid2.png" strength={200}>
-        <div style={{width: 800, height: 425}}></div>
+      <Parallax bgImage="assets/splashpic2.jpg" strength={100}>
+        <div id="overlay" style={{width: '100vw', height: '50vh'}}></div>
       </Parallax>
 
-      <div className="container">
-        <div className="section">
-
-          <div className="row section center">
-            <h4 className="contact-us">The Jrdev Team</h4>
-            <br/>
-            <div className="col s12 m4 center">
-              <div className="icon-block">
-                <Link to='/about_us'>
-                  <img src="assets/Charmander.gif" style={{width:'64px', height: '64px', marginTop: '-11px'}}></img>
-                  <h5 className="center black-text">Henry Doan</h5>
-                </Link>
-                <p className="light center">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>
-
-                <a href='https://github.com/nightwing891' target="github"><img src="assets/GitHub.png"></img></a>
-                <a href='https://www.linkedin.com/in/henrydoan' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
-                <a href='mailto:henrydoan96@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
+      
+      <div id="jrdev_team" className="white col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
+        <div  id="black_box" className="col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
+          <div className="container" style={{display: 'flex', flexDirection: 'column', minHeight: '20vh', marginTop: '15vh', marginBottom: '15vh'}}>
+            <div className="row center">
+              <div className="col s12 m12 l12">
+                <h5 className="black-text" style={{fontWeight: 'bold'}}>THE JRDEV TEAM</h5>
               </div>
             </div>
+            
+            <div className="row center">
+              <div className="col s12 m4 center">
+                <div className="icon-block">
+                  <Link to='/about_us'>
+                    <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAbfAAAAJGYzMjJhNGFiLWNhOGMtNDk3Yi04NTRiLWJiNmQzMWVlYzZkMQ.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+                    <h5 className="center orange-text">Henry Doan</h5>
+                  </Link>
+                  <p className="light center black-text">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>
 
-            <div className="col s12 m4 center">
-              <div className="icon-block">
-                <Link to='/about_us'>
-                  <img src="assets/bulbasaur.gif" style={{width:'54px', height: '54px'}}></img>
-                  <h5 className="center black-text">Lindsey Font</h5>
-                </Link>
-                <p className="light center">Bio</p>
-
-                <a href='https://github.com/limifont' target="github"><img src="assets/GitHub.png"></img></a>
-                <a href='https://www.linkedin.com/in/lindseyfont' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
-                <a href='mailto:lindsey.font@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
+                  <a href='https://github.com/nightwing891' target="github"><img src="assets/GitHub.png"></img></a>
+                  <a href='https://www.linkedin.com/in/henrydoan' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
+                  <a href='mailto:henrydoan96@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
+                </div>
               </div>
-            </div>
 
-            <div className="col s12 m4 center">
-              <div className="icon-block">
-                <Link to='/about_us'>
-                  <img src="assets/Squirtle.gif" style={{width:'44px', height: '44px', marginTop: '9px'}}></img>
-                  <h5 className="center black-text">Matt Hadley</h5>
-                </Link>
-                <p className="light center">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p>
+              <div className="col s12 m4 center">
+                <div className="icon-block">
+                  <Link to='/about_us'>
+                    <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAIEAAAAJDIwZDc5NmI3LTkyYjctNDQ2MC05MmQ3LTRjZDdkOWZlOWE3Ng.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+                    <h5 className="center green-text">Lindsey Font</h5>
+                  </Link>
+                  <p className="light center black-text">Lindsey graduated from Brigham Young University in 2014 with a degree in Latin American Studies, emphasizing in Spanish and a minor in Art. Her love for languages translated well into coding when she started learning how to program arduinos. She hopes to use her new coding skills along with her artistic abilities and understanding of people to make the web a more beautiful and user friendly environment.</p>
 
-                <a href='https://github.com/mghadley' target="github"><img src="assets/GitHub.png"></img></a>
-                <a href='https://www.linkedin.com/in/mghadley' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
-                <a href='mailto:matthew.g.hadley@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
+                  <a href='https://github.com/limifont' target="github"><img src="assets/GitHub.png"></img></a>
+                  <a href='https://www.linkedin.com/in/lindseyfont' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
+                  <a href='mailto:lindsey.font@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
+                </div>
               </div>
+
+              <div className="col s12 m4 center">
+                <div className="icon-block">
+                  <Link to='/about_us'>
+                    <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/0ae/1ad/2b6ca02.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+                    <h5 className="center blue-text">Matt Hadley</h5>
+                  </Link>
+                  <p className="light center black-text">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p><br></br>
+
+                  <a href='https://github.com/mghadley' target="github"><img src="assets/GitHub.png"></img></a>
+                  <a href='https://www.linkedin.com/in/mghadley' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>
+                  <a href='mailto:matthew.g.hadley@gmail.com'><img src="assets/email.png" style={{ height: '32px'}}></img></a>
+                </div>
+              </div>
+
             </div>
 
           </div>
-
         </div>
       </div>
 
-      <Parallax bgImage="assets/kid2.png" strength={200}>
+      <Parallax bgImage="assets/splashpic3.jpg" strength={100}>
         <div style={{width: 800, height: 425}}></div>
       </Parallax>
 
