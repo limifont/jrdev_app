@@ -17,7 +17,7 @@ const Splash = () => (
                   </div>
                   <div className="row center col s12 m12 l12">
                     <a href="#get_started" className="btn col s12 m5 l5 orange">Learn More</a>
-                    <a href="#jrdev_team" className="btn col s12 m5 offset-m1 l5 offset-l1 transparent" style={{border: "2px solid white"}}>The JrDev Team</a>
+                    <a href="#jrdev_team" className="btn col s12 m5 offset-m1 l5 offset-l1 transparent" style={{border: "2px solid white"}}>The JrDevs Team</a>
                   </div>
                 </div>
               </div>
@@ -39,7 +39,7 @@ const Splash = () => (
               <div className="icon-block">
                 <Link to='/signup/Jrdev'>
                   <h2 className="center deep-orange-text text-lighten-1"><i className="medium material-icons">sentiment_very_satisfied</i></h2>
-                  <h5 className="center black-text">Jr. Dev</h5>
+                  <h5 className="center black-text">JrDev</h5>
                 </Link>
 
                 <p className="light center" style={{textAlign: 'justify'}}>Here to learn how to code? With a JrDev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
