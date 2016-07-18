@@ -106,8 +106,6 @@ class MentorDashboard extends React.Component {
 		}
 	}
 
-	asdfasdf
-
 	render() {
 		if(this.state.user){
 			return(
