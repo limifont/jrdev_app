@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715154154) do
+ActiveRecord::Schema.define(version: 20160718202324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,17 +69,18 @@ ActiveRecord::Schema.define(version: 20160715154154) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "exercises", force: :cascade do |t|
-    t.string   "name"
-    t.text     "instruction"
+    t.string   "name",            null: false
+    t.text     "instruction",     null: false
     t.string   "prefill"
-    t.string   "expected_output"
+    t.string   "expected_output", null: false
     t.string   "expected_code"
-    t.integer  "position"
+    t.integer  "position",        null: false
     t.integer  "lesson_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "output_regex"
     t.boolean  "code_regex"
+    t.string   "icon_url"
   end
 
   add_index "exercises", ["lesson_id"], name: "index_exercises_on_lesson_id", using: :btree
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160715154154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "position"
+    t.string   "icon_url"
   end
 
   create_table "mentors_jrdevs", force: :cascade do |t|

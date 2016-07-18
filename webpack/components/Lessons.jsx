@@ -20,13 +20,22 @@ class Lessons extends React.Component {
 	displayLessons() {
 		return this.props.lessons.map( lesson => {
 			let check = lesson.completed.toString()
+			let icon = lesson.icon_url
+			console.log(icon);
 			if(check === 'true' ) {
 				return(
 					<MuiThemeProvider key={`lesson-${lesson.id}`}>
-						<div className="col s11 m11">
+						<div className="col s12 m12">
 							<div className="card">	
 								<div className="card-content">
-			            <span className="card-title">{this.displayLessonName(lesson)}<i className="material-icons">done</i></span>
+									<div className="row">
+										<div className="col s12 m12 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
+											<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
+										</div>
+										<div className="col s12 m12 l9">
+			            		<span className="card-title">{this.displayLessonName(lesson)}<i className="material-icons">done</i></span>
+			            	</div>
+									</div>
 			          </div>
 			        </div>
 		        </div>
@@ -41,10 +50,19 @@ class Lessons extends React.Component {
 						<div className="col s12 m12">
 							<div className="card">		
 								<div className="card-content">
-			            <span className="card-title">{this.displayLessonName(lesson)} ({complete}/{total})</span>
-			            <div className="col s12 m12">
-			            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
+			            <div className="row valign-wrapper">
+			            	<div className="valign col s12 m12 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
+											<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
+										</div>
+			            	<div className="valign col s12 m12 l9 left-align">
+			            		<div className="card-title" style={{width: '100%', maxHeight: '100%'}}>{this.displayLessonName(lesson)}</div>
+			            	</div>
 			            </div>
+				          <div className="row valign-wrapper">  
+				            <div className="valign col s12 m12 l12">
+				            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
+				            </div>
+				          </div>
 			          </div>
 			    		</div>
 			    	</div>      	
@@ -56,15 +74,13 @@ class Lessons extends React.Component {
 
 	render() {
 		return (
-			<div className="card-content">	
-				<div>						
-					<div className="col s11">
-						{this.displayLessons()}
-					</div>
-				</div>
+			<div className="col s11">
+				{this.displayLessons()}
 			</div>
 		);
 	}
 }
+
+
 
 export default Lessons

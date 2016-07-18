@@ -60,8 +60,8 @@ class Exercise extends React.Component {
 		  self.state.value, {
 		  stdout: (output) => {
 		  	if(output !== "\n") {
-        self.setState({ results: [...self.state.results, output, "\n"] })
-        this.checkAnswer()
+	        self.setState({ results: [...self.state.results, output, "\n"] })
+	        this.checkAnswer()
 		  	}
 		  }
 		}).then(
@@ -114,6 +114,7 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
+			debugger
 			if(this.state.exercise.code_regex == true) {
 				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
