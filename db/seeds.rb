@@ -74,10 +74,10 @@ exercise1_6 = Exercise.find_or_create_by(
 	instruction: "In coding, we call words and numbers data types (data is just another word for information). A computer can recognize many different data types. <br />
 		These data types have special names. Whole numbers like 2 or 15 or are called integers (decimal numbers like 3.5 are called something different). Words inside quotation marks are called strings. <br />
 		There are many other data types, but let's start with just strings and integers. Run the below code to review what we just learned!",
-	prefill: "x = 'Coding is the best!'\ny = 57\nputs 'x is a string!'\nputs 'y is an integer!'",
-	expected_code: "\(x = 'Coding is the best!')\\s(y = 57)\\s(puts 'x is a string!')\\s(puts 'y is an integer!')",
+	prefill: "x = 'Coding is the best!'\ny = 57\nputs 'x is a string! Y is an integer!'",
+	expected_code: "\(x = 'Coding is the best!')\\s(y = 57)\\s(puts 'x is a string! Y is an integer!')",
 	code_regex: true,
-	expected_output: ["x is a string!", "↵", "y is an integer!", "↵"],
+	expected_output: "x is a string! Y is an integer!",
 	output_regex: false,
 	position: 6
 	)
@@ -105,7 +105,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		In the code below, you can see that the variable 'x' is holding the words 'Hello, World'.
 		Let\'s run the code below to see what happens when we 'puts x'",
 		prefill: "x = 'Hello, World'\nputs x",
-		expected_code: "\(x = 'Hello World')\\s(puts x)",
+		expected_code: "\(x = 'Hello, World')\\s(puts x)",
 		code_regex: true,
 		expected_output: "Hello, World",
 		output_regex: false,
@@ -119,7 +119,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		How about you give it a try now? <br />
 		Instead of putting 'Hello, World' into the 'x' variable, have fun and put your own word!",
 		prefill: "x = 'Hello, World'\nputs x",
-		expected_code: "\(x = ')[\\s\\S]*(')\\s(puts x)",
+		expected_code: "[\\s\\S]*( = ')[\\s\\S]*(')\\s(puts )[\\s\\S]*",
 		code_regex: true,
 		expected_output: "\\S",
 		output_regex: true,
@@ -133,7 +133,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		prefill: "pokemon = 'cool'\nteam = 'Yellow'\nputs pokemon\nputs team",
 		expected_code: "\(pokemon = 'cool')\\s(team = 'Yellow')\\s(puts pokemon)\\s(puts team)",
 		code_regex: true,
-		expected_output: ["cool", "↵", "Yellow"],
+		expected_output: "Yellow",
 		output_regex: false,
 		position: 3
 		)
@@ -151,12 +151,12 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 	exercise2_5 = Exercise.find_or_create_by(
 		lesson_id: lesson2.id, 
 		name: "Variables Naming Cont.",
-		instruction: "Variables can also be a combination of words with numbers as well. Check out the example in the text editor. <br />I bet you can guess what the console will print out!", 
-		prefill: "my_favorite_game = 'Pokemon Go'\ntrainer1 = 'Ash'\ntrainer2 = 'Misty'",
+		instruction: "Variables can also be a combination of words with numbers as well. Check out the example in the text editor. <br />I bet you can guess what the console will print out! Instead of our example, try doing 'puts trainer1' or 'puts trainer2' to see what happens!", 
+		prefill: "my_favorite_game = 'Pokemon Go'\ntrainer1 = 'Ash'\ntrainer2 = 'Misty'\nputs my_favorite_game",
 		expected_code: "\(my_favorite_game = 'Pokemon Go')\\s(trainer1 = 'Ash')\\s(trainer2 = 'Misty')",
 		code_regex: true,
-		expected_output: ["Pokemon Go", "↵", "Ash", "↵", "Misty", "↵"],
-		output_regex: false,
+		expected_output: "(Pokemon Go)|(Ash)|(Misty)",
+		output_regex: true,
 		position: 5
 		)
 	exercise2_6 = Exercise.find_or_create_by(
@@ -181,7 +181,7 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		Now instead of using the numbers themselves, we're going to use variables to do math!<br />
 		Take a look at the code below and guess what will be displayed in the console when you press the 'run' button.<br />",
 		prefill: "x = 2\ny = 3\nputs x + y",
-		expected_code: "\(x = 2)\\s(y = 3)\\s(puts x + y)",
+		expected_code: "(x = 2)[\\s\\S]*(y = 3)[\\s\\S]*",
 		code_regex: true,
 		expected_output: '5',
 		output_regex: false,
@@ -193,9 +193,9 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 		instruction: "Were you right? As you saw in the last exercise, when we added two variables, it added the two values together.<br />
 		We can do this with any numbers and with any operation. <br />
 		In the editor below, let's make some variables called 'x' and 'y' and then assign a number value to the variable.<br />
-		Let's see how many different ways we can have the value print out 10 in the console!",
-		prefill: "x = \ny =",
-		expected_code: "\(x = )(-[\\d]*|[\\d]*)[\\s]*(y = )(-[\\d]*|[\\d]*)[\\s]*(puts)",
+		Let's see how many different ways we can use 'x' and 'y' to print out to be 10 in the console!",
+		prefill: "x = \ny = \nputs x + y",
+		expected_code: "\(x = )(-[\\d]*|[\\d]*)[\\s]*(y = )(-[\\d]*|[\\d]*)[\\s]*(puts x . y)",
 		code_regex: true,
 		expected_output: '10',
 		output_regex: false,
@@ -205,11 +205,11 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 	exercise3_3 = Exercise.find_or_create_by(
 		lesson_id: lesson3.id, 
 		name: "Variables, values of strings, and operations",
-		instruction: "You may be wondering if we can also have the operations works with strings. Let's try running the code below to see the what each code does!", 
-		prefill: "instinct = 'Yellow Team'\nmystic = 'Blue Team'\nvalor = 'Red Team'\n\n\nbest = ' is the best team!'\nok = ' is ok.'\nok2 = ' is ok, too.'\n\nputs instinct + best\nputs mystic + ok\nputs valor + ok2",
-		expected_code: "\(instinct = 'Yellow Team').(mystic = 'Blue Team').(valor = 'Red Team')\\s*(best = ' is the best team!').(ok = ' is ok.').(ok2 = ' is ok, too.')\\s*(puts instinct + best).(puts mystic + ok).(puts valor + ok2)/m",
+		instruction: "You may be wondering if we can also have the operations works with strings. Let's try running the code below to see what happens! Once you are finished, you can try playing adding different variables together too!", 
+		prefill: "instinct = 'Yellow Team'\nmystic = 'Blue Team'\nvalor = 'Red Team'\n\n\nbest = ' is the best team!'\nok = ' is ok.'\nok2 = ' is ok, too.'\n\nputs instinct + best",
+		expected_code: "(instinct = 'Yellow Team')\\s*(mystic = 'Blue Team')\\s*(valor = 'Red Team')\\s*(best = ' is the best team!')\\s*(ok = ' is ok.')\\s*(ok2 = ' is ok, too.')\\s*(puts instinct . best)",
 		code_regex: true,
-		expected_output: "\(Yellow Team is the best team!)$\\s(Blue Team is ok.)$\\s(Red Team is ok, too.)",
+		expected_output: "(Yellow Team is the best team!)",
 		output_regex: true,
 		position: 3
 		)
@@ -221,26 +221,26 @@ lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
 	  Well, when we add two separate strings together we get a combination of the two strings. This is because the '+' operation has two meanings. When it is with numbers, it means 'add', and with strings it means 'to combine'.<br />
 	  With the other operations we get an error because in programing you cannot use the other operations with strings.<br />
 	  Now try fixing the code below so there are no longer any errors",
-	  prefill: "x = 'Catch em all!'\ny = 'Pokemon '\nz = 'Go!'\nputs y - z\nputs x",
-	  expected_code: "\(x = 'Catch em all!')\\s(y = 'Pokemon ')\\s(z = 'Go!')",
+	  prefill: "x = ' Gotta catch em all!'\ny = 'Pokemon '\nz = 'Go!'\nputs y - z + x",
+	  expected_code: "\(x = ' Gotta catch em all!')\\s(y = 'Pokemon ')\\s(z = 'Go!')\\s(puts y . z . x)",
 	  code_regex: true,
-	  expected_output: ["Pokemon Go!", "↵", "Catch em all!"],
+	  expected_output: "Pokemon Go! Gotta catch em all!",
 	  output_regex: false,
 	  position: 4
 	  )
-	exercise3_5 = Exercise.find_or_create_by(
-		lesson_id: lesson3.id, 
-		name: "Variables Review",
-		instruction: "So far we learned about variables and how we can name them whatever we want. We have also learned how to assign values of numbers or strings to the variables.<br />
-		Wwe also learned how to manipulate variables with operations and have different outputs when doing so.
-		Now that we learned all about variables, lets see what you learned in our variable review quiz!<br />Just fill in the blanks in the following code and press run!",
-		prefill: "",
-		expected_code: "",
-		code_regex: true,
-		expected_output: "",
-		output_regex: false,
-		position: 5
-		)
+	# exercise3_5 = Exercise.find_or_create_by(
+	# 	lesson_id: lesson3.id, 
+	# 	name: "Variables Review",
+	# 	instruction: "So far we learned about variables and how we can name them whatever we want. We have also learned how to assign values of numbers or strings to the variables.<br />
+	# 	Wwe also learned how to manipulate variables with operations and have different outputs when doing so.
+	# 	Now that we learned all about variables, lets see what you learned in our variable review quiz!<br />Just fill in the blanks in the following code and press run!",
+	# 	prefill: "",
+	# 	expected_code: "",
+	# 	code_regex: true,
+	# 	expected_output: "",
+	# 	output_regex: false,
+	# 	position: 5
+	# 	)
 	# TODO: final review quiz and achievement of completion.
 
 

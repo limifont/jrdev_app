@@ -114,8 +114,9 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
+			debugger
 			if(this.state.exercise.code_regex == true) {
-		debugger
+				debugger
 				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
 					this.checkAnswerAjax()
