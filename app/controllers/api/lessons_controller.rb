@@ -8,7 +8,8 @@ class Api::LessonsController < ApiController
 				name: lesson.name,
 				completed: lesson.completed?(user),
 				exercises_count: lesson.exercises_count,
-				exercises_completed_count: lesson.exercises_completed_count(user)
+				exercises_completed_count: lesson.exercises_completed_count(user),
+				icon_url: lesson.icon_url
 			}
 		end
 		render json: lessons

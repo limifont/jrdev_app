@@ -6,7 +6,7 @@
 
 # mentor = User.create(username: "mentor", password: "password", password_confirmation: "password", email: "mentor@gmail.com", name: "mentor", type: "Mentor")
 
-lesson1 = Lesson.create(name: "Intro to Programming", icon_url: 'http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_80/v1468874271/Lesson1_jbkaq9.png', position: 1)
+lesson1 = Lesson.create(name: "Intro to Programming", icon_url: 'http://res.cloudinary.com/di0vizmtw/image/upload/v1468874271/Lesson1_jbkaq9.png', position: 1)
 exercise1_1 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id,
 	name: "Weclome!",
@@ -87,8 +87,8 @@ exercise1_7 = Exercise.find_or_create_by(
 	instruction: "In coding, we call words and numbers data types (data is just another word for information). A computer can recognize many different data types. <br />
 		These data types have special names. Whole numbers like 2 or 15 or are called integers (decimal numbers like 3.5 are called something different). Words inside quotation marks are called strings. <br />
 		There are many other data types, but let's start with just strings and integers. Read through and then run the below code to review what we just learned!",
-	prefill: "x = 'Coding is the best!'\ny = 57\nputs 'x is a string! Y is an integer!'",
-	expected_code: "\(x = 'Coding is the best!')\\s(y = 57)\\s(puts 'x is a string! Y is an integer!')",
+	prefill: "x = 'Coding is the best!'\ny = 57\nputs 'x is a string! y is an integer!'",
+	expected_code: "\(x = 'Coding is the best!')\\s(y = 57)\\s(puts 'x is a string! y is an integer!')",
 	code_regex: true,
 	expected_output: "x is a string! y is an integer!",
 	output_regex: false,
@@ -110,7 +110,7 @@ exercise1_8 = Exercise.find_or_create_by(
 
 # TODO: have code examples in the editor for the code below sections.
 
-lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
+lesson2 = Lesson.find_or_create_by(name: "Variables", icon_url: 'http://res.cloudinary.com/di0vizmtw/image/upload/v1468877188/Lesson2_1_qhrqqv.png', position: 2)
 	exercise2_1 = Exercise.find_or_create_by(
 		lesson_id: lesson2.id, 
 		name: "Variables Intro",
@@ -186,7 +186,7 @@ lesson2 = Lesson.find_or_create_by(name: "Variables", position: 2)
 		# TODO: hint of using puts
 	# TODO: have a recap quiz. have a recap of puts, what is a string, number, and the new concept of variables.
 	
-lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", position: 3)
+lesson3 = Lesson.find_or_create_by(name: "Variables Manipulation", icon_url: 'http://res.cloudinary.com/di0vizmtw/image/upload/v1468876476/Lesson3_mexixz.png', position: 3)
 	exercise3_1 = Exercise.find_or_create_by(
 		lesson_id: lesson3.id, 
 		name: "Variables Manipulation",

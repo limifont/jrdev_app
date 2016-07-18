@@ -37,7 +37,7 @@ class Badge extends React.Component {
   marathonBadge() {
     if (this.state.marathon) {
       return (
-        <div class="col s12 m4">
+        <div className="col s12 m12">
           <div className="card blue lighten-2 white-text center">
             <br />
               <div>
@@ -58,7 +58,7 @@ class Badge extends React.Component {
   speedDemonBadge() {
     if (this.state.speedDemon) {
       return (
-        <div class="col s12 m4">
+        <div className="col s12 m12">
           <div className="card deep-orange lighten-1 white-text center">
             <br />
               <div>

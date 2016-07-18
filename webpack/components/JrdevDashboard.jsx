@@ -26,6 +26,7 @@ class JrdevDashboard extends React.Component {
 			dataType: 'JSON'
 		}).done( lessons => {
 			this.setState({ lessons })
+			console.log(this.state.lessons)
 		}).fail( data => {
 			console.log("Failure to get all lessons for JrdevDashboard", data)
 		})
