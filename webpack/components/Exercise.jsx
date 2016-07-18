@@ -2,7 +2,7 @@ import React from 'react';
 import ReplitClient from 'replit-client';
 import brace from 'brace';
 import AceEditor from 'react-ace';
-import { browserHistory } from 'react-router'
+import { browserHistory, Link } from 'react-router'
 
 
 import 'brace/mode/ruby';
@@ -15,7 +15,7 @@ import ExcerciseFailPopup from './ExcerciseFailPopup';
 class Exercise extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, endMessage: false, exerciseMessage: false, exerciseFailMessage: false }
+		this.state = {exercise: null, results: [], value: null, last: false, first: false, completed: false, very_last: false, endMessage: false, exerciseMessage: false, exerciseFailMessage: false }
 		this.onChange = this.onChange.bind(this)
 		this.checkAnswer = this.checkAnswer.bind(this)
 		this.nextButton = this.nextButton.bind(this)
@@ -32,7 +32,7 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed, very_last: result.very_last })
     }).fail( data => {
     	console.log('failure', data)
     })
@@ -114,9 +114,7 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
-			debugger
 			if(this.state.exercise.code_regex == true) {
-				debugger
 				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
 					this.checkAnswerAjax()
@@ -197,6 +195,16 @@ class Exercise extends React.Component {
 					<button className="btn right disabled" style={{margin: '10px'}}>Next</button>
 				)
 			}
+		} else if(this.state.very_last) {
+			if(this.state.completed) {
+				return (
+					<button className="btn right" style={{margin: '10px'}}><Link to='/'>Dashboard</Link></button>
+				)
+			} else {
+				return (
+					<button className="btn right disabled" style={{margin: '10px'}}>Dashboard</button>
+				)
+			}
 		} else {
 			if(this.state.completed) {
 				return (
@@ -217,7 +225,7 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed });
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, very_last: result.very_last, completed: result.completed });
     	this.focusEditor();
     }).fail( data => {
     	console.log('failure', data)
