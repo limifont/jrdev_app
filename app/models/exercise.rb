@@ -42,4 +42,9 @@ class Exercise < ActiveRecord::Base
     end
   end
 
+  def very_last?
+    lesson = Lesson.find(self.lesson_id)
+    lesson == Lesson.find_by(position: Lesson.count) && self == lesson.exercises.find_by(position: lesson.exercises.count)
+  end
+
 end
