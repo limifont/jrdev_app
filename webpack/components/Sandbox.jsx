@@ -99,7 +99,7 @@ class Sandbox extends React.Component {
 						
 						<div className="col s12 m6">
 							<div className="card">	
-								<div className="console" style={{backgroundColor: 'black', color: 'green', height: '50vh', padding: '5px', whiteSpace: 'pre'}}>
+								<div className="console" style={{backgroundColor: 'black', color: 'green', height: '50vh', padding: '5px', whiteSpace: 'pre', overflow: "scroll"}}>
 									{this.state.results}
 								</div>
 							</div>

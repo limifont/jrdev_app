@@ -41,20 +41,26 @@ class Jrdev extends React.Component {
 		if(this.state.classrooms.length > 0) {
 			return this.state.classrooms.map( c => {
 				return(
-					<div className="row">
-						<div className="col s12 m12">
-							<div className="">
-								<div className="">	
-									<h5>{c.classroom.name}</h5>
-									<p>Instructor: {c.educator.name}</p>
-								</div>
+					<div className="col s12">
+						<div className="card">
+							<div className="card-content">	
+								<span className="card-title">{c.classroom.name}</span>
+								<p>Instructor: {c.educator.name}</p>
 							</div>
 						</div>
 					</div>
 				)
 			})
 		} else {
-			return(<p>{this.state.jrdev.name} does not belong to any classrooms</p>)
+			return(
+				<div className="col s12">
+					<div className="card">
+						<div className="card-content">	
+							<p>{this.state.jrdev.name} does not belong to any classrooms</p>
+						</div>
+					</div>
+				</div>
+			)
 		}
 	}
 	
@@ -63,13 +69,11 @@ class Jrdev extends React.Component {
 		if(this.state.mentors.length > 0) {
 			return this.state.mentors.map( m => {
 				return(
-					<div className="row">
-						<div className="col s12 m12">
-							<div className="">
-								<div className="">
-									<h5>{m.name}</h5>
-									<p>{m.email}</p>
-								</div>
+					<div className="col s12">
+						<div className="card">
+							<div className="card-content">	
+								<span className="card-title">{m.name}</span>
+								<p>Instructor: {m.email}</p>
 							</div>
 						</div>
 					</div>
@@ -77,12 +81,10 @@ class Jrdev extends React.Component {
 			})
 		} else {
 			return(
-				<div className="row">
-					<div className="col s12 m12">
-						<div className="card">
-							<div className="card-content">
-								<h5>{this.state.jrdev.name} does not have any mentors</h5>
-							</div>
+				<div className="col s12">
+					<div className="card">
+						<div className="card-content">	
+							<p>{this.state.jrdev.name} does not have any mentors</p>
 						</div>
 					</div>
 				</div>
@@ -96,39 +98,60 @@ class Jrdev extends React.Component {
 			return(
 				<div className="container">
 					<div className="row">
-						<div className="col s12 m12 center">
+						<div className="col s12 center">
 							<h2>{this.state.jrdev.name}</h2>
 							<p>Username: {this.state.jrdev.username}</p>
 						</div>
-						<div className="col s12 m8 offset-m2 center">
+					</div>
+
+					<div className="row">
+						<div className="col s12 m8 offset-m2 center hide-on-med-and-down">
 							<ExercisesByDayChart data={this.state.completed_by_day}/>
 						</div>
 					</div>
+
 					<div className="row">
-						<div className="col s12 m6">
-							<div className="col m1 card" style={{height: "514px", padding: "0"}}>
-								<img src="../assets/lesson_progress.png" style={{width: "100%", height: "100%"}} alt="Lessons"></img>
-							</div>
-							<div>
-								<Lessons lessons={this.state.lessons} links={false} />
-							</div>
-						</div>
-						<div className="col s12 m6">
-							<div className="card">
-								<div className="card-content">
-									<h4>Classrooms</h4>
-									{this.displayClassrooms()}
+						<div className="col s12 m8" style={{height: '100%'}}>
+							<div className="row">
+								<span className="col s12">
+								  LESSONS:
+								</span>
+								<div>
+									<div className="row">
+										<Lessons lessons={this.state.lessons} links={true}/>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className="col s12 m6">
-							<div className="card">
-								<div className="card-content">
-									<h4>Mentors</h4>
-									{this.displayMentors()}
+						</div >
+
+						<div className="col s12 m4">
+							<div className="row">
+								<span className="col s12">
+								  CLASSROOMS:
+								</span>
+								
+								<div>
+									<div className="row">
+										{this.displayClassrooms()}
+									</div>
 								</div>
+																	
+							</div>
+
+							<div className="row">
+								<span className="col s12">
+								  MENTORS:
+								</span>
+								
+								<div>
+									<div className="row">
+										{this.displayMentors()}
+									</div>
+								</div>
+																	
 							</div>
 						</div>
+
 					</div>
 				</div>
 			)

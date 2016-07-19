@@ -69,7 +69,11 @@ class Classroom extends React.Component {
 	displayStudents() {
 		return this.state.jrdevs.map( jrdev => {
 			return(
-				<JrdevPreview key={`classroomJrdevPreview-${jrdev.id}`} jrdev={jrdev} deleteJrdev={this.deleteJrdev.bind(this)}/>
+				<div className="col s12">
+					<div className="card orange lighten-2 white-text center" style={{overflow: 'scroll'}}>
+						<JrdevPreview key={`classroomJrdevPreview-${jrdev.id}`} jrdev={jrdev} deleteJrdev={this.deleteJrdev.bind(this)}/>
+					</div>
+				</div>
 			)
 		})
 	}
@@ -77,10 +81,10 @@ class Classroom extends React.Component {
 	failMessage() {
 		if(this.state.addFail) {
 			return (
-				<div className="center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px"}}>
-					<p style={{color: "red", marginBottom: "2px"}}>Failed to find Jr Dev</p>
+				<div className="center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", padding: "5px", marginTop: "8px"}}>
+					<p style={{color: "red", marginBottom: "2px 0 2px 0"}}>Failed to find Jr Dev</p>
 				  <p style={{color: "red", marginTop: "0px"}}>Please confirm secret phrase</p>
-				</div>	
+				</div>
 			)
 		}
 	}
@@ -90,32 +94,57 @@ class Classroom extends React.Component {
 			return(
 				<div className="container">
 					<div className="row">
-						<h1>{this.state.classroom.name}</h1>
-						<div className="col m9">
-							<div className="card">
-								<div className="card-content">
-									<h3>Stats</h3>
-									<ClassroomGraph classroom={this.state.classroom}/>
+						<div className="col s12 center">
+							<h2>{this.state.classroom.name}</h2>
+						</div>
+					</div>
+					
+					<div className="row">
+						
+						<div className="col s12 m8">
+							<div className="row">
+								<span className="col s12">
+									STATS:
+								</span>
+								<div className="col s12">
+									<div className="card">
+										<div className="card-content">
+											<h3>Stats</h3>
+											<ClassroomGraph classroom={this.state.classroom}/>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div className="col m3">
-							<div className="card">
-								<div className="card-content">
-									<h6>Add a student to this classroom</h6>
-									<form ref="addStudent" onSubmit={this.addStudent.bind(this)}>
-										<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" />
-										<button type="submit" className="btn">Add</button>
-									</form>
-									{this.failMessage()}
-									<div style={{marginTop: "20px"}}>
-										<span className="card-title" >
-											JrDevs:
-										</span>
-									</div>
-									{this.displayStudents()}
-								</div>
-							</div>
+
+						<div className="col s12 m4">
+							<div className="row">
+							  <span className="col s12">
+							    ADD JRDEV TO CLASSROOM:
+							  </span>
+					      <div className="col s12">
+                  <div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
+                  	<div className="card-content">
+                  		<form ref="addStudent" onSubmit={this.addStudent.bind(this)}>
+												<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" required={true} onClick={()=>{this.setState({ addFail: false })}} />
+												<button type="submit" className="btn">Add</button>
+											</form>
+											{this.failMessage()}
+                  	</div>
+                  </div>
+                </div>
+						  </div>
+
+						  <div className="row">
+					  		<span className="col s12">
+					  			JRDEVS:
+					  		</span>
+					  		<div>
+							  	<div className="row">
+							  		{this.displayStudents()}
+							  	</div>
+							  </div>
+						  </div>
 						</div>
 					</div>
 				</div>

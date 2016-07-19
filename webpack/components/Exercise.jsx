@@ -82,13 +82,14 @@ class Exercise extends React.Component {
 		    console.error('Error connecting to repl.it');
 		  }
 		);
+		this.updateScroll()
 	}
-
 
 	checkAnswer() {
 		if(!$('.console').html()) {
 			$('.console').empty("");
 		}
+
 
 		this.setState({ exerciseFailMessage: false, exerciseMessage: false })
 		console.log('current output', this.state.results)
@@ -98,7 +99,6 @@ class Exercise extends React.Component {
 		let codeRegEx = new RegExp(this.state.exercise.expected_code)
 
 		if(this.state.exercise.output_regex == true) {
-			debugger
 			if(this.state.exercise.code_regex == true) {
 				if(regEx.test(this.state.results[this.state.results.length -2]) && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
@@ -115,7 +115,6 @@ class Exercise extends React.Component {
 				}
 			}
 		} else {
-			debugger
 			if(this.state.exercise.code_regex == true) {
 				if(this.state.results[this.state.results.length - 2] === this.state.exercise.expected_output && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
@@ -133,6 +132,7 @@ class Exercise extends React.Component {
 			}
 		}
 	}
+
 
 	checkAnswerAjax() {
 		if(!this.state.completed) {
@@ -262,7 +262,7 @@ class Exercise extends React.Component {
       type: 'GET',
       dataType: 'JSON'
     }).done( result => {
-    	this.setState({ exercise: result.exercise, value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
+    	this.setState({ exercise: result.exercise, results: [], value: result.exercise.prefill, last: result.last, first: result.first, completed: result.completed })
     	this.focusEditor();
     }).fail( data => {
     	console.log('failure', data)
@@ -310,7 +310,7 @@ class Exercise extends React.Component {
 
 							<div className="col s12 m6">
 								<div className="card">	
-									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '40vh', padding: '5px', whiteSpace: 'pre'}}>
+									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '40vh', padding: '5px', whiteSpace: 'pre', overflow: 'scroll'}}>
 										{this.state.results}
 									</div>
 								</div>
