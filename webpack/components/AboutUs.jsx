@@ -35,8 +35,6 @@ const AboutUs = () => (
 
 				<div style={{backgroundColor: "#E8E8E8"}}>
 					<div className="container" style={{padding: "40px 0 40px 0"}}>
-						<div id="jrdev_team" className="col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
-						  <div  id="black_box" className="col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
 					      <div className="row center">
 					        <div className="col s12 m12 l12">
 					          <h5 className="black-text" style={{fontWeight: 'bold'}}>THE TEAM</h5>
@@ -75,7 +73,7 @@ const AboutUs = () => (
 					        <div className="col s12 m4 center">
 					          <div className="icon-block">
 					            <Link to='/about_us'>
-					              <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/0ae/1ad/2b6ca02.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+					              <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468901517/IMG_8389_up5xl6.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
 					              <h5 className="center blue-text">Matt Hadley</h5>
 					            </Link>
 					            <p className="light center black-text">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p><br></br>
@@ -88,8 +86,6 @@ const AboutUs = () => (
 
 					      </div>
 
-						  </div>
-						</div>
 					</div>
 				</div>
 			</div>
