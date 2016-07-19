@@ -61,3 +61,27 @@ nav {
 .row.lesson-row {
   margin-bottom: 0px;
 }
+
+@media only screen and (max-width: 450px) {
+
+   .lesson-title { font-size: 1.5em; }
+   .lessons-title { font-size: 0.7em !important; }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .lesson-title { font-size: 2em; }
+
+}
+
+
+@media only screen and (max-width: 700px) {
+
+  .lessons-title { font-size: 1.5em; }
+
+}
+
+
+

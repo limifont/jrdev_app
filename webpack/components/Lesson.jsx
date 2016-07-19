@@ -6,6 +6,7 @@ class Lesson extends React.Component {
 		super(props)
 		this.state = { lesson: null, exercises: [] }
 		this.displayExercises = this.displayExercises.bind(this)
+
 	}
 
 	componentWillMount() {
@@ -21,25 +22,28 @@ class Lesson extends React.Component {
 		})
 	}
 
+
 	displayExercises() {
 		return this.state.exercises.map( e => {
 			let icon = e.icon_url
 			if(e.completed || e.next_up) {
 				return(
-					<div className="col s12 m12" key={`e-${e.id}`}>
-						<div className="card lesson-card">
-							<div className="card-content">
-								<div className="row valign-wrapper lesson-row">
-									<div className="col s6 m9 l9">
-										<h5 className="valign center"><Link to={`/lesson/${this.state.lesson.id}/exercise/${e.position}`}>{e.name}</Link></h5>
-									</div>
-									<div className="valign col s6 m3 l3">
-										<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
+					<Link to={`/lesson/${this.state.lesson.id}/exercise/${e.position}`}>
+						<div className="col s12 m12" key={`e-${e.id}`}>
+							<div className="card lesson-card">
+								<div className="card-content">
+									<div className="row valign-wrapper lesson-row">
+										<div className="col s6 m9 l9">
+											<h3 className="valign center lesson-title">{e.name}</h3>
+										</div>
+										<div className="valign col s6 m3 l3">
+											<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</Link>
 				)
 			} else {
 				return(
@@ -48,7 +52,7 @@ class Lesson extends React.Component {
 							<div className="card-content">
 								<div className="row valign-wrapper lesson-row">
 									<div className="col s6 m9 l9">
-										<h5 className="valign center">{e.name}</h5>
+										<h3 className="valign center lesson-title">{e.name}</h3>
 									</div>
 									<div className="valign col s6 m3 l3">
 										<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
