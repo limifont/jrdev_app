@@ -24,7 +24,7 @@ class Lesson < ActiveRecord::Base
     self.exercises.each do |e|
       exercises.push({ id: e.id, position: e.position, name: e.name, completed: e.completed?(user), next_up: e.next_up?(user), icon_url: e.icon_url })
     end
-    return exercises
+    return exercises[0][:position] == 1 ? exercises : exercises.reverse
   end
 
   def exercises_count
