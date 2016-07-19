@@ -67,7 +67,7 @@ class Splash extends React.Component {
 
 
         <div  id="get_started" className="white col s12 m12 l12" style={{display: 'flex', flexDirection: 'column', minHeight: '50vh'}}>
-          <div className="container" style={{display: 'flex', flexDirection: 'column', minHeight: '20vh', marginTop: '15vh', marginBottom: '15vh'}}>        
+          <div className="container" style={{ minHeight: '20vh', marginTop: '15vh', marginBottom: '15vh'}}>        
             <div className="row center">
               <div className="col s12 m12 l12">
                 <h5 style={{fontWeight: 'bold'}}>CHOOSE YOUR ACCOUNT TYPE</h5>
@@ -81,8 +81,8 @@ class Splash extends React.Component {
                     <h5 className="center black-text">JrDev</h5>
                   </Link>
 
-                  <p className="light center" style={{textAlign: 'justify', height: '28vh'}}>Here to learn how to code? With a JrDev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
-                  <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
+                  <p className="light center" style={{textAlign: 'justify'}}>Here to learn how to code? With a JrDev account, you will have access to all exercises. Our exercises are designed for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
+                  <div className="btn transparent deep-orange-text text-lighten-1 hide-on-large-only" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
                     <Link to='/signup/Jrdev' className="deep-orange-text text-lighten-1">Sign up as JrDev</Link>
                   </div>
                 </div>
@@ -95,8 +95,8 @@ class Splash extends React.Component {
                     <h5 className="center black-text">Mentor</h5>
                   </Link>
 
-                  <p className="light center" style={{textAlign: 'justify', height: '28vh'}}>Mentor accounts are for those looking to help JrDevs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
-                  <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
+                  <p className="light center" style={{textAlign: 'justify'}}>Mentor accounts are for those looking to help JrDevs. This account is ideal for parents, older siblings, tutors, or any other type of mentor. You'll be able to add Jr Devs to you mentorship and monitor their progress. Don't know how to code? Don't worry--you'll have access to all the exercises too!</p>
+                  <div className="btn transparent deep-orange-text text-lighten-1 hide-on-large-only" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
                     <Link to='/signup/Mentor' className="deep-orange-text text-lighten-1">Sign up as Mentor</Link>
                   </div>
                 </div>
@@ -109,11 +109,28 @@ class Splash extends React.Component {
                     <h5 className="center black-text">Educator</h5>
                   </Link>
 
-                  <p className="light center" style={{textAlign: 'justify', height: '28vh'}}>Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
-                  <div className="btn transparent deep-orange-text text-lighten-1" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
+                  <p className="light center" style={{textAlign: 'justify'}}>Educator accounts are for those looking to teach groups of kids. Educators can organize their kids into classrooms, see classroom statistics, and track individual progress. Just like the other accounts, an Educator has access to all exercises.</p>
+                  <div className="btn transparent deep-orange-text text-lighten-1 hide-on-large-only" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
                     <Link to='/signup/Educator' className="deep-orange-text text-lighten-1">Sign up as Educator</Link>
                   </div>              
                 </div>
+              </div>
+            </div>
+            <div className="row center">
+              <div className="col s12 l4"> 
+                <div className="btn transparent deep-orange-text text-lighten-1 hide-on-med-and-down" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
+                  <Link to='/signup/Jrdev' className="deep-orange-text text-lighten-1">Sign up as JrDev</Link>
+                </div>
+              </div>
+              <div className="col s12 l4"> 
+                <div className="btn transparent deep-orange-text text-lighten-1 hide-on-med-and-down" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
+                  <Link to='/signup/Mentor' className="deep-orange-text text-lighten-1">Sign up as Mentor</Link>
+                </div>
+              </div>
+              <div className="col s12 l4"> 
+                <div className="btn transparent deep-orange-text text-lighten-1 hide-on-med-and-down" style={{border: "2px solid #ff7043", display: 'flex', flexDirection: 'column', minHeight: '2vh', wordWrap: 'break-word'}}>
+                  <Link to='/signup/Educator' className="deep-orange-text text-lighten-1">Sign up as Educator</Link>
+                </div> 
               </div>
             </div>
           </div>
