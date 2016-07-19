@@ -19,7 +19,6 @@ class CompletedExercise < ActiveRecord::Base
     				 .where("user_id = #{user.id}")
              .group("date_trunc('day', created_at)")
              .order("date_trunc('day', created_at)")
-    binding.pry
     counts.each do |record|
 		 	days << { x: record.created_at.strftime("%D"), y: record.count }
 		end

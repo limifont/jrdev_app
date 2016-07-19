@@ -125,13 +125,18 @@ class EducatorDashboard extends React.Component {
 		return(
 			<div>
 				<div className="row">
-					<div className="col m12 s12">
-						<div className="card" style={{marginTop: "10px", paddingTop: "10px"}}>
-							<h3 className="center">Stats</h3>
-							<div className="card-content center">
-								<div className="row">
-									<ClassesAverages id={this.props.id} />
-									<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
+					<span className="col s12">
+						STATS:
+					</span>
+
+					<div>
+						<div className="row">
+							<div className="col m12">
+								<div className="card" style={{marginTop: "10px", paddingTop: "10px"}}>
+									<div className="card-content center">
+										<ClassesAverages id={this.props.id} />
+										<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -139,41 +144,49 @@ class EducatorDashboard extends React.Component {
 				</div>
 
 				<div className="row">
-					<div className="col m8" style={{height: '100%'}}>
-						<div className="" style={{height: '100%'}}>
-							<div className="col m1 card" style={{height: "514px", padding: "0"}}>
-								<img src="assets/lessons.png" style={{width: "100%", height: "100%"}} alt="Lessons"></img>
-							</div>
-							<Lessons lessons={this.state.lessons} links={true}/>
-						</div>
-					</div>
-					
-					<div className="col m4 s12" style={{height: '100%'}}>
-						<div className="card">
-							<div className="card-content">
-								<span className="card-title">Create a Classroom</span>
-								<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
-									<input ref="name" type="text" placeholder="Classroom Name" required={true}/>
-									<button type="submit" className="btn">Create</button>
-								</form>
-								{ this.failMessage() }
-							</div>
-						</div>
-
-						<div style={{height: '100%'}}>
-							<div className="card">
-								<div className="card-content"> 
-									<span className="card-title">
-										Classrooms:
-									</span>
-									{this.displayClassrooms()}
+					<div className="col s12 m8" style={{height: '100%'}}>
+						<div className="row">
+							<span className="col s12">
+							  LESSONS:
+							</span>
+							<div>
+								<div className="row">
+									<Lessons lessons={this.state.lessons} links={true}/>
 								</div>
 							</div>
 						</div>
+					</div >
+					
+					<div className="col s12 m4">
+						<div className="row">
+						  <span className="col s12">
+						    CREATE A CLASSROOM:
+						  </span>
+				      <div className="col s12">
+                <div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
+                	<div className="card-content">
+                		<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
+                			<input ref="name" type="text" placeholder="Classroom Name" required={true}/>
+                			<button type="submit" className="btn">Create</button>
+                		</form>
+                		{ this.failMessage() }
+                	</div>
+                </div>
+              </div>
+					  </div>
+					  <div className="row">
+				  		<span className="col s12">
+				  			CLASSROOMS:
+				  		</span>
+				  		<div>
+						  	<div className="row">
+									{this.displayClassrooms()}
+						  	</div>
+						  </div>
+					  </div>
 					</div>
 				</div>
 			</div>
-
 
 		)
 	}
