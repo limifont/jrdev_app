@@ -25,7 +25,6 @@ class JrdevDashboard extends React.Component {
 			type: 'GET',
 			dataType: 'JSON'
 		}).done( lessons => {
-			debugger
 			this.setState({ lessons })
 			console.log(this.state.lessons)
 		}).fail( data => {
