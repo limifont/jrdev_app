@@ -102,7 +102,10 @@ class Jrdev extends React.Component {
 							<h2>{this.state.jrdev.name}</h2>
 							<p>Username: {this.state.jrdev.username}</p>
 						</div>
-						<div className="col s12 m8 offset-m2 center">
+					</div>
+
+					<div className="row">
+						<div className="col s12 m8 offset-m2 center hide-on-med-and-down">
 							<ExercisesByDayChart data={this.state.completed_by_day}/>
 						</div>
 					</div>

@@ -145,44 +145,48 @@ class EducatorDashboard extends React.Component {
 
 				<div className="row">
 					<div className="col s12 m8" style={{height: '100%'}}>
-							<div className="row">
-								<span className="col s12">
-								  LESSONS:
-								</span>
-								<div>
-									<div className="row">
-										<Lessons lessons={this.state.lessons} links={true}/>
-									</div>
+						<div className="row">
+							<span className="col s12">
+							  LESSONS:
+							</span>
+							<div>
+								<div className="row">
+									<Lessons lessons={this.state.lessons} links={true}/>
 								</div>
 							</div>
-						</div >
+						</div>
+					</div >
 					
-					<div className="col m4 s12" style={{height: '100%'}}>
-						<div className="card">
-							<div className="card-content">
-								<span className="card-title">Create a Classroom</span>
-								<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
-									<input ref="name" type="text" placeholder="Classroom Name" required={true}/>
-									<button type="submit" className="btn">Create</button>
-								</form>
-								{ this.failMessage() }
-							</div>
-						</div>
-
-						<div style={{height: '100%'}}>
-							<div className="card">
-								<div className="card-content"> 
-									<span className="card-title">
-										Classrooms:
-									</span>
+					<div className="col s12 m4">
+						<div className="row">
+						  <span className="col s12">
+						    CREATE A CLASSROOM:
+						  </span>
+				      <div className="col s12">
+                <div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
+                	<div className="card-content">
+                		<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
+                			<input ref="name" type="text" placeholder="Classroom Name" required={true}/>
+                			<button type="submit" className="btn">Create</button>
+                		</form>
+                		{ this.failMessage() }
+                	</div>
+                </div>
+              </div>
+					  </div>
+					  <div className="row">
+				  		<span className="col s12">
+				  			CLASSROOMS:
+				  		</span>
+				  		<div>
+						  	<div className="row">
 									{this.displayClassrooms()}
-								</div>
-							</div>
-						</div>
+						  	</div>
+						  </div>
+					  </div>
 					</div>
 				</div>
 			</div>
-
 
 		)
 	}

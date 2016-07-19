@@ -107,7 +107,7 @@ class MentorDashboard extends React.Component {
 					<div className="row">
 						<div className="col s12 m8" style={{height: '100%'}}>
 							<div className="row">
-								<span className="col s12 m12 l12">
+								<span className="col s12">
 								  LESSONS:
 								</span>
 								<div>
