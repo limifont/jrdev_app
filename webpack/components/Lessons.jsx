@@ -29,10 +29,10 @@ class Lessons extends React.Component {
 							<div className="card">	
 								<div className="card-content">
 									<div className="row" style={{overflow: 'hide'}}>
-										<div className="col s12 m12 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
+										<div className="col s3 m3 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
 											<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
 										</div>
-										<div className="col s12 m12 l9">
+										<div className="col s9 m9 l9">
 			            		<span className="card-title">{this.displayLessonName(lesson)}<i className="material-icons">done</i></span>
 			            	</div>
 									</div>
@@ -78,7 +78,7 @@ class Lessons extends React.Component {
 
 	render() {
 		return (
-			<div className="col s12">
+			<div>
 				{this.displayLessons()}
 			</div>
 		);

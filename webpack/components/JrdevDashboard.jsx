@@ -89,14 +89,12 @@ class JrdevDashboard extends React.Component {
 			return(
 				<div>
 					<div className="row">
-						<div className="col m8 s12" style={{height: '100%'}}>
+						<div className="col s12 m12 l8" style={{height: '100%'}}>
 							<Lessons lessons={this.state.lessons} links={true}/>
 						</div >
 
-						<div className="col m4 s12">
-							<div className="card">
-								<Badge id={this.props.id} />
-							</div>
+						<div className="col s12 m12 l4">
+							<Badge id={this.props.id} />
 
 							<div className="card lime accent-2">
 								<div className="card-content center">

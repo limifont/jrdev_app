@@ -155,8 +155,8 @@ class Badge extends React.Component {
   render() {
     
     return(
-      <div className="card-content">
-        <span className="card-title">
+      <div className="row">
+        <span className="col s12 m12 l12">
           BADGES:
         </span>
         <div>  

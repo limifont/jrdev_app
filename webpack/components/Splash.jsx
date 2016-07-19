@@ -50,7 +50,6 @@ class Splash extends React.Component {
               <div className="container">
                 <div className="row">  
                   <div className="col s12 m12 l6">
-                    <div>Current window width: {this.state.windowWidth}</div>
                     <h2 className="header valign cyan-text text-accent-4">TEACHING KIDS TO CODE</h2>
                     <div className="row valign col s12">
                       <p className="header col s12 light white-text" style={{fontWeight: 100, paddingLeft: 0}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
