@@ -27,7 +27,7 @@ const AboutUs = () => (
 								We use webpack to link the front and back ends. Each runs on separate servers, but still within the same heroku deployment. The front-end can query the back-end like an API to get the data it needs.
 							</p>
 							<p style={{textAlign: "left"}}>
-								This app also has countless opportunities for expansion. There are many other features we hope to add. If you think of any features you would incorporated, email us below!
+								This app also has countless opportunities for expansion. There are many other features we hope to add. If you think of any features you want incorporated, email us below!
 							</p>
 						</div>
 					</div>
@@ -45,7 +45,7 @@ const AboutUs = () => (
 					        <div className="col s12 m4 center">
 					          <div className="icon-block">
 					            <Link to='/about_us'>
-					              <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAbfAAAAJGYzMjJhNGFiLWNhOGMtNDk3Yi04NTRiLWJiNmQzMWVlYzZkMQ.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+					              <img src="http://res.cloudinary.com/di0vizmtw/image/upload/v1468945022/IMG_8406_hupsmy.jpg" style={{width:'75%', height: 'auto', borderRadius: '50%'}}></img>
 					              <h5 className="center orange-text">Henry Doan</h5>
 					            </Link>
 					            <p className="light center black-text">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>
@@ -59,7 +59,7 @@ const AboutUs = () => (
 					        <div className="col s12 m4 center">
 					          <div className="icon-block">
 					            <Link to='/about_us'>
-					              <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAIEAAAAJDIwZDc5NmI3LTkyYjctNDQ2MC05MmQ3LTRjZDdkOWZlOWE3Ng.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+					              <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468904691/lindsey_pijud6.jpg" style={{width:'75%', height: 'auto', borderRadius: '50%'}}></img>
 					              <h5 className="center green-text">Lindsey Font</h5>
 					            </Link>
 					            <p className="light center black-text">Lindsey graduated from Brigham Young University in 2014 with a degree in Latin American Studies, emphasizing in Spanish and a minor in Art. Her love for languages translated well into coding when she started learning how to program arduinos. She hopes to use her new coding skills along with her artistic abilities and understanding of people to make the web a more beautiful and user friendly environment.</p>
@@ -73,7 +73,7 @@ const AboutUs = () => (
 					        <div className="col s12 m4 center">
 					          <div className="icon-block">
 					            <Link to='/about_us'>
-					              <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468901517/IMG_8389_up5xl6.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+					              <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468901517/IMG_8389_up5xl6.jpg" style={{width:'75%', height: 'auto', borderRadius: '50%'}}></img>
 					              <h5 className="center blue-text">Matt Hadley</h5>
 					            </Link>
 					            <p className="light center black-text">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p><br></br>
