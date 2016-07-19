@@ -33,7 +33,7 @@ exercise1_3 = Exercise.find_or_create_by(
 	name: "Let's do Math!",
 	icon_url: 'http://res.cloudinary.com/di0vizmtw/image/upload/v1468887066/Lesson1Ex3_qxbr6s.png',
 	instruction: "Your turn! Write some code after 'puts' that subtracts 3 from 5. <br />
-	  Click 'Run' when you are done to see if you got it right.",
+	  Click 'Run' when you are done to see if you got it right. Here's a hint - be sure to put spaces between the numbers and the minus sign. This is a standard to help your code look nice.",
 	prefill: "puts",
 	expected_code: "puts 5 - 3",
 	code_regex: false,
