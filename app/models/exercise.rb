@@ -18,6 +18,10 @@ class Exercise < ActiveRecord::Base
   belongs_to :lesson
   validates_presence_of :name, :instruction, :expected_output, :position
 
+  def self.by_position
+    order(:position)
+  end
+
   def last?(lesson)
   	self == lesson.exercises.last
   end
