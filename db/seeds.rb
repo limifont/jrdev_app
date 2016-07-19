@@ -22,7 +22,7 @@ exercise1_1 = Exercise.find_or_create_by(
 	)
 exercise1_2 = Exercise.find_or_create_by(
 	lesson_id: lesson1.id, 
-	name: "What is Code?", 
+	name: "What is Code?",
 	instruction: "What is code? Code is just instructions that a computer knows how to follow. <br />
 	  A computer is kind of like a calculator, you can give it some instructions, and it will follow them. For example, a computer can follow instructions to do math. <br />
 	  Click the 'Run' button at the bottom of the screen to run the code and see what happens",
