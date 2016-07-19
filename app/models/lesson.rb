@@ -22,7 +22,7 @@ class Lesson < ActiveRecord::Base
   def get_exercises(user)
     exercises = []
     self.exercises.each do |e|
-      exercises.push { id: e.id, position: e.position, name: e.name, completed: e.completed?(user), next_up: e.next_up?(user), icon_url: e.icon_url }
+      exercises.push({ id: e.id, position: e.position, name: e.name, completed: e.completed?(user), next_up: e.next_up?(user), icon_url: e.icon_url })
     end
     return exercises
   end
