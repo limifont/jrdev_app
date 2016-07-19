@@ -12,8 +12,9 @@ RSpec.describe CompletedExercise, type: :model do
 		it 'should return array with exercises completed by day' do
 			user = User.find(completed_exercise.user_id)
 			arr = CompletedExercise.exercises_by_day(user)
+			binding.pry
 			expect(arr[0]).to eq({ x: '', y: 0 })
-			expect(arr[1][:x]).to eq(Time.now.strftime("%D"))
+			expect(arr[1][:x]).to eq(completed_exercise.created_at.strftime("%D"))
 			expect(arr[1][:y]).to eq(1)
 		end
 	end
