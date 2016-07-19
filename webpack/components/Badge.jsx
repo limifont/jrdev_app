@@ -79,13 +79,13 @@ class Badge extends React.Component {
 
   newbieBadge() {
     // days, hours, minutes, seconds, miliseconds
-    let thirtyDays = (30 * 24 * 60 * 60 * 1000)
+    let days = (2 * 24 * 60 * 60 * 1000)
 
     let currentTime = new Date().getTime();
 
     let signupDate = new Date(this.state.newbie).getTime();
     
-    let newbieTime = signupDate + thirtyDays
+    let newbieTime = signupDate + days
 
     if (this.state.newbie != null) {
       if (newbieTime >= currentTime) { 

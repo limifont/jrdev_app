@@ -28,7 +28,7 @@ class Lessons extends React.Component {
 						<div className="col s12 m12">
 							<div className="card">	
 								<div className="card-content">
-									<div className="row">
+									<div className="row" style={{overflow: 'hide'}}>
 										<div className="col s12 m12 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
 											<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
 										</div>
@@ -44,23 +44,27 @@ class Lessons extends React.Component {
 			} else {
 				let complete = lesson.exercises_completed_count
 				let total = lesson.exercises_count
-				let num = total - complete
+				let num = Math.round( (complete/total) * 100 )
+				console.log(num)
 				return(
 					<MuiThemeProvider key={`lesson-${lesson.id}`}>
 						<div className="col s12 m12">
 							<div className="card">		
 								<div className="card-content">
 			            <div className="row valign-wrapper">
-			            	<div className="valign col s12 m12 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
+			            	<div className="valign col s3 m3 l3" style={{maxWidth: '100%', maxHeight: '100%'}}>
 											<img src={icon} style={{maxWidth: '100%', maxHeight: '100%'}}/>
 										</div>
-			            	<div className="valign col s12 m12 l9 left-align">
+			            	<div className="valign col s9 m9 l9 left-align">
 			            		<div className="card-title" style={{width: '100%', maxHeight: '100%'}}>{this.displayLessonName(lesson)}</div>
 			            	</div>
 			            </div>
 				          <div className="row valign-wrapper">  
-				            <div className="valign col s12 m12 l12">
+				            <div className="valign col s11 m11 l11">
 				            	<LinearProgress mode="determinate" max={lesson.exercises_count} value={lesson.exercises_completed_count}  />
+				            </div>
+				            <div className="valign col s1 m1 l1">
+				            	<p>{num}%</p>
 				            </div>
 				          </div>
 			          </div>
@@ -74,7 +78,7 @@ class Lessons extends React.Component {
 
 	render() {
 		return (
-			<div className="col s11">
+			<div className="col s12">
 				{this.displayLessons()}
 			</div>
 		);

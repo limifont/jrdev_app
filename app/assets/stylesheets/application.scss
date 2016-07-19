@@ -51,3 +51,12 @@ html, body {
 nav {
   z-index: 1;
 }
+
+.lesson-card {
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.row.lesson-row {
+  margin-bottom: 0px;
+}
