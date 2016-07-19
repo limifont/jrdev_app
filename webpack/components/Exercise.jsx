@@ -82,7 +82,6 @@ class Exercise extends React.Component {
 		    console.error('Error connecting to repl.it');
 		  }
 		);
-		this.updateScroll()
 	}
 
 	checkAnswer() {
