@@ -83,4 +83,10 @@ describe RSpec.describe User, type: :model do
 			expect(User.jrdev_names).to eq([jrdev.name])
 		end
 	end
+
+	describe 'self.types' do
+		it 'returns array of valid subclasses' do
+			expect(User.types).to eq(["Mentor", "Educator", "Jr Dev"])
+		end
+	end
 end
