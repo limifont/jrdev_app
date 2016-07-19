@@ -98,6 +98,7 @@ class Exercise extends React.Component {
 		let codeRegEx = new RegExp(this.state.exercise.expected_code)
 
 		if(this.state.exercise.output_regex == true) {
+			debugger
 			if(this.state.exercise.code_regex == true) {
 				if(regEx.test(this.state.results[this.state.results.length -2]) && codeRegEx.test(this.state.value)) {
 					this.setState({ exerciseMessage: true })
@@ -159,7 +160,6 @@ class Exercise extends React.Component {
 			}
 		}
 	}
-
 
 	popup() {
 		if (this.state.endMessage){
@@ -308,7 +308,6 @@ class Exercise extends React.Component {
 								</div>
 							</div>
 
-							
 							<div className="col s12 m6">
 								<div className="card">	
 									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '40vh', padding: '5px', whiteSpace: 'pre'}}>
@@ -324,7 +323,6 @@ class Exercise extends React.Component {
 						{this.previousButton()}
 						{this.exercisePopup()}
 						{this.exerciseFailPopup()}
-					
 				</div>
 			)
 		} else {

@@ -92,16 +92,10 @@ class MentorDashboard extends React.Component {
 	failMessage() {
 		if(this.state.addFail) {
 			return (
-				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", padding: "5px"}}>
+				<div className="center" id="fail" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", padding: "5px", marginTop: "8px"}}>
 					<p style={{color: "red", margin: "2px 0 2px 0"}}>Failed to add JrDev</p>
 				  <p style={{color: "red", marginTop: "0px"}}>Secret Phrase could be incorrect or you may have already added this JrDev</p>
 				</div>	
-			)
-		} else {
-			return (
-				<div>
-					<i className="material-icons">person_add</i>
-				</div>
 			)
 		}
 	}
@@ -124,11 +118,12 @@ class MentorDashboard extends React.Component {
 								<div className="card-content">
 									<span class="card-title">Add a JrDev to Your Mentorship</span>
 									<form ref="addMentee" onSubmit={this.addMentee.bind(this)}>
-										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" onClick={()=>{this.setState({ addFail: false })}}/>
+										<input ref="secret_phrase" type="text" placeholder="Jr Dev's Pass Phrase" required={true} onClick={()=>{this.setState({ addFail: false })}}/>
+										<button type="submit" className="btn">Add</button>
 									</form>
 									{this.failMessage()}
 									<div className="row" style={{paddingTop: "30px"}}>
-											JrDevs:
+											<h5>JrDevs:</h5>
 										{this.displayMentees()}
 									</div>
 								</div>

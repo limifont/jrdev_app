@@ -153,7 +153,7 @@ class EducatorDashboard extends React.Component {
 							<div className="card-content">
 								<span className="card-title">Create a Classroom</span>
 								<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
-									<input ref="name" type="text" placeholder="Classroom Name" />
+									<input ref="name" type="text" placeholder="Classroom Name" required={true}/>
 									<button type="submit" className="btn">Create</button>
 								</form>
 								{ this.failMessage() }
