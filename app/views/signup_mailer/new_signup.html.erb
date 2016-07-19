@@ -2,17 +2,39 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<style type="text/css"></style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 	</head>
 	<body>
-		<h1>Welcome to jrdev-app.herokuapp.com, <%= @name %></h1>
-		<p>
-      You have successfully signed up to jrdev-app,
-      your username is: <%= @username %>.<br>
-    </p>
-    <p>
-      To login to the site, just follow this link: http://jrdev-app.herokuapp.com
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+
+		<div class="center">
+	  	<div class="col s12 container">
+	      <div class="card" style="background-color: #00BCD4; box-shadow: 10px 15px 57px 0px rgba(0,0,0,0.75); border-radius: 15px;">
+	        <div class="card-content white-text" style="height: 1100px; margin-top: 75px;">
+            <h1>Welcome to JrDevs, <%= @name %>!</h1>
+            <img src="http://res.cloudinary.com/di0vizmtw/image/upload/v1468880125/JrDevsIconFinal_zbmrk2.png" class="responsive-img"></img>
+    				<h4>Your username is: <%= @username %>.</h4>
+    				<div class="col s2 m2 offset-s5 offset-m5 container center" style="text-align: center; text-justify: auto;">
+    					<div class="container">
+		    				<p>Thank You for signing up!</p>
+		    				<br/>
+		    				<p>This marks your first milestone in becoming a JrDev! Our exclusive lessons provide the best opportunity possible to learn the Ruby programming language. Our site features a responsive text editor and a console to show you instant results.</p>
+		    				<br/>
+		    				<p>Coding might be hard at first, but it gets easier quickly with a little practice!</p>
+		    			</div>
+	    			</div>
+	    			<br/>
+    				<a href="http://jrdev-app.herokuapp.com" class=" left-align" style="
+    				border-style: solid; border-width: 2px; border-radius: 4px; border-color: white; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" target="Read_more">Read More</a>
+    				<br/>
+    				<br/>
+    				<h5 >Sincerely, The JrDevs Team</h5>
+    				<br/>
+    				<a href="http://jrdev-app.herokuapp.com/splash#jrdev_team" class=" left-align" style="
+    				border-style: solid; border-width: 2px; border-radius: 4px; border-color: white; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" target="about">About Us</a>
+	        </div>
+	      </div>
+	    </div>
+		</div>
+
 	</body>
 </html>
