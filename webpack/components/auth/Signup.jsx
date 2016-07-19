@@ -67,7 +67,7 @@ class Signup extends React.Component {
 		this.checkParams()
 		return (
 			<div className="center-align container">
-				<h3>Sign Up as: {this.props.params.type}</h3>
+				<h3>{this.props.params.type} Sign Up</h3>
 				<div className="row">
 					<form onSubmit={ this.handleSubmit.bind(this) } >
 						<div className="input-field col s6 offset-s3">

@@ -32,12 +32,9 @@ class Splash extends React.Component {
                 <div className="row">  
                   <div className="col s12 m12 l6">
                     <h2 className="header valign cyan-text text-accent-4">TEACHING KIDS TO CODE</h2>
-                    <div className="row valign col s12">
-                      <p className="header col s12 light white-text" style={{fontWeight: 100, paddingLeft: 0}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
                     <div className="row center col s12 m12 l12">
                       <a href="#get_started" className="btn col s12 m5 orange">Learn More</a>
-                      <a href="#jrdev_team" className="btn col s12 m5 offset-m1 transparent" style={{border: "2px solid white"}}>The JrDev Team</a>
+                      <a href="#jrdev_team" className="btn col s12 m5 offset-m1 transparent" style={{border: "2px solid white"}}>OUR TEAM</a>
                     </div>
                   </div>
                 </div>
