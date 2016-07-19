@@ -136,7 +136,7 @@ class Splash extends React.Component {
                 <div className="col s12 m12 l4 center">
                   <div className="icon-block">
                     <Link to='/about_us'>
-                      <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAbfAAAAJGYzMjJhNGFiLWNhOGMtNDk3Yi04NTRiLWJiNmQzMWVlYzZkMQ.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+                      <img src="http://res.cloudinary.com/di0vizmtw/image/upload/v1468945022/IMG_8406_hupsmy.jpg" className="responsive-img circle" style={{width: '75%', height: 'auto'}}></img>
                       <h5 className="center orange-text">Henry Doan</h5>
                     </Link>
                     <p className="light center black-text">Henry, a born and raised Utahn. Now a current Computer Science major at the University of Utah, Henry is always extending his knowledge with online resources and books on programming languages and designs. In his spare time, he does computerize artwork ranging from GIFs to complete renderings. Henry is also compassionate about sharing his knowledge with others, helping them any way he can.</p>

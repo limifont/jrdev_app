@@ -106,7 +106,7 @@ class JrdevDashboard extends React.Component {
 							<Badge id={this.props.id} />
 
 							<div className="row">
-								<div className="col s12 m12">	
+								<div className="col s12">	
 									<div className="card lime accent-2">
 										<div className="card-content center">
 											<div className="card-title" id="secret-phrase" style={{cursor: 'pointer', fontSize: "16px"}} onClick={this.displayPhrase}>SECRET PHRASE</div>
