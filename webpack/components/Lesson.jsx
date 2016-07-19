@@ -17,7 +17,6 @@ class Lesson extends React.Component {
 		}).done( data => {
 			let lesson = data.lesson
 			let exercises = data.exercises
-			debugger
 			this.setState({ lesson, exercises })
 			console.log(exercises)
 		})
