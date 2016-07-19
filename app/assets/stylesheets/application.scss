@@ -1,5 +1,87 @@
 @import "materialize/components/color";
 $secondary-color: color("light-green", "accent-4") !default;
 @import 'materialize';
-@import 'main'
+@import 'main';
+
+html, body {
+	height: 100%;
+  background: #D8F7FF;
+  font-family: 'Pavanam', sans-serif;
+  font-family: 'Amiko', sans-serif;
+}
+
+#editorContainer {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  padding-left: 10px;
+}
+
+#sandboxEditorContainer {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  padding-left: 10px;
+}
+
+#editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#app {
+  min-height: 100%;
+}
+
+.container {
+  width: 80%;
+}
+
+.container .row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card .classesStats {
+  min-height: 20vh;
+}
+
+nav {
+  z-index: 1;
+}
+
+.lesson-card {
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.row.lesson-row {
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 450px) {
+
+   .lesson-title { font-size: 1.5em; }
+   .lessons-title { font-size: 0.7em !important; }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .lesson-title { font-size: 2em; }
+
+}
+
+
+@media only screen and (max-width: 700px) {
+
+  .lessons-title { font-size: 1.5em; }
+
+}
+
+
 

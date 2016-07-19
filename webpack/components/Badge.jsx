@@ -79,18 +79,18 @@ class Badge extends React.Component {
 
   newbieBadge() {
     // days, hours, minutes, seconds, miliseconds
-    let thirtyDays = (30 * 24 * 60 * 60 * 1000)
+    let days = (2 * 24 * 60 * 60 * 1000)
 
     let currentTime = new Date().getTime();
 
     let signupDate = new Date(this.state.newbie).getTime();
     
-    let newbieTime = signupDate + thirtyDays
+    let newbieTime = signupDate + days
 
     if (this.state.newbie != null) {
       if (newbieTime >= currentTime) { 
         return (
-          <div className="col s12 m12">
+          <div className="col s12">
             <div className="card amber white-text center">
               <br />
                 <div>
@@ -155,8 +155,8 @@ class Badge extends React.Component {
   render() {
     
     return(
-      <div className="card-content">
-        <span className="card-title">
+      <div className="row">
+        <span className="col s12 m12 l12">
           BADGES:
         </span>
         <div>  

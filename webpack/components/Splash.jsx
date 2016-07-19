@@ -6,8 +6,6 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.button = this.buttonClick.bind(this);
-    this.getInitialState = this.getInitialState.bind(this);
-    this.handleResize = this.handleResize.bind(this);
 
     this.state = { splashPic: 'http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1468820442/splashpic_large.jpg', windowWidth: window.innerWidth }
   }
@@ -23,23 +21,6 @@ class Splash extends React.Component {
     this.render();
   }
 
-
-  getInitialState() {
-    return {windowWidth: window.innerWidth};
-  }
-
-  handleResize(e) {
-    this.setState({windowWidth: window.innerWidth});
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
   render() {
     return(
       <div>
@@ -50,14 +31,13 @@ class Splash extends React.Component {
               <div className="container">
                 <div className="row">  
                   <div className="col s12 m12 l6">
-                    <div>Current window width: {this.state.windowWidth}</div>
                     <h2 className="header valign cyan-text text-accent-4">TEACHING KIDS TO CODE</h2>
                     <div className="row valign col s12">
                       <p className="header col s12 light white-text" style={{fontWeight: 100, paddingLeft: 0}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     <div className="row center col s12 m12 l12">
-                      <a href="#get_started" className="btn col s12 m5 l5 orange">Learn More</a>
-                      <a href="#jrdev_team" className="btn col s12 m5 offset-m1 l5 offset-l1 transparent" style={{border: "2px solid white"}}>The JrDev Team</a>
+                      <a href="#get_started" className="btn col s12 m5 orange">Learn More</a>
+                      <a href="#jrdev_team" className="btn col s12 m5 offset-m1 transparent" style={{border: "2px solid white"}}>The JrDev Team</a>
                     </div>
                   </div>
                 </div>
@@ -148,7 +128,7 @@ class Splash extends React.Component {
             <div className="container" style={{display: 'flex', flexDirection: 'column', minHeight: '20vh', marginTop: '15vh', marginBottom: '15vh'}}>
               <div className="row center">
                 <div className="col s12 m12 l12">
-                  <h5 className="black-text" style={{fontWeight: 'bold'}}>THE JRDEV TEAM</h5>
+                  <h5 className="black-text" style={{fontWeight: 'bold'}}>JRDEV TEAM</h5>
                 </div>
               </div>
               
@@ -170,7 +150,7 @@ class Splash extends React.Component {
                 <div className="col s12 m12 l4 center">
                   <div className="icon-block">
                     <Link to='/about_us'>
-                      <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAIEAAAAJDIwZDc5NmI3LTkyYjctNDQ2MC05MmQ3LTRjZDdkOWZlOWE3Ng.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+                      <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468904691/lindsey_pijud6.jpg" className="responsive-img circle" style={{width: '75%', height: 'auto'}}></img>
                       <h5 className="center green-text">Lindsey Font</h5>
                     </Link>
                     <p className="light center black-text">Lindsey graduated from Brigham Young University in 2014 with a degree in Latin American Studies, emphasizing in Spanish and a minor in Art. Her love for languages translated well into coding when she started learning how to program arduinos. She hopes to use her new coding skills along with her artistic abilities and understanding of people to make the web a more beautiful and user friendly environment.</p>
@@ -184,7 +164,7 @@ class Splash extends React.Component {
                 <div className="col s12 m12 l4 center">
                   <div className="icon-block">
                     <Link to='/about_us'>
-                      <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/0ae/1ad/2b6ca02.jpg" style={{width:'50%', height: 'auto', borderRadius: '50%'}}></img>
+                      <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468901517/IMG_8389_up5xl6.jpg" className="responsive-img circle" style={{width: '75%', height: 'auto'}}></img>
                       <h5 className="center blue-text">Matt Hadley</h5>
                     </Link>
                     <p className="light center black-text">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p><br></br>
