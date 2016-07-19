@@ -13,10 +13,6 @@ class CompletedExercise < ActiveRecord::Base
   belongs_to :user
   belongs_to :exercise
 
-  def date_completed
-    
-  end
-
   def self.exercises_by_day(user)
   	days = [{ x: '', y: 0 }]
     counts = select("count(*) AS count, date_trunc('day', created_at) AS created_at")
