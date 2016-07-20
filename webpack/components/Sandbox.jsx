@@ -62,7 +62,7 @@ class Sandbox extends React.Component {
 	render() {
 		return (
 			<div>
-				<div style={{backgroundImage: 'url(http://res.cloudinary.com/di0vizmtw/image/upload/v1468821593/splashpic2_copy_ber9cl.jpg)', height: '45vh', marginBottom: '5vh'}}>
+				<div style={{backgroundImage: 'url(http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1469033587/5D3CF_0159_Plastic_bucket_with_shovel_on_beach_w9uufy.jpg)', height: '45vh', marginBottom: '5vh'}}>
 				  <div style={{width: '100%', height: '100%', background: 'rgba(0,0,0,.3)'}}>
 				    <div className="container">
 				      <div className="row">
