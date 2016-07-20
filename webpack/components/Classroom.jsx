@@ -6,7 +6,7 @@ import JrdevPreview from './JrdevPreview'
 class Classroom extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { classroom: null, jrdevs: [], addFail: false, height: window.innerHeight, width: window.innerWidth }
+		this.state = { classroom: null, jrdevs: [], addFail: false, height: window.innerHeight, width: window.innerWidth, key: 1 }
 		this.failMessage = this.failMessage.bind(this)
 		this.getInitialState = this.getInitialState.bind(this)
 		this.handleResize = this.handleResize.bind(this)
@@ -42,6 +42,7 @@ class Classroom extends React.Component {
 			data: { id, secret_phrase }
 		}).done( jrdev => {
 			this.setState({ jrdevs: [{...jrdev}, ...this.state.jrdevs], addFail: false})
+			this.setState({ key: Math.random() });
 		}).fail( data => {
 			this.setState({ addFail: true })
 		})
@@ -85,15 +86,27 @@ class Classroom extends React.Component {
 
 
 	displayStudents() {
-		return this.state.jrdevs.map( jrdev => {
+		if(this.state.jrdevs.length > 0) {
+			return this.state.jrdevs.map( jrdev => {
+				return(
+					<div className="col s12">
+						<div className="card orange lighten-2 white-text center" style={{overflow: 'scroll'}}>
+							<JrdevPreview key={`classroomJrdevPreview-${jrdev.id}`} jrdev={jrdev} deleteJrdev={this.deleteJrdev.bind(this)}/>
+						</div>
+					</div>
+				)
+			})
+		} else {
 			return(
 				<div className="col s12">
 					<div className="card orange lighten-2 white-text center" style={{overflow: 'scroll'}}>
-						<JrdevPreview key={`classroomJrdevPreview-${jrdev.id}`} jrdev={jrdev} deleteJrdev={this.deleteJrdev.bind(this)}/>
+						<div className="card-content">
+							<p>There are no JrDevs in this class</p>
+						</div>
 					</div>
 				</div>
 			)
-		})
+		}
 	}
 
 	failMessage() {
@@ -110,61 +123,58 @@ class Classroom extends React.Component {
 	render() {
 		if(this.state.classroom){
 			return(
-				<div className="container">
-					<div className="row">
-						<div className="col s12 center">
-							<h2>{this.state.classroom.name}</h2>
-						</div>
-					</div>
-					
-					<div className="row">
+				<div style={{marginTop: '5vh'}}>
+					<div className="container">
 						
-						<div className="col s12 m8">
-							<div className="row">
-								<span className="col s12">
-									STATS:
-								</span>
-								<div className="col s12">
-									<div className="card">
-										<div className="card-content hide-on-small-only">
-											<ClassroomGraph classroom={this.state.classroom} height={this.state.height/2} width={this.state.width/2.5}/>
-										</div>
-										<div className="card-content hide-on-med-and-up">
-											<ClassroomGraph classroom={this.state.classroom} height={this.state.height/2} width={this.state.width/1.5}/>
+						<div className="row">
+							
+							<div className="col s12 m8">
+								<div className="row">
+									<span className="col s12">
+										STATS:
+									</span>
+									<div className="col s12">
+										<div className="card">
+											<div className="card-content center hide-on-small-only">
+												<ClassroomGraph key={this.state.key} classroom={this.state.classroom} height={this.state.height/2} width={this.state.width/2.4}/>
+											</div>
+											<div className="card-content center hide-on-med-and-up">
+												<ClassroomGraph classroom={this.state.classroom} height={this.state.height/2} width={this.state.width/1.7}/>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<div className="col s12 m4">
-							<div className="row">
-							  <span className="col s12">
-							    ADD JRDEV TO CLASSROOM:
-							  </span>
-					      <div className="col s12">
-                  <div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
-                  	<div className="card-content">
-                  		<form ref="addStudent" onSubmit={this.addStudent.bind(this)}>
-												<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" required={true} onClick={()=>{this.setState({ addFail: false })}} />
-												<button type="submit" className="btn">Add</button>
-											</form>
-											{this.failMessage()}
-                  	</div>
-                  </div>
-                </div>
-						  </div>
-
-						  <div className="row">
-					  		<span className="col s12">
-					  			JRDEVS:
-					  		</span>
-					  		<div>
-							  	<div className="row">
-							  		{this.displayStudents()}
-							  	</div>
+							<div className="col s12 m4">
+								<div className="row">
+								  <span className="col s12">
+								    ADD JRDEV TO CLASSROOM:
+								  </span>
+						      <div className="col s12">
+	                  <div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
+	                  	<div className="card-content">
+	                  		<form ref="addStudent" onSubmit={this.addStudent.bind(this)}>
+													<input ref="secretPhrase" type="text" placeholder="Student's Secret Pass Phrase" required={true} onClick={()=>{this.setState({ addFail: false })}} />
+													<button type="submit" className="btn">Add</button>
+												</form>
+												{this.failMessage()}
+	                  	</div>
+	                  </div>
+	                </div>
 							  </div>
-						  </div>
+
+							  <div className="row">
+						  		<span className="col s12">
+						  			JRDEVS:
+						  		</span>
+						  		<div>
+								  	<div className="row">
+								  		{this.displayStudents()}
+								  	</div>
+								  </div>
+							  </div>
+							</div>
 						</div>
 					</div>
 				</div>

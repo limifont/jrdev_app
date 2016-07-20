@@ -43,16 +43,16 @@ class ClassesAverages extends React.Component {
 		if(this.state.data.length > 0) {
 			if(this.state.average_total > 0) {
 				return(
-					<div className="col m12 l6">
-						<h5>Average Completed Exercises</h5>
+					<div className="card-content center">
+						<span>AVERAGE COMPLETED EXERCISES</span>
 						<BarChart
-						  axisLabels={{x: 'Classrooms', y: 'Average Excercises Completed'}}
+						  margin={{top: 7, right: 20, bottom: 25, left: -5}}
 						  axes
 						  grid
 						  colorBars
 						  xType={'text'}
-						  height={250}
-						  width={450}
+						  height={this.props.height}
+						  width={this.props.width}
 						  data={ this.state.data }
 						  mouseOverHandler={this.mouseOverHandler.bind(this)}
 						  mouseOutHandler={this.mouseOutHandler.bind(this)}
@@ -63,14 +63,23 @@ class ClassesAverages extends React.Component {
 				)
 			} else {
 				return(
-					<div className="col m12 l6">
-						<h5>Average Completed Exercises</h5>
-						<h6 className="center">Looks like your students haven't completed any exercises yet!</h6>
+					<div className="card-content center">
+						<div>
+							<span>COMPLETE SOME EXERCISES!</span>
+							<h5 className="center">Looks like no exercises have been completed yet.</h5>
+						</div>
 					</div>
 				)
 			}
 		} else {
-			return(<h5>Once you add some classrooms and some students, you'll see some nifty stats here!</h5>)
+			return(
+				<div className="card-content center">
+					<span>ADD A CLASSROOM!</span>
+					<div>
+						<h5 className="center">Once you add some classrooms and some students, you'll see some nifty stats here!</h5>
+					</div>
+				</div>
+			)
 		}
 	}
 }

@@ -14,7 +14,8 @@ class ClassroomGraph extends React.Component {
 		    top: `${e.screenY - 10}px`,
 		    left: `${e.screenX + 10}px`,
 		    y: d.y,
-		    x: d.x});
+		    x: d.x
+		  });
 		}
 
 		mouseMoveHandler(e) {
@@ -45,13 +46,14 @@ class ClassroomGraph extends React.Component {
 			})
 		}
 
+		
     render() {
     	if (this.state.student_stats.length > 0) {
 	      return(
 	      	<div style={{display: 'inline-block'}}>
 	      		<h5>Exercises Completed</h5>
 					  <BarChart
-					  	margin={{top: 0, right: 0, bottom: 40, left: 0}}
+					  	margin={{top: 0, right: 0, bottom: 25, left: 0}}
 						  axes
 						  grid
 						  colorBars
@@ -63,7 +65,7 @@ class ClassroomGraph extends React.Component {
 						  mouseOutHandler={this.mouseOutHandler.bind(this)}
 						  mouseMoveHandler={this.mouseMoveHandler.bind(this)}
 						/>
-						{this.state.showToolTip ? <ToolTip top={this.state.top} left={this.state.left}>{this.state.x} has completed {this.state.y} excercises</ToolTip> : null}
+						{this.state.showToolTip ? <ToolTip top={this.state.top} left={this.state.left} id="classroomGraphPopUp">{this.state.x} has completed {this.state.y} excercises</ToolTip> : null}
 					</div>
 	      );
 	    } else {

@@ -52,7 +52,7 @@ class Lessons extends React.Component {
 			console.log(icon);
 			return(
 				<MuiThemeProvider key={`lesson-${lesson.id}`}>
-					<div className="col s12 m12">
+					<div className="col s12">
 						<div className="card">	
 							<div className="card-content">
 								<div className="row valign-wrapper">

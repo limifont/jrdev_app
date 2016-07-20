@@ -11,11 +11,13 @@ import ClassesAverages from './ClassesAverages';
 class EducatorDashboard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { user: null, classrooms: [], lessons: [], addFail: false }
+		this.state = { user: null, classrooms: [], lessons: [], addFail: false, key: 1, height: window.innerHeight, width: window.innerWidth }
 		this.displayClassrooms = this.displayClassrooms.bind(this)
 		this.failMessage = this.failMessage.bind(this)
 		this.deleteClassroom = this.deleteClassroom.bind(this)
 		this.editClassroom = this.editClassroom.bind(this)
+		this.getInitialState = this.getInitialState.bind(this)
+		this.handleResize = this.handleResize.bind(this)
 	}
 
 	componentWillMount() {
@@ -48,6 +50,22 @@ class EducatorDashboard extends React.Component {
 		})
 	}
 
+	getInitialState() {
+	  return {width: window.innerWidth, height: window.innerHeight};
+	}
+
+	handleResize(e) {
+	  this.setState({width: window.innerWidth, height: window.innerHeight});
+	}
+
+	componentDidMount() {
+	  window.addEventListener('resize', this.handleResize);
+	}
+
+	componentWillUnmount() {
+	  window.removeEventListener('resize', this.handleResize);
+	}
+
 	createClassroom(e) {
 		e.preventDefault();
 		name = this.refs.name.value
@@ -57,6 +75,7 @@ class EducatorDashboard extends React.Component {
 			data: { classroom: { name }}
 		}).done( classroom => {
 			this.setState({ classrooms: [{...classroom}, ...this.state.classrooms]})
+			
 		}).fail( data => {
 			this.setState({ addFail: true })
 		})
@@ -125,26 +144,41 @@ class EducatorDashboard extends React.Component {
 		return(
 			<div>
 				<div className="row">
-					<span className="col s12">
-						STATS:
-					</span>
-
-					<div>
+					<div className="col s12">
 						<div className="row">
-							<div className="col m12">
-								<div className="card" style={{marginTop: "10px", paddingTop: "10px"}}>
-									<div className="card-content center">
-										<ClassesAverages id={this.props.id} />
-										<ClassesStats classes={this.state.classrooms} idName={this.props.id} />
-									</div>
+							<span className="col s12">
+								STATS:
+							</span>
+						</div>
+						<div className="row">
+							<div className="col s12">
+								<div className="card">
+									<ClassesAverages className="hide-on-small-only" key={this.state.key} height={this.state.height/3.2} width={this.state.width/1.5} />
 								</div>
 							</div>
 						</div>
 					</div>
+
+					<div className="col s12">
+						<div className="row">
+							<span className="col s12">
+								&nbsp;
+							</span>
+						</div>
+						<div className="row">
+							<div className="col s12">
+								<div className="card">
+									<ClassesStats classes={this.state.classrooms} size={this.state.width/4} />
+								</div>
+							</div>
+						</div>
+					</div>
+
+						
 				</div>
 
 				<div className="row">
-					<div className="col s12 m8" style={{height: '100%'}}>
+					<div className="col s12 m8">
 						<div className="row">
 							<span className="col s12">
 							  LESSONS:
@@ -163,7 +197,7 @@ class EducatorDashboard extends React.Component {
 						    CREATE A CLASSROOM:
 						  </span>
 				      <div className="col s12">
-                <div className="card" style={{maxHeight: '643px', overflow: "scroll"}}>
+                <div className="card">
                 	<div className="card-content">
                 		<form ref="createClassroom" onSubmit={this.createClassroom.bind(this)}>
                 			<input ref="name" type="text" placeholder="Classroom Name" required={true}/>

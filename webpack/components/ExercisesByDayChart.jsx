@@ -35,7 +35,7 @@ class ExercisesByDayChart extends React.Component {
 						{this.state.showToolTip ? <ToolTip top={this.state.top} left={this.state.left}>{this.state.y} exercise on {this.state.x}</ToolTip> : null}
 						<span>Exercises Completed By Day</span>
 						<AreaChart 
-						margin={{top: 0, right: 0, bottom: 0, left: 0}}
+						margin={{top: 7, right: 20, bottom: 25, left: -5}}
 						interpolate='cardinal'
 						axes
 						dataPoints
@@ -45,7 +45,6 @@ class ExercisesByDayChart extends React.Component {
 						yTicks={this.props.yTicks}
 						areaColors={['#130069']}
 						data={[this.props.data]}
-						clickHandler={(d) => this.setState({dataDisplay: `${d.y} EXERCISES WERE COMPLETED ON ${d.x}`})}
 						mouseOverHandler={this.mouseOverHandler.bind(this)}
 					  mouseOutHandler={this.mouseOutHandler.bind(this)}
 					  mouseMoveHandler={this.mouseMoveHandler.bind(this)}

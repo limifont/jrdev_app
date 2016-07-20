@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { splashPic: 'http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1468820442/splashpic_large.jpg', windowWidth: window.innerWidth }
+    this.state = { splashPic: 'http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1468820442/splashpic_large.jpg'  }
   }
 
 
