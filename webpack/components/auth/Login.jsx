@@ -23,7 +23,7 @@ class Login extends React.Component {
 	displayError() {
 		if(this.props.loginFail) {
 			return (
-				<div className="col m6 offset-m3 center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", marginTop: "30px"}}>
+				<div className="col s8 offset-s2 m6 offset-m3 center" style={{backgroundColor: "rgba(255,0,0,0.2)", minHeight: "50px", borderRadius: "10px", marginTop: "30px"}}>
 					<p style={{color: "red"}}>Email or Password Incorrect</p>
 				</div>	
 			)
@@ -36,7 +36,7 @@ class Login extends React.Component {
 				<h3>Login</h3>
 				<div className="row">
 					<form onSubmit={ this.handleSubmit.bind(this) } >
-						<div className="input-field col s6 offset-s3">
+						<div className="input-field col s10 offset-s1 m6 offset-m3">
 							<input type='email' placeholder='Email' ref='email' required />
 							<input type='password' placeholder='Password' ref='password' require />
 							<input type='submit' className='btn' value='login' />
