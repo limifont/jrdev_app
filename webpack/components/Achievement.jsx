@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Link } from 'react-router';
 
 class Achievement extends React.Component {
  	constructor(props) {
@@ -17,11 +18,8 @@ class Achievement extends React.Component {
 
   render() {
     const standardActions = [
-      <FlatButton
-        label="X"
-        primary={true}
-        onClick={this.handleClose}
-      />,
+      <button className='btn' onClick={this.handleClose} style={{marginRight: '10px'}}>Back to Coding</button>,
+      <Link to='/' className='btn'>To Dashboard</Link>
     ];
 
   	return (
@@ -31,10 +29,16 @@ class Achievement extends React.Component {
             ref="dialog"
             open={this.state.open}
             title="Congratulations!"
-            actions={standardActions}
             onRequestClose={this.handleClose}
+            titleClassName="center"
+            contentClassName="center"
+            className="center"
           >
-            Good Job
+            You Completed This Lesson.
+            <br/>
+            <br/>
+            <br/>
+            {standardActions}
           </Dialog>
         </div>
       </MuiThemeProvider>
