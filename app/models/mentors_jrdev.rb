@@ -12,7 +12,7 @@
 class MentorsJrdev < ActiveRecord::Base
   belongs_to :mentor, class_name: "User"
   belongs_to :jrdev, class_name: "User"
-  validates_uniqueness_of :jrdev_id, scope: :mentor_id
+  validates_uniqueness_of :mentor_id, scope: :jrdev_id
 
 
   def self.UserMentees(user)
