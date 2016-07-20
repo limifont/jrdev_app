@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { handleLogin } from './actions';
 import { browserHistory } from 'react-router' 
+import { Link } from 'react-router';
 
 class Signup extends React.Component {
 	constructor(props) {
@@ -66,21 +67,35 @@ class Signup extends React.Component {
 	render() {
 		this.checkParams()
 		return (
-			<div className="center-align container">
-				<h3>{this.props.params.type} Sign Up</h3>
-				<div className="row">
-					<form onSubmit={ this.handleSubmit.bind(this) } >
-						<div className="input-field col s10 offset-s1 m6 offset-m3">
-							<input type='text' placeholder='Name' ref='name' required />
-							<input type='text' placeholder='Username' ref='username' required />
-							<input type='email' placeholder='Email' ref='email' required />
-							<input type='password' placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
-							<input type='password' placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
-							<input type='submit' className='btn btn-success' value='Sign Up' />
-						</div>
-					</form>
-						{this.displayErrors()}
-				</div>
+			<div id="signup-img" style={{width: '100vw'}}>
+				<div className="valign-wrapper" style={{width: '100%', height: '100%', background: 'rgba(0,0,0,.6)', height: '100vh'}}>
+			    
+			    <div id="content" className="container valign">
+			      <div className="row">
+			      	<div className="col s12 m10 offset-m1 center white-text">
+			      		<h4 style={{ textTransform: 'uppercase'}}>{this.props.params.type} Sign Up</h4>
+			      	</div>
+			      
+				      <div className="row">
+				      	<div className="col s12 m10 offset-m1 center white-text">
+				      		<form onSubmit={ this.handleSubmit.bind(this) } >
+			      				<div className="input-field col s12">
+			      					<input type='text' className="orange-text" placeholder='Name' ref='name' required />
+			      					<input type='text' className="orange-text" placeholder='Username' ref='username' required />
+			      					<input type='email' className="orange-text" placeholder='Email' ref='email' required />
+			      					<input type='password' className="orange-text" placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
+			      					<input type='password' className="orange-text" placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
+			      					<input type='submit' className='btn transparent col s12' style={{border: "2px solid white"}} value='Sign Up' />
+			      					<p className="col s12 center white-text" style={{fontSize: '.8em'}}>Already have an account? Log in <Link to='/login' className='white-text' style={{textDecoration: 'underline'}}>here</Link>!</p>
+			      				</div>
+			      			</form>
+			      				{this.displayErrors()}
+				      	</div>
+				      </div>
+			      </div>
+			    </div>
+			  
+			  </div>			
 			</div>
 		)
 	}

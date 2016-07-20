@@ -81,6 +81,12 @@ html, body {
 
 }
 
-#dashboard-pic {
-  background: linear-gradient(to bottom right, red, yellow);
+#signup-img, #login-img, #signup-landing {
+  width: 100%;
+  height: auto;
+  background-image: url("http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1468820442/splashpic_large.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  
 }
