@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
                   <div>
                     <h3 className="white-text center" style={{fontWeight: 'light'}}>DASHBOARD</h3>
                   </div>
-                  <div className="hide-on-small-only">                                  
+                  <div className="hide-on-small-only">
                     <span className="white-text">Welcome to JrDevs!</span>
                   </div>
                 </div>
