@@ -174,6 +174,7 @@ class EducatorDashboard extends React.Component {
                 </div>
               </div>
 					  </div>
+					  
 					  <div className="row">
 				  		<span className="col s12">
 				  			CLASSROOMS:
