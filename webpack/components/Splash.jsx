@@ -164,7 +164,7 @@ class Splash extends React.Component {
                       <img src="http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_500/v1468901517/IMG_8389_up5xl6.jpg" className="responsive-img circle" style={{width: '75%', height: 'auto'}}></img>
                       <h5 className="center blue-text">Matt Hadley</h5>
                     </Link>
-                    <p className="light center black-text">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in international relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p><br></br>
+                    <p className="light center black-text">Matt, a product of Utah and Arizona, graduated from BYU in 2013 with a degree in International Relations. He then went to work for Goldman Sachs in Compliance for the next three years. One day he decided to try a free online coding course and not long after was looking into coding bootcamps. When he is not coding, he is usually out fly fishing. He is excited to be in a career he loves.</p><br></br>
 
                     <a href='https://github.com/mghadley' target="github"><img src="assets/GitHub.png"></img></a>
                     <a href='https://www.linkedin.com/in/mghadley' target="linkedin"><img src="assets/link.png" style={{ height: '32px', marginLeft: '25px', marginRight: '25px'}}></img></a>

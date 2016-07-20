@@ -8,6 +8,12 @@ class Navbar extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		$('.button-collapse').sideNav({
+	    closeOnClick: true
+		});    
+	}
+
 	logout(e) {
 		e.preventDefault();
 		this.props.dispatch(handleLogout(this.props.history));
@@ -28,19 +34,20 @@ class Navbar extends React.Component {
 	render() {
 		return(
 			<header>
-		      <div className="navbar">
-	          <nav className='cyan'>
-	            <div className="nav-wrapper container">
-	              <Link to='/' className='brand-logo'>JrDevs</Link>
-	              <ul id="nav-mobile" className="right hide-on-med-and-down">
-	                { this.authLink() }
-	              </ul>
-	              <ul className="right hide-on-med-and-up">
-	              	<i className="material-icons">menu</i>
-	              </ul>
-	            </div>
-	          </nav>
-	        </div>
+	      <div className="navbar">
+          <nav className='cyan'>
+				    <div className="nav-wrapper container">
+				      <Link to='/' className='brand-logo'>JrDevs</Link>
+				      <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+				      <ul className="right hide-on-med-and-down">
+				        {this.authLink()}
+				      </ul>
+				      <ul className="side-nav" id="mobile-demo">
+				      	{this.authLink()}
+				      </ul>	
+				    </div>
+				  </nav>
+        </div>
 	    </header>
     )
 	}
