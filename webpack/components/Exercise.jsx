@@ -188,31 +188,31 @@ class Exercise extends React.Component {
 		if(!this.state.last) {
 			if(this.state.completed) {
 				return (
-					<button className="btn right" style={{margin: '10px'}} onClick={this.goToNext.bind(this)}>Next</button>
+					<button className="btn right hide-on-small-only" style={{margin: '10px'}} onClick={this.goToNext.bind(this)}>Next</button>
 				)
 			} else {
 				return (
-					<button className="btn right disabled" style={{margin: '10px'}}>Next</button>
+					<button className="btn right disabled hide-on-small-only" style={{margin: '10px'}}>Next</button>
 				)
 			}
 		} else if(this.state.very_last) {
 			if(this.state.completed) {
 				return (
-					<button className="btn right" style={{margin: '10px'}}><Link to='/'>Dashboard</Link></button>
+					<button className="btn right hide-on-small-only" style={{margin: '10px'}}><Link to='/'>Dashboard</Link></button>
 				)
 			} else {
 				return (
-					<button className="btn right disabled" style={{margin: '10px'}}>Dashboard</button>
+					<button className="btn right disabled hide-on-small-only" style={{margin: '10px'}}>Dashboard</button>
 				)
 			}
 		} else {
 			if(this.state.completed) {
 				return (
-					<button className="btn right" style={{margin: '10px'}} onClick={this.goToNextLesson.bind(this)}>Next Lesson</button>
+					<button className="btn right hide-on-small-only" style={{margin: '10px'}} onClick={this.goToNextLesson.bind(this)}>Next Lesson</button>
 				)
 			} else {
 				return (
-					<button className="btn right disabled" style={{margin: '10px'}}>Next Lesson</button>
+					<button className="btn right disabled hide-on-small-only" style={{margin: '10px'}}>Next Lesson</button>
 				)
 			}
 		}
@@ -249,7 +249,7 @@ class Exercise extends React.Component {
 	previousButton() {
 		if(!this.state.first) {
 			return (
-				<button className="btn right" style={{margin: '10px'}} onClick={this.goToPrevious.bind(this)}>Previous</button>
+				<button className="btn right hide-on-small-only" style={{margin: '10px'}} onClick={this.goToPrevious.bind(this)}>Previous</button>
 			)
 		}
 	}
@@ -271,57 +271,83 @@ class Exercise extends React.Component {
 	render() {
 		if(this.state.exercise) {
 			return (
-				<div className="container">
-					<div className="row">
-		        <div className="col s12 m12">
-			        <div className="card">
-			        	<div style={{backgroundColor: "white", borderRadius: "5px", margin: "10px 0 5px 0", padding: "5px", whiteSpace: "per"}}>
-				        	<span className="card-title"><p className="center" style={{margin: "4px 0 4px 0"}}>{this.state.exercise.name}</p></span>
-				        	<p dangerouslySetInnerHTML={{__html: this.state.exercise.instruction}}></p>
-			        	</div>
-			        </div>
-		        </div>
-						{this.popup()}
+				<div>
+					<div style={{backgroundImage: 'url(http://res.cloudinary.com/di0vizmtw/image/upload/e_auto_contrast/v1469053334/Exercises_cdkhj6.png)', height: '45vh', marginBottom: '5vh'}}>
+					  <div id="exercises-bckgnd" style={{width: '100%', height: '100%'}}>
+					    <div className="container">
+					      <div className="row">
+					        <div className="col s12 m11" style={{marginTop: '20vh'}}>
+					          <div className="hide-on-med-and-up">
+					            <h3 className="white-text center" style={{fontWeight: 'light'}}>{this.state.exercise.name}</h3>
+					          </div>
+					          <div className="hide-on-small-only">
+					            <h3 className="white-text" style={{fontWeight: 'light'}}>{this.state.exercise.name}</h3>
+					          </div>
+					          
+					          <div className="hide-on-med-and-up col s12">
+					          	<div className="white-text center" style={{fontSize: '1em', maxHeight: '10vh', overflowY: 'scroll'}}>Coding is tough on a screen so small. <br/>Try moving to something bigger!</div>
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+					    {this.popup()}
+					  </div>
 					</div>
 
-						<div className="row">
-							<div className="col s12 m6">
-								<div className="card">
-									<div id="editorContainer">
-										<div>
-											<AceEditor
-												autofocus={true}
-										    mode="ruby"
-										    theme="crimson_editor"
-										    onChange={this.onChange}
-										    name="editor"
-										    tabSize={2}
-										    height="100%"
-										    width="100%"
-										    value={this.state.value || ''}
-										    editorProps={{$blockScrolling: true}}
-										  />
-									  </div>
-										&nbsp;
+					<div className="container">
+
+							<div className="row">
+				        <div className="col s12 m12">
+					        <div className="card">
+					        	<div style={{backgroundColor: "white", borderRadius: "5px", margin: "10px 0 5px 0", padding: "5px", whiteSpace: "per"}}>							  
+						        	<p dangerouslySetInnerHTML={{__html: this.state.exercise.instruction}}></p>
+					        	</div>
+					        </div>
+				        </div>
+								{this.popup()}
+							</div>
+						
+
+							<div className="row hide-on-small-only">
+								<div className="col s12 m6">
+									<div className="card">
+										<div id="editorContainer">
+											<div>
+												<AceEditor
+													autofocus={true}
+											    mode="ruby"
+											    theme="crimson_editor"
+											    onChange={this.onChange}
+											    name="editor"
+											    tabSize={2}
+											    height="100%"
+											    width="100%"
+											    value={this.state.value || ''}
+											    editorProps={{$blockScrolling: true}}
+											  />
+										  </div>
+											&nbsp;
+										</div>
+									</div>
+								</div>
+
+								<div className="col s12 m6">
+									<div className="card">	
+										<div className="console" style={{backgroundColor: 'black', color: 'green', height: '40vh', padding: '5px', whiteSpace: 'pre', overflow: 'scroll'}}>
+											{this.state.results}
+										</div>
 									</div>
 								</div>
 							</div>
 
-							<div className="col s12 m6">
-								<div className="card">	
-									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '40vh', padding: '5px', whiteSpace: 'pre', overflow: 'scroll'}}>
-										{this.state.results}
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div className='clearfix'></div>
-						<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
-						{this.nextButton()}
-						{this.previousButton()}
-						{this.exercisePopup()}
-						{this.exerciseFailPopup()}
+							<div className='clearfix'></div>
+							<button className="btn hide-on-small-only" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
+							{this.nextButton()}
+							{this.previousButton()}
+							{this.exercisePopup()}
+							{this.exerciseFailPopup()}
+	
+					</div>
 				</div>
 			)
 		} else {
