@@ -38,11 +38,7 @@ class Login extends React.Component {
 			    
 			    <div id="content" className="container valign">
 			      <div className="row">
-			      	<div className="row">
-				      	<div className="col s12 m10 offset-m1 center white-text">
-				      		<h4>LOGIN</h4>
-				      	</div>
-				      </div>
+			      	
 			      
 				      <div className="row">
 				      	<div className="col s12 m10 offset-m1 center">

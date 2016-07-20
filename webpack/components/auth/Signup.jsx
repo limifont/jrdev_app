@@ -73,7 +73,7 @@ class Signup extends React.Component {
 			    <div id="content" className="container valign">
 			      <div className="row">
 			      	<div className="col s12 m10 offset-m1 center white-text">
-			      		<h4 style={{ textTransform: 'uppercase'}}>{this.props.params.type} Sign Up</h4>
+			      		<h4 style={{ textTransform: 'uppercase'}}>Sign Up as {this.props.params.type}</h4>
 			      	</div>
 			      
 				      <div className="row">
@@ -85,7 +85,7 @@ class Signup extends React.Component {
 			      					<input type='email' className="orange-text" placeholder='Email' ref='email' required />
 			      					<input type='password' className="orange-text" placeholder='Password' ref='password' required pattern=".{6,}" title="Password must be 6 characters or more"/>
 			      					<input type='password' className="orange-text" placeholder='Password Confirmation' ref='passwordConfirmation' required pattern=".{6,}" title="Password Confirmation must be 6 characters or more and must match Password" />
-			      					<input type='submit' className='btn transparent col s12' style={{border: "2px solid white"}} value='Sign Up' />
+			      					<input type='submit' className='btn transparent col s12' style={{border: "2px solid white"}} value='Start Coding!' />
 			      					<p className="col s12 center white-text" style={{fontSize: '.8em'}}>Already have an account? Log in <Link to='/login' className='white-text' style={{textDecoration: 'underline'}}>here</Link>!</p>
 			      				</div>
 			      			</form>
