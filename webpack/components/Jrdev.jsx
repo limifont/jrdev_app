@@ -5,9 +5,11 @@ import Lessons from './Lessons'
 class Jrdev extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { jrdev: null, completed_by_day: [], mentors: [], classrooms: [], lessons: [] }
+		this.state = { jrdev: null, completed_by_day: [], mentors: [], classrooms: [], lessons: [], height: window.innerHeight, width: window.innerWidth }
 		this.displayClassrooms = this.displayClassrooms.bind(this)
 		this.displayMentors = this.displayMentors.bind(this)
+		this.getInitialState = this.getInitialState.bind(this)
+		this.handleResize = this.handleResize.bind(this)
 	}
 
 	componentWillMount() {
@@ -36,6 +38,23 @@ class Jrdev extends React.Component {
 			console.log("Failure to get all lessons", data)
 		})
 	}
+
+	getInitialState() {
+    return {width: window.innerWidth, height: window.innerHeight};
+  }
+
+  handleResize(e) {
+    this.setState({width: window.innerWidth, height: window.innerHeight});
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
 
 	displayClassrooms() {
 		if(this.state.classrooms.length > 0) {
@@ -105,8 +124,22 @@ class Jrdev extends React.Component {
 					</div>
 
 					<div className="row">
-						<div className="col s12 m8 offset-m2 center hide-on-med-and-down">
-							<ExercisesByDayChart data={this.state.completed_by_day}/>
+						<div className="col s12">
+							<div className="row">
+								<span className="col s12">
+									STATS:
+								</span>
+								<div className="col s12">
+									<div className="card">
+											<div className="card-content center hide-on-small-only">
+												<ExercisesByDayChart data={this.state.completed_by_day} yTicks={1} height={this.state.height/2.25} width={this.state.width/1.5}/>
+											</div>
+											<div className="card-content center hide-on-med-and-up">
+												<ExercisesByDayChart data={this.state.completed_by_day} yTicks={1} height={this.state.height/3} width={this.state.width/1.8}/>
+											</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -118,7 +151,7 @@ class Jrdev extends React.Component {
 								</span>
 								<div>
 									<div className="row">
-										<Lessons lessons={this.state.lessons} links={true}/>
+										<Lessons lessons={this.state.lessons} links={false}/>
 									</div>
 								</div>
 							</div>

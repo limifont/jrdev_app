@@ -21,7 +21,7 @@ class ExcercisePopup extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div >
+        <div>
           <Snackbar
             open={this.state.open}
             message="Correct!"
