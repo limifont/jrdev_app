@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+var ReactTooltip = require("react-tooltip")
+
 class Badge extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +41,7 @@ class Badge extends React.Component {
     if (this.state.marathon) {
       return (
         <div className="col s12 m12">
-          <div className="card blue lighten-2 white-text center">
+          <div className="card blue lighten-2 white-text center" data-tip data-for='marathon'>
             <br />
               <div>
                 <p>MARATHON</p>
@@ -47,6 +50,9 @@ class Badge extends React.Component {
                   <i className="material-icons">assignment_turned_in</i>
                   <i className="material-icons">assignment_turned_in</i>
                 </p>
+                <ReactTooltip id='marathon' type='info' place="top" multiline >
+                  <p className='gray-text'>You completed 3 or more exercises in a day</p>
+                </ReactTooltip>
               </div>
             <br />
           </div>  
@@ -59,13 +65,16 @@ class Badge extends React.Component {
     if (this.state.speedDemon) {
       return (
         <div className="col s12 m12">
-          <div className="card deep-orange lighten-1 white-text center">
+          <div className="card deep-orange lighten-1 white-text center" data-tip data-for='speedy'>
             <br />
               <div>
                 <p>SPEEDY</p>
                 <p>
                   <i className="material-icons">done_all</i>
                 </p>
+                <ReactTooltip id='speedy' type='error' place="top" multiline >
+                  <p className='gray-text'>You completed 5 or more exercises in an hour</p>
+                </ReactTooltip>
               </div>
             <br />
           </div>
@@ -91,13 +100,16 @@ class Badge extends React.Component {
       if (newbieTime >= currentTime) { 
         return (
           <div className="col s12">
-            <div className="card amber white-text center">
+            <div className="card amber white-text center" data-tip data-for='newbie'>
               <br />
                 <div>
                   <p>NEWBIE</p>
                   <p><i className="material-icons md-48">fiber_new</i></p>
                 </div>
               <br />
+            <ReactTooltip id='newbie' type='warning' place="top" multiline >
+              <p className='gray-text'>You have been a JrDev for a week or less</p>
+            </ReactTooltip>
             </div>
           </div>
         )

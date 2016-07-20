@@ -2,6 +2,8 @@ import React from 'react'
 import Lessons from './Lessons'
 import Badge from './Badge'
 
+var ReactTooltip = require("react-tooltip")
+
 class JrdevDashboard extends React.Component {
 	constructor(props) {
 		super(props);
@@ -101,17 +103,19 @@ class JrdevDashboard extends React.Component {
 								</div>
 							</div>
 						</div >
-
 						<div className="col s12 m4 l4">
 							<Badge id={this.props.id} />
 
 							<div className="row">
 								<div className="col s12">	
 									<div className="card lime accent-2">
-										<div className="card-content center">
-											<div className="card-title" id="secret-phrase" style={{cursor: 'pointer', fontSize: "16px"}} onClick={this.displayPhrase}>SECRET PHRASE</div>
+										<div className="card-content center" data-tip data-for='phrase'>
+											<div className="card-title" id="secret-phrase" style={{cursor: 'pointer', fontSize: "16px"}} onClick={this.displayPhrase}>SECRET PHRASE </div>
 											<div className="btn lime" id="hide-btn" style={{display: 'none', marginTop: '12px'}} onClick={this.hidePhrase}>HIDE</div>
 											<div id="new-secret" className="btn lime" onClick={this.newPhrase.bind(this)} style={{display: 'none', marginTop: '12px', width: '100%'}}>NEW PHRASE</div>
+											<ReactTooltip id='phrase' type='success' place="top" multiline >
+											  <p className='gray-text'>The phrase is used for adding JrDevs into mentorships and classrooms</p>
+											</ReactTooltip>
 										</div>
 									</div>
 								</div>
