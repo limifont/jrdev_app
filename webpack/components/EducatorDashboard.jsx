@@ -158,22 +158,6 @@ class EducatorDashboard extends React.Component {
 							</div>
 						</div>
 					</div>
-
-					<div className="col s12">
-						<div className="row">
-							<span className="col s12">
-								&nbsp;
-							</span>
-						</div>
-						<div className="row">
-							<div className="col s12">
-								<div className="card">
-									<ClassesStats classes={this.state.classrooms} size={this.state.width/4} />
-								</div>
-							</div>
-						</div>
-					</div>
-
 						
 				</div>
 
