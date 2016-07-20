@@ -76,6 +76,9 @@ class Sandbox extends React.Component {
 				          <div className="hide-on-small-only">                                  
 				            <span className="white-text">Here you can do whatever you want! <br/>Experimenting with code is one of the best ways to learn!</span>
 				          </div>
+				          <div className="hide-on-med-and-up col s12">
+				          	<div className="white-text center" style={{fontSize: '1em', maxHeight: '10vh', overflowY: 'scroll'}}>Coding is tough on a screen so small. <br/>Try moving to something bigger!</div>
+				          </div>
 				        </div>
 				      </div>
 				    </div>
@@ -119,8 +122,8 @@ class Sandbox extends React.Component {
 						</div>
 
 						<div className='clearfix'></div>
-						<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
-						<button className="btn" onClick={this.clearConsole.bind(this)} style={{margin: '10px', float: 'right'}}>Clear Console</button>
+						<button className="btn hide-on-small-only" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
+						<button className="btn hide-on-small-only" onClick={this.clearConsole.bind(this)} style={{margin: '10px', float: 'right'}}>Clear Console</button>
 				</div>
 			</div>
 		)
