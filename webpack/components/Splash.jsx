@@ -5,21 +5,9 @@ import { Link } from 'react-router';
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.button = this.buttonClick.bind(this);
-
     this.state = { splashPic: 'http://res.cloudinary.com/di0vizmtw/image/upload/c_scale,w_2000/v1468820442/splashpic_large.jpg', windowWidth: window.innerWidth }
   }
 
-  buttonClick() {
-    console.log(this.state.splashPic);
-    let h = $(window).height();
-    let w = $(window).width();
-    console.log(window.screen.availHeight);
-    console.log(window.screen.availWidth);
-    this.setState({ splashPic: 'http://res.cloudinary.com/di0vizmtw/image/upload/v1468820442/splashpic_large.jpg'});
-    
-    this.render();
-  }
 
   render() {
     return(

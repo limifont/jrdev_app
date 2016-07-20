@@ -6,8 +6,10 @@ import JrdevPreview from './JrdevPreview'
 class Classroom extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { classroom: null, jrdevs: [], addFail: false }
+		this.state = { classroom: null, jrdevs: [], addFail: false, height: window.innerHeight, width: window.innerWidth }
 		this.failMessage = this.failMessage.bind(this)
+		this.getInitialState = this.getInitialState.bind(this)
+		this.handleResize = this.handleResize.bind(this)
 	}
 
 	componentWillMount() {
@@ -65,6 +67,22 @@ class Classroom extends React.Component {
 		})
 	}
 
+	getInitialState() {
+    return {width: window.innerWidth, height: window.innerHeight};
+  }
+
+  handleResize(e) {
+    this.setState({width: window.innerWidth, height: window.innerHeight});
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
 
 	displayStudents() {
 		return this.state.jrdevs.map( jrdev => {
@@ -108,9 +126,11 @@ class Classroom extends React.Component {
 								</span>
 								<div className="col s12">
 									<div className="card">
-										<div className="card-content">
-											<h3>Stats</h3>
-											<ClassroomGraph classroom={this.state.classroom}/>
+										<div className="card-content hide-on-small-only">
+											<ClassroomGraph classroom={this.state.classroom} height={this.state.height/2} width={this.state.width/2.5}/>
+										</div>
+										<div className="card-content hide-on-med-and-up">
+											<ClassroomGraph classroom={this.state.classroom} height={this.state.height/2} width={this.state.width/1.5}/>
 										</div>
 									</div>
 								</div>

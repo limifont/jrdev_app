@@ -51,13 +51,13 @@ class ClassroomGraph extends React.Component {
 	      	<div style={{display: 'inline-block'}}>
 	      		<h5>Exercises Completed</h5>
 					  <BarChart
-						  axisLabels={{x: 'Students', y: 'Excercise Completed'}}
+					  	margin={{top: 0, right: 0, bottom: 40, left: 0}}
 						  axes
 						  grid
 						  colorBars
 						  xType={'text'}
-						  height={250}
-						  width={450}
+						  height={this.props.height}
+						  width={this.props.width}
 						  data={ this.state.student_stats }
 						  mouseOverHandler={this.mouseOverHandler.bind(this)}
 						  mouseOutHandler={this.mouseOutHandler.bind(this)}

@@ -35,6 +35,7 @@ class ExercisesByDayChart extends React.Component {
 						{this.state.showToolTip ? <ToolTip top={this.state.top} left={this.state.left}>{this.state.y} exercise on {this.state.x}</ToolTip> : null}
 						<span>Exercises Completed By Day</span>
 						<AreaChart 
+						margin={{top: 0, right: 0, bottom: 0, left: 0}}
 						interpolate='cardinal'
 						axes
 						dataPoints
