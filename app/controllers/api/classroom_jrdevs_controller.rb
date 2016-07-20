@@ -13,7 +13,6 @@ class Api::ClassroomJrdevsController < ApiController
 			students_per_class << ClassroomJrdev.where(classroom_id: classroom).count
 		end
 
-		
 		render json: students_per_class
 	end
 

@@ -49,9 +49,7 @@ html, body {
   min-height: 20vh;
 }
 
-nav {
-  z-index: 1;
-}
+
 
 .lesson-card {
   border-bottom-right-radius: 100px;
@@ -83,5 +81,6 @@ nav {
 
 }
 
-
-
+#dashboard-pic {
+  background: linear-gradient(to bottom right, red, yellow);
+}

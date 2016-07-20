@@ -35,7 +35,7 @@ class ClassroomPreview extends React.Component {
 		if(this.state.delete) {
 			return(
 				<div className='row'>
-					<div className="col m12">
+					<div className="col s12">
 	          <div className="card orange lighten-2 white-text">
 	          	<div className="card-content white-text center" style={{padding: "0px"}}>
 	              <span className="card-title" style={{fontSize: "14px"}}>{this.props.classroom.name}</span>
@@ -50,7 +50,7 @@ class ClassroomPreview extends React.Component {
 		} else if(this.state.edit) {
 			return(
 				<div className='row'>
-					<div className="col m12">
+					<div className="col s12">
 	          <div className="card orange lighten-2 white-text">
 	          	<div className="card-content white-text center" style={{padding: "0px"}}>
 	          		<div className="container">
@@ -69,7 +69,7 @@ class ClassroomPreview extends React.Component {
 		} else {
 			return(
 				<div className='row'>
-					<div className="col m12">
+					<div className="col s12">
 	          <div className="card orange lighten-2 white-text" style={{overflow: "scroll"}}>
 	          	<Link to={`/classroom/${this.props.classroom.id}`}>
 		          	<div className="card-content white-text center" style={{padding: "0px", display: "inline-block"}}>

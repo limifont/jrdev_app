@@ -61,54 +61,67 @@ class Sandbox extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
-				<div className="row">
-	        <div className="col s12 m12">
-		        <div className="card">
-		        	<div className="center" style={{backgroundColor: "white", borderRadius: "5px", margin: "10px 0 5px 0", padding: "5px", whiteSpace: "per"}}>
-								<h4 style={{margin: "3px"}}>Sandbox</h4>
-								<p>Here you can do whatever you want! Experimenting with code is one of the best ways to learn!</p>			        	
-		        	</div>
-		        </div>
-	        </div>
+			<div>
+				<div style={{backgroundImage: 'url(http://res.cloudinary.com/di0vizmtw/image/upload/v1468821593/splashpic2_copy_ber9cl.jpg)', height: '45vh', marginBottom: '5vh'}}>
+				  <div style={{width: '100%', height: '100%', background: 'rgba(0,0,0,.3)'}}>
+				    <div className="container">
+				      <div className="row">
+				        <div className="col s12 m6" style={{marginTop: '20vh'}}>
+				          <div className="hide-on-med-and-up">
+				            <h3 className="white-text center" style={{fontWeight: 'light'}}>SANDBOX</h3>
+				          </div>
+				          <div className="hide-on-small-only">
+				            <h3 className="white-text" style={{fontWeight: 'light'}}>SANDBOX</h3>
+				          </div>
+				          <div className="hide-on-small-only">                                  
+				            <span className="white-text">Here you can do whatever you want! <br/>Experimenting with code is one of the best ways to learn!</span>
+				          </div>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
 				</div>
 
-					<div className="row">
-						<div className="col s12 m6">
-							<div className="card">
-								<div id="sandboxEditorContainer">
-									<div>
-										<AceEditor
-											autofocus={true}
-									    mode="ruby"
-									    theme="crimson_editor"
-									    onChange={this.onChange}
-									    name="editor"
-									    tabSize={2}
-									    height="100%"
-									    width="100%"
-									    value={this.state.value || ''}
-									    editorProps={{$blockScrolling: true}}
-									  />
-								  </div>
-									&nbsp;
+				<div className="container">
+					
+
+						<div className="row">
+							<div className="col s12 m6">
+								<div className="card">
+									<div id="sandboxEditorContainer">
+										<div>
+											<AceEditor
+												autofocus={true}
+										    mode="ruby"
+										    theme="crimson_editor"
+										    onChange={this.onChange}
+										    name="editor"
+										    tabSize={2}
+										    height="100%"
+										    width="100%"
+										    value={this.state.value || ''}
+										    editorProps={{$blockScrolling: true}}
+										  />
+									  </div>
+										&nbsp;
+									</div>
+								</div>
+							</div>
+
+							
+							<div className="col s12 m6">
+								<div className="card">	
+									<div className="console" style={{backgroundColor: 'black', color: 'green', height: '50vh', padding: '5px', whiteSpace: 'pre', overflow: "scroll"}}>
+										{this.state.results}
+									</div>
 								</div>
 							</div>
 						</div>
 
-						
-						<div className="col s12 m6">
-							<div className="card">	
-								<div className="console" style={{backgroundColor: 'black', color: 'green', height: '50vh', padding: '5px', whiteSpace: 'pre', overflow: "scroll"}}>
-									{this.state.results}
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div className='clearfix'></div>
-					<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
-					<button className="btn" onClick={this.clearConsole.bind(this)} style={{margin: '10px', float: 'right'}}>Clear Console</button>
+						<div className='clearfix'></div>
+						<button className="btn" onClick={this.replCode.bind(this)} style={{margin: '10px'}}>Run</button>
+						<button className="btn" onClick={this.clearConsole.bind(this)} style={{margin: '10px', float: 'right'}}>Clear Console</button>
+				</div>
 			</div>
 		)
 	}

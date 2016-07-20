@@ -69,11 +69,33 @@ class Lesson extends React.Component {
 	render() {
 		if(this.state.lesson){
 			return(
-				<div className="container">
-					<div className="row">
-						<h2 className="center">{this.state.lesson.name}</h2>
+				<div>
+					<div style={{backgroundImage: 'url(http://res.cloudinary.com/di0vizmtw/image/upload/v1468821593/splashpic2_copy_ber9cl.jpg)', height: '45vh', marginBottom: '5vh'}}>
+					  <div style={{width: '100%', height: '100%', background: 'rgba(0,0,0,.3)'}}>
+					    <div className="container">
+					      <div className="row">
+					        <div className="col s12 m6" style={{marginTop: '20vh'}}>
+					          <div className="hide-on-med-and-up">
+					            <h3 className="white-text center" style={{fontWeight: 'light'}}>{this.state.lesson.name}</h3>
+					          </div>
+					          <div className="hide-on-small-only">
+					            <h3 className="white-text" style={{fontWeight: 'light'}}>{this.state.lesson.name}</h3>
+					          </div>
+					          <div className="hide-on-small-only">                                  
+					            <span className="white-text"></span>
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+					<div className="container">
 						<div className="row">
-							{this.displayExercises()}
+							
+							<div className="row">
+								{this.displayExercises()}
+							</div>
 						</div>
 					</div>
 				</div>

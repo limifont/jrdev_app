@@ -33,22 +33,20 @@ class Navbar extends React.Component {
 
 	render() {
 		return(
-			<header>
-	      <div className="navbar">
-          <nav className='cyan'>
-				    <div className="nav-wrapper container">
-				      <Link to='/' className='brand-logo'>JrDevs</Link>
-				      <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-				      <ul className="right hide-on-med-and-down">
-				        {this.authLink()}
-				      </ul>
-				      <ul className="side-nav" id="mobile-demo">
-				      	{this.authLink()}
-				      </ul>	
-				    </div>
-				  </nav>
+			<nav>
+	      <div className="nav-wrapper cyan">
+			    <div className="container">
+			      <Link to='/splash' className='brand-logo'>JrDevs</Link>
+			      <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+			      <ul className="right hide-on-med-and-down">
+			        {this.authLink()}
+			      </ul>
+			      <ul className="side-nav" id="mobile-demo">
+			      	{this.authLink()}
+			      </ul>	
+			    </div>
         </div>
-	    </header>
+      </nav>
     )
 	}
 }
