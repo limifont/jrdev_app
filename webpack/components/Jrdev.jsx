@@ -132,10 +132,10 @@ class Jrdev extends React.Component {
 								<div className="col s12">
 									<div className="card">
 											<div className="card-content center hide-on-small-only">
-												<ExercisesByDayChart data={this.state.completed_by_day} yTicks={1} height={this.state.height/2.25} width={this.state.width/1.5}/>
+												<ExercisesByDayChart data={this.state.completed_by_day} yTicks={2} height={this.state.height/2.25} width={this.state.width/1.5}/>
 											</div>
 											<div className="card-content center hide-on-med-and-up">
-												<ExercisesByDayChart data={this.state.completed_by_day} yTicks={1} height={this.state.height/3} width={this.state.width/1.8}/>
+												<ExercisesByDayChart data={this.state.completed_by_day} yTicks={2} height={this.state.height/3} width={this.state.width/1.8}/>
 											</div>
 									</div>
 								</div>
