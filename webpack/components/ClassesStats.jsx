@@ -107,7 +107,7 @@ class ClassesStats extends React.Component {
             <PieChart 
               size={this.props.size}
               data={this.organizeData()} 
-              // innerHoleSize={200}
+              innerHoleSize={200}
               mouseOverHandler={this.mouseOverHandler.bind(this)}
               mouseOutHandler={this.mouseOutHandler.bind(this)}
               mouseMoveHandler={this.mouseMoveHandler.bind(this)}
