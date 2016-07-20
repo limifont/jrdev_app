@@ -25,7 +25,7 @@ class SignupLanding extends React.Component {
 						  	<i className="large material-icons" id='jrdev_symbol'>sentiment_very_satisfied</i>
 					  		<p id='jrdev_symbol'>JrDev</p>
 						  </Link>
-						  <ReactTooltip id='jrdev' type='success' place="right" multiline >
+						  <ReactTooltip id='jrdev' type='success' place="top" multiline >
 							  <p className='gray-text'>Here to learn how to code? With a Jr Dev account, <br/> you will have access to all exercises. Our exercises are designed <br/> for ages 10 - 15, but can be a great introduction to coding for anyone!</p>
 							</ReactTooltip>
 					  </div>
@@ -45,7 +45,7 @@ class SignupLanding extends React.Component {
 					 			<i className="large material-icons" id='educator_symbol'>school</i>
 					 			<p id='educator_symbol'>Educator</p>
 					  	</Link>
-					  	<ReactTooltip id='educator' type='success' place="left" multiline >
+					  	<ReactTooltip id='educator' type='success' place="top" multiline >
 							  <p className='gray-text'>Educator accounts are for those looking to teach <br/>groups of kids. Educators can organize their kids into classrooms,<br/> see classroom statistics, and track individual progress. Just like the <br/> other accounts, an Educator has access to all exercises.</p>
 							</ReactTooltip>
 					  </div>
