@@ -18,7 +18,7 @@ class Achievement extends React.Component {
 
   render() {
     const standardActions = [
-      <button className='btn' onClick={this.handleClose} style={{marginRight: '10px'}}>Back to Coding</button>,
+      <button className='btn' onClick={this.handleClose} style={{marginRight: '10px'}}>Keep Coding</button>,
       <Link to='/' className='btn'>To Dashboard</Link>
     ];
 
