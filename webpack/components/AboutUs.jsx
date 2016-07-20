@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const AboutUs = () => (
   <div className='center'>
   	<div className="valign-wrapper" style={{backgroundColor: "white", minHeight: "40vh"}}>
-	  	<h1 className="valign" style={{marginLeft: "200px"}}>About Us</h1>
+	  	<h1 className="valign" style={{marginLeft: "15vw"}}>About Us</h1>
   	</div>
   	<div className='row'>
 			<div className='col s12 m12' style={{padding: "0px"}}>
