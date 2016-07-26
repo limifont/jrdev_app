@@ -18,7 +18,6 @@ class Lesson extends React.Component {
 			let lesson = data.lesson
 			let exercises = data.exercises
 			this.setState({ lesson, exercises })
-			console.log(exercises)
 		})
 	}
 
